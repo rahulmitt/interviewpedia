@@ -5,39 +5,39 @@ var array_que = [
 	},
 	{
 		question : "Find Duplicates",
-		tags : ["qqq"]
+		tags : ["Find", "Duplicates", "Array"]
 	},
 	{
 		question : "Find subarray with given sum",
-		tags : ["qqq"]
+		tags : ["Find", "Subarray", "Sum", "Array"]
 	},
 	{
 		question : "Matrix set row column zero",
-		tags : ["qqq"]
+		tags : ["Matrix", "Zero", "0"]
 	},
 	{
 		question : "Max contiguous subarray finder",
-		tags : ["qqq"]
+		tags : ["Maximum", "Subarray", "Kadane"]
 	},
 	{
 		question : "Max contiguous subarray printer",
-		tags : ["qqq"]
+		tags : ["Maximum", "Subarray", "Kadane", "Array"]
 	},
 	{
 		question : "Passing car pair counter",
-		tags : ["qqq"]
+		tags : ["Passing", "Car", "Pair", "Array"]
 	},
 	{
 		question : "Permutation printer",
-		tags : ["qqq"]
+		tags : ["Array", "Permutation"]
 	},
 	{
 		question : "Print all subarrays",
-		tags : ["qqq"]
+		tags : ["Print", "All", "Subarray", "Array"]
 	},
 	{
 		question : "Sum of all sub sequences",
-		tags : ["qqq"]
+		tags : ["Sum", "Subsequence", "Array"]
 	},
 	
 ]
