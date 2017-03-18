@@ -1,51 +1,51 @@
 var string_que = [
 	{
 		question : "Check Duplicates In String",
-		tags : ["qqq"]
+		tags : ["Check", "Duplicate", "String"]
 	},
 	{
 		question : "Check String Rotation",
-		tags : ["qqq"]
+		tags : ["Check", "String", "Rotation"]
 	},
 	{
 		question : "Consecutive Characters Printer",
-		tags : ["qqq"]
+		tags : ["Consecutive", "Character", "Printer", "String"]
 	},
 	{
 		question : "Hamming Distance Calculator",
-		tags : ["qqq"]
+		tags : ["Hamming", "Distance", "String"]
 	},
 	{
 		question : "Longest Common SubSequence",
-		tags : ["qqq"]
+		tags : ["Longest", "Common", "Subsequence", "String"]
 	},
 	{
 		question : "Longest Increasing SubSequence",
-		tags : ["qqq"]
+		tags : ["Longest", "Increasing", "Subsequence", "String"]
 	},
 	{
 		question : "Replace Space With Special Chars",
-		tags : ["qqq"]
+		tags : ["Replace", "Space", "String"]
 	},
 	{
 		question : "Rotate Matrix",
-		tags : ["qqq"]
+		tags : ["Rotate", "Matrix", "String"]
 	},
 	{
 		question : "Rotate Matrix In Place",
-		tags : ["qqq"]
+		tags : ["Rotate", "Matrix", "String"]
 	},
 	{
 		question : "String Compression",
-		tags : ["qqq"]
+		tags : ["String", "Compression"]
 	},
 	{
 		question : "Toggle Character Case In String",
-		tags : ["qqq"]
+		tags : ["Toggle", "Character", "Case", "String"]
 	},
 	{
 		question : "Twos Compliment Of Binary Number String",
-		tags : ["qqq"]
+		tags : ["Twos", "2", "Compliment", "Binary", "Number", "String"]
 	},
 	
 ]
