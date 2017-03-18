@@ -1,43 +1,43 @@
 var linkedlist_que = [
 	{
 		question : "Basic Linked List",
-		tags : ["qqq"]
+		tags : ["Basic", "Linked", "List"]
 	},
 	{
-		question : "Count Occurence Of Element",
-		tags : ["qqq"]
+		question : "Count Occurrence Of Element",
+		tags : ["Count", "Occurrence", "Linked", "List"]
 	},
 	{
 		question : "Detect Loop In Linked List",
-		tags : ["qqq"]
+		tags : ["Detect", "Loop", "Linked", "List"]
 	},
 	{
 		question : "Find Length Of Linked List",
-		tags : ["qqq"]
+		tags : ["Find", "Length", "Linked", "List"]
 	},
 	{
 		question : "Find Middle Node",
-		tags : ["qqq"]
+		tags : ["Find", "Middle", "Linked", "List"]
 	},
 	{
 		question : "Find Nth Node",
-		tags : ["qqq"]
+		tags : ["Find", "Nth", "Linked", "List"]
 	},
 	{
 		question : "Find Nth Node From End",
-		tags : ["qqq"]
+		tags : ["Find", "Nth", "Last", "End", "Linked", "List"]
 	},
 	{
 		question : "Reverse Linked List",
-		tags : ["qqq"]
+		tags : ["Reverse", "Linked", "List"]
 	},
 	{
 		question : "Search Element In Linked List",
-		tags : ["qqq"]
+		tags : ["Search", "Linked", "List"]
 	},
 	{
 		question : "Swap Two Nodes",
-		tags : ["qqq"]
+		tags : ["Swap", "Linked", "List"]
 	},
 	
 ]
