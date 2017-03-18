@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./js/google-code-prettify/prettify.css">
+		
+		<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="./js/google-code-prettify/run_prettify.js?skin=sons-of-obsidian"></script>
+		<script type="text/javascript" src="./js/google-code-prettify/prettify.js"></script>
+		<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+		<script>
+			tinymce.init({
+				selector: "textarea",
+				plugins: "textcolor",
+				toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor",
+				
+				plugins: [
+					"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+					"searchreplace wordcount visualblocks visualchars code fullscreen",
+					"insertdatetime media nonbreaking save table contextmenu directionality",
+					"emoticons template paste textcolor"
+				],
+			});
+			
+			function render(){
+				$("#editor").hide();
+				$("#page").show();
+				$("#page").html(tinyMCE.activeEditor.getContent({format : 'raw'}));
+				$("pre").removeClass();
+				$("pre").addClass("prettyprint linenums lang-java");
+				prettyPrint();
+				
+				$("#edit").removeAttr('disabled');
+				$("#render").attr('disabled','disabled');
+			}
+			
+			function edit(){
+				$("#editor").show();
+				$("#page").hide();
+				$("#render").removeAttr('disabled');
+				$("#edit").attr('disabled','disabled');
+			}
+		</script>
+	</head>
+	
+	<body bgcolor="#f7f7f7">
+		<div align="right">
+			<button id='render' onclick='render()'>Hide Editor</button>
+			<button id='edit' onclick='edit()' disabled>Show Editor</button>
+		</div>
+		
+		<div id="page" height="99%" style="display:none"></div>
+		<div id="editor" style="display:block">
+			<textarea rows="31" cols="50">Your content here.</textarea>
+		</div>
+
+		
+	</body>
+</html>

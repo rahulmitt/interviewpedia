@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script>
+			var statusArray = new Array();
+			
+			function startSeo(i, url){
+				statusArray[i] = true;
+				if(statusArray[i] != undefined && statusArray[i]){
+					setInterval(function(){ openNewTab(i, url) },5000);
+				}
+			}
+			
+			function openNewTab(i, url){
+				if(statusArray[i] != undefined && statusArray[i]){
+					//var win = window.open(url,"_blank","toolbar=yes, scrollbars=yes, resizable=yes, top=400, left=500, width=400, height=400");
+					var win = window.open(url);
+					setTimeout(function () { win.close();}, 4500);
+				}
+				
+			}
+		
+			function createTextBoxAndButton(index){
+				statusArray.push(false);
+				var input = $('<input/>').attr({ id: index, type: 'text', size: 70});
+				var start = $('<button/>', { 
+					text: "Start", 
+					value: index,
+					click: function () {
+						var id = $(this).attr("value");
+						startSeo(id, $("#"+id).val());
+					}
+				});
+				
+				var stop = $('<button/>', { 
+					text: "Stop", 
+					value: index,
+					click: function () {
+						statusArray[$(this).attr("value")] = false;
+					}
+				});
+				
+				var add = $('<button/>', { 
+					text: "Add one more", 
+					value: (++index),
+					click: function () {
+						createTextBoxAndButton($(this).attr("value"));
+					}
+				});
+				$("div").append("URL:&nbsp;").append(input)
+					.append("&nbsp;").append(start)
+					.append("&nbsp;").append(stop)
+					.append("&nbsp;").append(add)
+					.append("<br/></br>");
+			}
+			
+			$(document).ready(function(){
+				createTextBoxAndButton(0);
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div></div>
+	</body>
+</html>
