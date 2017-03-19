@@ -161,26 +161,24 @@ package com.interviewpedia.array.puzzles;
 public class FindSubArrayWithGivenSum {
 
     private static void subArraySum(int arr[], int sum) {
-        int currentSum = arr[0], startIdx = 0;
+        int i = 0;
+        int currentSum = arr[i];
 
         // Pick a starting point
-        for (int i = 1; i <= arr.length; i++) {
+        for (int j = 1; j <= arr.length; j++) {
             // If curr_sum exceeds the sum, then remove the starting elements
-            while (currentSum > sum && startIdx < i - 1) {
-                currentSum -= arr[startIdx++];
+            while (currentSum > sum && i < j - 1) {
+                currentSum -= arr[i++];
             }
 
             // If curr_sum becomes equal to sum, then return true
             if (currentSum == sum) {
-                int endIdx = i - 1;
-                System.out.println("Sum found between indexes " + startIdx + " and " + endIdx);
+                System.out.println("Sum found between indexes " + i + " and " + (j-1));
                 return;
             }
 
             // Add this element to curr_sum
-            if (i < arr.length) {
-                currentSum = currentSum + arr[i];
-            }
+            currentSum = currentSum + arr[j];
         }
 
         System.out.println("No subarray found");
