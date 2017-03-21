@@ -39,6 +39,10 @@ var array_que = [
 		question : "Sum of all sub sequences",
 		tags : ["Sum", "Subsequence", "Array"]
 	},
+	{
+		question : "Find Largest Island In Matrix",
+		tags : ["Find", "Largest", "Island", "Matrix"]
+	},
 	
 ]
 
@@ -518,6 +522,81 @@ public class SumOfAllSubSequences {
         int arr[] = { 6, 7, 8 };
         int sum = sum(arr);
         System.out.println(sum);
+    }
+}
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* Find Largest Island In Matrix */
+		"text" : function(){/*
+<p>Find length of the largest region in Boolean Matrix<br /> Consider a matrix with rows and columns, where each cell contains either a &lsquo;0&rsquo; or a &lsquo;1&rsquo; and any cell containing a 1 is called a filled cell. Two cells are said to be connected if they are adjacent to each other horizontally, vertically, or diagonally .If one or more filled cells are also connected, they form a region. find the length of the largest region.</p>
+<p>Examples:</p>
+<p>Input : M[][5] = {<br /> 0 0 1 1 0<br /> 1 0 1 1 0<br /> 0 1 0 0 0<br /> 0 0 0 0 1<br /> }</p>
+<p>Output : 6</p>
+<p>Ex: in the following example, there are 2 regions one with length 1 and the other as 6.<br /> so largest region : 6</p>
+<p><a href="http://www.geeksforgeeks.org/find-number-of-islands/" target="_blank">http://www.geeksforgeeks.org/find-number-of-islands/</a></p>
+<pre>
+package com.interviewpedia.array.puzzles;
+
+public class FindLargestIslandInMatrix {
+
+    private static int dfs(int[][] matrix, int i, int j, boolean[][] visited) {
+        int[] rowNeighbor = {-1, -1, -1, 0, 0, 1, 1, 1};
+        int[] colNeighbor = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+        visited[i][j] = true;
+        int count = 1;
+
+        for (int k = 0; k < 8; k++) {
+            int row = i + rowNeighbor[k];
+            int col = j + colNeighbor[k];
+
+            if (row >= 0 && row < matrix.length &&
+                    col >= 0 && col < matrix.length) {
+                if (matrix[row][col] == 1 && !visited[row][col]) {
+                    count += dfs(matrix, row, col, visited);
+                }
+            }
+        }
+        return count;
+    }
+
+    private static void find(int[][] matrix) {
+        boolean[][] visited = new boolean[matrix.length][matrix[0].length];
+        int max = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 1 && !visited[i][i]) {
+                    int count = dfs(matrix, i, j, visited);
+                    if (max < count) {
+                        max = count;
+                    }
+                }
+            }
+        }
+
+        System.out.println(max);
+    }
+
+    public static void main(String[] args) {
+        int[][] matrix = {                  //  region size = 6
+                {0, 0, 1, 1, 0},
+                {1, 0, 1, 1, 0},
+                {0, 1, 0, 0, 0},
+                {0, 0, 0, 0, 1}
+        };
+
+//        int[][] matrix = {                  //  region size = 4
+//                {1, 1, 0, 0, 0},
+//                {0, 1, 0, 0, 1},
+//                {1, 0, 0, 1, 1},
+//                {0, 0, 0, 0, 0},
+//                {1, 0, 1, 0, 1}
+//        };
+
+        find(matrix);
     }
 }
 
