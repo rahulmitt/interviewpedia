@@ -43,7 +43,10 @@ var array_que = [
 		question : "Find Largest Island In Matrix",
 		tags : ["Find", "Largest", "Island", "Matrix"]
 	},
-	
+	{
+		question : "Find Index of 0 to be replaced with 1 to get longest continuous sequence of 1s",
+		tags : ["Find", "Index", "0", "replace", "1", "array"]
+	},
 ]
 
 var array_ans = [
@@ -600,6 +603,60 @@ public class FindLargestIslandInMatrix {
     }
 }
 
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* Find Index of 0 to be replaced with 1 to get longest continuous sequence of 1s */
+		"text" : function(){/*
+<p style="text-align: justify;">The idea is to keep track of three indexes, current index (curr), previous zero index (prev_zero) and previous to previous zero index (prev_prev_zero). Traverse the array, if current element is 0, calculate the difference between curr and prev_prev_zero (This difference minus one is the number of 1s around the prev_zero). If the difference between curr and prev_prev_zero is more than maximum so far, then update the maximum. Finally return index of the prev_zero with maximum difference.</p>
+<p>Example:</p>
+<p>Input: arr[] = {1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1}</p>
+<p>Output: Index 9</p>
+<p><br /> Assuming array index starts from 0, replacing 0 with 1 at index 9 causes the maximum continuous sequence of 1s.</p>
+<p>Input: arr[] = {1, 1, 1, 1, 0}</p>
+<p>Output: Index 4</p>
+<p>Time complexity: O(n)</p>
+<pre>
+package com.interviewpedia.array.puzzles;
+
+public class FindIndexOf0ToBeReplacedWith1 {
+
+    // Returns index of 0 to be replaced with 1 to get longest continuous sequence of 1s.
+    // If there is no 0 in array, then it returns -1.
+    private static int find(int[] arr) {
+        int maxCount = 0;           // for maximum number of 1 around a zero
+        int maxIdx = -1;            // for storing result
+
+        int prevZeroIdx = -1;       // index of previous zero
+        int prevPrevZeroIdx = -1;   // index of previous to previous zero
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                int diff = i - prevPrevZeroIdx;
+                if (diff > maxCount) {
+                    maxCount = diff;
+                    maxIdx = prevZeroIdx;
+                }
+
+                prevPrevZeroIdx = prevZeroIdx;
+                prevZeroIdx = i;
+            }
+        }
+
+        // Check for the last encountered zero
+        if (arr.length - prevPrevZeroIdx > maxCount) {
+            maxIdx = prevZeroIdx;
+        }
+        return maxIdx;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1};
+        int idx = find(arr);
+        System.out.println(idx);
+    }
+}
 </pre>
 		*/}.toString().slice(14,-3)
 	},
