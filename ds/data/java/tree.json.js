@@ -12,8 +12,8 @@ var tree_que = [
 		tags : ["Trie"]
 	},
 	{
-		question : "TODO",
-		tags : ["qqq"]
+		question : "Pint Nodes At k Distance from Root",
+		tags : ["Print", "Nodes", "K", "Distance", "Tree"]
 	},
 	{
 		question : "TODO",
@@ -464,11 +464,52 @@ public class WordDictionary {
 		*/}.toString().slice(14,-3)
 	},
 	{
-		/* TODO */
+		/* Pint Nodes At k Distance from Root */
 		"text" : function(){/*
-<p>TODO</p>
+<p>Given a root of a tree, and an integer k. Print all the nodes which are at k distance from root.</p>
+<p>For example, in the below tree, 1, 3, 5 are at distance 2 from root.<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4<br />&nbsp; &nbsp; &nbsp; / &nbsp; &nbsp;\<br />&nbsp; &nbsp; 2 &nbsp; &nbsp; &nbsp; 8<br />&nbsp; / &nbsp;\ &nbsp; &nbsp; /<br />1 &nbsp; &nbsp;3 &nbsp; 5</p>
 <pre>
+package com.interviewpedia.binarytree.puzzles;
 
+import com.interviewpedia.binarytree.util.BasicBinarySearchTree;
+import com.interviewpedia.binarytree.util.Node;
+
+public class PintNodesAtKDistancefromRoot extends BasicBinarySearchTree {
+
+    public PintNodesAtKDistancefromRoot() {
+        super();
+    }
+
+    public PintNodesAtKDistancefromRoot(Integer... elements) {
+        super(elements);
+    }
+
+    public void print(int k) {
+        printKDistance(root, k);
+    }
+
+    private void printKDistance(Node<Integer> cursor, int k) {
+        if (cursor == null) {
+            return;
+        }
+
+        if (k == 0) {
+            System.out.println(cursor.getData());
+            return;
+        } else {
+            printKDistance(cursor.getLeft(), k - 1);
+            printKDistance(cursor.getRight(), k - 1);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        PintNodesAtKDistancefromRoot tree = new PintNodesAtKDistancefromRoot(4, 2, 8, 1, 3, 5);
+        tree.traverse();
+        System.out.println();
+        tree.print(2);
+    }
+}
 </pre>
 		*/}.toString().slice(14,-3)
 	},
