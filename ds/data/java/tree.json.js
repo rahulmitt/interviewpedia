@@ -12,7 +12,7 @@ var tree_que = [
 		tags : ["Trie"]
 	},
 	{
-		question : "Pint Nodes At k Distance from Root",
+		question : "Print Nodes At k Distance from Root",
 		tags : ["Print", "Nodes", "K", "Distance", "Tree"]
 	},
 	{
@@ -464,7 +464,7 @@ public class WordDictionary {
 		*/}.toString().slice(14,-3)
 	},
 	{
-		/* Pint Nodes At k Distance from Root */
+		/* Print Nodes At k Distance from Root */
 		"text" : function(){/*
 <p>Given a root of a tree, and an integer k. Print all the nodes which are at k distance from root.</p>
 <p>For example, in the below tree, 1, 3, 5 are at distance 2 from root.<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4<br />&nbsp; &nbsp; &nbsp; / &nbsp; &nbsp;\<br />&nbsp; &nbsp; 2 &nbsp; &nbsp; &nbsp; 8<br />&nbsp; / &nbsp;\ &nbsp; &nbsp; /<br />1 &nbsp; &nbsp;3 &nbsp; 5</p>
