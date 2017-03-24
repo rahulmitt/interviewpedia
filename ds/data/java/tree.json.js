@@ -494,7 +494,7 @@ public class PintNodesAtKDistancefromRoot extends BasicBinarySearchTree {
         }
 
         if (k == 0) {
-            System.out.println(cursor.getData());
+            System.out.print(cursor.getData() + ", ");
             return;
         } else {
             printKDistance(cursor.getLeft(), k - 1);
@@ -505,9 +505,11 @@ public class PintNodesAtKDistancefromRoot extends BasicBinarySearchTree {
 
     public static void main(String[] args) {
         PintNodesAtKDistancefromRoot tree = new PintNodesAtKDistancefromRoot(4, 2, 8, 1, 3, 5);
+        int k = 2;
         tree.traverse();
         System.out.println();
-        tree.print(2);
+        System.out.print("Nodes " + k + " distance apart: ");
+        tree.print(k);
     }
 }
 </pre>
