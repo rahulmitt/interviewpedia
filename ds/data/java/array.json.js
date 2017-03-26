@@ -47,6 +47,14 @@ var array_que = [
 		question : "Find Index of 0 to be replaced with 1 to get longest continuous sequence of 1s",
 		tags : ["Find", "Index", "0", "replace", "1", "array"]
 	},
+	{
+		question : "Fibonacci Recursive",
+		tags : ["Fibonacci", "Recursive"]
+	},
+	{
+		question : "Fibonacci Iterative",
+		tags : ["Fibonacci", "Iterative"]
+	},
 ]
 
 var array_ans = [
@@ -660,5 +668,92 @@ public class FindIndexOf0ToBeReplacedWith1 {
 </pre>
 		*/}.toString().slice(14,-3)
 	},
-	
+	{
+		/* Fibonacci Recursive */
+		"text" : function(){/*
+<p>Input: n=10</p>
+<p>Output: 0 1 2 3 5 8 13 21 34 55</p>
+<p>TimeComplexity: O(n)</p>
+<pre>
+package com.interviewpedia.array.puzzles;
+
+public class FibonacciRecursive {
+
+    private int[] arr;
+
+    public FibonacciRecursive(int n) {
+        this.arr = new int[n + 1];
+        fibonacci(n);
+    }
+
+    public int fibonacci(int i) {
+        if (i < 1) {
+            return 0;
+        } else if (i == 1) {
+            return 1;
+        }
+
+        arr[i] = fibonacci(i - 1) + fibonacci(i - 2);
+        return arr[i];
+    }
+
+    public void print() {
+        for (int i = 1; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        FibonacciRecursive fibo = new FibonacciRecursive(10);
+        fibo.print();
+    }
+}
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* Fibonacci Iterative */
+		"text" : function(){/*
+<p>Input: n=10</p>
+<p>Output: 0 1 1 2 3 5 8 13 21 34 55</p>
+<p>TimeComplexity: O(n)</p>
+<pre>
+package com.interviewpedia.array.puzzles;
+
+public class FibonacciIterative {
+
+    private int[] arr;
+
+    public FibonacciIterative(int n) {
+        arr = new int[n + 1];
+    }
+
+    public void fibonacci() {
+        if (arr.length > 1) {
+            arr[0] = 0;
+        }
+        if (arr.length > 2) {
+            arr[1] = 1;
+        }
+
+        for (int i = 2; i < arr.length; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
+        }
+    }
+
+    public void print(){
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        FibonacciIterative fibo = new FibonacciIterative(10);
+        fibo.fibonacci();
+        fibo.print();
+    }
+}
+</pre>
+		*/}.toString().slice(14,-3)
+	},
 ]
