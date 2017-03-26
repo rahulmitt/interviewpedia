@@ -8,7 +8,7 @@ var dataJS = [
 	'./data/java/graph.json.js',
 	'./data/java/set.json.js',
 	'./data/java/heap.json.js',
-	
+	'./data/java/oops.json.js',
 	'./data/java/test.json.js',
 ];
 

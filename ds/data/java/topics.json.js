@@ -14,14 +14,21 @@ var topics = [
 	{
 		id: "tree",
 		caption: "Tree"
-	},{
+	},
+	{
 		id: "graph",
 		caption: "Graph"
-	},{
+	},
+	{
 		id: "set",
 		caption: "Sets"
-	},{
+	},
+	{
 		id: "heap",
 		caption: "Heap"
+	},
+	{
+		id: "oops",
+		caption: "Object Oriented Design"
 	},
 ]
