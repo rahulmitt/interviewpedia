@@ -93,7 +93,7 @@ var oops_ans = [
 	{
 		/* Movie Theatre */
 		"text" : function(){/*
-<p>TODO</p>
+<p>The purpose was to return nearby theaters, given zip code and movie name</p>
 <pre>
 
 </pre>
