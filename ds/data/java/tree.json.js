@@ -16,13 +16,82 @@ var tree_que = [
 		tags : ["Print", "Nodes", "K", "Distance", "Tree"]
 	},
 	{
-		question : "TODO",
-		tags : ["qqq"]
+		question : "Find Height Of Binary Tree",
+		tags : ["Find", "Height", "Binary", "Tree"]
 	},
 	{
-		question : "TODO",
-		tags : ["qqq"]
+		question : "Check If Binary Tree Is BST",
+		tags : ["Check", "Binary", "Tree", "BST"]
 	},
+	{
+		question : "Check if a binary tree is balanced",
+		tags : ["TODO"]
+	},
+	{
+		question : "Given a sorted array, write an algo to create a BST with minimum height",
+		tags : ["TODO"]
+	},
+	{
+		question : "Given a BST, write an algo which creates a Linked-list of all the nodes at each depth. Eg., if there is a BST with depth D, you will have d linked lists",
+		tags : ["TODO"]
+	},
+	{
+		question : "check is a binary tree is a BST",
+		tags : ["TODO"]
+	},
+	{
+		question : "Find the next in-order successor of a given node in BST",
+		tags : ["TODO"]
+	},
+	{
+		question : "Find 1st common ancestor of 2 nodes in a binary tree",
+		tags : ["TODO"]
+	},
+	{
+		question : "Find if binary tree T1 is a subtree of T2",
+		tags : ["TODO"]
+	},
+	{
+		question : "Print all the paths which sum to a given value in a binary tree",
+		tags : ["TODO"]
+	},
+	{
+		question : "Maximum element between two nodes of BST",
+		tags : ["TODO"]
+	},
+	{
+		question : "Sum of k smallest elements in BST",
+		tags : ["TODO"]
+	},
+	{
+		question : "Kth smallest element in BST using O(1) Extra Space",
+		tags : ["TODO"]
+	},
+	{
+		question : "Kth Largest Element in BST when modification to BST is not allowed",
+		tags : ["TODO"]
+	},
+	{
+		question : "Check whether BST contains Dead End or not",
+		tags : ["TODO"]
+	},
+	{
+		question : "Find the closest element in Binary Search Tree",
+		tags : ["TODO"]
+	},
+	{
+		question : "Check if given sorted sub-sequence exists in binary search tree",
+		tags : ["TODO"]
+	},
+	{
+		question : "In-place Convert BST into a Min-Heap",
+		tags : ["TODO"]
+	},
+	{
+		question : "Print Common Nodes in Two Binary Search Trees",
+		tags : ["TODO"]
+	},
+	
 	
 ]
 
@@ -512,6 +581,247 @@ public class PintNodesAtKDistancefromRoot extends BasicBinarySearchTree {
         tree.print(k);
     }
 }
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* Find Height Of Binary Tree */
+		"text" : function(){/*
+<p>Input: 1, 2, 3, 4, 5, 6, 7, 8, 9</p>
+<p>Output: 5</p>
+<pre>
+package com.interviewpedia.binarytree.puzzles;
+
+import com.interviewpedia.binarytree.util.BasicBinaryTree;
+import com.interviewpedia.binarytree.util.Node;
+
+public class FindHeightOfBinaryTree {
+
+    static class BinaryTree extends BasicBinaryTree<Integer> {
+
+        public BinaryTree() {
+            super();
+        }
+
+        public BinaryTree(Integer... elements) {
+            super(elements);
+        }
+
+        public int computeHeight() {
+            return getHeight(root);
+        }
+
+        private int getHeight(Node cursor) {
+            if (cursor == null) {
+                return 0;
+            }
+
+            return Math.max(getHeight(cursor.getLeft()), getHeight(cursor.getRight())) + 1;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        tree.traverse(BinaryTree.Traversal.IN_ORDER);
+        int height = tree.computeHeight();
+        System.out.println("\nHeight: " + height);
+    }
+}
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* Check If Binary Tree Is BST */
+		"text" : function(){/*
+<pre>
+package com.interviewpedia.binarytree.puzzles;
+
+import com.interviewpedia.binarytree.util.BasicBinarySearchTree;
+import com.interviewpedia.binarytree.util.BasicBinaryTree;
+import com.interviewpedia.binarytree.util.Node;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CheckIfBinaryTreeIsBST {
+
+    static class BinaryTree extends BasicBinarySearchTree {
+        public BinaryTree() {
+            super();
+        }
+
+        public BinaryTree(Integer... elements) {
+            super(elements);
+        }
+
+        Node<Integer> prev;
+
+        public boolean isBST() {
+            prev = null;
+            return isBST(root);
+        }
+
+        public boolean isBST(Node<Integer> node) {
+            // traverse the tree in inorder fashion and
+            // keep a track of previous node
+            if (node != null) {
+                if (!isBST(node.getLeft()))
+                    return false;
+
+                // allows only distinct values node
+                if (prev != null && node.getData() <= prev.getData())
+                    return false;
+                prev = node;
+                return isBST(node.getRight());
+            }
+            return true;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree(10, 14, 12, 8);
+        tree.traverse();
+        System.out.println(tree.isBST());
+
+    }
+}
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* TODO */
+		"text" : function(){/*
+<p>TODO</p>
+<pre>
+
 </pre>
 		*/}.toString().slice(14,-3)
 	},
