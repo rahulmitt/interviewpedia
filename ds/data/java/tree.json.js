@@ -29,7 +29,7 @@ var tree_que = [
 	},
 	{
 		question : "Find Max Sum Path Root To Leaf",
-		tags : ["TODO"]
+		tags : ["Find", "Max", "Sum", "Path", "Binary", "Tree"]
 	},
 	{
 		question : "Check if a binary tree is balanced",
