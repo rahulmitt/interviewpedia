@@ -24,6 +24,14 @@ var tree_que = [
 		tags : ["Check", "Binary", "Tree", "BST"]
 	},
 	{
+		question : "Find Level In Binary Tree Having Max Sum",
+		tags : ["Find", "Level", "Max", "Sum", "Binary", "Tree"]
+	},
+	{
+		question : "Find Max Sum Path Root To Leaf",
+		tags : ["TODO"]
+	},
+	{
 		question : "Check if a binary tree is balanced",
 		tags : ["TODO"]
 	},
@@ -685,6 +693,217 @@ public class CheckIfBinaryTreeIsBST {
         tree.traverse();
         System.out.println(tree.isBST());
 
+    }
+}
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* Find Level In Binary Tree Having Max Sum */
+		"text" : function(){/*
+<p><a href="http://www.makeinjava.com/find-level-binary-tree-maximum-sum-java-non-recursive-example/" target="_blank">http://www.makeinjava.com/find-level-binary-tree-maximum-sum-java-non-recursive-example/</a></p>
+<pre>
+package com.interviewpedia.binarytree.puzzles;
+
+import com.interviewpedia.binarytree.util.BinaryNode;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+// Time complexity is O(n)
+public class FindLevelInBinaryTreeHavingMaxSum {
+
+    public static final BinaryNode LEVEL_DELIMITER = null;
+
+    
+    //    Find out the level, which having maximum sum, for a given binary tree
+    //                    55
+    //                  /      \
+    //               50         40
+    //             /   \      /    \
+    //           25    80   45      90
+    //                    / \     /  \
+    //                   10  35  65   75
+
+    //    Sum at level 0: 55
+    //    Sum at Level 1: 50 + 40 = 90
+    //    Sum at level 2: 25 + 80 + 45 + 90 = 240
+    //    Sum at level 4: 10 + 35 + 65 + 75 = 185
+
+    //    So, Level 2 has maximum sum of 240
+    
+    public static void printMaxSumLevel(BinaryNode root) {
+        if (root == null) {
+            System.out.println("Tree is empty");
+            return;
+        }
+
+        Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
+        // Root is at level 0, push root node to queue
+        queue.offer(root);
+        // Push null as level delimiter, to the queue
+        queue.offer(LEVEL_DELIMITER);
+
+        int level = 0, maxSum = 0;
+        int localLevel = 0, localSum = 0;
+
+        while (!queue.isEmpty()) {
+            BinaryNode node = queue.poll();
+
+            if (node != null) {
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+                localSum += node.data;
+
+            } else {
+                if (!queue.isEmpty()) {
+                    queue.offer(LEVEL_DELIMITER);
+                }
+
+                // Update maxSum if it is less than local sum and Save the level of local sum
+                if (localSum > maxSum) {
+                    maxSum = localSum;
+                    level = localLevel;
+                }
+                // Reset the level sum for next level calculation
+                localSum = 0;
+                localLevel++;
+            }
+        }
+        System.out.println("Max Sum = " + maxSum + " is at Level = " + level);
+    }
+
+    public static void main(String[] args) {
+        BinaryNode root = buildTree();
+        printMaxSumLevel(root);
+    }
+
+    public static BinaryNode buildTree() {
+
+    //                 55
+    //              /      \
+    //          50         40
+    //         /   \      /    \
+    //       25    80   45      90
+    //                 / \     /  \
+    //               10  35  65   75
+
+        //  level 0
+        BinaryNode root = new BinaryNode(55);
+
+        //  level 1
+        root.left = new BinaryNode(50);
+        root.right = new BinaryNode(40);
+
+        //  level 2
+        root.left.left = new BinaryNode(25);
+        root.left.right = new BinaryNode(80);
+        root.right.left = new BinaryNode(45);
+        root.right.right = new BinaryNode(90);
+
+        //  level 3
+        root.right.left.left = new BinaryNode(10);
+        root.right.left.right = new BinaryNode(35);
+        root.right.right.left = new BinaryNode(65);
+        root.right.right.right = new BinaryNode(75);
+
+        return root;
+    }
+}
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+	{
+		/* Find Max Sum Path Root To Leaf */
+		"text" : function(){/*
+<p><a href="http://www.makeinjava.com/find-maximum-sum-root-leaf-path-binary-tree-java-recursive-example/" target="_blank">http://www.makeinjava.com/find-maximum-sum-root-leaf-path-binary-tree-java-recursive-example/</a></p>
+<pre>
+package com.interviewpedia.binarytree.puzzles;
+
+import com.interviewpedia.binarytree.util.BinaryNode;
+
+import java.util.Arrays;
+
+// Given a binary tree, find maximum sum from root to leaf paths using recursive algorithm
+public class FindMaxSumPathRoot2Leaf {
+
+    private static int maxSum = 0;
+    private static int[] arr;
+
+    //    Given a binary tree, find maximum sum from root to leaf paths using recursive algorithm
+    //                     50
+    //                  /      \
+    //               30         30
+    //             /   \      /    \
+    //           40    10   30      60
+
+    //    Path 1: 50 -> 30 -> 40 Sum=120
+    //   Path 2: 50 -> 30 -> 10 Sum=90
+    //    Path 3: 50 -> 30 -> 30 Sum=110
+    //    Path 4: 50 -> 30 -> 60 Sum=140
+
+    //    So, Path [50->30->60] has maximum sum of 140
+    
+    public static void printMaxSumPath(BinaryNode root, int[] path) {
+        maxSum = Integer.MIN_VALUE;
+        maxSumPathRoot2Leaf(root, path, 0, 0);
+        System.out.println("Maximum Sum :" + maxSum);
+        System.out.println("Root to Leaf Path: " + Arrays.toString(arr));
+    }
+
+    public static void maxSumPathRoot2Leaf(BinaryNode root, int[] path, int index, int sum) {
+        if (root == null) {
+            return;
+        }
+
+        path[index++] = root.data;
+        sum += root.data;
+
+        if (root.left == null && root.right == null) {
+            if (sum > maxSum) {
+                maxSum = sum;
+                arr = Arrays.copyOf(path, index);
+            }
+            return;
+        }
+        maxSumPathRoot2Leaf(root.left, path, index, sum);
+        maxSumPathRoot2Leaf(root.right, path, index, sum);
+        return;
+    }
+
+
+    public static void main(String[] args) {
+        BinaryNode root = buildTree();
+        int[] path = new int[512];
+        printMaxSumPath(root, path);
+    }
+
+    public static BinaryNode buildTree() {
+    //                     50
+    //                  /      \
+    //               30         30
+    //             /   \      /    \
+    //           40    10   30      60
+      
+        //  level 0
+        BinaryNode root = new BinaryNode(50);
+
+        //  level 1
+        root.left = new BinaryNode(30);
+        root.right = new BinaryNode(30);
+
+        //  level 2
+        root.left.left = new BinaryNode(40);
+        root.left.right = new BinaryNode(10);
+        root.right.left = new BinaryNode(30);
+        root.right.right = new BinaryNode(60);
+
+        return root;
     }
 }
 </pre>
