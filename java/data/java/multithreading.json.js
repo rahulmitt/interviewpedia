@@ -816,7 +816,9 @@ daemon.start();
 	
 	{	/* ConcurrentHashMap */
 		"text" : function(){/*
-		TODO
+<p><a href="https://www.quora.com/How-concurrent-hashmap-works-in-java" target="_blank">https://www.quora.com/How-concurrent-hashmap-works-in-java</a></p>
+<p><a href="http://opensourceforgeeks.blogspot.in/2017/05/how-concurrenthashmap-works-internally.html" target="_blank">http://opensourceforgeeks.blogspot.in/2017/05/how-concurrenthashmap-works-internally.html</a></p>
+<p><a href="http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/ConcurrentHashMap.java#ConcurrentHashMap.Segment" target="_blank">http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/ConcurrentHashMap.java#ConcurrentHashMap.Segment</a></p>
 		*/}.toString().slice(14,-3)
 	},
 	
