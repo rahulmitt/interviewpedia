@@ -60,6 +60,11 @@ var multithreading_que = [
 	},
 	
 	{
+		question : "Write a custom ThreadPool",
+		tags : ["Custom Thread Pool", "Thread Pool"]
+	},
+	
+	{
 		question : "Blocking Queue",
 		tags : ["BlockingQueue", "ArrayBlockingQueue", "LinkedBlockingQueue", "PriorityBlockingQueue"]
 	},
@@ -715,6 +720,104 @@ daemon.start();
 </ol>
 <p style="text-align: justify;">Most of the executor implementations in java.util.concurrent use thread pools, which consist of <em>worker threads</em>. Using worker threads minimizes the overhead due to thread creation. Thread objects use a significant amount of memory, and in a large-scale application, allocating and deallocating many thread objects creates a significant memory management overhead.</p>
 <p style="text-align: justify;">Runnable and Callable interface are used to represent task executed by worker thread managed in these Thread pools. Interesting point about Executor framework is that, it is based on Producer consumer design pattern, where application thread produces task and worker thread consumers or execute those task.</p>
+		*/}.toString().slice(14,-3)
+	},
+	
+	{	/* Write a custom ThreadPool */
+		"text" : function(){/*
+<pre>
+class ThreadPool {
+    private final int nThreads;
+    private final WorkerThread[] workerThreads;
+    private final LinkedBlockingQueue<Runnable> queue;
+
+    public ThreadPool(int nThreads) {
+        this.nThreads = nThreads;
+        queue = new LinkedBlockingQueue<Runnable>();
+        workerThreads = new WorkerThread[nThreads];
+
+        for (int i = 0; i < nThreads; i++) {
+            workerThreads[i] = new WorkerThread();
+            workerThreads[i].start();
+        }
+    }
+
+    public void execute(Runnable runnable) {
+        try {
+            queue.put(runnable);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void shutdown() {
+        while(queue.size() != 0){}
+        System.out.println("Threadpool shutting down");
+        for (int i = 0; i < nThreads; i++) {
+            workerThreads[i].shutdown();
+        }
+    }
+
+    class WorkerThread extends Thread {
+
+        private boolean alive = true;
+
+        public void shutdown() {
+            alive = false;
+        }
+
+        @Override
+        public void run() {
+            while (alive) {
+                try {
+                    Runnable runnable = queue.take();
+                    runnable.run();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+</pre>
+
+<pre>
+class Task implements Runnable {
+    private int id;
+    public Task(int id) {
+        this.id = id;
+    }
+
+    public void run() {
+        try {
+            Thread.sleep(1000);
+            System.out.println("Task " + id + " completed");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</pre>
+
+<pre>
+public class ThreadPoolDemo {
+
+    public static void main(String[] args) {
+        ThreadPool pool = new ThreadPool(2);
+        try {
+            pool.execute(new Task(1));
+            pool.execute(new Task(2));
+            pool.execute(new Task(3));
+            pool.execute(new Task(4));
+            pool.execute(new Task(5));
+            pool.execute(new Task(6));
+            pool.execute(new Task(7));
+        }finally {
+            pool.shutdown();
+        }
+    }
+}
+</pre>
 		*/}.toString().slice(14,-3)
 	},
 	
