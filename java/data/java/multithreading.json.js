@@ -103,6 +103,11 @@ var multithreading_que = [
 		question : "Fork-Join Framework",
 		tags : []
 	},
+	
+	{
+		question : "AtomicInteger",
+		tags : ["AtomicInteger", "CAS"]
+	},
 ]
 
 var multithreading_ans = [
@@ -958,6 +963,138 @@ public class ThreadPoolDemo {
 	{	/* Fork-Join Framework */
 		"text" : function(){/*
 		TODO
+		*/}.toString().slice(14,-3)
+	},
+	
+	{	/* AtomicInteger */
+		"text" : function(){/*
+<p><a href="http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/atomic/AtomicInteger.java" target="_blank">http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/atomic/AtomicInteger.java</a></p>
+		
+<pre>
+import sun.misc.Unsafe;
+
+public class MyAtomicInteger {
+    private static final long offset;
+    private static final Unsafe unsafe = Unsafe.getUnsafe();
+
+    static {
+        try {
+            offset = unsafe.objectFieldOffset(MyAtomicInteger.class.getDeclaredField("value"));
+        } catch (Exception ex) {
+            throw new Error(ex);
+        }
+    }
+
+    private volatile int value;
+
+    public MyAtomicInteger() {
+    }
+
+    public MyAtomicInteger(int value) {
+        this.value = value;
+    }
+
+    public final int get() {
+        return value;
+    }
+
+    public final void set(int value) {
+        this.value = value;
+    }
+
+    public final boolean compareAndSet(int expected, int updated) {
+        // invoke a NATIVE method of sun.misc.Unsafe class
+        // to atomically update the value to 'updated' if it is currently holding 'expected'
+        return unsafe.compareAndSwapInt(this, offset, expected, updated);
+    }
+	
+	// more code goes here
+}
+</pre>
+
+<pre>
+    public final int getAndSet(int newValue) {
+        for (; ; ) {
+            int current = get();
+            if (compareAndSet(current, newValue)) {
+                return current;							// return the OLD value
+            }
+        }
+    }
+</pre>
+
+<pre>
+    public final int getAndAdd(int delta) {
+        for (; ; ) {
+            int current = get();
+            int next = current + delta;
+            if (compareAndSet(current, next)) {
+                return current;							// return the OLD value
+            }
+        }
+    }
+</pre>
+
+<pre>
+    public final int addAndGet(int delta) {
+        for (; ; ) {
+           int current = get();
+           int next = current + delta;
+           if(compareAndSet(current, next)) {
+               return next;							// return the NEW value
+           }
+        }
+    }
+</pre>
+
+<pre>
+    public final int getAndIncrement() {
+        for (; ; ) {
+            int current = get();
+            int next = current + 1;
+            if (compareAndSet(current, next)) {
+                return current;							// return the OLD value
+            }
+        }
+    }
+</pre>
+
+<pre>
+    public final int getAndDecrement() {
+        for (; ; ) {
+            int current = get();
+            int next = current - 1;
+            if (compareAndSet(current, next)) {
+                return current;							// return the OLD value
+            }
+        }
+    }
+</pre>
+
+<pre>
+    public final int incrementAndGet() {
+        for (; ; ) {
+            int current = get();
+            int next = current + 1;
+            if (compareAndSet(current, next)) {
+                return next;							// return the NEW value
+            }
+        }
+    }
+</pre>
+
+<pre>
+    public final int decrementAndGet() {
+        for (; ; ) {
+            int current = get();
+            int next = current - 1;
+            if (compareAndSet(current, next)) {
+                return next;							// return the NEW value
+            }
+        }
+    }
+</pre>
+
 		*/}.toString().slice(14,-3)
 	},
 
