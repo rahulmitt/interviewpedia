@@ -108,6 +108,11 @@ var multithreading_que = [
 		question : "AtomicInteger",
 		tags : ["AtomicInteger", "CAS"]
 	},
+		
+	{
+		question : "AtomicBoolean",
+		tags : ["AtomicBoolean", "CAS"]
+	},
 ]
 
 var multithreading_ans = [
@@ -968,7 +973,7 @@ public class ThreadPoolDemo {
 	
 	{	/* AtomicInteger */
 		"text" : function(){/*
-<p><a href="http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/atomic/AtomicInteger.java" target="_blank">http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/atomic/AtomicInteger.java</a></p>
+<p><a href="http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/atomic/AtomicInteger.java" target="_blank">JDK6: AtomicInteger.java</a></p>
 		
 <pre>
 import sun.misc.Unsafe;
@@ -1097,5 +1102,67 @@ public class MyAtomicInteger {
 
 		*/}.toString().slice(14,-3)
 	},
+	
+	{	/* AtomicBoolean */
+		"text" : function(){/*
+<p><a href="http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/atomic/AtomicBoolean.java" target="_blank">JDK6: AtomicBoolean.java</a></p>
 
-	]
+<pre>
+import sun.misc.Unsafe;
+
+public class MyAtomicBoolean {
+    private static final long offset;
+    private static final Unsafe unsafe = Unsafe.getUnsafe();
+
+    static {
+        try {
+            offset = unsafe.objectFieldOffset(MyAtomicBoolean.class.getDeclaredField("value"));
+        } catch (Exception ex) {
+            throw new Error(ex);
+        }
+    }
+
+    private volatile int value;
+
+    public MyAtomicBoolean() {
+    }
+
+    public MyAtomicBoolean(int value) {
+        this.value = value;
+    }
+
+    public final boolean get() {
+        return value != 0;
+    }
+
+    public final void set(boolean value) {
+        this.value = value ? 1 : 0;
+    }
+
+    public final boolean compareAndSet(boolean expected, boolean updated) {
+        int e = expected ? 1 : 0;
+        int u = updated ? 1 : 0;
+        // invoke a NATIVE method of sun.misc.Unsafe class
+        // to atomically update the value to 'updated' if it is currently holding 'expected'
+        return unsafe.compareAndSwapInt(this, offset, e, u);
+    }
+
+    // more code goes here
+}
+</pre>
+
+<pre>
+    public final boolean getAndSet(boolean newValue) {
+        for (; ; ) {
+            boolean current = get();
+            if (compareAndSet(current, newValue)) {
+                return current;							// return the OLD value
+            }
+        }
+    }
+</pre>
+
+		*/}.toString().slice(14,-3)
+	},
+
+]
