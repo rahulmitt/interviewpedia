@@ -980,8 +980,8 @@ public class MyAtomicInteger {
     static {
         try {
             offset = unsafe.objectFieldOffset(MyAtomicInteger.class.getDeclaredField("value"));
-        } catch (Exception ex) {
-            throw new Error(ex);
+        } catch (Exception exception) {
+            throw new Error(exception);
         }
     }
 
