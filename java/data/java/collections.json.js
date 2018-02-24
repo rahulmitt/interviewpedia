@@ -571,10 +571,20 @@ public V get(Object key) {
 	
 	{
 		"text" : function(){/*
-LinkedHashMap
+<h1>LinkedHashMap</h1>
 <pre>
+// LinkedHashMap is Hashtable and LinkedList based implementation of Map interface. This implementation differs from 
+// HashMap in that it maintains a doubly-linked list running through all of its entries. By default LinkedHashMap 
+// maintains the insertion order (i.e., the order in which elements are added to LinkedHashMap is maintained). 
 public class LinkedHashMap&lt;K, V&gt; extends HashMap&lt;K, V&gt; implements Map&lt;K, V&gt; {
 
+	// LinkedHashMap has a special constructor to create the access order map. Keys are sorted on the basis of 
+	// access order eg, Invoking put(), putIfAbsent(), get(), getOrDefault(), compute(), computeIfAbsent(), 
+	// computeIfPresent(), or merge() methods results in an access to the corresponding entry.
+	
+	// The keys are sorted from least recently accessed to most recently accessed. 
+	// If accessOrder is false, then it will result in insertion order
+	// if accessOrder is true, then it will result in access Order
 	public LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder) {
 		super(initialCapacity, loadFactor);
 		this.accessOrder = accessOrder;
@@ -604,9 +614,63 @@ public class LinkedHashMap&lt;K, V&gt; extends HashMap&lt;K, V&gt; implements Ma
 
 <p>This method typically does not modify the map in any way, instead allowing the map to modify itself as directed by its return value.  It <i>is</i> permitted for this method to modify the map directly, but if it does so, it <i>must</i> return false (indicating that the map should not attempt any further modification). This implementation merely returns <tt>false</tt> (so that this map acts like a normal map - the eldest element is never removed).</p>
 
-<p>Create a LRU cache using LinkedHashMap:</p>
+<p><b>ConcurrentModificationException in LinkedHashMap:</b></p>
+<p>The iterator of an access-ordered LinkedHashMap throws java.util.ConcurrentModificationException if a get() is performed as shown below:</p>
 <pre>
-class LRUCache&lt;K, V&gt; extends LinkedHashMap&lt;K, V&gt; {
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class LinkedHashMapConcurrentModificationExceptionDemo {
+    public static void main(String[] args) {
+        Map&lt;Integer, String&gt; map = new LinkedHashMap&lt;Integer, String&gt;(5, 0.75f, true) {{
+            put(1, "one");
+            put(2, "two");
+            put(3, "three");
+            put(4, "four");
+            put(5, "five");
+        }};
+
+        for (Integer key : map.keySet()) {
+            System.out.println(key + " --&gt; " + map.get(key));
+        }
+    }
+}
+</pre>
+
+<p><u>Output:</u></p>
+<pre>
+Exception in thread "main" java.util.ConcurrentModificationException
+	at java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:711)
+	at java.util.LinkedHashMap$LinkedKeyIterator.next(LinkedHashMap.java:734)
+	at com.interviewpedia.collections.LinkedHashMapConcurrentModificationExceptionDemo.main(
+	LinkedHashMapConcurrentModificationExceptionDemo.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+</pre>
+<p>In insertion-ordered LinkedHashMap, a structural modification is any operation that adds or deletes one or more mappings. Merely changing the value associated with a key that is already contained in the map is not a structural modification.</p>
+
+<p>In access-ordered LinkedHashMap, if you call get(key), the underlying Map.Entry increments an access counter AND reorders the collection by moving the (last accessed) Map.Entry to the head of the list which results in a structural modification. The iterators returned by the iterator method are fail-fast: if the map is structurally modified at any time after the iterator is created, in any way except through the iterator's own remove() method, the iterator will throw a ConcurrentModificationException.</p>
+
+<p>To avoid this you should use the Map.entrySet() as the implementation is inherited from java.util.HashMap and therefore the iterator doesn't check the modification flags as shown below:</p>
+
+<pre>
+	for (Map.Entry entry : linkedHashMap.entrySet()) {
+		System.out.println(entry.getKey() + " --&gt; " + entry.getValue());
+	}
+</pre>
+
+</br></br></br>
+<p><b>Create a LRU cache using LinkedHashMap:</b></p>
+<pre>
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class LRUCache&lt;K, V&gt; extends LinkedHashMap&lt;K, V&gt; {
     private final int MAX_SIZE;
     private Lock lock;
     private static volatile LRUCache instance;
@@ -659,27 +723,32 @@ class LRUCache&lt;K, V&gt; extends LinkedHashMap&lt;K, V&gt; {
 <pre>
 public class LRUCacheDemo extends LinkedHashMap {
     public static void main(String[] args) {
-        LRUCache cache = LRUCache.buildCache(5);
+        LRUCache&lt;Integer, Employee&gt; cache = LRUCache.buildCache(5);
         cache.put(1, new Employee(1, "abc1"));
         cache.put(2, new Employee(2, "abc2"));
         cache.put(3, new Employee(3, "abc3"));
         cache.put(4, new Employee(4, "abc4"));
         cache.put(5, new Employee(5, "abc5"));
+        System.out.println("Accessing: 1 --&gt; " + cache.get(1));
         cache.put(6, new Employee(6, "abc6"));
         cache.put(7, new Employee(7, "abc7"));
         cache.put(8, new Employee(8, "abc8"));
+        System.out.println("Accessing: 1 --&gt; " + cache.get(1));
         cache.put(9, new Employee(9, "abc9"));
         cache.put(10, new Employee(10, "abc10"));
+        display(cache);
+    }
 
-        for (int i = 1; i &lt;= 10; i++) {
-            System.out.println("Key=" + i + " : Value=" + cache.get(i));
+    private static void display(LRUCache&lt;Integer, Employee&gt; cache) {
+        for(Map.Entry entry : cache.entrySet()){
+            System.out.println(entry.getKey() + " --&gt; " + entry.getValue());
         }
     }
 }
 </pre>
 
 <p><u>Output:</u></p>
-<p>Removing eldest entry<br />Removing eldest entry<br />Removing eldest entry<br />Removing eldest entry<br />Removing eldest entry<br />Key=1 : Value=null<br />Key=2 : Value=null<br />Key=3 : Value=null<br />Key=4 : Value=null<br />Key=5 : Value=null<br />Key=6 : Value=Employee{empId=6, name='abc6'}<br />Key=7 : Value=Employee{empId=7, name='abc7'}<br />Key=8 : Value=Employee{empId=8, name='abc8'}<br />Key=9 : Value=Employee{empId=9, name='abc9'}<br />Key=10 : Value=Employee{empId=10, name='abc10'}</p>
+<p>Accessing: 1 --&gt; Employee{empId=1, name='abc1'}<br />Removing eldest entry<br />Removing eldest entry<br />Removing eldest entry<br />Accessing: 1 --&gt; Employee{empId=1, name='abc1'}<br />Removing eldest entry<br />Removing eldest entry<br />7 --&gt; Employee{empId=7, name='abc7'}<br />8 --&gt; Employee{empId=8, name='abc8'}<br />1 --&gt; Employee{empId=1, name='abc1'}<br />9 --&gt; Employee{empId=9, name='abc9'}<br />10 --&gt; Employee{empId=10, name='abc10'}</p>
 
 		*/}.toString().slice(14,-3)
 	},
