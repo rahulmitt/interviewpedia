@@ -62,7 +62,7 @@ var collections_que = [
 	
 	{
 		question : "Inside a LinkedHashMap",
-		tags : ["linkedhashmap", "hashing", "bucket", "collision", "entry"]
+		tags : ["linkedhashmap", "hashing", "bucket", "collision", "entry", "LRU Cache"]
 	},
 	
 	{
