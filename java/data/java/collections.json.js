@@ -61,6 +61,11 @@ var collections_que = [
 	},
 	
 	{
+		question : "Inside a LinkedHashMap",
+		tags : ["linkedhashmap", "hashing", "bucket", "collision", "entry"]
+	},
+	
+	{
 		question : "Inside a HashSet",
 		tags : ["hashset"]
 	},
@@ -561,6 +566,121 @@ public V get(Object key) {
 <li>A hash is calculated for the key's hash-code. This hash is used to calculate the bucket location.</li>
 <li>It then traverses the LinkedList and keeps comparing the key in existing entry object with the key being searched. If a mach is found, then the value is returned. Else it returns a null.</li>
 </ol>
+		*/}.toString().slice(14,-3)
+	},
+	
+	{
+		"text" : function(){/*
+LinkedHashMap
+<pre>
+public class LinkedHashMap&lt;K, V&gt; extends HashMap&lt;K, V&gt; implements Map&lt;K, V&gt; {
+
+	public LinkedHashMap(int initialCapacity, float loadFactor, boolean accessOrder) {
+		super(initialCapacity, loadFactor);
+		this.accessOrder = accessOrder;
+	}
+	
+	// more code goes here
+	
+	// Returns true if this map should remove its eldest entry. This method is invoked by put() and putAll() after 
+	// inserting a new entry into the map. It provides the implementor an opportunity to remove the eldest entry 
+	// each time a new one is added. This is useful if the map represents a cache: it allows the map to reduce 
+	// memory consumption by deleting stale entries.
+	protected boolean removeEldestEntry(Map.Entry&lt;K,V&gt; eldest) {
+		return false;
+	}
+}
+</pre>
+
+<p>Override this method as below to allow the map to grow up to 100 entries and then delete the eldest entry each time a new entry is added, maintaining a steady state of 100 entries.</p>
+
+<pre>
+    private static final int MAX_ENTRIES = 100;
+
+    protected boolean removeEldestEntry(Map.Entry eldest) {
+       return size() &gt; MAX_ENTRIES;
+    }
+</pre>
+
+<p>This method typically does not modify the map in any way, instead allowing the map to modify itself as directed by its return value.  It <i>is</i> permitted for this method to modify the map directly, but if it does so, it <i>must</i> return false (indicating that the map should not attempt any further modification). This implementation merely returns <tt>false</tt> (so that this map acts like a normal map - the eldest element is never removed).</p>
+
+<p>Create a LRU cache using LinkedHashMap:</p>
+<pre>
+class LRUCache&lt;K, V&gt; extends LinkedHashMap&lt;K, V&gt; {
+    private final int MAX_SIZE;
+    private Lock lock;
+    private static volatile LRUCache instance;
+
+    private LRUCache(int size) {
+        super(size, 0.75f, true);
+        this.MAX_SIZE = size;
+        this.lock = new ReentrantLock();
+    }
+
+    public static LRUCache buildCache(int size) {
+        if (instance == null) {
+            synchronized (LRUCache.class) {
+                if (instance == null) {
+                    instance = new LRUCache(size);
+                }
+            }
+        }
+        return instance;
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry eldest) {
+        if (size() &gt; MAX_SIZE) {
+            System.out.println("Removing eldest entry");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public V get(Object key) {
+        lock.lock();
+        V value = super.get(key);
+        lock.unlock();
+        return value;
+    }
+
+    @Override
+    public V put(K key, V value) {
+        lock.lock();
+        V oldValue = super.put(key, value);
+        lock.unlock();
+        return oldValue;
+    }
+}
+</pre>
+
+<pre>
+public class LRUCacheDemo extends LinkedHashMap {
+    public static void main(String[] args) {
+        LRUCache cache = LRUCache.buildCache(5);
+        cache.put(1, new Employee(1, "abc1"));
+        cache.put(2, new Employee(2, "abc2"));
+        cache.put(3, new Employee(3, "abc3"));
+        cache.put(4, new Employee(4, "abc4"));
+        cache.put(5, new Employee(5, "abc5"));
+        cache.put(6, new Employee(6, "abc6"));
+        cache.put(7, new Employee(7, "abc7"));
+        cache.put(8, new Employee(8, "abc8"));
+        cache.put(9, new Employee(9, "abc9"));
+        cache.put(10, new Employee(10, "abc10"));
+
+        for (int i = 1; i &lt;= 10; i++) {
+            System.out.println("Key=" + i + " : Value=" + cache.get(i));
+        }
+    }
+}
+</pre>
+
+<p><u>Output:</u></p>
+<p>Removing eldest entry<br />Removing eldest entry<br />Removing eldest entry<br />Removing eldest entry<br />Removing eldest entry<br />Key=1 : Value=null<br />Key=2 : Value=null<br />Key=3 : Value=null<br />Key=4 : Value=null<br />Key=5 : Value=null<br />Key=6 : Value=Employee{empId=6, name='abc6'}<br />Key=7 : Value=Employee{empId=7, name='abc7'}<br />Key=8 : Value=Employee{empId=8, name='abc8'}<br />Key=9 : Value=Employee{empId=9, name='abc9'}<br />Key=10 : Value=Employee{empId=10, name='abc10'}</p>
+
 		*/}.toString().slice(14,-3)
 	},
 	
