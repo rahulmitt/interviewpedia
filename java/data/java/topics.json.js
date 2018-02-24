@@ -28,5 +28,10 @@ var topics = [
 		id: "ds",
 		caption: "Data Structures"
 	},
+	
+	{
+		id: "db",
+		caption: "Database"
+	},
 
 ]

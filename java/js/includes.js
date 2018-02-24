@@ -6,6 +6,7 @@ var dataJS = [
 	'./data/java/string.json.js',
 	'./data/java/serialization.json.js',
 	'./data/java/ds.json.js',
+	'./data/java/db.json.js',
 ];
 
 var systemJS = [
