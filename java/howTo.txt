@@ -1,0 +1,4 @@
+How to add a new topic:
+1. Go to interviewpedia\java\data\java and add db.json.js
+2. Edit interviewpedia\java\data\java\topics.json.js and make an entry for new topic
+3. Edit interviewpedia\java\js\includes.js and make an entry in dataJS
