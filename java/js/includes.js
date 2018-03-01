@@ -8,6 +8,7 @@ var dataJS = [
 	'./data/java/ds.json.js',
 	'./data/java/db.json.js',
 	'./data/java/unix.json.js',
+	'./data/java/gc.json.js',
 ];
 
 var systemJS = [

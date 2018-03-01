@@ -38,5 +38,10 @@ var topics = [
 		id: "unix",
 		caption: "Unix"
 	},
+	
+	{
+		id: "gc",
+		caption: "Garbage Collection"
+	},
 
 ]
