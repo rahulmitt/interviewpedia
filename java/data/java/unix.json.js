@@ -7,6 +7,6 @@ var unix_que = [
 
 var unix_ans = [
     {
-        "text": "ls -ltrah"
+        "text": "ls -ltra"
     }
 ]
