@@ -183,11 +183,92 @@ var oops_ans = [
 <h4 style="text-align: justify;">Shallow Copy</h4>
 <p style="text-align: justify;">Shallow copy duplicates as little as possible. A shallow copy of a collection is a copy of the collection structure, not it's elements. It creates a new instance of the same class and copies all the fields to the new instance and returns it. The java.lang.Object class defines a clone() method that will (assuming the subclass implements the java.lang.Cloneable interface) return a copy of the object. While Java classes are free to override this method to do more complex kinds of cloning, the default behavior of clone() is to return a shallow copy of the object. This means that the values of all of the origical object&rsquo;s fields are copied to the fields of the new object.</p>
 <p style="text-align: justify;"><img src="data/java/images/shallow-copy.gif" alt="" width="424" height="172" /></p>
+<pre>
+public class ShallowCopy implements Cloneable {
+
+    private Employee employee;
+
+    public ShallowCopy() {
+        employee = new Employee(100, "Rahul");
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    @Override
+    public String toString() {
+        return "ShallowCopy{" +
+                "employee=" + employee +
+                '}';
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        ShallowCopy obj1 = new ShallowCopy();
+        ShallowCopy obj2 = (ShallowCopy) obj1.clone();
+        obj1.setEmployee(new Employee(200, "Rahul Mittal"));
+
+        System.out.println(obj1);
+        System.out.println(obj2);
+    }
+}
+</pre>
 <h4 style="text-align: justify;">Deep Copy</h4>
 <p style="text-align: justify;">Deep copy duplicates everything. A deep copy makes a distinct copy of each of the object&rsquo;s fields, recursing through the entire graph of other objects referenced by the object being copied. The Java API provides no deep-copy equivalent to Object.clone().</p>
 <p style="text-align: justify;"><img src="data/java/images/deep-copy.gif" alt="" width="420" height="173" /></p>
 <p style="text-align: justify;">A common solution to the deep copy problem is to use <strong>Serialization</strong>. The idea is simple: Write the object to an array using <strong>ObjectOutputStream</strong> and then use <strong>ObjectInputStream</strong> to reconsistute a copy of the object. The result will be a completely distinct object, with completely distinct referenced objects. Serialization takes care of all of the details: superclass fields, following object graphs, and handling repeated references to the same object within the graph.</p>
-<p style="text-align: justify;">&nbsp;</p>
+<pre>
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class DeepCopy implements Serializable {
+    private Employee employee;
+
+    public DeepCopy() {
+        employee = new Employee(100, "Rahul");
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    @Override
+    public String toString() {
+        return "DeepCopy{" +
+                "employee=" + employee +
+                '}';
+    }
+
+    private static DeepCopy copy(DeepCopy original) throws IOException, ClassNotFoundException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(original);
+        oos.flush();
+        oos.close();
+
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
+        DeepCopy cloned = (DeepCopy) ois.readObject();
+        ois.close();
+        bos.close();
+        bis.close();
+        return cloned;
+    }
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        DeepCopy obj = new DeepCopy();
+        DeepCopy cloned = DeepCopy.copy(obj);
+        obj.setEmployee(new Employee(200, "Rahul Mittal"));
+
+        System.out.println(obj);
+        System.out.println(cloned);
+    }
+}
+</pre>
 <p style="text-align: justify;">Reference:&nbsp;<a href="http://javatechniques.com/blog/faster-deep-copies-of-java-objects/" target="_blank">Faster deep copies of java Object</a></p>
 		*/}.toString().slice(14,-3)
 	},
