@@ -113,6 +113,16 @@ var multithreading_que = [
 		question : "AtomicBoolean",
 		tags : ["AtomicBoolean", "CAS"]
 	},
+
+	{
+		question : "Print Sequence Using Multiple Threads",
+		tags : ["PrintSequence", "Puzzle", "Multithreading", "Threads"]
+	},
+
+	{
+		question : "Implement Traffic Signal Using Multiple Threads",
+		tags : ["TrafficSignal", "Puzzle", "Multithreading", "Threads"]
+	},
 ]
 
 var multithreading_ans = [
@@ -1165,4 +1175,90 @@ public class MyAtomicBoolean {
 		*/}.toString().slice(14,-3)
 	},
 
+    {	/* Print Sequence Using Multiple Threads */
+		"text" : function(){/*
+<pre>
+public class PrintSequenceUsingMultipleThreads implements Runnable {
+    private static volatile int counter = 0;
+    private int n;
+    private int i;
+
+    private static final Object lock = new Object();
+
+    public PrintSequenceUsingMultipleThreads(int n, int i) {
+        this.n = n;
+        this.i = i;
+    }
+
+    @Override
+    public void run() {
+        try {
+            synchronized (lock) {
+                while (true) {
+                    while (counter % n != i) lock.wait();
+                    System.out.println(Thread.currentThread().getName() + " :: " + counter);
+                    counter++;
+                    Thread.sleep(2000);
+                    lock.notifyAll();
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        int nThreads = 3;
+        for (int i = 0; i < nThreads; i++) {
+            new Thread(new PrintSequenceUsingMultipleThreads(nThreads, i)).start();
+        }
+    }
+}
+</pre>
+		*/}.toString().slice(14,-3)
+	},
+
+    {	/* Implement Traffic Signal Using Multiple Threads */
+		"text" : function(){/*
+<pre>
+public class TrafficSignal implements Runnable {
+    public enum Color {RED, ORANGE, GREEN}
+
+    private List<Color> light = Arrays.asList(Color.GREEN, Color.ORANGE, Color.RED);
+
+    private static volatile int counter = 0;
+    private int i;
+
+    private static final Object lock = new Object();
+
+    public TrafficSignal(Color color) {
+        this.i = light.indexOf(color);
+    }
+
+    @Override
+    public void run() {
+        try {
+            synchronized (lock) {
+                while (true) {
+                    while (counter % light.size() != i) lock.wait();
+                    System.out.println(Thread.currentThread().getName() + " :: " + light.get(counter % light.size()));
+                    counter++;
+                    Thread.sleep(1000);
+                    lock.notifyAll();
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        new Thread(new TrafficSignal(TrafficSignal.Color.GREEN)).start();
+        new Thread(new TrafficSignal(TrafficSignal.Color.ORANGE)).start();
+        new Thread(new TrafficSignal(TrafficSignal.Color.RED)).start();
+    }
+}
+</pre>
+		*/}.toString().slice(14,-3)
+	},
 ]
