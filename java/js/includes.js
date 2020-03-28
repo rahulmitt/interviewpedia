@@ -1,13 +1,14 @@
 var dataJS = [
 	'./data/java/topics.json.js',
-	'./data/java/oops.json.js', 
-	'./data/java/collections.json.js', 
+	'./data/java/oops.json.js',
+	'./data/java/collections.json.js',
 	'./data/java/multithreading.json.js', 
 	'./data/java/string.json.js',
 	'./data/java/serialization.json.js',
 	'./data/java/db.json.js',
 	'./data/java/unix.json.js',
 	'./data/java/gc.json.js',
+	'./data/java/java8.json.js',
 ];
 
 var systemJS = [

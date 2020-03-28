@@ -3,7 +3,7 @@ var topics = [
 		id: "oops",
 		caption: "OOPS"
 	},
-	
+
 	{
 		id: "serialization",
 		caption: "Serialization"
@@ -38,5 +38,10 @@ var topics = [
 		id: "gc",
 		caption: "Garbage Collection"
 	},
+
+	{
+        id: "java8",
+        caption: "Java 8"
+    },
 
 ]
