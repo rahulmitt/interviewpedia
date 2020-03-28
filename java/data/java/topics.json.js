@@ -23,12 +23,7 @@ var topics = [
 		id: "multithreading",
 		caption: "Multithreading"
 	},
-	
-	{
-		id: "ds",
-		caption: "Data Structures"
-	},
-	
+
 	{
 		id: "db",
 		caption: "Database"

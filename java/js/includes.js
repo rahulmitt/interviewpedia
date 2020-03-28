@@ -5,7 +5,6 @@ var dataJS = [
 	'./data/java/multithreading.json.js', 
 	'./data/java/string.json.js',
 	'./data/java/serialization.json.js',
-	'./data/java/ds.json.js',
 	'./data/java/db.json.js',
 	'./data/java/unix.json.js',
 	'./data/java/gc.json.js',
