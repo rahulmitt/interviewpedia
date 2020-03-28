@@ -7,6 +7,8 @@ var test_que = [
 
 var test_ans = [
     {
-        "text": "qqqqqqqqqq"
-    }
+        "text" : function(){/*
+qqqqqqqq1
+        */}.toString().slice(14,-3)
+    },
 ]
