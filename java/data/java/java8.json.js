@@ -266,7 +266,7 @@ interface Child extends Parent {
     public void bar();
 }
 </pre>
-<p style="text-align: justify;">If a child interface declares a new single abstract method but isn't annotated with <strong>@FunctionalInterface</strong>, then it's not a valid functional interface but there will be no compile-time error</p>
+<p style="text-align: justify;">If a child interface declares a new single abstract method but isn't annotated with <strong>@FunctionalInterface</strong>, then it's not a valid functional interface and there will be no compile-time error</p>
 <pre>
 @FunctionalInterface
 interface Parent {
