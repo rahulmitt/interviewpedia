@@ -288,7 +288,192 @@ interface Child extends Parent {    // No error
 
     {   /* Invoking Lambda Expressions using Functional interfaces */
         "text" : function(){/*
-qqqqqqqq1
+<h1>Invoking Lambda Expressions using Functional interfaces</h1>
+<p style="text-align: justify;">Functional Interfaces act as a <strong>type</strong> for Lambda expressions.</p>
+<h2>Example #1: invoking method having no arguments</h2>
+<pre>
+public interface Animal {
+    void move();
+}
+</pre>
+<table style="height: 42px;" width="787">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
+<td style="text-align: center;"><strong>Using Lambda Expression</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+class Dog implements Animal {
+    public void move() {
+        System.out.println("Dog moved");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.move();
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class Demo {
+    public static void main(String[] args) {
+        Animal dog = () ->
+            System.out.println("Dog moved");
+        dog.move();
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Example #2: invoking method having 2 arguments</h2>
+<pre>
+public interface Adder {
+    void add(int a, int b);
+}
+</pre>
+<table style="height: 42px;" width="787">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
+<td style="text-align: center;"><strong>Using Lambda Expression</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+class AdderImpl implements Adder {
+    public void add(int a, int b) {
+        System.out.println("Sum=" + (a + b));
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Adder adder = new AdderImpl();
+        adder.add(10, 20);
+        adder.add(100, 200);
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class Demo {
+    public static void main(String[] args) {
+        Adder adder = (a, b) ->
+            System.out.println("Sum=" + (a + b));
+        adder.add(10, 20);
+        adder.add(100, 200);
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Example #3: invoking method having 1 argument and return value</h2>
+<pre>
+public interface LengthCalc {
+    int getLength(String s);
+}
+</pre>
+<table style="height: 42px;" width="787">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
+<td style="text-align: center;"><strong>Using Lambda Expression</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+class LengthCalcImpl implements LengthCalc {
+    public int getLength(String s) {
+        return s.length();
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        LengthCalc calc = new LengthCalcImpl();
+        System.out.println(
+            "Length=" + calc.getLength("Hello")
+        );
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class Demo {
+    public static void main(String[] args) {
+        LengthCalc calc = s -> s.length();
+        System.out.println(
+            "Length=" + calc.getLength("Hello")
+        );
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Example #4: Multithreading</h2>
+<table style="height: 42px;" width="787">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
+<td style="text-align: center;"><strong>Using Lambda Expression</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+class MyRunnable implements Runnable {
+    @Override
+    public void run() {
+        for(int i = 0; i < 10; i++) {
+            System.out.println("Child thread");
+        }
+    }
+}
+
+public class RunnableDemo {
+    public static void main(String[] args) {
+        Thread t = new Thread(new MyRunnable());
+        t.start();
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class RunnableDemo {
+    public static void main(String[] args) {
+        Runnable r = () -> {
+            for(int i = 0; i < 10; i++) {
+                System.out.println("Child thread");
+            }
+        };
+
+        Thread t = new Thread(new MyRunnable());
+        t.start();
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
         */}.toString().slice(14,-3)
     },
 
