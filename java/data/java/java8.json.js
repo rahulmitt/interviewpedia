@@ -60,59 +60,59 @@ var java8_ans = [
 </tr>
 <tr>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 public void sayHello() {
     System.out.println("Hello");
 }
-    </pre>
+</pre>
     </td>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 () -> { System.out.println("Hello"); }
-    </pre>
+</pre>
     </td>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 () -> System.out.println("Hello");
-    </pre>
+</pre>
     </td>
 </tr>
 <tr>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 public void add(int a, int b) {
     System.out.println(a + b);
 }
-    </pre>
+</pre>
     </td>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 (int a, int b) -> { System.out.println(a + b); }
-    </pre>
+</pre>
     </td>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 (a, b) -> System.out.println(a + b);
-    </pre>
+</pre>
     </td>
 </tr>
 <tr>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 public int getLength(String str) {
     return str.length();
 }
-    </pre>
+</pre>
     </td>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 (String str) -> { return str.length(); }
-    </pre>
+</pre>
     </td>
     <td style="vertical-align: top;">
-    <pre>
+<pre>
 str -> str.length();
-    </pre>
+</pre>
     </td>
 </tr>
 </tbody>
