@@ -20,6 +20,11 @@ var java8_que = [
     },
 
     {
+        question : "Anonymous Inner Class  Vs Lambda Expressions",
+        tags : ["Lambda Expressions", "Anonymous Inner Class"]
+    },
+
+    {
         question : "Default methods in Interfaces",
         tags : ["Default methods", "Interfaces"]
     },
@@ -483,6 +488,246 @@ public class RunnableDemo {
     },
 
     {   /* Lambda Expressions with Collections */
+        "text" : function(){/*
+<h1>Lambda Expressions with Collections</h1>
+<p style="text-align: justify;">Here is an implementation of a comparator that sorts in descending order</p>
+<pre>
+public class DescendingComparator implements Comparator<Integer> {
+    @Override
+    public int compare(Integer o1, Integer o2) {
+        if (o1 > o2) return -1;
+        else if (o1 < o2) return 1;
+        else return 0;
+    }
+}
+</pre>
+
+<p style="text-align: justify;">&nbsp;</p>
+<h2>Example #1: Sorting a List</h2>
+<table style="height: 42px;" width="787">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
+<td style="text-align: center;"><strong>Using Lambda Expression</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+public class SortDemo {
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(
+            2, 4, 2, 7, 34, 8, 4, 8, 1
+        );
+        System.out.println(list);
+        Collections.sort(list, new DescendingComparator());
+        System.out.println(list);
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class SortDemo {
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(
+            2, 4, 2, 7, 34, 8, 4, 8, 1
+        );
+        System.out.println(list);
+        Collections.sort(list, (o1, o2) -> {
+                if (o1 > o2) return -1;
+                else if (o1 < o2) return 1;
+                else return 0;
+            }
+        );
+        System.out.println(list);
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p style="text-align: justify;">&nbsp;</p>
+<h2>Example #2: Sorting a TreeSet</h2>
+<table style="height: 42px;" width="787">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
+<td style="text-align: center;"><strong>Using Lambda Expression</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+public class SortDemo {
+    public static void main(String[] args) {
+        SortedSet<Integer> customSortedSet =
+            new TreeSet<>(new DescendingComparator());
+
+        customSortedSet.addAll(
+            Arrays.asList(2, 4, 3, 7, 34, 8, 4, 6, 1)
+        );
+        System.out.println(customSortedSet);
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class SortDemo {
+    public static void main(String[] args) {
+        SortedSet<Integer> customSortedSet =
+            new TreeSet<Integer>((o1, o2) -> {
+                    if (o1 > o2) return -1;
+                    else if (o1 < o2) return 1;
+                    else return 0;
+                }
+            );
+
+        customSortedSet.addAll(
+            Arrays.asList(2, 4, 3, 7, 34, 8, 4, 6, 1)
+        );
+
+        System.out.println(customSortedSet);
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p style="text-align: justify;">&nbsp;</p>
+<h2>Example #3: Sorting a TreeMap</h2>
+<table style="height: 42px;" width="787">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
+<td style="text-align: center;"><strong>Using Lambda Expression</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+public class SortDemo {
+    public static void main(String[] args) {
+        SortedMap<Integer, String> customSortedMap =
+            new TreeMap<>(new DescendingComparator());
+        customSortedMap.put(100, "foo");
+        customSortedMap.put(200, "bar");
+        customSortedMap.put(300, "baz");
+        System.out.println(customSortedMap);
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class SortDemo {
+    public static void main(String[] args) {
+        SortedMap<Integer, String> customSortedMap =
+            new TreeMap<>((o1, o2) -> {
+                    if (o1 > o2) return -1;
+                    else if (o1 < o2) return 1;
+                    else return 0;
+                }
+            );
+
+        customSortedMap.put(100, "foo");
+        customSortedMap.put(200, "bar");
+        customSortedMap.put(300, "baz");
+        System.out.println(customSortedMap);
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p style="text-align: justify;">&nbsp;</p>
+<h2>Example #4: Custom Sorting of Employee objects</h2>
+<p style="text-align: justify;">Employee class implementation</p>
+<pre>
+public class Employee {
+    private int id;
+    private String name;
+
+    public Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    // getter/setter goes here
+
+    @Override
+    public String toString() {
+        return "id=" + id + " : name=" + name;
+    }
+}
+</pre>
+
+<table style="height: 42px;" width="787">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
+<td style="text-align: center;"><strong>Using Lambda Expression</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+class DescendingComparator implements Comparator<Employee> {
+    @Override
+    public int compare(Employee o1, Employee o2) {
+        if (o1.getId() > o2.getId()) return -1;
+        else if (o1.getId() < o2.getId()) return 1;
+        else return 0;
+    }
+}
+
+public class SortDemo {
+    public static void main(String[] args) {
+        List<Employee> list = new ArrayList<>();
+        list.add(new Employee(100, "John"));
+        list.add(new Employee(200, "Jim"));
+        list.add(new Employee(300, "Joe"));
+        System.out.println(list);
+
+        Collections.sort(list,
+            new DescendingComparator()
+        );
+        System.out.println(list);
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class SortDemo {
+    public static void main(String[] args) {
+        List<Employee> list = new ArrayList<>();
+        list.add(new Employee(100, "John"));
+        list.add(new Employee(200, "Jim"));
+        list.add(new Employee(300, "Joe"));
+        System.out.println(list);
+
+        Collections.sort(list,
+            (o1, o2) -> {
+                if (o1.getId() > o2.getId()) return -1;
+                if (o1.getId() < o2.getId()) return 1;
+                return 0;
+            });
+        System.out.println(list);
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Anonymous Inner Class  Vs Lambda Expressions */
         "text" : function(){/*
 qqqqqqqq1
         */}.toString().slice(14,-3)
