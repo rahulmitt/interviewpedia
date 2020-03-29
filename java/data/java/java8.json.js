@@ -131,7 +131,7 @@ str -> str.length();
         "text" : function(){/*
 <h1 style="text-align: justify;">Functional Interface</h1>
 <p style="text-align: justify;">Functional Interfaces are used to invoke Lambda expressions.</p>
-<p style="text-align: justify;">If an interface has <strong>single abstract method</strong>, such an interface is a Functional Interface.</p>
+<p style="text-align: justify;">If an interface has a <strong>single abstract method</strong>, such an interface is a Functional Interface.</p>
 <table style="height: 99px;" width="429">
 <tbody>
 <tr>
@@ -199,7 +199,7 @@ public interface Interface3 {
 </tbody>
 </table>
 <p style="text-align: justify;">In order to indicate that an interface is a functional interface, java introduced an annotation: <strong>@FunctionalInterface</strong></p>
-<p style="text-align: justify;">Conceptually, a functional interface has exactly one abstract method. Since default methods have an implementation, they are not abstract. If an interface declares an abstract method overriding one of the public methods of java.lang.Object, that also does not count toward the interface's abstract method count since any implementation of the interface will have an implementation from java.lang.Object or elsewhere.</p>
+<p style="text-align: justify;">Conceptually, a functional interface has exactly one abstract method. Since default methods have an implementation, they are not abstract. If an interface declares an abstract method overriding one of the public methods of <strong>java.lang.Object</strong>, that also does not count toward the interface's abstract method count since any implementation of the interface will have an implementation from java.lang.Object or elsewhere.</p>
 <pre>
 @FunctionalInterface        // Compile-time error: Multiple non-overriding abstract methods found in interface Foo
 public interface Foo {
@@ -207,9 +207,16 @@ public interface Foo {
     public void baz();
 }
 </pre>
+<p style="text-align: justify;">Following interface declaration is also not a functional interface and results in a compile-time error:</p>
+<pre>
+@FunctionalInterface        // Compile-time error: No target method found
+public interface Interface1 {
+
+}
+</pre>
 <p style="text-align: justify;">Following interface declaration satisfies the rules of a functional interface:</p>
 <pre>
-@FunctionalInterface            // No compile-time error
+@FunctionalInterface            // No error
 public interface Interface2 {
     public void foo();
 
