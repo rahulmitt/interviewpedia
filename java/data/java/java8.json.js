@@ -10,6 +10,11 @@ var java8_que = [
     },
 
     {
+        question : "Invoking Lambda Expressions using Functional interfaces",
+        tags : ["Invoking", "Lambda Expressions", "Functional Interfaces"]
+    },
+
+    {
         question : "Default methods in Interfaces",
         tags : ["Default methods", "Interfaces"]
     },
@@ -278,6 +283,12 @@ interface Child extends Parent {    // No error
     public void bar();
 }
 </pre>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Invoking Lambda Expressions using Functional interfaces */
+        "text" : function(){/*
+qqqqqqqq1
         */}.toString().slice(14,-3)
     },
 
