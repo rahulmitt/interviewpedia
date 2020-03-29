@@ -73,7 +73,7 @@
 			});
 			
 			function doRedirect(params){
-				var url = (window.location != window.parent.location) ? document.referrer: document.location;
+				var url = (window.location != window.parent.location) ? document.referrer: document.location.href;
 				$.redirect(url, params);
 			}
 
