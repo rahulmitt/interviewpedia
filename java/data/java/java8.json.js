@@ -229,6 +229,55 @@ public interface Interface2 {
     }
 }
 </pre>
+<h2 style="text-align: justify;">Functional interfaces and Inheritance</h2>
+<p style="text-align: justify;">If an interface doesn't declare any new abstract method but extends a functional interface, then the child interface is a valid functional interface.</p>
+<pre>
+@FunctionalInterface
+interface Parent {
+    public void foo();
+}
+
+@FunctionalInterface                // No error
+interface Child extends Parent {
+
+}
+</pre>
+<p style="text-align: justify;">If a child interface declares a single abstract method with the same method signature and return type (kind of overriding) as in the parent functional interface, then also the child interface is a valid functional interface.</p>
+<pre>
+@FunctionalInterface
+interface Parent {
+    public void foo();
+}
+
+@FunctionalInterface                // No error
+interface Child extends Parent {
+    public void foo();
+}
+</pre>
+<p style="text-align: justify;">If a child interface declares a new single abstract method, then it's not a valid functional interface and results in compile-time error</p>
+<pre>
+@FunctionalInterface
+interface Parent {
+    public void foo();
+}
+
+@FunctionalInterface                // Multiple non-overriding abstract methods found in interface Child
+interface Child extends Parent {
+    public void bar();
+}
+</pre>
+<p style="text-align: justify;">If a child interface declares a new single abstract method but isn't annotated with <strong>@FunctionalInterface</strong>, then it's not a valid functional interface but there will be no compile-time error</p>
+<pre>
+@FunctionalInterface
+interface Parent {
+    public void foo();
+}
+
+//@FunctionalInterface
+interface Child extends Parent {    // No error
+    public void bar();
+}
+</pre>
         */}.toString().slice(14,-3)
     },
 
