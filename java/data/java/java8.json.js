@@ -15,6 +15,11 @@ var java8_que = [
     },
 
     {
+        question : "Lambda Expressions with Collections",
+        tags : ["Lambda Expressions", "Collections"]
+    },
+
+    {
         question : "Default methods in Interfaces",
         tags : ["Default methods", "Interfaces"]
     },
@@ -290,6 +295,7 @@ interface Child extends Parent {    // No error
         "text" : function(){/*
 <h1>Invoking Lambda Expressions using Functional interfaces</h1>
 <p style="text-align: justify;">Functional Interfaces act as a <strong>type</strong> for Lambda expressions.</p>
+<p style="text-align: justify;">&nbsp;</p>
 <h2>Example #1: invoking method having no arguments</h2>
 <pre>
 public interface Animal {
@@ -333,7 +339,7 @@ public class Demo {
 </tr>
 </tbody>
 </table>
-
+<p style="text-align: justify;">&nbsp;</p>
 <h2>Example #2: invoking method having 2 arguments</h2>
 <pre>
 public interface Adder {
@@ -379,7 +385,7 @@ public class Demo {
 </tr>
 </tbody>
 </table>
-
+<p style="text-align: justify;">&nbsp;</p>
 <h2>Example #3: invoking method having 1 argument and return value</h2>
 <pre>
 public interface LengthCalc {
@@ -426,7 +432,7 @@ public class Demo {
 </tr>
 </tbody>
 </table>
-
+<p style="text-align: justify;">&nbsp;</p>
 <h2>Example #4: Multithreading</h2>
 <table style="height: 42px;" width="787">
 <tbody>
@@ -473,7 +479,12 @@ public class RunnableDemo {
 </tr>
 </tbody>
 </table>
+        */}.toString().slice(14,-3)
+    },
 
+    {   /* Lambda Expressions with Collections */
+        "text" : function(){/*
+qqqqqqqq1
         */}.toString().slice(14,-3)
     },
 
