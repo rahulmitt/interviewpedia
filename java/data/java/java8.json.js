@@ -729,7 +729,220 @@ public class SortDemo {
 
     {   /* Anonymous Inner Class  Vs Lambda Expressions */
         "text" : function(){/*
-qqqqqqqq1
+<h1 style="text-align: justify;">Anonymous Inner Classes Vs Lambda Expressions</h1>
+<p style="text-align: justify;">An <strong>Anonymous Inner Class</strong> can be replaced by a <strong>Lambda Expression</strong> only in few cases</p>
+<h2>Can be replaced when Anonymous Inner Class:</h2>
+<ol style="text-align: justify;">
+<li>implements an Interface with exactly 1 abstract methods (with no restriction on default and static methods)</li>
+</ol>
+<h2>Cannot be replaced when Anonymous Inner Class:</h2>
+<ol style="text-align: justify;">
+<li><p>Extends a Concrete class</p>
+<pre>
+// concrete class
+class Foo {
+    public void foo() {
+        System.out.println("Inside parent Foo class");
+    }
+}
+
+// this Anonymous inner class cannot be replaced by Lambda Expression
+public class AnonymousInnerClassDemo {
+    public static void main(String[] args) {
+        new Foo() {
+            public void foo() {
+                System.out.println("Inside Anonymous inner class that extends Foo");
+            }
+        }.foo();
+    }
+}
+</pre>
+</li>
+
+<li><p>Extends an Abstract class</p>
+<pre>
+// Abstract class
+abstract class Bar {
+    public abstract void bar();
+}
+
+// this Anonymous inner class cannot be replaced by Lambda Expression
+public class AnonymousInnerClassDemo {
+    public static void main(String[] args) {
+        new Bar() {
+            public void bar() {
+                System.out.println("Inside Anonymous inner class that extends Bar");
+            }
+        }.bar();
+    }
+}
+</pre>
+</li>
+
+<li><p>Implements an Interface with multiple abstract methods</p>
+<pre>
+// interface with multiple abstract methods
+interface Vehicle {
+    void changeGear(int gear);
+    void speedUp(int increment);
+    void applyBrakes(int decrement);
+}
+
+// this Anonymous inner class cannot be replaced by Lambda Expression
+public class AnonymousInnerClassDemo {
+    public static void main(String[] args) {
+        Vehicle car = new Vehicle() {
+
+            private int speed = 0;
+
+            public void changeGear(int gear) {
+                System.out.println(String.format("Changed gear to %d", gear));
+            }
+
+            public void speedUp(int increment) {
+                speed += increment;
+                System.out.println(String.format("Incremented speed by %d Current speed is %d", increment, speed));
+            }
+
+            public void applyBrakes(int decrement) {
+                speed -= decrement;
+                System.out.println(String.format("Decremented speed by %d Current speed is %d", decrement, speed));
+            }
+        };
+
+        car.changeGear(1);
+        car.speedUp(10);
+        car.applyBrakes(10);
+    }
+}
+</pre>
+</li>
+</ol>
+
+<p style="text-align: justify;">If Anonymous Inner Class implements an Interface which contain only 1 abstract method
+(i.e., Anonymous Inner Class implements a functional interface) only in this case, we can replace Anonymous Inner Class
+with a Lambda-Expression.</p>
+
+<pre>
+// interface with single abstract method
+interface Baz {
+    void baz();
+}
+
+// this Anonymous inner class can be replaced by a Lambda Expression as it implements a functional interface
+public class AnonymousInnerClassDemo {
+    public static void main(String[] args) {
+        new Baz() {
+            public void baz() {
+                System.out.println("Inside Anonymous inner class that implements Baz");
+            }
+        }.baz();
+    }
+}
+
+// replacement Lambda Expression
+public class LambdaExpressionDemo {
+    public static void main(String[] args) {
+        Baz baz = () -> System.out.println("Inside Lambda Expression that implements Baz");
+        baz.baz();
+    }
+}
+</pre>
+
+<p>In Anonymous Inner Class, "this" represents current Anonymous Inner Class object</p>
+<p>In Lambda-Expression, "this" represents outer class object</p>
+<pre>
+interface Foo {
+    void someMethod();
+}
+</pre>
+
+<pre>
+public class ThisDemo {
+    int x = 9999;
+
+    private void methodUsingAnonymousInnerClass() {
+        Foo foo = new Foo() {
+            int x = 100;    // instance variable of Anonymous Inner Class
+
+            @Override
+            public void someMethod() {
+                System.out.println("x=" + x);                                   // prints 100
+
+                // "this" refers to current Anonymous-Inner-Class object
+                System.out.println("this.x=" + this.x);                         // prints 100
+
+                // Outer class instance variable can be referred from an
+                // anonymous inner class as: OuterClassName.this.InstanceVariable
+                System.out.println(ThisDemo.this.x);                            // prints 9999
+            }
+        };
+
+        foo.someMethod();
+    }
+
+    private void methodUsingLambdaExpression() {
+        Foo foo = () -> {
+            // not possible to declare any instance variable inside a lambda expression
+
+            int x = 200;    // local variable of lambda expression
+            System.out.println("x=" + x);                                       // prints 200
+
+            // "this" refers to outer class object
+            System.out.println("this.x=" + this.x);                             // prints 9999
+            System.out.println(ThisDemo.this.x);                                // prints 9999
+        };
+
+        foo.someMethod();
+    }
+
+    public static void main(String[] args) {
+        ThisDemo demo = new ThisDemo();
+        demo.methodUsingAnonymousInnerClass();
+        demo.methodUsingLambdaExpression();
+    }
+}
+</pre>
+<h2>Difference between Anonymous Inner Class and Lambda Expression</h2>
+<p><img src="data/java/images/anonymousInnerClassVsLambdaExpression.png" alt="" width="840" height="265" /></p>
+
+<h2>Semantics of variables used inside Lambda Expressions</h2>
+<pre>
+interface Foo {
+    void someMethod();
+}
+</pre>
+<p>If a method local variable is accessed inside a lambda expression, it is implicitly final.</p>
+<p>An attempt to modify it inside the lambda expression results in compile-time error.</p>
+<p>There are no such restrictions for instance or class variables.</p>
+<pre>
+public class Demo {
+    private int a = 100;
+    private static int b = 200;
+
+    public void test() {
+        int c = 300;    // method local variables when accessed inside Lambda expressions are implicitly final
+
+        Foo foo = () -> {
+            System.out.println(String.format("a=%d b=%d c=%d", a, b, c));   // a=100 b=200 c=300
+
+            a = 111;
+            b = 222;
+            // c=333;       // Compile-time error
+            // Variable used in lambda expression should be final or effectively final
+
+            System.out.println(String.format("a=%d b=%d c=%d", a, b, c));   // a=111 b=222 c=300
+        };
+
+        foo.someMethod();
+    }
+
+    public static void main(String[] args) {
+        Demo demo = new Demo();
+        demo.test();
+    }
+}
+</pre>
         */}.toString().slice(14,-3)
     },
 
