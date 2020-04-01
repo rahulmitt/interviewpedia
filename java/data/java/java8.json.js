@@ -26,7 +26,7 @@ var java8_que = [
 
     {
         question : "Default methods in Interfaces",
-        tags : ["Default methods", "Interfaces"]
+        tags : ["Default methods", "Interfaces", "Abstract Classes", "Difference between Interface and Abstract Class"]
     },
 
     {
@@ -66,7 +66,7 @@ var java8_ans = [
 <li>Any modifiers</li>
 <li>Any return type</li>
 </ol>
-<table style="height: 80px;" width="711">
+<table>
 <tbody>
 <tr>
 <td style="vertical-align: top; text-align: center;"><strong>Java 7 Code</strong></td>
@@ -147,7 +147,7 @@ str -> str.length();
 <h1 style="text-align: justify;">Functional Interface</h1>
 <p style="text-align: justify;">Functional Interfaces are used to invoke Lambda expressions.</p>
 <p style="text-align: justify;">If an interface has a <strong>single abstract method</strong>, such an interface is a Functional Interface.</p>
-<table style="height: 99px;" width="429">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Interface</strong></td>
@@ -172,7 +172,7 @@ str -> str.length();
 </tbody>
 </table>
 <p style="text-align: justify;">It can have any number of <strong>default</strong> and <strong>static</strong> methods. This restriction is only applicable for abstract methods.</p>
-<table style="height: 42px;" width="563">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Valid</strong></td>
@@ -307,7 +307,7 @@ public interface Animal {
     void move();
 }
 </pre>
-<table style="height: 42px;" width="787">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
@@ -351,7 +351,7 @@ public interface Adder {
     void add(int a, int b);
 }
 </pre>
-<table style="height: 42px;" width="787">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
@@ -397,7 +397,7 @@ public interface LengthCalc {
     int getLength(String s);
 }
 </pre>
-<table style="height: 42px;" width="787">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
@@ -439,7 +439,7 @@ public class Demo {
 </table>
 <p style="text-align: justify;">&nbsp;</p>
 <h2>Example #4: Multithreading</h2>
-<table style="height: 42px;" width="787">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
@@ -504,7 +504,7 @@ public class DescendingComparator implements Comparator<Integer> {
 
 <p style="text-align: justify;">&nbsp;</p>
 <h2>Example #1: Sorting a List</h2>
-<table style="height: 42px;" width="787">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
@@ -550,7 +550,7 @@ public class SortDemo {
 
 <p style="text-align: justify;">&nbsp;</p>
 <h2>Example #2: Sorting a TreeSet</h2>
-<table style="height: 42px;" width="787">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
@@ -599,7 +599,7 @@ public class SortDemo {
 
 <p style="text-align: justify;">&nbsp;</p>
 <h2>Example #3: Sorting a TreeMap</h2>
-<table style="height: 42px;" width="787">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
@@ -666,7 +666,7 @@ public class Employee {
 }
 </pre>
 
-<table style="height: 42px;" width="787">
+<table>
 <tbody>
 <tr>
 <td style="text-align: center;"><strong>Without using Lambda Expression</strong></td>
@@ -948,7 +948,328 @@ public class Demo {
 
     {   /* Default methods in Interfaces */
         "text" : function(){/*
-qqqqqqqq1
+<h1 style="text-align: justify;">Default methods in Interfaces</h1>
+<p style="text-align: justify;">In&nbsp;<strong>java 7</strong> or before, every method present inside an interface&nbsp;had to be public and abstract.
+Similarly, every peroperty had to be public static final. It was not possible to have concrete methods in an interface.
+From <strong>java 8</strong> onwards, it is possible to declare concrete methods inside interfaces. Such methods are called <strong>Default methods</strong>.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Java 7 or before</strong></td>
+<td style="text-align: center;"><strong>Java 8 onwards</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+public interface Foo {
+    public static final int a = 10;
+
+    public void bar();
+
+    // impossible to have concrete methods
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public interface Foo {
+    public static final int a = 10;
+
+    public void bar();
+
+    // concrete method
+    default void baz() {
+        System.out.println("Hello World");
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p style="text-align: justify;">Here, <strong>default</strong> is not an access modifier; it is a keyword used to write concrete methods within interfaces.
+This method is available to the implementation class by default.
+It is up to the implementation class whether to use it as is, or override it.</p>
+
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Concrete class using default method</strong></td>
+<td style="text-align: center;"><strong>Concrete class overriding default method</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+class FooImpl implements Foo {
+    @Override
+    public void bar() {
+        System.out.println("Inside bar()");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Foo fooObj = new FooImpl();
+        fooObj.bar();   // Inside bar()
+        fooObj.baz();   // Hello World
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+class FooImpl implements Foo {
+    @Override
+    public void bar() {
+        System.out.println("Inside bar()");
+    }
+
+    @Override   // overriding default method
+    public void baz() {
+        System.out.println("Inside baz()");
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Foo fooObj = new FooImpl();
+        fooObj.bar();   // Inside bar()
+        fooObj.baz();   // Inside baz()
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p style="text-align: justify;">The good thing about this new feature is that, where before you were forced to use an abstract class for the convenience methods,
+thus constraining the implementor to single inheritance, now you can have a really clean design with just the interface and a minimum of implementation effort
+forced on the programmer.</p>
+
+<p style="text-align: justify;">The original motivation to introduce default methods to Java 8 was the desire to extend the Collections Framework interfaces
+with lambda-oriented methods without breaking any existing implementations.<p>
+<pre>
+List list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+list.forEach(…); // lambda code goes here
+</pre>
+<p style="text-align: justify;">The <strong>forEach()</strong> was declared in <strong>java.lang.Iterable</strong> interface. Without the concept of
+<strong>default</strong> methods, it would have been impossible to add new methods to an interface without breaking the existing implementations.</p>
+<pre>
+package java.lang;
+
+public interface Iterable<T> {
+    Iterator<T> iterator();
+
+    default void forEach(Consumer<? super T> action) {      // forEach() was declared as default to retrofit this new method
+        Objects.requireNonNull(action);
+        for (T t : this) {
+            action.accept(t);
+        }
+    }
+
+    // more code goes here
+}
+</pre>
+
+<p style="text-align: justify;">Although this is more relevant to the authors of public libraries,
+you may find the same feature useful in your project as well. You've got one centralized place where to add new convenience and you don't have to rely
+on how the rest of the type hierarchy looks.</p>
+
+<h2>Why a default method cannot override a method in java.lang.Object class?</h2>
+<p style="text-align: justify;">An interface cannot declare any of the methods of the <strong>java.lang.Object</strong> class as a default method.
+Any attempt to do so results in a <strong>compile-time error</strong>. This restriction may be surprising, especially since the interface does not inherit from
+<strong>java.lang.Object</strong>.</p>
+
+<p style="text-align: justify;">Behind the scenes, an interface implicitly declares a public abstract method for most of the object’s methods.
+As a consequence, there is no hierarchical relation between, for example, the object's <strong>equals()</strong> method and the default <strong>equals()</strong>
+method that is implicitly declared in an interface. So, why does Java prohibit us from declaring an object method as the default method?</p>
+
+<p style="text-align: justify;">The short answer is this: Java, by design, can be misunderstood from the OOP design perspective:</p>
+
+<pre>
+interface Person {
+    // Compile-time error: Default method 'equals' overrides a member of 'java.lang.Object'
+    default boolean equals(Object obj) {
+        return true;
+    }
+}
+
+class Employee implements Person {
+    @Override   // overrides equals() method from Object class
+    public boolean equals(Employee e) {
+        return true;
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Let’s suppose, we have an interface <strong>Person</strong>, which declares a default method <strong>equals()</strong>
+with the same signature as the <strong>equals()</strong> method of the <strong>java.lang.Object</strong> class. Class <strong>Employee</strong> implements the
+<strong>Person</strong> interface, which, by design, inherits the <strong>java.lang.Object</strong> class, and then, what version of the <strong>equals()</strong>
+method does <strong>Employee</strong> inherit? A conflict would arise in this case.</p>
+
+<p style="text-align: justify;">Another reason is that, in this case, the interface <strong>default method</strong> becomes useless, because the
+<strong>equals()</strong> method from the <strong>java.lang.Object</strong> class will always be invoked in children classes. This would conflict with the
+fact that the interface can be evolved.</p>
+
+<h2>Default methods and Multiple inheritance (Ambiguity)</h2>
+<p style="text-align: justify;">Suppose, we have two interfaces, <strong>A</strong> and <strong>B</strong>, such that both have a <strong>default</strong>
+method with same method signature:</p>
+<pre>
+interface A {
+    default void foo() {
+        System.out.println("Interface A");
+    }
+}
+
+interface B {
+    default void foo() {
+        System.out.println("Interface B");
+    }
+}
+</pre>
+<p style="text-align: justify;">In such a case, if a class implements both the interfaces, it will result in <strong>ambiguity problem</strong>, and
+compiler will give a <strong>compilation error</strong>:</p>
+<pre>
+public class Bar implements A, B { // compile-time error: Bar inherits unrelated defaults for foo() from types A and B
+
+}
+</pre>
+
+<p style="text-align: justify;"><strong>Solutions to the ambiguity problem:</strong></p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Option #1: Override the default method and provide a custom implementation</strong></td>
+<td style="text-align: center;"><strong>Option #2: Override the default method and specify which implementation is required</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+public class Bar implements A, B {
+    @Override
+    public void foo() {
+        System.out.println("Inside Bar");
+    }
+
+    public static void main(String[] args) {
+        Bar bar = new Bar();
+        bar.foo(); // prints "Inside Bar"
+    }
+}
+
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+public class Bar implements A, B {
+    @Override
+    public void foo() {
+        A.super.foo();
+        // B.super.foo();
+    }
+
+    public static void main(String[] args) {
+            Bar bar = new Bar();
+            bar.foo(); // prints "Interface A"
+        }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Difference between Interface (with default methods) and Abstract class</h2>
+<p style="text-align: justify;">
+With support of <strong>default methods</strong> (introduced in java 8) and <strong>private methods</strong> (introduced in java 9) in interface,
+the gap between interface and abstract classes has been reduced but still they have major differences.
+
+<ol>
+    <li>
+        <b>Multiple Inheritance using Interface</b>
+        <p style="text-align: justify;">An abstract class cannot support multiple inheritance, but an interface can support multiple inheritance.
+        Thus a class may inherit several interfaces but only one abstract class.</p>
+    </li>
+
+    <li>
+        <b>Abstract classes can have constructors but not interfaces.</b>
+            <p style="text-align: justify;">- Even though, abstract class has constructor, we can not create instance of abstract class in Java,
+            they are incomplete.</p>
+
+            <p style="text-align: justify;">- Even though, if our abstract class doesn't contain any abstract method, we can not create instance of it.
+            By making a class abstract, we tell compiler that, it’s incomplete and should not be instantiated.</p>
+
+            <p style="text-align: justify;">- So when does constructor of abstract class is used or called? When we create some child class by extending
+            our abstract class and create instance of child class, our abstract class constructor is called from child class constructor i.e. constructor chaining</p>
+    </li>
+
+    <li>
+        <b>public static final VS instance variables</b>
+
+        <p style="text-align: justify;">- Fields in interface are public static final. But abstract class can have other type of fields like private, protected, etc.</p>
+        <p style="text-align: justify;">- In Java , interface doesn't allow us to declare any instance variables. Using a variable declared in an interface as an instance
+        variable will return a compile time error.</p>
+        <p style="text-align: justify;">- We can declare a constant variable in interface, using static final which is different from an instance variable.</p>
+        <p style="text-align: justify;">- Interface variables are static because Java interfaces cannot be instantiated in their own right; the value of the variable must be
+        assigned in a static context in which no instance exists.</p>
+    </li>
+
+    <li>
+        <b>Method Declaration vs Concrete Method</b>
+        <p style="text-align: justify;">- Up to Java 7 and all earlier versions, interfaces were simple. They could only contain public abstract methods. You can not declare
+        any concrete methods inside interface. On the other hand abstract class may contain both abstract and concrete methods.</p>
+        <p style="text-align: justify;">- Java 8 changed this. From Java 8, you can have public static methods and public default methods.</p>
+        <p style="text-align: justify;">- Java 9 is adding private methods on interfaces. Private methods can be static or instance. In both cases, the private method is
+        not inherited by sub-interfaces or implementations.</p>
+        <p style="text-align: justify;">- So from the perspective of Java 9, we can not consider this point as a difference between interface and abstract class.</p>
+    </li>
+</ol>
+</p>
+
+<table>
+<tbody>
+<tr>
+    <td style="text-align: center;"><strong>Interface</strong></td>
+    <td style="text-align: center;"><strong>Abstract Class</strong></td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">
+        Any class can implement multiple interfaces. Multiple inheritance is possible using interfaces in Java
+    </td>
+    <td style="vertical-align: top;">
+        A class can extend only one abstract class. Multiple inheritance is not possible using abstract class
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">
+        Cannot have a constructor
+    </td>
+    <td style="vertical-align: top;">
+        Can have constructors
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">
+        Fields in interfaces are public static final
+    </td>
+    <td style="vertical-align: top;">
+        Abstract classes can have private, protected fields as well
+    </td>
+</tr>
+<tr>
+    <td style="vertical-align: top;">
+Up to java 7, interface can only contain public abstract methods.
+We can not declare any concrete methods inside interface.
+    </td>
+    <td style="vertical-align: top;">
+abstract class may contain both abstract and concrete
+methods.
+    </td>
+</tr>
+</tbody>
+</table>
         */}.toString().slice(14,-3)
     },
 
