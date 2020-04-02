@@ -1275,7 +1275,237 @@ methods.
 
     {   /* Static methods in Interfaces */
         "text" : function(){/*
-qqqqqqqq1
+<h1 style="text-align: justify;">Static methods in interfaces</h1>
+<p style="text-align: justify;">Java 8 introduced static methods in interfaces.&nbsp;</p>
+<p style="text-align: justify;">Static methods are general utility methods, and are not related to an object's state, it makes sense to define them within the interface.</p>
+<p style="text-align: justify;">These interface static methods are not available to the concrete classes; these can be accessed using the interface name only.</p>
+<pre>
+class Baz implements Foo {
+    public static void main(String[] args) {
+        Baz baz = new Baz();
+        //bar();        // compile-time error: Static method may be invoked on containing interface class only
+        //baz.bar();    // compile-time error: Static method may be invoked on containing interface class only
+        //Baz.bar();    // compile-time error: Static method may be invoked on containing interface class only
+
+        // interface static methods can only be accessed using interface name
+        Foo.bar();      // prints "Interface Foo"
+    }
+}
+
+interface Foo {
+    static void bar() {
+        System.out.println("Interface Foo");
+    }
+}
+</pre>
+<p>&nbsp;</p>
+<h2>Interface static methods and Overriding</h2>
+
+<table>
+<table>
+<tr>
+<td style="text-align: center;"><strong>Interface with a static method</strong></td>
+<td style="text-align: center;"><strong>Child interface with a static method with same signature and return type</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+interface Foo {
+    static void foo() {
+        System.out.println("Interface Foo");
+    }
+}
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+interface Bar extends Foo {
+    static void foo() {
+        System.out.println("Interface Bar");
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<pre>
+public class Demo {
+    public static void main(String[] args) {
+        Foo.foo();  // prints "Interface Foo"
+        Bar.foo();  // prints "Interface Bar"
+    }
+}
+</pre>
+<p>&nbsp;</p>
+
+<p style="text-align: justify;">Since interface static methods, by default, are not available to the concrete classes,
+therefore, overriding is not applicable to interface static methods. However, you can define exactly same methods in
+the child classes — it's valid, but not overriding.</p>
+
+<pre>
+interface Foo {
+    static void foo() {
+        System.out.println("Interface Foo");
+    }
+}
+</pre>
+
+<table>
+<table>
+<tr>
+<td style="text-align: center;"><strong>Concrete class defines a static method with same signature and return type</strong></td>
+<td style="text-align: center;"><strong>Concrete class defines an instance method with same signature and return type</strong></td>
+<td style="text-align: center;"><strong>Concrete class defines the same static method but with reduced scope</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+class Bar implements Foo {
+  public static void foo() {
+    System.out.println("Bar");
+  }
+}
+
+
+
+
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+class Baz implements Foo {
+  public void foo() {
+   System.out.println("Baz");
+  }
+}
+
+
+
+
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+class Qux implements Foo {
+  private static void foo() {
+    System.out.println("Qux");
+  }
+
+  public void invokeFoo() {
+    foo();
+  }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<pre>
+public class Demo {
+    public static void main(String[] args) {
+        Foo.foo();                      // prints "Interface Foo"
+        new Bar().foo();                // prints "Bar"
+        new Baz().foo();                // prints "Baz"
+        new Qux().invokeFoo();          // prints "Qux"
+    }
+}
+</pre>
+<p>&nbsp;</p>
+<p style="text-align: justify;">Let's see a similar example in case of class inheritance:</p>
+<pre>
+class Foo {
+    public static void foo() {
+        System.out.println("Class Foo");
+    }
+}
+</pre>
+<table>
+<table>
+<tr>
+<td style="text-align: center;"><strong>Concrete class defines a static method with same signature and return type</strong></td>
+<td style="text-align: center;"><strong>Concrete class defines an instance method with same signature and return type</strong></td>
+<td style="text-align: center;"><strong>Concrete class defines the same static method but with reduced scope</strong></td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<pre>
+class Bar extends Foo {
+  public static void foo() {
+    System.out.println("Bar");
+  }
+}
+
+
+
+
+
+
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+class Baz extends Foo {
+  //  compile-time error at (1):
+  //  Instance method 'foo()' in
+  //  Baz cannot override static
+  //  method 'foo()' in Person
+
+  public void foo() {     // 1
+    System.out.println("Baz");
+  }
+}
+
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+class Qux extends Foo {
+  //  compile-time error at (2):
+  // 'foo()' in Qux clashes with
+  // 'foo()' in Foo; attempting
+  //  to assign weaker access
+  //  privileges ('private');
+  //  was 'public'
+  private static void foo() { // 2
+    System.out.println("Bar");
+  }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<pre>
+public class Demo {
+    public static void main(String[] args) {
+        Foo obj1 = new Bar();
+        obj1.foo(); // prints "Foo"
+
+        Bar obj2 = new Bar();
+        obj2.foo(); // prints "Bar"
+    }
+}
+</pre>
+<p>&nbsp;</p>
+
+<h2>main() method inside interface</h2>
+<p style="text-align: justify;">From java 8 onwards, we can declare <strong>public static void main()</strong> method inside an interface</p>
+<pre>
+public interface Person {
+    public static void main(String[] args) {
+        System.out.println("Hello");    // prints "Hello"
+    }
+}
+</pre>
         */}.toString().slice(14,-3)
     },
 
