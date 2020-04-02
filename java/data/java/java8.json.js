@@ -1283,9 +1283,11 @@ methods.
 class Baz implements Foo {
     public static void main(String[] args) {
         Baz baz = new Baz();
-        //bar();        // compile-time error: Static method may be invoked on containing interface class only
-        //baz.bar();    // compile-time error: Static method may be invoked on containing interface class only
-        //Baz.bar();    // compile-time error: Static method may be invoked on containing interface class only
+
+        // compile-time error at (1), (2) & (3): Static method may be invoked on containing interface class only
+        //bar();        // (1)
+        //baz.bar();    // (2)
+        //Baz.bar();    // (3)
 
         // interface static methods can only be accessed using interface name
         Foo.bar();      // prints "Interface Foo"
