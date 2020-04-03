@@ -35,8 +35,23 @@ var java8_que = [
     },
 
     {
-        question : "Predefined Functional Interfaces",
-        tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Predicate", "Function", "Consumer"]
+        question : "Predicate - Predefined Functional Interface",
+        tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Predicate"]
+    },
+
+    {
+        question : "Function - Predefined Functional Interface",
+        tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Function"]
+    },
+
+    {
+        question : "Consumer - Predefined Functional Interface",
+        tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Consumer"]
+    },
+
+    {
+        question : "Supplier - Predefined Functional Interface",
+        tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Supplier"]
     },
 
     {
@@ -1511,7 +1526,25 @@ public interface Person {
         */}.toString().slice(14,-3)
     },
 
-    {   /* Predefined Functional Interfaces */
+    {   /* Predicate - Predefined Functional Interface */
+        "text" : function(){/*
+qqqqqqqq1
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Function - Predefined Functional Interface */
+        "text" : function(){/*
+qqqqqqqq1
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Consumer - Predefined Functional Interface */
+        "text" : function(){/*
+qqqqqqqq1
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Supplier - Predefined Functional Interface */
         "text" : function(){/*
 qqqqqqqq1
         */}.toString().slice(14,-3)
