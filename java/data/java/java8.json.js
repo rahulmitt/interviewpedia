@@ -1889,13 +1889,13 @@ public class PredicateIsEqualDemo {
             Predicate.isEqual(new Employee("1", "Foo", null));
 
     public static void main(String[] args) {
-        Employee ceo = new Employee("1", "Foo", null);          // prints true
-        Employee manager = new Employee("2", "Bar", "1");       // prints false
-        Employee employee = new Employee("3", "Baz", "2");      // prints false
+        Employee ceo = new Employee("1", "Foo", null);
+        Employee manager = new Employee("2", "Bar", "1");
+        Employee employee = new Employee("3", "Baz", "2");
 
-        System.out.println(ceoChecker.test(ceo));
-        System.out.println(ceoChecker.test(manager));
-        System.out.println(ceoChecker.test(employee));
+        System.out.println(ceoChecker.test(ceo));           // prints true
+        System.out.println(ceoChecker.test(manager));       // prints false
+        System.out.println(ceoChecker.test(employee));      // prints false
     }
 }
 
