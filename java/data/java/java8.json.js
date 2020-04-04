@@ -1885,8 +1885,7 @@ import java.util.function.Predicate;
 
 public class PredicateIsEqualDemo {
 
-    public static final Predicate<Employee> ceoChecker =
-            Predicate.isEqual(new Employee("1", "Foo", null));
+    public static final Predicate<Employee> ceoChecker = Predicate.isEqual(new Employee("1", "Foo", null));
 
     public static void main(String[] args) {
         Employee ceo = new Employee("1", "Foo", null);
