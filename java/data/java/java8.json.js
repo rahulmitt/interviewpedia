@@ -35,22 +35,27 @@ var java8_que = [
     },
 
     {
-        question : "Predicate - Predefined Functional Interface",
+        question : "Built-in Functional Interfaces",
+        tags : ["Predefined Functional Interfaces", "Predefined", "Functional"]
+    },
+
+    {
+        question : "Predicate Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Predicate"]
     },
 
     {
-        question : "Function - Predefined Functional Interface",
+        question : "Function Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Function"]
     },
 
     {
-        question : "Consumer - Predefined Functional Interface",
+        question : "Consumer Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Consumer"]
     },
 
     {
-        question : "Supplier - Predefined Functional Interface",
+        question : "Supplier Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Supplier"]
     },
 
@@ -1526,25 +1531,422 @@ public interface Person {
         */}.toString().slice(14,-3)
     },
 
-    {   /* Predicate - Predefined Functional Interface */
+    {   /* Built-in Functional Interfaces */
+        "text" : function(){/*
+
+<h1>Built-in Functional Interfaces</h1>
+<p style="text-align: justify;">The <strong>JDK8 API</strong> contains many built-in functional interfaces.
+Some of them are well known from <strong>JDK7 or before</strong> like <strong>Runnable</strong>, <strong>Callable</strong> or <strong>Comparator</strong>.
+These existing interfaces are extended to enable Lambda support via the <strong>@FunctionalInterface</strong> annotation.</p>
+
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Runnable Interface</strong></td>
+<td style="text-align: center;"><strong>Callable Interface</strong></td>
+<td style="text-align: center;"><strong>Comparator Interface</strong></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<pre>
+package java.lang;
+
+@FunctionalInterface
+public interface Runnable {
+    public abstract void run();
+}
+
+
+
+
+
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+package java.util.concurrent;
+
+@FunctionalInterface
+public interface Callable<V> {
+    V call() throws Exception;
+}
+
+
+
+
+
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+package java.util;
+
+@FunctionalInterface
+public interface Comparator<T> {
+
+    int compare(T o1, T o2);
+
+    boolean equals(Object obj);
+
+    // more code goes here
+}
+</pre>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<p style="text-align: justify;">Having a single abstract method is a <i>structural</i> property of an interface that makes it eligible to be implemented with a lambda.
+However, whether an interface <i>makes sense</i> or is <i>semantically</i> sensible to be implemented with lambda is a different story. The latter is the purpose of the
+<strong>@FunctionalInterface</strong> annotation. When it is present on an interface, it indicates the <i>intent</i> that the interface is useful to be implemented with a lambda.</p>
+
+<p style="text-align: justify;">Notably, the <strong>Comparable</strong> interface lacks the <strong>@FunctionalInterface</strong> annotation.</p>
+
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Comparable Interface</strong></td>
+</tr>
+<tr>
+<td>
+<pre>
+package java.lang;
+
+public interface Comparable<T> {    // Not annotated with @FunctionalInterface
+
+    public int compareTo(T o);   // Single Abstract Method
+}
+
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p style="text-align: justify;"><strong>Comparable</strong> is <i>technically</i> a functional interface, but it makes no sense to actually implement it with a lambda.
+<strong>Comparable</strong> objects really have to have <i>other state</i> that you're trying to compare, and you're supposed to compare two objects of the <i>same type</i>.
+Neither of those make sense for a lambda.</p>
+
+<p style="text-align: justify;">But the Java 8 API is also full of new functional interfaces to make your life easier. These can be found in <strong>java.util.function</strong> package</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Some of the new functional interfaces in JDK8</strong></td>
+</tr>
+
+<tr>
+<td>Predicate</td>
+</tr>
+<tr>
+<td>Function</td>
+</tr>
+<tr>
+<td>Consumer</td>
+</tr>
+<tr>
+<td>Supplier</td>
+</tr>
+</tbody>
+</table>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Predicate Interface */
+        "text" : function(){/*
+<h1>Predicates</h1>
+<p style="text-align: justify;">Predicates are <strong>boolean-valued functions</strong> of <strong>one argument</strong>.
+The interface contains various <strong>default</strong> methods for composing predicates to complex logical terms (and, or, negate) and one <strong>static</strong> method.</p>
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+
+@FunctionalInterface
+public interface Predicate&lt;T&gt; {
+
+    // Evaluates this predicate on the given argument
+    boolean test(T t);      // test() is the single abstract method
+
+    // Returns a composed predicate that represents a Logical-AND of 'this' predicate and the 'other' predicate.
+    // When evaluating the composed predicate, if 'this' predicate is FALSE, then the 'other' predicate is not evaluated.
+    default Predicate&lt;T&gt; and(Predicate&lt;? super T&gt; other) {
+        Objects.requireNonNull(other);
+        return (t) -&gt; test(t) && other.test(t);
+    }
+
+    // Returns a predicate that represents the Logical-NOT (negation) of 'this' predicate.
+    default Predicate&lt;T&gt; negate() {
+        return (t) -&gt; !test(t);
+    }
+
+    // Returns a composed predicate that represents a Logical-OR of 'this' predicate and 'other' predicate'.
+    // When evaluating the composed predicate, if 'this' predicate is TRUE, then the 'other' predicate is not evaluated.
+    default Predicate&lt;T&gt; or(Predicate&lt;? super T&gt; other) {
+        Objects.requireNonNull(other);
+        return (t) -&gt; test(t) || other.test(t);
+    }
+
+    // Returns a predicate that tests if two arguments are equal according to Objects#equals(Object, Object)
+    static &lt;T&gt; Predicate&lt;T&gt; isEqual(Object targetRef) {
+        return (null == targetRef) ? Objects::isNull : object -&gt; targetRef.equals(object);
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Below is an example that illustrates the usage of <strong>Predicate</strong> interface</p>
+
+<pre>
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class PredicateDemo {
+    public static final Predicate&lt;Integer&gt; integerChecker = i -&gt; i &gt; 10;
+
+    public static final Predicate&lt;Integer&gt; integerEvenOddChecker = i -&gt; i % 2 == 0;
+
+    public static final Predicate&lt;String&gt; stringPalindromeChecker =
+        s -&gt; s.equals(new StringBuffer(s).reverse().toString());
+
+    public static final Predicate&lt;String&gt; stringLengthChecker = s -&gt; s.length() &gt; 5;
+
+    public static final Predicate&lt;Collection&lt;?&gt;&gt; collectionEmptyChecker = c -&gt; c.isEmpty();
+
+    public static final Predicate&lt;String&gt; stringStartingWithK = s -&gt; s.charAt(0) == 'k' || s.charAt(0) == 'K';
+
+    public static final Predicate&lt;String&gt; stringNotNullOrNonEmpty = s -&gt; s != null && s.length() != 0;
+
+    public static void main(String[] args) {
+        System.out.println(integerChecker.test(100));               // prints true
+        System.out.println(integerChecker.test(5));                 // prints false
+
+        System.out.println(integerChecker.negate().test(2));        // prints true
+        System.out.println(integerChecker.negate().test(200));      // prints false
+
+        foo(integerEvenOddChecker, new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});   // prints 2, 4, 6, 8, 10,
+
+        System.out.println(stringPalindromeChecker.test("abcba"));                              // prints true
+        System.out.println(stringPalindromeChecker.test("abcd"));                               // prints false
+
+        System.out.println(stringLengthChecker.test("holiday"));                                // prints true
+        System.out.println(stringLengthChecker.test("home"));                                   // prints false
+
+        System.out.println(stringLengthChecker.and(stringPalindromeChecker).test("racecar"));   // prints true
+        System.out.println(stringLengthChecker.and(stringPalindromeChecker).test("dad"));       // prints false
+
+        System.out.println(stringLengthChecker.or(stringPalindromeChecker).test("racecar"));    // prints true
+        System.out.println(stringLengthChecker.or(stringPalindromeChecker).test("rat"));        // prints false
+
+        System.out.println(collectionEmptyChecker.test(new ArrayList&lt;&gt;()));                     // prints true
+        System.out.println(collectionEmptyChecker.test(Arrays.asList(1, 2, 3)));                // prints false
+
+        String[] startingWithK = new String[]{"Rahul", "Kiran", "kishor", "Kumar", "Neha", "Tushar"};
+        bar(stringStartingWithK, startingWithK);                                        // prints Kiran, kishor, Kumar,
+
+        String[] nullEmptyStrings = new String[]{"abc", "", null, "def", null, "ghi", "", "klm"};
+        String[] arr = baz(stringNotNullOrNonEmpty, nullEmptyStrings);
+        System.out.println(Arrays.toString(arr));                                       // prints [abc, def, ghi, klm]
+    }
+
+    private static void foo(Predicate&lt;Integer&gt; p, int[] arr) {
+        for (int i : arr) {
+            if (p.test(i)) System.out.print(i + ", ");
+        }
+        System.out.println();
+    }
+
+    private static void bar(Predicate&lt;String&gt; p, String[] arr) {
+        for (String s : arr) {
+            if (p.test(s)) System.out.print(s + ", ");
+        }
+        System.out.println();
+    }
+
+    private static String[] baz(Predicate&lt;String&gt; p, String[] arr) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        for (String s : arr) {
+            if (p.test(s)) list.add(s);
+        }
+
+        return list.toArray(new String[]{});
+    }
+}
+</pre>
+<p>&nbsp;</p>
+
+<h2>Predicate Joining</h2>
+<p style="text-align: justify;">The <strong>Predicate</strong> interface allows multiple predicates to join and form a complex predicate.
+This is achieved with the help of the various <strong>default</strong> methods present in the <strong>Predicate</strong> interface:
+<strong>and()</strong>, <strong>negate()</strong> and <strong>or()</strong></p>
+<pre>
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class PredicateJoiningDemo {
+
+    public static final Predicate&lt;Integer&gt; gt_10Checker = i -&gt; i &gt; 10;
+    public static final Predicate&lt;Integer&gt; evenChecker = i -&gt; i % 2 == 0;
+
+    public static void main(String[] args) {
+        int[] intArr = {0, 5, 10, 15, 20, 25, 30, 35};
+
+        print("Numbers &gt; 10: " + gt_10(intArr));                    // Numbers &gt; 10: [15, 20, 25, 30, 35]
+        print("Even numbers: " + even(intArr));                     // Even numbers: [0, 10, 20, 30]
+        print("Numbers &lt;= 10: " + ltEq_10(intArr));                 // Numbers &lt;= 10: [0, 5, 10]
+        print("Numbers &gt; 10 AND even: " + gt_10AndEven(intArr));    // Numbers &gt; 10 AND even: [20, 30]
+        print("Numbers &gt; 10 OR even: " + get_10OrEven(intArr));     // Numbers &gt; 10 OR even: [0, 10, 15, 20, 25, 30, 35]
+    }
+
+    private static List&lt;Integer&gt; gt_10(int[] input) {
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        for (int i : input) {
+            if (gt_10Checker.test(i)) list.add(i);
+        }
+        return list;
+    }
+
+    private static List&lt;Integer&gt; even(int[] input) {
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        for (int i : input) {
+            if (evenChecker.test(i)) list.add(i);
+        }
+        return list;
+    }
+
+    private static List&lt;Integer&gt; ltEq_10(int[] input) {
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        for (int i : input) {
+            if (gt_10Checker.negate().test(i)) list.add(i);
+        }
+        return list;
+    }
+
+    private static List&lt;Integer&gt; gt_10AndEven(int[] input) {
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        for (int i : input) {
+            if (gt_10Checker.and(evenChecker).test(i)) list.add(i);
+        }
+        return list;
+    }
+
+    private static List&lt;Integer&gt; get_10OrEven(int[] input) {
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+        for (int i : input) {
+            if (gt_10Checker.or(evenChecker).test(i)) list.add(i);
+        }
+        return list;
+    }
+
+    private static void print(String str) {
+        System.out.println(str);
+    }
+}
+</pre>
+<p>&nbsp;</p>
+
+<h2>The isEqual() method</h2>
+<p style="text-align: justify;">There is a <strong>static</strong> method in Predicate interface that returns a
+predicate that tests if two arguments are equal according to Objects#equals(Object, Object)</p>
+<pre>
+static &lt;T&gt; Predicate&lt;T&gt; isEqual(Object targetRef) {
+    return (null == targetRef) ? Objects::isNull : object -&gt; targetRef.equals(object);
+}
+</pre>
+
+<p style="text-align: justify;">Example #1::</p>
+<pre>
+import java.util.function.Predicate;
+
+public class PredicateIsEqualDemo {
+    public static final Predicate<String> stringEqualChecker = Predicate.isEqual("Hello World");
+
+    public static void main(String[] args) {
+        String str1 = "Hello World";
+        System.out.println(stringEqualChecker.test(str1));      // prints true
+
+        String str2 = new String("Hello World");
+        System.out.println(stringEqualChecker.test(str2));      // prints true
+
+        System.out.println(str1 == str2);                       // prints false
+        System.out.println(str1.equals(str2));                  // prints true
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Example #2:</p>
+<pre>
+import java.util.Objects;
+import java.util.function.Predicate;
+
+public class PredicateIsEqualDemo {
+
+    public static final Predicate<Employee> ceoChecker =
+            Predicate.isEqual(new Employee("1", "Foo", null));
+
+    public static void main(String[] args) {
+        Employee ceo = new Employee("1", "Foo", null);      // prints true
+        Employee manager = new Employee("2", "Bar", "1");   // prints false
+        Employee employee = new Employee("3", "Baz", "2");     // prints false
+
+        System.out.println(ceoChecker.test(ceo));
+        System.out.println(ceoChecker.test(manager));
+        System.out.println(ceoChecker.test(employee));
+    }
+}
+
+class Employee {
+    private String empId;
+    private String name;
+    private String managerId;
+
+    public Employee(String empId, String name) {
+        this.empId = empId;
+        this.name = name;
+    }
+
+    public Employee(String empId, String name, String managerId) {
+        this(empId, name);
+        this.managerId = managerId;
+    }
+
+    // getter-setters
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return empId.equals(employee.empId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(empId);
+    }
+}
+</pre>
+
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Function Interface */
         "text" : function(){/*
 qqqqqqqq1
         */}.toString().slice(14,-3)
     },
 
-    {   /* Function - Predefined Functional Interface */
+    {   /* Consumer Interface */
         "text" : function(){/*
 qqqqqqqq1
         */}.toString().slice(14,-3)
     },
 
-    {   /* Consumer - Predefined Functional Interface */
-        "text" : function(){/*
-qqqqqqqq1
-        */}.toString().slice(14,-3)
-    },
-
-    {   /* Supplier - Predefined Functional Interface */
+    {   /* Supplier Interface */
         "text" : function(){/*
 qqqqqqqq1
         */}.toString().slice(14,-3)
