@@ -1628,9 +1628,45 @@ public interface Comparable<T> {    // Not annotated with @FunctionalInterface
 <p style="text-align: justify;"><strong>Comparable</strong> is <i>technically</i> a functional interface, but it makes no sense to actually implement it with a lambda.
 <strong>Comparable</strong> objects really have to have <i>other state</i> that you're trying to compare, and you're supposed to compare two objects of the <i>same type</i>.
 Neither of those make sense for a lambda.</p>
+<p>&nbsp;</p>
 
-<p style="text-align: justify;">But the Java 8 API is also full of new functional interfaces to make your life easier. These can be found in <strong>java.util.function</strong> package</p>
-<p><img src="data/java/images/functional-interfaces.png" alt="" /></p>
+<p style="text-align: justify;"><strong>Java 8 API</strong> is also full of new functional interfaces to make your life easier.
+These can be found in <strong>java.util.function</strong> package. Some of the prominent ones are listed below:</p>
+
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Functional Interface</strong></td>
+<td style="text-align: center;"><strong>Single Abstract Method</strong></td>
+<td style="text-align: center;"><strong>Takes input argument?</strong></td>
+<td style="text-align: center;"><strong>Returns result?</strong></td>
+</tr>
+<tr>
+<td>java.util.function.<strong>Predicate</strong>&lt;T&gt;</td>
+<td>boolean test(T t);</td>
+<td>Takes one argument</td>
+<td>Returns a boolean value</td>
+</tr>
+<tr>
+<td>java.util.function.<strong>Function</strong>&lt;T, R&gt;</td>
+<td>R apply(T t);</td>
+<td>Takes one argument</td>
+<td>Returns some value</td>
+</tr>
+<tr>
+<td>java.util.function.<strong>Consumer</strong>&lt;T&gt;</td>
+<td>void accept(T t);</td>
+<td>Takes one argument</td>
+<td>Returns no result</td>
+</tr>
+<tr>
+<td>java.util.function.<strong>Supplier</strong>&lt;R&gt;</td>
+<td>R get();</td>
+<td>Takes no argument</td>
+<td>Returns some value</td>
+</tr>
+</tbody>
+</table>
         */}.toString().slice(14,-3)
     },
 
@@ -2100,16 +2136,16 @@ package java.util.function;
 import java.util.Objects;
 
 @FunctionalInterface
-public interface Consumer<T> {
+public interface Consumer&lt;T&gt; {
 
     // Performs this operation on the given argument
     void accept(T t);       // accept() is the single abstract method
 
     // Returns a composed Consumer that performs, in sequence, this operation followed by the 'after' operation.
-    // e.g., f1.andThen(f2);      => f1 will be applied before f2
-    default Consumer<T> andThen(Consumer<? super T> after) {
+    // e.g., f1.andThen(f2);      =&gt; f1 will be applied before f2
+    default Consumer&lt;T&gt; andThen(Consumer&lt;? super T&gt; after) {
         Objects.requireNonNull(after);
-        return (T t) -> { accept(t); after.accept(t); };
+        return (T t) -&gt; { accept(t); after.accept(t); };
     }
 }
 </pre>
@@ -2119,9 +2155,9 @@ public interface Consumer<T> {
 import java.util.function.Consumer;
 
 public class ConsumerDemo {
-    public static Consumer<String> printer = s -> System.out.println(s);
+    public static Consumer&lt;String&gt; printer = s -&gt; System.out.println(s);
 
-    public static Consumer<Movie> moviePrinter = m -> {
+    public static Consumer&lt;Movie&gt; moviePrinter = m -&gt; {
         System.out.print(m.getName() + " ");
         System.out.print(m.getActor() + " ");
         System.out.println(m.getActress());
@@ -2156,9 +2192,9 @@ using the <strong>default</strong> method in <strong>Consumer</strong> interface
 import java.util.function.Consumer;
 
 public class ConsumerDemo {
-    public static Consumer<Movie> namePrinter = m -> System.out.print(m.getName() + " ");
-    public static Consumer<Movie> actorPrinter = m -> System.out.print(m.getActor() + " ");
-    public static Consumer<Movie> actressPrinter = m -> System.out.println(m.getActress());
+    public static Consumer&lt;Movie&gt; namePrinter = m -&gt; System.out.print(m.getName() + " ");
+    public static Consumer&lt;Movie&gt; actorPrinter = m -&gt; System.out.print(m.getActor() + " ");
+    public static Consumer&lt;Movie&gt; actressPrinter = m -&gt; System.out.println(m.getActress());
 
     public static void main(String[] args) {
         Movie movie = new Movie("Movie1", "Actor1", "Actress1");
@@ -2180,13 +2216,64 @@ class Movie {
     // getter/setter goes here
 }
 </pre>
-
         */}.toString().slice(14,-3)
     },
 
     {   /* Supplier Interface */
         "text" : function(){/*
-qqqqqqqq1
+<h1>Supplier Interface</h1>
+<p style="text-align: justify;">Suppliers produce a result of a given generic type. Unlike Predicate, Function and
+Consumer, <strong>Supplier</strong> don't accept arguments. There is no requirement that a new or distinct result
+be returned each time the <strong>Supplier</strong> is invoked.</p>
+
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface Supplier&lt;R&gt; {
+
+    // Gets a result
+    R get();    // get() is the single abstract method
+}
+</pre>
+
+<p style="text-align: justify;">Example #1: </p>
+<pre>
+import java.util.Date;
+import java.util.function.Supplier;
+
+public class SupplierDemo {
+    public static Supplier&lt;Date&gt; systemDate = () -&gt; new Date();
+
+    public static Supplier&lt;Long&gt; currentTimeMillis = () -&gt; System.currentTimeMillis();
+
+    public static Supplier&lt;Integer&gt; randomNumber = () -&gt; (int) (Math.random() * 10);
+
+    public static Supplier&lt;Integer&gt; otp4Digit = () -&gt; {
+        int otp = 0;
+        for (int i = 0; i &lt; 4; i++) {
+            otp = (otp * 10) + randomNumber.get();
+        }
+        return otp;
+    };
+
+    public static void main(String[] args) {
+        System.out.println(systemDate.get());           // prints current system date
+        System.out.println(currentTimeMillis.get());    // prints current time in millis
+
+        System.out.println(randomNumber.get());         // prints a random integer
+        System.out.println(randomNumber.get());         // prints a random integer
+        System.out.println(randomNumber.get());         // prints a random integer
+        System.out.println(randomNumber.get());         // prints a random integer
+        System.out.println(randomNumber.get());         // prints a random integer
+
+        System.out.println(otp4Digit.get());            // prints a 4 digit OTP
+        System.out.println(otp4Digit.get());            // prints a 4 digit OTP
+        System.out.println(otp4Digit.get());            // prints a 4 digit OTP
+        System.out.println(otp4Digit.get());            // prints a 4 digit OTP
+    }
+}
+</pre>
         */}.toString().slice(14,-3)
     },
 
