@@ -1630,26 +1630,7 @@ public interface Comparable<T> {    // Not annotated with @FunctionalInterface
 Neither of those make sense for a lambda.</p>
 
 <p style="text-align: justify;">But the Java 8 API is also full of new functional interfaces to make your life easier. These can be found in <strong>java.util.function</strong> package</p>
-<table>
-<tbody>
-<tr>
-<td style="text-align: center;"><strong>Some of the new functional interfaces in JDK8</strong></td>
-</tr>
-
-<tr>
-<td>Predicate</td>
-</tr>
-<tr>
-<td>Function</td>
-</tr>
-<tr>
-<td>Consumer</td>
-</tr>
-<tr>
-<td>Supplier</td>
-</tr>
-</tbody>
-</table>
+<p><img src="data/java/images/functional-interfaces.png" alt="" /></p>
         */}.toString().slice(14,-3)
     },
 
@@ -1858,7 +1839,7 @@ static &lt;T&gt; Predicate&lt;T&gt; isEqual(Object targetRef) {
 }
 </pre>
 
-<p style="text-align: justify;">Example #1::</p>
+<p style="text-align: justify;">Example #1:</p>
 <pre>
 import java.util.function.Predicate;
 
