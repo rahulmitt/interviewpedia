@@ -2090,7 +2090,97 @@ public class FunctionDemo {
 
     {   /* Consumer Interface */
         "text" : function(){/*
-qqqqqqqq1
+<h1>Consumer Interface</h1>
+<p style="text-align: justify;">Represents an operation that <i>accepts</i> a <strong>single input argument</strong> and
+<strong>returns no result</strong>. Unlike most other functional interfaces, <strong>Consumer</strong> is expected
+to operate via side-effects.</p>
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+
+@FunctionalInterface
+public interface Consumer<T> {
+
+    // Performs this operation on the given argument
+    void accept(T t);       // accept() is the single abstract method
+
+    // Returns a composed Consumer that performs, in sequence, this operation followed by the 'after' operation.
+    // e.g., f1.andThen(f2);      => f1 will be applied before f2
+    default Consumer<T> andThen(Consumer<? super T> after) {
+        Objects.requireNonNull(after);
+        return (T t) -> { accept(t); after.accept(t); };
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Example #1:</p>
+<pre>
+import java.util.function.Consumer;
+
+public class ConsumerDemo {
+    public static Consumer<String> printer = s -> System.out.println(s);
+
+    public static Consumer<Movie> moviePrinter = m -> {
+        System.out.print(m.getName() + " ");
+        System.out.print(m.getActor() + " ");
+        System.out.println(m.getActress());
+    };
+
+    public static void main(String[] args) {
+        printer.accept("Hello World");                                              // prints "Hello World"
+        moviePrinter.accept(new Movie("Movie1", "Actor1", "Actress1"));             // prints "Movie1 Actor1 Actress1"
+    }
+}
+
+class Movie {
+    private String name;
+    private String actor;
+    private String actress;
+
+    public Movie(String name, String actor, String actress) {
+        this.name = name;
+        this.actor = actor;
+        this.actress = actress;
+    }
+
+    // getter/setter goes here
+}
+</pre>
+<p>&nbsp;</p>
+
+<h2>Consumer Chaining</h2>
+<p style="text-align: justify;">We can use multiple consumers together for form consumer-chaining
+using the <strong>default</strong> method in <strong>Consumer</strong> interface</p>
+<pre>
+import java.util.function.Consumer;
+
+public class ConsumerDemo {
+    public static Consumer<Movie> namePrinter = m -> System.out.print(m.getName() + " ");
+    public static Consumer<Movie> actorPrinter = m -> System.out.print(m.getActor() + " ");
+    public static Consumer<Movie> actressPrinter = m -> System.out.println(m.getActress());
+
+    public static void main(String[] args) {
+        Movie movie = new Movie("Movie1", "Actor1", "Actress1");
+        namePrinter.andThen(actorPrinter).andThen(actressPrinter).accept(movie);    // prints "Movie1 Actor1 Actress1"
+    }
+}
+
+class Movie {
+    private String name;
+    private String actor;
+    private String actress;
+
+    public Movie(String name, String actor, String actress) {
+        this.name = name;
+        this.actor = actor;
+        this.actress = actress;
+    }
+
+    // getter/setter goes here
+}
+</pre>
+
         */}.toString().slice(14,-3)
     },
 
