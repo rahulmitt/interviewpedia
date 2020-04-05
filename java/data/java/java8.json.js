@@ -1636,7 +1636,7 @@ Neither of those make sense for a lambda.</p>
 
     {   /* Predicate Interface */
         "text" : function(){/*
-<h1>Predicates</h1>
+<h1>Predicate Interface</h1>
 <p style="text-align: justify;">Predicates are <strong>boolean-valued functions</strong> of <strong>one argument</strong>.
 The interface contains various <strong>default</strong> methods for composing predicates to complex logical terms (and, or, negate) and one <strong>static</strong> method.</p>
 <pre>
@@ -1831,7 +1831,7 @@ public class PredicateJoiningDemo {
 <p>&nbsp;</p>
 
 <h2>The isEqual() method</h2>
-<p style="text-align: justify;">There is a <strong>static</strong> method in Predicate interface that returns a
+<p style="text-align: justify;">There is a <strong>static</strong> method in the <strong>Predicate</strong> interface that returns a
 predicate that tests if two arguments are equal according to Objects#equals(Object, Object)</p>
 <pre>
 static &lt;T&gt; Predicate&lt;T&gt; isEqual(Object targetRef) {
@@ -1916,7 +1916,175 @@ class Employee {
 
     {   /* Function Interface */
         "text" : function(){/*
-qqqqqqqq1
+<h1>Function Interface</h1>
+<p style="text-align: justify;">Functions accept <strong>one argument</strong> and produce a result.
+Default methods can be used to chain multiple functions together (compose, andThen).</p>
+
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+
+@FunctionalInterface
+public interface Function&lt;T, R&gt; {
+
+    // Applies this function to the given argument.
+    R apply(T t);       // apply() is the single abstract method
+
+    // Returns a composed function that first applies the 'before' function to its input, and then applies 'this'
+    // function to the result.
+    // e.g., f1.compose(f2);      => f1 will be applied after f2
+    default &lt;V&gt; Function&lt;V, R&gt; compose(Function&lt;? super V, ? extends T&gt; before) {
+        Objects.requireNonNull(before);
+        return (V v) -&gt; apply(before.apply(v));
+    }
+
+    // Returns a composed function that first applies 'this' function to its input, and then applies the 'after'
+    // function to the result.
+    // e.g., f1.andThen(f2);      => f1 will be applied before f2
+    default &lt;V&gt; Function&lt;T, V&gt; andThen(Function&lt;? super R, ? extends V&gt; after) {
+        Objects.requireNonNull(after);
+        return (T t) -&gt; after.apply(apply(t));
+    }
+
+    // Returns a function that always returns its input argument.
+    static &lt;T&gt; Function&lt;T, T&gt; identity() {
+        return t -&gt; t;
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Example #1:</p>
+<pre>
+import java.util.function.Function;
+
+public class FunctionDemo {
+    public static Function&lt;String, Integer&gt; stringLengthFunction = str -&gt; str.length();
+
+    public static Function&lt;Integer, Integer&gt; squareFunction = x -&gt; x * x;
+
+    public static void main(String[] args) {
+        System.out.println(stringLengthFunction.apply("Hello World"));  // prints 11
+        System.out.println(squareFunction.apply(10));                   // prints 100
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Example #2:</p>
+<pre>
+import java.util.function.Function;
+
+public class FunctionDemo {
+    public static Function&lt;String, Integer&gt; stringLengthFunction = str -&gt; str.length();
+
+    public static Function&lt;Integer, Integer&gt; squareFunction = x -&gt; x * x;
+
+    public static Function&lt;String, String&gt; spaceRemovalFunction = str -&gt; str.replaceAll(" ", "");
+
+    public static Function&lt;String, Integer&gt; spaceCountingFunction =
+            str -&gt; str.length() - str.replaceAll(" ", "").length();
+
+    public static Function&lt;Student, String&gt; gradeFunction = student -&gt; {
+        if (student.getMarks() &gt;= 80) {
+            return "A - Distinction";
+        } else if (student.getMarks() &gt;= 60) {
+            return "B - First Division";
+        } else if (student.getMarks() &gt;= 50) {
+            return "C - Second Division";
+        } else if (student.getMarks() &gt;= 35) {
+            return "D - Third Division";
+        } else {
+            return "E - Fail";
+        }
+    };
+
+    public static void main(String[] args) {
+        System.out.println(stringLengthFunction.apply("Hello World"));              // prints 11
+        System.out.println(squareFunction.apply(10));                               // prints 100
+
+        System.out.println(spaceRemovalFunction.apply("How Are You?"));             // prints HowAreYou?
+        System.out.println(spaceCountingFunction.apply("How Are You?"));            // prints 2
+
+        System.out.println(gradeFunction.apply(new Student("1", "Foo", 85)));       // A - Distinction
+        System.out.println(gradeFunction.apply(new Student("2", "Bar", 75)));       // B - First Division
+        System.out.println(gradeFunction.apply(new Student("3", "Baz", 65)));       // B - First Division
+        System.out.println(gradeFunction.apply(new Student("4", "Qux", 55)));       // C - Second Division
+        System.out.println(gradeFunction.apply(new Student("5", "Quux", 45)));      // D - Third Division
+        System.out.println(gradeFunction.apply(new Student("5", "Quuz", 35)));      // D - Third Division
+        System.out.println(gradeFunction.apply(new Student("5", "Corge", 25)));     // E - Fail
+    }
+}
+
+class Student {
+    private String studentId;
+    private String name;
+    private Integer marks;
+
+    public Student(String studentId, String name, Integer marks) {
+        this.studentId = studentId;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    // getter/setter goes here
+}
+</pre>
+
+<p>&nbsp;</p>
+<h2>Function Chaining</h2>
+<p style="text-align: justify;">We can use multiple functions together for form function chaining using the
+<strong>default</strong> methods in <strong>Function</strong> interface</p>
+<pre>
+import java.util.function.Function;
+
+public class FunctionDemo {
+
+    public static Function&lt;String, String&gt; uppercase = s -&gt; s.toUpperCase();
+
+    public static Function&lt;String, String&gt; reverse = s -&gt; new StringBuffer(s).reverse().toString();
+
+    public static Function&lt;String, String&gt; subString9 = s -&gt; s.substring(0, 9);
+
+    public static Function&lt;Integer, Integer&gt; add = x -&gt; x + x;
+
+    public static Function&lt;Integer, Integer&gt; square = x -&gt; x * x;
+
+    public static void main(String[] args) {
+        String s1 = uppercase.andThen(reverse).andThen(subString9).apply("Happy Programming");
+        System.out.println(s1);                                     // prints GNIMMARGO
+
+        String s2 = uppercase.compose(reverse).compose(subString9).apply("Happy Programming");
+        System.out.println(s2);                                     // prints ORP YPPAH
+
+        System.out.println(add.andThen(square).apply(5));           // prints 100
+        System.out.println(square.andThen(add).apply(5));           // prints 50
+
+        System.out.println(add.compose(square).apply(5));           // prints 50
+        System.out.println(square.compose(add).apply(5));           // prints 100
+    }
+}
+</pre>
+
+<p>&nbsp;</p>
+<h2>The identity() method</h2>
+<p style="text-align: justify;">There is a <strong>static</strong> method in the <strong>Function</strong> interface that
+returns a function that always returns its input argument.</p>
+<pre>
+static <T> Function<T, T> identity() {
+    return t -> t;
+}
+</pre>
+<p style="text-align: justify;">Example #1:</p>
+<pre>
+import java.util.function.Function;
+
+public class FunctionDemo {
+    public static void main(String[] args) {
+        System.out.println(Function.identity().apply("Foo"));   // prints Foo
+        System.out.println(Function.identity().apply(10));      // prints 10
+    }
+}
+</pre>
         */}.toString().slice(14,-3)
     },
 
