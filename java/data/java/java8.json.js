@@ -2070,8 +2070,8 @@ public class FunctionDemo {
 <p style="text-align: justify;">There is a <strong>static</strong> method in the <strong>Function</strong> interface that
 returns a function that always returns its input argument.</p>
 <pre>
-static <T> Function<T, T> identity() {
-    return t -> t;
+static &lt;T&gt; Function&lt;T, T&gt; identity() {
+    return t -&gt; t;
 }
 </pre>
 <p style="text-align: justify;">Example #1:</p>
