@@ -60,6 +60,21 @@ var java8_que = [
     },
 
     {
+        question : "BiPredicate Interface",
+        tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "BiPredicate"]
+    },
+
+    {
+        question : "BiFunction Interface",
+        tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "BiFunction"]
+    },
+
+    {
+        question : "BiConsumer Interface",
+        tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "BiConsumer"]
+    },
+
+    {
         question : "Method & Constructor reference using double-colon (::) operator",
         tags : ["Method reference", "Constructor reference", "Double Colon"]
     },
@@ -2277,21 +2292,191 @@ public class SupplierDemo {
         */}.toString().slice(14,-3)
     },
 
+    {   /* BiPredicate Interface */
+        "text" : function(){/*
+<h1>BiPredicate Interface</h1>
+<p style="text-align: justify;">Represents a <strong>predicate</strong> (boolean-valued function) of
+<strong>two arguments</strong>. This is the <i>two-arity specialization</i> of <strong>Predicate</strong>.</p>
+
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+
+@FunctionalInterface
+public interface BiPredicate&lt;T, U&gt; {
+
+    // Evaluates this predicate on the given arguments.
+    boolean test(T t, U u);
+
+    // Returns a composed predicate that represents a logical-AND of this predicate and another.
+    // When evaluating the composed predicate, if 'this' predicate is FALSE, then the 'other' predicate is not evaluated
+    default BiPredicate&lt;T, U&gt; and(BiPredicate&lt;? super T, ? super U&gt; other) {
+        Objects.requireNonNull(other);
+        return (T t, U u) -&gt; test(t, u) && other.test(t, u);
+    }
+
+    // Returns a predicate that represents the logical negation of this predicate.
+    default BiPredicate&lt;T, U&gt; negate() {
+        return (T t, U u) -&gt; !test(t, u);
+    }
+
+    // Returns a composed predicate that represents a logical-OR of this predicate and another.
+    // When evaluating the composed predicate, if 'this' predicate is TRUE, then the 'other' predicate is not evaluated
+    default BiPredicate&lt;T, U&gt; or(BiPredicate&lt;? super T, ? super U&gt; other) {
+        Objects.requireNonNull(other);
+        return (T t, U u) -&gt; test(t, u) || other.test(t, u);
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Example #1:</p>
+<pre>
+import java.util.function.BiPredicate;
+
+public class BiPredicateDemo {
+    public static BiPredicate&lt;Integer, Integer&gt; isSumEven = (a, b) -&gt; (a + b) % 2 == 0;
+
+    public static void main(String[] args) {
+        System.out.println(isSumEven.test(5, 10));      // prints false
+        System.out.println(isSumEven.test(10, 20));     // print true
+    }
+}
+</pre>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* BiFunction Interface */
+        "text" : function(){/*
+<h1>BiFunction Interface</h1>
+<p style="text-align: justify;">Represents a <strong>function</strong> that accepts <strong>two arguments</strong> and
+produces a result. This is the <i>two-arity specialization</i> of <strong>Function</strong>.</p>
+
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+
+@FunctionalInterface
+public interface BiFunction&lt;T, U, R&gt; {
+
+    // Applies this function to the given arguments.
+    R apply(T t, U u);
+
+    // Returns a composed function that first applies 'this' function to its input, and then applies the 'after'
+    // function to the result.
+    // // e.g., f1.andThen(f2);      => f1 will be applied before f2
+    default &lt;V&gt; BiFunction&lt;T, U, V&gt; andThen(Function&lt;? super R, ? extends V&gt; after) {
+        Objects.requireNonNull(after);
+        return (T t, U u) -&gt; after.apply(apply(t, u));
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Example #1:</p>
+<pre>
+import java.util.function.BiFunction;
+
+public class BiFunctionDemo {
+    public static BiFunction&lt;Integer, Integer, Integer&gt; productBiFunction = (a, b) -&gt; a * b;
+
+    public static BiFunction&lt;String, String, Employee&gt; employeeBiFunction = (empId, name) -&gt; new Employee(empId, name);
+
+    public static void main(String[] args) {
+        System.out.println(productBiFunction.apply(2, 5));          // prints 10
+        System.out.println(productBiFunction.apply(10, 20));        // prints 200
+
+        System.out.println(employeeBiFunction.apply("1", "Foo"));   // prints Employee{empId='1', name='Foo'}
+        System.out.println(employeeBiFunction.apply("2", "Bar"));   // prints Employee{empId='2', name='Bar'}
+        System.out.println(employeeBiFunction.apply("3", "Baz"));   // prints Employee{empId='3', name='Baz'}
+    }
+}
+
+class Employee {
+    private String empId;
+    private String name;
+
+    public Employee(String empId, String name) {
+        this.empId = empId;
+        this.name = name;
+    }
+
+    // getter/setter goes here
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId='" + empId + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+</pre>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* BiConsumer Interface */
+        "text" : function(){/*
+<h1>BiConsumer Interface</h1>
+<p style="text-align: justify;">Represents an operation that accepts <strong>two input arguments</strong> and
+<strong>returns no result</strong>. This is the <i>two-arity specialization</i> of <strong>Consumer</strong>.</p>
+
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+
+@FunctionalInterface
+public interface BiConsumer&lt;T, U&gt; {
+
+    // Performs this operation on the given arguments.
+    void accept(T t, U u);
+
+    // Returns a composed BiConsumer that performs, in sequence, 'this' operation followed by the 'after' operation.
+    default BiConsumer&lt;T, U&gt; andThen(BiConsumer&lt;? super T, ? super U&gt; after) {
+        Objects.requireNonNull(after);
+
+        return (l, r) -&gt; {
+            accept(l, r);
+            after.accept(l, r);
+        };
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Example #1:</p>
+<pre>
+import java.util.function.BiConsumer;
+
+public class BiConsumerDemo {
+    public static BiConsumer&lt;String, String&gt; concatPrinter = (s1, s2) -&gt; System.out.println(s1 + " " + s2);
+
+    public static void main(String[] args) {
+        concatPrinter.accept("Hello", "World");     // prints "Hello World"
+    }
+}
+</pre>
+        */}.toString().slice(14,-3)
+    },
+
     {   /* Method & Constructor reference using double-colon (::) operator */
         "text" : function(){/*
-qqqqqqqq1
+<h1>Method & Constructor reference using double-colon (::) operator</h1>
+<p style="text-align: justify;"></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Stream API */
         "text" : function(){/*
-qqqqqqqq1
+<h1>Stream API</h1>
+<p style="text-align: justify;"></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Date & Time API */
         "text" : function(){/*
-qqqqqqqq1
+<h1>Date & Time API</h1>
+<p style="text-align: justify;"></p>
         */}.toString().slice(14,-3)
     },
 
