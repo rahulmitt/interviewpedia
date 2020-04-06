@@ -75,6 +75,16 @@ var java8_que = [
     },
 
     {
+        question : "BinaryOperator Interface",
+        tags : ["Predefined Functional Interfaces", "BinaryOperator"]
+    },
+
+    {
+        question : "UnaryOperator Interface",
+        tags : ["Predefined Functional Interfaces", "UnaryOperator"]
+    },
+
+    {
         question : "Method & Constructor reference using double-colon (::) operator",
         tags : ["Method reference", "Constructor reference", "Double Colon"]
     },
@@ -2459,24 +2469,38 @@ public class BiConsumerDemo {
         */}.toString().slice(14,-3)
     },
 
+    {   /* BinaryOperator Interface */
+        "text" : function(){/*
+<h1>BinaryOperator Interface</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* UnaryOperator Interface */
+        "text" : function(){/*
+<h1>UnaryOperator Interface</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
+
     {   /* Method & Constructor reference using double-colon (::) operator */
         "text" : function(){/*
 <h1>Method & Constructor reference using double-colon (::) operator</h1>
-<p style="text-align: justify;"></p>
+<p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Stream API */
         "text" : function(){/*
 <h1>Stream API</h1>
-<p style="text-align: justify;"></p>
+<p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Date & Time API */
         "text" : function(){/*
 <h1>Date & Time API</h1>
-<p style="text-align: justify;"></p>
+<p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
