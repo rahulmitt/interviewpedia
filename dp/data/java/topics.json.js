@@ -4,4 +4,8 @@ var topics = [
 		caption: "Creational Design Patterns"
 	},
 
+	{
+		id: "structural",
+		caption: "Structural Design Patterns"
+	},
 ]
