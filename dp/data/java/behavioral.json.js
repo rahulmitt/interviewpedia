@@ -65,7 +65,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Chain of Responsibility</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/1.chain_of_responsibility.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/1.chain_of_responsibility.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -73,7 +73,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Command</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/2.command.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/2.command.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -81,7 +81,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Interpreter</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/3.interpreter.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/3.interpreter.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -89,7 +89,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Mediator</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/4.mediator.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/4.mediator.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -97,7 +97,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Iterator</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/5.iterator.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/5.iterator.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -105,7 +105,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Momento</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/6.momento.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/6.momento.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -113,7 +113,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Observer</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/7.observer.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/7.observer.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -121,7 +121,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>State</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/8.state.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/8.state.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -129,7 +129,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Strategy</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/9.strategy.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/9.strategy.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -137,7 +137,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Template Method</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/10.template_method.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/10.template_method.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -145,7 +145,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Visitor</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/11.visitor.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/11.visitor.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -153,7 +153,7 @@ var behavioral_ans = [
         "text" : function(){/*
 <h1>Null Object</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/behavioral/12.null_object.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/behavioral/12.null_object.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 

@@ -40,7 +40,7 @@ var creational_ans = [
         "text" : function(){/*
 <h1>Builder</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/creational/1.builder.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/creational/1.builder.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -48,7 +48,7 @@ var creational_ans = [
         "text" : function(){/*
 <h1>Simple Factory</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/creational/2.simple_factory.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/creational/2.simple_factory.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -56,7 +56,7 @@ var creational_ans = [
         "text" : function(){/*
 <h1>Factory Method</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/creational/3.factory_method.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/creational/3.factory_method.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -64,7 +64,7 @@ var creational_ans = [
         "text" : function(){/*
 <h1>Prototype</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/creational/4.prototype.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/creational/4.prototype.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -72,7 +72,7 @@ var creational_ans = [
         "text" : function(){/*
 <h1>Abstract Factory</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/creational/5.abstract_factory.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/creational/5.abstract_factory.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -87,7 +87,7 @@ var creational_ans = [
         "text" : function(){/*
 <h1>Object Pool</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/creational/7.object_pool.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/creational/7.object_pool.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 ]

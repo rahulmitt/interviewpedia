@@ -40,9 +40,9 @@ var structural_ans = [
         "text" : function(){/*
 <h1>Adapter</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/structural/1.1.class_adapter.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/structural/1.1.class_adapter.png" alt="" width="800" height="400"/></p>
 <p style="text-align: justify;">&nbsp;</p>
-<p><img src="data/java/images/structural/1.2.object_adapter.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/structural/1.2.object_adapter.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -50,7 +50,7 @@ var structural_ans = [
         "text" : function(){/*
 <h1>Bridge</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/structural/2.bridge.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/structural/2.bridge.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -58,7 +58,7 @@ var structural_ans = [
         "text" : function(){/*
 <h1>Decorator</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/structural/3.decorator.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/structural/3.decorator.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -66,7 +66,7 @@ var structural_ans = [
         "text" : function(){/*
 <h1>Composite</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/structural/4.composite.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/structural/4.composite.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -74,7 +74,7 @@ var structural_ans = [
         "text" : function(){/*
 <h1>Facade</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/structural/5.facade.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/structural/5.facade.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -82,7 +82,7 @@ var structural_ans = [
         "text" : function(){/*
 <h1>Flyweight</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/structural/6.flyweight.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/structural/6.flyweight.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
@@ -90,7 +90,7 @@ var structural_ans = [
         "text" : function(){/*
 <h1>Proxy</h1>
 <p style="text-align: justify;">TODO</p>
-<p><img src="data/java/images/structural/7.proxy.png" alt="" width="800" height="350"/></p>
+<p><img src="data/java/images/structural/7.proxy.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
