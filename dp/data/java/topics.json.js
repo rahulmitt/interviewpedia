@@ -1,11 +1,16 @@
 var topics = [
 	{
 		id: "creational",
-		caption: "Creational Design Patterns"
+		caption: "GoF - Creational Design Patterns"
 	},
 
 	{
 		id: "structural",
-		caption: "Structural Design Patterns"
+		caption: "GoF - Structural Design Patterns"
+	},
+
+    {
+		id: "behavioral",
+		caption: "GoF - Behavioral Design Patterns"
 	},
 ]

@@ -2,6 +2,7 @@ var dataJS = [
 	'./data/java/topics.json.js',
 	'./data/java/creational.json.js',
 	'./data/java/structural.json.js',
+	'./data/java/behavioral.json.js',
 ];
 
 var systemJS = [
