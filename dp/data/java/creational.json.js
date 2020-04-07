@@ -80,6 +80,7 @@ var creational_ans = [
         "text" : function(){/*
 <h1>Singleton</h1>
 <p style="text-align: justify;">TODO</p>
+<p><img src="data/java/images/creational/6.singleton.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
