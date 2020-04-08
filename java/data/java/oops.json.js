@@ -1,7 +1,7 @@
 var oops_que = [
 	{
-		question : "Aggregation Vs Composition",
-		tags : ["aggregation", "composition", "is-a", "has-a", "part-whole"]
+		question : "Association, Aggregation & Composition",
+		tags : ["UML", "Association", "Aggregation", "Composition", "is-a", "has-a", "part-whole"]
 	},
 	{
 		question : "Access modifiers",
@@ -34,16 +34,128 @@ var oops_que = [
 ]
 
 var oops_ans = [
-	{
+	{   /* UML Association vs Aggregation vs Composition */
 		"text" : function(){/*
+<h1>Association Vs Aggregation Vs Composition Vs Inheritance</h1>
+<p style="text-align: justify;">Consider the classes of the following objects: pets, dogs, tails, owners.</p>
+<table>
+<tr>
+<td style="vertical-align: top;"><img src="data/java/images/oops/1.association_aggregation_composition.png" alt="" width="250" height="200"/></td>
+<td style="vertical-align: top;">
+<p style="text-align: justify;">We see the following relationships:</p>
+<ul>
+<li>Owners <i>feed</i> Pets, Pets <i>please</i> Owners (association)</li>
+<li>Tail is a <strong>part of</strong> both Dogs and Cats (aggregation / composition)</li>
+<li>Cat <strong>is-a</strong> Pet (inheritance / generalization)</li>
+</ul>
+</td>
+</tr>
+</table>
+
+
+<p style="text-align: justify;">The figure below shows the three types of association connectors: association,
+aggregation, and composition:</p>
+<img src="data/java/images/oops/2.association.png" alt="" />
+<p>&nbsp;</p>
+<img src="data/java/images/oops/3.aggregation.png" alt="" />
+<p>&nbsp;</p>
+<img src="data/java/images/oops/4.composition.png" alt="" />
+<p style="text-align: justify;">The figure below shows a generalization</p>
+<img src="data/java/images/oops/5.generalisation.png" alt="" />
+<p>&nbsp;</p>
+
+<h2>Association</h2>
+<p style="text-align: justify;">If two classes in a model need to communicate with each other, there must be a link
+between them, and that can be represented by an association (connector). Association can be represented by a line
+between these classes with an arrow indicating the navigation direction. In case an arrow is on both sides, the
+association is known as a bidirectional association. We can indicate the multiplicity of an association by adding
+multiplicity adornments to the line denoting the association.</p>
+
+<p style="text-align: justify;"><strong>One to Many</strong>: A single student can associate with multiple teachers:</p>
+<img src="data/java/images/oops/6.one_to_many.png" alt="" />
+
+<p style="text-align: justify;"><strong>Many to One</strong>: The example indicates that every Instructor has one or more Students:</p>
+<img src="data/java/images/oops/7.many_to_one.png" alt="" />
+
+<p style="text-align: justify;"><strong>Manay to Many</strong>: We can also indicate the behavior of an object in an
+association (i.e., the role of an object) using role names.</p>
+<img src="data/java/images/oops/8.many_to_many.png" alt="" />
+<p>&nbsp;</p>
+
+<h2>Association vs Aggregation vs Composition</h2>
+<p style="text-align: justify;">Aggregation and Composition are specific cases of association. In both aggregation and
+composition, a class's object (<strong>whole</strong>) <i>owns</i> another class's object (<strong>part</strong>).
+But there is a subtle difference:</p>
+<ul>
+<li><p style="text-align: justify;"><strong>Aggregation</strong> implies a relationship where the <i>part</i> can exist
+independently without the <i>whole</i>. E.g., Consider <strong>ClassRoom</strong> (whole) and <strong>Student</strong> (part).
+Delete the <strong>ClassRoom</strong> and the <strong>Student</strong> can still exist.</p></li>
+<li><p style="text-align: justify;"><strong>Composition</strong> implies a relationship where the <i>part</i> cannot
+exist without the <i>whole</i>. E.g., Consider <strong>House</strong> (whole) and <strong>Room</strong> (part).
+<strong>Room</strong> can't exist without a <strong>House</strong>.</p></li>
+</ul>
+<p>&nbsp;</p>
+
+<h2>Composition Example</h2>
+<p style="text-align: justify;">We should be more specific and use the composition link in cases where, in addition to
+the <i>part-whole</i> relationship between Class A and Class B - there's a strong lifecycle dependency between the two,
+meaning that when Class A is deleted then Class B is also deleted as a result</p>
+<img src="data/java/images/oops/9.composition_example.png" alt="" />
+<p>&nbsp;</p>
+
+<h2>Aggregation Example</h2>
+<p style="text-align: justify;">It's important to note that the aggregation link doesn't state in any way that Class A
+owns Class B, nor that there's a parent-child relationship (when parent deleted all its child's are being deleted as a
+result) between the two. Actually, quite the opposite! The aggregation link is usually used to stress the point that
+Class A instance is not the exclusive container of Class B instance, as in fact the same Class B instance has another
+container/s.</p>
+<img src="data/java/images/oops/10.aggregation_example.png" alt="" />
+<p>&nbsp;</p>
+
+<p style="text-align: justify;">To sum it up, association is a very generic term used to represent when one class uses
+the functionalities provided by another class. We say it's a <strong>composition</strong> if one parent class object
+owns another child class object and that child class object cannot meaningfully exist without the parent class object;
+if it can then it is called <strong>Aggregation</strong>.</p>
+<p>&nbsp;</p>
+
+<h2>Generalization vs Specialization</h2>
+<p style="text-align: justify;"><strong>Generalization</strong> is a mechanism for combining similar classes of objects
+into a single, more general class. Generalization identifies commonalities among a set of entities. The commonality may
+be of attributes, behavior, or both. In other words, a superclass has the most general attributes, operations, and
+relationships that may be shared with subclasses. A subclass may have more specialized attributes and operations.</p>
+
+<p style="text-align: justify;"><strong>Specialization</strong> is the reverse process of Generalization means creating
+new sub-classes from an existing class.</p>
+
+<p style="text-align: justify;">For Example, a Bank Account is of two types - Savings Account and Credit Card Account.
+Savings Account and Credit Card Account inherit the generalized properties like Account Number, Account Balance, etc.
+from a Bank Account and also have their specialized properties like unsettled payment etc.</p>
+<img src="data/java/images/oops/11.Generalization_Specialization.png" alt="" />
+<p>&nbsp;</p>
+
+<h2>Generalization vs Inheritance</h2>
+<p style="text-align: justify;"><strong>Generalization</strong> is the term that we use to denote abstraction of common
+properties into a base class. When we implement Generalization in java, it is called <strong>Inheritance</strong> instead.
+Generalization and inheritance are the same. The terminology just differs depending on the context where it is being used.</p>
+<p>&nbsp;</p>
+
+<table>
+<tr>
+<td style="vertical-align: top;"><img src="data/java/images/oops/12.uml.png" alt="" /></td>
+<td style="vertical-align: top;">
 <p style="text-align: justify;">There are 2 fundamental mechanisms for building new classes from existing ones:</p>
-<p style="text-align: justify;"><strong>Inheritance (<em>is-a</em> relationship)</strong>: the new class has all the properties and behaviors of super-class, but it also has the additional capability of its own.</p>
-<p style="text-align: justify;"><strong>Aggregation (<em>part-whole</em> relationship)</strong>: When building new classes from existing ones using aggregation, a composite object is built from other constituent objects that are its parts.</p>
-<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;"><strong>Inheritance (<i>is-a</i> relationship)</strong>: the new class has all the
+properties and behaviors of super-class, but it also has the additional capability of its own.</p>
+<p style="text-align: justify;"><strong>Aggregation/Composition (<i>part-whole</i> relationship)</strong>: When building new classes
+from existing ones using Aggregation/Composition, a composite object is built from other constituent objects that are its parts.</p>
+
 <h3 style="text-align: justify;">Aggregation and Composition</h3>
-<p style="text-align: justify;">Both aggregation and composition are special types of associations. the only difference being:</p>
-<p style="padding-left: 30px; text-align: justify;"><strong><span style="color: #993300;">Aggregation</span></strong>: without 'whole', 'part' can exist.</p>
-<p style="padding-left: 30px; text-align: justify;"><strong><span style="color: #993300;">Composition</span></strong>: whithout 'whole', 'part' can't exist.</p>
+<p style="text-align: justify;">Both aggregation and composition are special types of associations. The only difference being:</p>
+<p style="padding-left: 30px; text-align: justify;"><strong>Aggregation</strong>: without 'whole', 'part' can exist.</p>
+<p style="padding-left: 30px; text-align: justify;"><strong>Composition</strong>: whithout 'whole', 'part' can't exist.</p>
+</td>
+</tr>
+</table>
 		*/}.toString().slice(14,-3)
 	},
 	{
