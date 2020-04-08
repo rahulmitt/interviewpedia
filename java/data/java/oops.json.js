@@ -37,10 +37,14 @@ var oops_ans = [
 	{   /* UML Association vs Aggregation vs Composition */
 		"text" : function(){/*
 <h1>Association Vs Aggregation Vs Composition Vs Inheritance</h1>
-<p style="text-align: justify;">Consider the classes of the following objects: pets, dogs, tails, owners.</p>
+<p style="text-align: justify;">Consider the classes of the following objects: Pets, Dogs, Tails, Owners.</p>
 <table>
+
 <tr>
-<td style="vertical-align: top;"><img src="data/java/images/oops/1.association_aggregation_composition.png" alt="" width="250" height="200"/></td>
+<td style="vertical-align: top;">
+<img src="data/java/images/oops/1.association_aggregation_composition.png" alt="" width="250" height="200"/>
+</td>
+
 <td style="vertical-align: top;">
 <p style="text-align: justify;">We see the following relationships:</p>
 <ul>
