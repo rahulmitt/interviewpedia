@@ -8,7 +8,12 @@ var gc_que = [
         question : "Java Memory Architecture",
         tags : ["Java Memory Architecture", "Java Memory Model", "Heap", "Eden", "Survivor", "Tenored", "PermGen",
         "MetaSpace", "JVM Tuning", "Garbage Collection", "GC"]
-    }
+    },
+
+	{
+		question : "Memory Leaks",
+		tags : ["Memory Leaks", "Debugging of Memory Leaks", "OutOfMemoryError", "StackOverflowError"]
+	},
 ]
 
 var gc_ans = [
@@ -348,6 +353,16 @@ usually starting with the region that has less live data, hence "Garbage First".
 </tr>
 </table>
 
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Memory Leaks */
+        "text" : function(){/*
+<h1>Memory Leaks</h1>
+<p style="text-align: justify;">Memory leak in Java is a situation where some objects are not used by application anymore,
+but GC fails to recognize them as unused.</p>
+
+https://dzone.com/articles/java-memory-architecture-model-garbage-collection
         */}.toString().slice(14,-3)
     },
 ]
