@@ -1690,6 +1690,26 @@ These can be found in <strong>java.util.function</strong> package. Some of the p
 <td>Takes no argument</td>
 <td>Returns some value</td>
 </tr>
+
+<tr>
+<td>java.util.function.<strong>BiPredicate</strong>&lt;R&gt;</td>
+<td>boolean test(T t, U u);</td>
+<td>Takes two arguments</td>
+<td>Returns a boolean value</td>
+</tr>
+<tr>
+<td>java.util.function.<strong>BiFunction</strong>&lt;R&gt;</td>
+<td>R apply(T t, U u);</td>
+<td>Takes two arguments</td>
+<td>Returns some value</td>
+</tr>
+<tr>
+<td>java.util.function.<strong>BiConsumer</strong>&lt;R&gt;</td>
+<td>void accept(T t, U u);</td>
+<td>Takes two arguments</td>
+<td>Returns no result</td>
+</tr>
+
 </tbody>
 </table>
         */}.toString().slice(14,-3)
