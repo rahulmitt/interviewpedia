@@ -11,8 +11,18 @@ var gc_que = [
     },
 
 	{
-		question : "Memory Leaks",
-		tags : ["Memory Leaks", "Debugging of Memory Leaks", "OutOfMemoryError", "StackOverflowError"]
+		question : "Memory Leaks & Heap Dump",
+		tags : ["Memory Leaks", "Debugging of Memory Leaks", "OutOfMemoryError", "JMap", "Heap Dump", "JCmd", "JVisualVM"]
+	},
+
+	{
+		question : "JMX Monitoring",
+		tags : ["JMX Monitoring", "JConsole", "JVisualVM"]
+	},
+
+	{
+		question : "Remote Debugging",
+		tags : ["Remote Debugging"]
 	},
 ]
 
@@ -266,7 +276,7 @@ opposite usage is to always tenure, which means to always use the 'old generatio
 <p style="text-align: justify;">The garbage collection that happens here is the major garbage collection (Major GC).
 This is usually triggered when the heap is full or the old generation is full. This is usually a 'Stop-the-World' event
 or thread that takes over to perform the garbage collection. There is another type of GC named full garbage collection
-(Full GC) which involves other memory areas such as the permgen space.</p>
+(Full GC) which involves other memory areas such as the PermGen space.</p>
 
 <p style="text-align: justify;">Other important and interesting flags related to the overall heap are -XX:SurvivorRatio
 and -XX:NewRatio, which specify the eden space to the survivor space ratio and old generation to the new generation ratio.</p>
@@ -356,13 +366,121 @@ usually starting with the region that has less live data, hence "Garbage First".
         */}.toString().slice(14,-3)
     },
 
-    {   /* Memory Leaks */
+    {   /* Memory Leaks & Heap Dump */
         "text" : function(){/*
 <h1>Memory Leaks</h1>
-<p style="text-align: justify;">Memory leak in Java is a situation where some objects are not used by application anymore,
-but GC fails to recognize them as unused.</p>
+<p style="text-align: justify;">A Memory Leak is a situation when an object is no longer used in the program but is still
+referenced somewhere at a location that is not reachable. Thus, the garbage collector cannot delete it. The memory space
+used for this object will not be released and the total memory used for the program will grow. This will degrade
+performances over time and the JVM may run out of memory. In a way, Memory Leak would occur when No Memory can be
+allocated on the Tenured Space.</p>
 
-https://dzone.com/articles/java-memory-architecture-model-garbage-collection
+<p style="text-align: justify;">Some of the most common causes of Memory Leaks are:</p>
+<ol>
+<li>ThreadLocal Variables</li>
+<li>Circular and Complex Bi-Directional References</li>
+<li>JNI Memory Leaks</li>
+<li>Static Fields that are Mutable (Most Common)</li>
+</ol>
+
+<p style="text-align: justify;"><strong>Heap Dumps</strong> are vital artifacts to diagnose memory-related problems such
+as <strong>Memory-Leaks</strong>, <strong>GC issues</strong>, and <strong>java.lang.OutOfMemoryError</strong>. They are
+also vital artifacts to optimize the memory consumption.</p>
+<p>&nbsp;</p>
+
+<h2>Heap Dump generation tools</h2>
+<ol>
+<li style="text-align: justify;"><strong>JMap</strong>
+<p style="text-align: justify;">JMap print heap dumps into specified file location.</p>
+<p style="text-align: justify;">This tool is packaged within JDK and
+can be found at <strong>C:/Program Files/Java/jdk1.8.0_25/bin/</strong></p>
+<table>
+    <tr>
+        <td><strong>COMMAND</strong></td>
+        <td>jmap -dump:[live,]format=b,file=&lt;heap dump path&gt; &lt;pid&gt;</td>
+    </tr>
+
+    <tr>
+        <td><strong>EXAMPLE</strong></td>
+        <td>jmap -dump:live,format=b,file=/opt/tmp/heapdump.bin 37320</td>
+    </tr>
+</table>
+
+<p style="text-align: justify;">If <strong>live</strong> option is passed, then only live objects in the memory are
+written into the heap dump file. If this option is not passed, all the objects, even the ones which are ready to be
+garbage collected are printed in the heap dump file.</p>
+<p style="text-align: justify;"><a href="https://docs.oracle.com/javase/7/docs/technotes/tools/share/jmap.html"
+target="_blank">JMap Documentation</a></p>
+</li>
+<p>&nbsp;</p>
+
+<li style="text-align: justify;"><strong>HeapDumpOnOutOfMemoryError</strong>
+<p style="text-align: justify;">When an application experience <strong>java.lang.OutOfMemoryError</strong>, it’s ideal to
+capture heap dump right at that point to diagnose the problem because you would want to know what objects were sitting in
+memory and what percentage of memory they were occupying when <strong>java.lang.OutOfMemoryError</strong> occurred.</p>
+
+<p style="text-align: justify;">If this option is used, JVM will capture heap dumps right at the point when JVM experiences
+<strong>java.lang.OutOfMemoryError</strong></p>
+
+<table>
+    <tr>
+        <td><strong>JVM OPTION</strong></td>
+        <td>-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=&lt;heap dump path&gt;</td>
+    </tr>
+
+    <tr>
+        <td><strong>EXAMPLE</strong></td>
+        <td>-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/opt/tmp/heapdump.bin</td>
+    </tr>
+</table>
+
+</li>
+<p>&nbsp;</p>
+
+<li style="text-align: justify;"><strong>JCmd</strong>
+<p style="text-align: justify;">JCmd tool is used to send diagnostic command requests to the JVM.</p>
+<p style="text-align: justify;">This tool is packaged within JDK and
+can be found at <strong>C:/Program Files/Java/jdk1.8.0_25/bin/</strong></p>
+<table>
+    <tr>
+        <td><strong>COMMAND</strong></td>
+        <td>jcmd &lt;pid&gt; GC.heap_dump &lt;heap dump path&gt;</td>
+    </tr>
+
+    <tr>
+        <td><strong>EXAMPLE</strong></td>
+        <td>jcmd 37320 GC.heap_dump /opt/tmp/heapdump.bin</td>
+    </tr>
+</table>
+<p>&nbsp;<a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jcmd.html" target="_blank">JCmd Documentation</a></p>
+<p>&nbsp;<a href="https://dzone.com/articles/jcmd-one-jdk-command-line-tool-to-rule-them-all" target="_blank">JCmd: One
+Jdk Command-Line Tool to Rule Them All</a></p>
+</li>
+<p>&nbsp;</p>
+
+<li style="text-align: justify;"><strong>JVisualVM</strong>
+<p style="text-align: justify;">JVisualVM is a monitoring, troubleshooting tool that is packaged within the JDK. When you
+launch this tool, you can see all the Java processes that are running on the local machine. You can also connect to java
+process running on remote machine using this tool.</p>
+<p style="text-align: justify;">This tool is packaged within JDK and
+can be found at <strong>C:/Program Files/Java/jdk1.8.0_25/bin/</strong></p>
+<img src="data/java/images/gc/3.JVisualVM.png" alt="" />
+</li>
+</ol>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* JMX Monitoring */
+        "text" : function(){/*
+<h1>JMX Monitoring</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Remote Debugging */
+        "text" : function(){/*
+<h1>Remote Debugging</h1>
+<p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 ]
