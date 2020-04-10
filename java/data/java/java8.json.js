@@ -1,5 +1,10 @@
 var java8_que = [
     {
+        question : "What's new in Java 8",
+        tags : ["What's new?", "Java 8"]
+    },
+
+    {
         question : "Lambda Expressions",
         tags : ["Lambda Expressions"]
     },
@@ -102,6 +107,13 @@ var java8_que = [
 ]
 
 var java8_ans = [
+    {   /* What's new? */
+        "text" : function(){/*
+<h1>What's new in Java 8?</h1>
+<p><img src="data/java/images/java8/1.java-8-features.png" alt="" width="800"/></p>
+        */}.toString().slice(14,-3)
+    },
+
     {   /* Lambda Expressions */
         "text" : function(){/*
 <h1>Lambda Expressions</h1>

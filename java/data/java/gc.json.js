@@ -473,6 +473,9 @@ can be found at <strong>C:/Program Files/Java/jdk1.8.0_25/bin/</strong></p>
     {   /* JMX Monitoring */
         "text" : function(){/*
 <h1>JMX Monitoring</h1>
+
+https://stackoverflow.com/questions/22280229/how-to-monitor-a-java-program-using-jconsole<br/>
+https://www.cleantutorials.com/jconsole
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
