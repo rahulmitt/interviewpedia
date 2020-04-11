@@ -80,6 +80,23 @@ var java8_que = [
     },
 
     {
+        question : "Primitive Type Functional Interfaces",
+        tags : ["Predefined Functional Interfaces", "Primitive Type Functional Interfaces",
+
+        "Primitive Predicates", "IntPredicate", "LongPredicate", "DoublePredicate",
+
+        "Primitive Functions", "IntFunction", "LongFunction", "DoubleFunction", "ToIntFunction", "ToLongFunction",
+        "ToDoubleFunction", "IntToLongFunction", "IntToDoubleFunction", "LongToIntFunction", "LongToDoubleFunction",
+        "DoubleToIntFunction", "DoubleToLongFunction", "ToIntBiFunction", "ToLongBiFunction", "ToDoubleBiFunction",
+
+        "Primitive Consumers", "IntConsumer", "LongConsumer", "DoubleConsumer", "ObjIntConsumer", "ObjLongConsumer", "ObjDoubleConsumer",
+
+        "Primitive Suppliers", "BooleanSupplier", "IntSupplier", "LongSupplier", "DoubleSupplier"
+
+        ]
+    },
+
+    {
         question : "BinaryOperator Interface",
         tags : ["Predefined Functional Interfaces", "BinaryOperator"]
     },
@@ -2498,6 +2515,511 @@ public class BiConsumerDemo {
     }
 }
 </pre>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Primitive Type Functional Interfaces */
+        "text" : function(){/*
+<h1>Primitive Type Functional Interfaces</h1>
+<h2>Primitive Predicates</h2>
+<p style="text-align: justify;"><strong>java.util.function.IntPredicate</strong> represents a predicate (boolean-valued
+function) of one 'int'-valued argument. This is the 'int'-consuming primitive type specialization of 'Predicate'.</p>
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+
+@FunctionalInterface
+public interface IntPredicate {
+
+     // Evaluates this predicate on the given argument.
+    boolean test(int value);
+
+     // Returns a composed predicate that represents a short-circuiting logical-AND of this predicate and another. When
+     // evaluating the composed predicate, if this predicate is 'false', then the 'other' predicate is not evaluated.
+    default IntPredicate and(IntPredicate other) {
+        Objects.requireNonNull(other);
+        return (value) -> test(value) && other.test(value);
+    }
+
+     // Returns a predicate that represents the logical negation of this predicate.
+    default IntPredicate negate() {
+        return (value) -> !test(value);
+    }
+
+     // Returns a composed predicate that represents a short-circuiting logical-OR of this predicate and another. When
+     // evaluating the composed predicate, if this predicate is 'true', then the 'other' predicate is not evaluated.
+    default IntPredicate or(IntPredicate other) {
+        Objects.requireNonNull(other);
+        return (value) -> test(value) || other.test(value);
+    }
+}
+</pre>
+
+<p style="text-align: justify;"><strong>java.util.function.Predicate</strong> interface always works on Object type params.
+If a primitive type value is passed, it is autoboxed into Wrapper classes in order to use this interface:</p>
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;">Using <strong>java.util.function.Predicate</strong> Interface</td>
+<td style="vertical-align: top; text-align: center;">Using <strong>java.util.function.IntPredicate</strong> Interface</td>
+</tr>
+
+<tr>
+<td>
+<pre>
+import java.util.function.Predicate;
+
+public class PredicateDemo {
+    static final Predicate<Integer> evenChecker =
+                    i -> i % 2 == 0;
+
+    public static void main(String[] args) {
+        int[] inputArr = {1, 2, 3, 4, 5};
+        for (int x : inputArr) {
+            if (evenChecker.test(x)) {
+                System.out.print(x + ", ");
+            }
+        }
+    }
+}
+</pre>
+</td>
+
+<td>
+<pre>
+import java.util.function.IntPredicate;
+
+public class IntPredicateDemo {
+    static final IntPredicate evenChecker =
+                    i -> i % 2 == 0;
+
+    public static void main(String[] args) {
+        int[] inputArr = {1, 2, 3, 4, 5};
+        for (int x : inputArr) {
+            if (evenChecker.test(x)) {
+                System.out.print(x + ", ");
+            }
+        }
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;"><strong>Primitive type functional interfaces (Predicate)</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Single Abstract Method</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Description</strong></td>
+</tr>
+
+<tr>
+<td>java.util.function.IntPredicate</td>
+<td>boolean test(int value);</td>
+<td>int-consuming primitive type specialization of Predicate</td>
+</tr>
+
+<tr>
+<td>java.util.function.LongPredicate</td>
+<td>boolean test(long value);</td>
+<td>long-consuming primitive type specialization of Predicate</td>
+</tr>
+
+<tr>
+<td>java.util.function.DoublePredicate</td>
+<td>boolean test(double value);</td>
+<td>double-consuming primitive type specialization of Predicate</td>
+</tr>
+
+</table>
+
+<h2>Primitive Functions</h2>
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;"><strong>java.util.function.IntFunction</strong> Interface</td>
+<td style="vertical-align: top; text-align: center;"><strong>java.util.function.ToIntFunction</strong> Interface</td>
+</tr>
+
+<tr>
+<td>Represents a function that accepts an int-valued argument and produces a result. This is the int-consuming primitive specialization for 'Function'</td>
+<td>Represents a function that produces an int-valued result. This is the int-producing primitive specialization for 'Function'</td>
+</tr>
+
+<tr>
+<td>
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface IntFunction&lt;R&gt; {
+     // Applies this function to the given argument.
+    R apply(int value);
+}
+</pre>
+</td>
+
+<td>
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface ToIntFunction&lt;T&gt; {
+     // Applies this function to the given argument.
+    int applyAsInt(T value);
+}
+</pre>
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;"><strong>Primitive type functional interfaces (Function)</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Single Abstract Method</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Description</strong></td>
+</tr>
+
+<tr>
+<td>java.util.function.IntFunction&lt;R&gt;</td>
+<td>R apply(int value);</td>
+<td>Accepts an int and produces a result</td>
+</tr>
+
+<tr>
+<td>java.util.function.LongFunction&lt;R&gt;</td>
+<td>R apply(long value);</td>
+<td>Accepts a long and produces a result</td>
+</tr>
+
+<tr>
+<td>java.util.function.DoubleFunction&lt;R&gt;</td>
+<td>R apply(double value);</td>
+<td>Accepts a double and produces a result</td>
+</tr>
+
+<tr>
+<td>java.util.function.ToIntFunction&lt;T&gt;</td>
+<td>int applyAsInt(T value);</td>
+<td>Produces an int-valued result</td>
+</tr>
+
+<tr>
+<td>java.util.function.ToLongFunction&lt;T&gt;</td>
+<td>long applyAsLong(T value);</td>
+<td>Produces a long-valued result</td>
+</tr>
+
+<tr>
+<td>java.util.function.ToDoubleFunction&lt;T&gt;</td>
+<td>long applyAsDouble(T value);</td>
+<td>Produces a double-valued result</td>
+</tr>
+
+<tr>
+<td>java.util.function.IntToLongFunction</td>
+<td>long applyAsLong(int value);</td>
+<td>Accepts an int and produces a long</td>
+</tr>
+
+<tr>
+<td>java.util.function.IntToDoubleFunction</td>
+<td>double applyAsDouble(int value);</td>
+<td>Accepts an int and produces a double</td>
+</tr>
+
+<tr>
+<td>java.util.function.LongToIntFunction</td>
+<td>int applyAsInt(long value);</td>
+<td>Accepts a long and produces an int</td>
+</tr>
+
+<tr>
+<td>java.util.function.LongToDoubleFunction</td>
+<td>double applyAsDouble(long value);</td>
+<td>Accepts a long and produces a double</td>
+</tr>
+
+<tr>
+<td>java.util.function.DoubleToIntFunction</td>
+<td>int applyAsInt(double value);</td>
+<td>Accepts a double and produces an int</td>
+</tr>
+
+<tr>
+<td>java.util.function.DoubleToLongFunction</td>
+<td>long applyAsLong(double value);</td>
+<td>Accepts a double and produces a long</td>
+</tr>
+
+<tr>
+<td>java.util.function.ToIntBiFunction&lt;T&gt;&lt;U&gt;</td>
+<td>int applyAsInt(T t, U u);</td>
+<td>Accepts two arguments and produces an int result</td>
+</tr>
+
+<tr>
+<td>java.util.function.ToLongBiFunction&lt;T&gt;&lt;U&gt;</td>
+<td>long applyAsLong(T t, U u);</td>
+<td>Accepts two arguments and produces a long result</td>
+</tr>
+
+<tr>
+<td>java.util.function.ToDoubleBiFunction&lt;T&gt;&lt;U&gt;</td>
+<td>double applyAsDouble(T t, U u);</td>
+<td>Accepts two arguments and produces a double result</td>
+</tr>
+</table>
+
+<h2>Primitive Consumers</h2>
+
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;"><strong>java.util.function.IntConsumer</strong> Interface</td>
+<td style="vertical-align: top; text-align: center;"><strong>java.util.function.ObjIntConsumer</strong> Interface</td>
+</tr>
+
+<tr>
+<td>Represents an operation that accepts a single int-valued argument and returns no result</td>
+<td>Represents an operation that accepts an object-valued and a int-valued argument, and returns no result.</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+
+@FunctionalInterface
+public interface IntConsumer {
+
+    // Performs this operation on the given argument.
+    void accept(int value);
+
+    // Returns a composed 'IntConsumer' that
+    // performs, in sequence, this operation
+    // followed by the 'after' operation.
+    default IntConsumer andThen(IntConsumer after) {
+        Objects.requireNonNull(after);
+        return (int t) -> {
+            accept(t);
+            after.accept(t);
+        };
+    }
+}
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface ObjIntConsumer&lt;T&gt; {
+     // Performs this operation on the
+     // given arguments.
+    void accept(T t, int value);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</td>
+</tr>
+</table>
+
+<p style="text-align: justify;"><strong>java.util.function.Consumer</strong> interface always works on Object type params.
+If a primitive type value is passed, it is autoboxed into Wrapper classes in order to use this interface. Similarly,
+<strong>java.util.function.BiConsumer<Employee, Integer></strong> interface would work on <strong>Employee</strong> object
+and an <strong>Integer</strong> object — again a wrapper class, so autoboxing is involved.</p>
+
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;">Using <strong>java.util.function.IntConsumer</strong> Interface</td>
+<td style="vertical-align: top; text-align: center;">Using <strong>java.util.function.ObjIntConsumer</strong> Interface</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<pre>
+import java.util.function.IntConsumer;
+
+public class IntConsumerDemo {
+    static IntConsumer squarePrinter =
+            i -> System.out.println(i * i);
+
+    public static void main(String[] args) {
+        squarePrinter.accept(10);   // prints 100
+        squarePrinter.accept(20);   // prints 400
+    }
+}
+
+
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+import java.util.function.ObjIntConsumer;
+
+public class ObjIntConsumerDemo {
+    static ObjIntConsumer<Employee> salaryincrement =
+            (e, i) -> e.setSalary(e.getSalary() + i);
+
+    public static void main(String[] args) {
+        Employee e = new Employee("Foo", 1000);
+        System.out.println(e);
+        salaryincrement.accept(e, 100);
+        System.out.println(e);
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;"><strong>Primitive type functional interfaces (Consumer)</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Single Abstract Method</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Description</strong></td>
+</tr>
+
+<tr>
+<td>java.util.function.IntConsumer</td>
+<td>void accept(int value);</td>
+<td>Accepts an int and returns nothing</td>
+</tr>
+
+<tr>
+<td>java.util.function.LongConsumer</td>
+<td>void accept(long value);</td>
+<td>Accepts a long and returns nothing</td>
+</tr>
+
+<tr>
+<td>java.util.function.DoubleConsumer</td>
+<td>void accept(double value);</td>
+<td>Accepts a double and returns nothing</td>
+</tr>
+
+<tr>
+<td>java.util.function.ObjIntConsumer&lt;T&gt;</td>
+<td>void accept(T t, int value);</td>
+<td>Accepts an object and an int and returns nothing</td>
+</tr>
+
+<tr>
+<td>java.util.function.ObjLongConsumer&lt;T&gt;</td>
+<td>void accept(T t, long value);</td>
+<td>Accepts an object and a long and returns nothing</td>
+</tr>
+
+<tr>
+<td>java.util.function.ObjDoubleConsumer&lt;T&gt;</td>
+<td>void accept(T t, double value);</td>
+<td>Accepts an object and a double and returns nothing</td>
+</tr>
+</table>
+
+<h2>Primitive Suppliers</h2>
+
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;"><strong>java.util.function.Supplier</strong> Interface</td>
+<td style="vertical-align: top; text-align: center;"><strong>java.util.function.IntSupplier</strong> Interface</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<pre>
+package java.util.function;
+
+// Represents a supplier of results.
+@FunctionalInterface
+public interface Supplier&lt;R&gt; {
+    R get();
+}
+
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+package java.util.function;
+
+// Represents a supplier of int result
+@FunctionalInterface
+public interface IntSupplier {
+    int getAsInt();
+}
+
+</pre>
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<pre>
+import java.util.function.IntSupplier;
+
+public class IntSupplierDemo {
+    static IntSupplier randomNumber = () -> (int) (Math.random() * 10);
+
+    public static void main(String[] args) {
+        System.out.println(randomNumber.getAsInt());        // prints a random number between 0 to 9
+        System.out.println(randomNumber.getAsInt());        // prints a random number between 0 to 9
+        System.out.println(randomNumber.getAsInt());        // prints a random number between 0 to 9
+        System.out.println(randomNumber.getAsInt());        // prints a random number between 0 to 9
+        System.out.println(randomNumber.getAsInt());        // prints a random number between 0 to 9
+    }
+}
+</pre>
+
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;"><strong>Primitive type functional interfaces (Supplier)</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Single Abstract Method</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Description</strong></td>
+</tr>
+
+<tr>
+<td>java.util.function.BooleanSupplier</td>
+<td>boolean getAsBoolean();</td>
+<td>Represents a supplier of boolean-valued results</td>
+</tr>
+
+<tr>
+<td>java.util.function.IntSupplier</td>
+<td>boolean getAsInt();</td>
+<td>Represents a supplier of int-valued results</td>
+</tr>
+
+<tr>
+<td>java.util.function.LongSupplier</td>
+<td>boolean getAsLong();</td>
+<td>Represents a supplier of long-valued results</td>
+</tr>
+
+<tr>
+<td>java.util.function.DoubleSupplier</td>
+<td>boolean getAsDouble();</td>
+<td>Represents a supplier of double-valued results</td>
+</tr>
+</table>
         */}.toString().slice(14,-3)
     },
 
