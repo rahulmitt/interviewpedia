@@ -97,13 +97,13 @@ var java8_que = [
     },
 
     {
-        question : "BinaryOperator Interface",
-        tags : ["Predefined Functional Interfaces", "BinaryOperator"]
+        question : "UnaryOperator Interface",
+        tags : ["Predefined Functional Interfaces", "UnaryOperator", "IntUnaryOperator", "LongUnaryOperator", "DoubleUnaryOperator"]
     },
 
     {
-        question : "UnaryOperator Interface",
-        tags : ["Predefined Functional Interfaces", "UnaryOperator"]
+        question : "BinaryOperator Interface",
+        tags : ["Predefined Functional Interfaces", "BinaryOperator"]
     },
 
     {
@@ -3023,16 +3023,143 @@ public class IntSupplierDemo {
         */}.toString().slice(14,-3)
     },
 
-    {   /* BinaryOperator Interface */
-        "text" : function(){/*
-<h1>BinaryOperator Interface</h1>
-<p style="text-align: justify;">TODO</p>
-        */}.toString().slice(14,-3)
-    },
-
     {   /* UnaryOperator Interface */
         "text" : function(){/*
 <h1>UnaryOperator Interface</h1>
+<p style="text-align: justify;">When an <strong>input</strong> and the <strong>result</strong> of a function are of same
+type, then we should use <strong>UnaryOperator</strong> Interface. This interface represents an operation on a single
+operand, and produces a result of the same type as its operand.</p>
+
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface UnaryOperator&lt;T&gt; extends Function&lt;T, T&gt; {
+
+    // Returns a unary operator that always returns its input argument.
+    static &lt;T&gt; UnaryOperator&lt;T&gt; identity() {
+        return t -&gt; t;
+    }
+}
+</pre>
+
+<p style="text-align: justify;"><strong>UnaryOperator</strong> <i>is-a</i> <strong>Function</strong>, so it inherits
+<strong>R apply(T t);</strong> method from its parent interface.</p>
+
+<table>
+<tr>
+    <td style="vertical-align: top; text-align: center;"<strong>Function</strong> Interface</td>
+    <td style="vertical-align: top; text-align: center;"><strong>UnaryOperator</strong> Interface</td>
+</tr>
+
+<tr>
+<td>
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface Function&lt;T, R<&gt; {
+
+    R apply(T t);
+
+    // more code goes here
+}
+</pre>
+</td>
+
+<td>
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface UnaryOperator&lt;T&gt;
+    extends Function&lt;T, T&gt; {
+
+    T apply(T t); // effective signature
+
+    // more code goes here
+}
+</pre>
+</td>
+</tr>
+</table>
+
+<p>Example #1:</p>
+
+<table>
+<tr>
+    <td style="vertical-align: top; text-align: center;">Using <strong>Function</strong> Interface</td>
+    <td style="vertical-align: top; text-align: center;">Using <strong>UnaryOperator</strong> Interface</td>
+</tr>
+
+<tr>
+<td>
+<pre>
+import java.util.function.Function;
+
+public class FunctionDemo {
+    static Function&lt;Integer, Integer&gt; sqFunction =
+        i -&gt; i * i;
+
+    public static void main(String[] args) {
+        System.out.println(sqFunction.apply(10));
+    }
+}
+</pre>
+</td>
+
+<td>
+<pre>
+import java.util.function.UnaryOperator;
+
+public class UnaryOperatorDemo {
+    static UnaryOperator&lt;Integer&gt; sqOperator =
+        i -&gt; i * i;
+
+    public static void main(String[] args) {
+        System.out.println(sqOperator.apply(10));
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+<p style="text-align: justify;">If the input and result are primitives than we can use the primitive type functional
+interfaces for UnaryOperator</p>
+
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;" width=90px><strong>Primitive type functional interfaces (UnaryOperator)</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Single Abstract Method</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Description</strong></td>
+</tr>
+
+<tr>
+<td>java.util.function.<strong>IntUnaryOperator</strong></td>
+<td>int applyAs<strong>Int</strong>(int operand);</td>
+<td>Represents an operation on an int that produces an int</td>
+</tr>
+
+<tr>
+<td>java.util.function.<strong>LongUnaryOperator</strong></td>
+<td>int applyAs<strong>Long</strong>(long operand);</td>
+<td>Represents an operation on a long that produces a long</td>
+</tr>
+
+<tr>
+<td>java.util.function.<strong>DoubleUnaryOperator</strong></td>
+<td>int applyAs<strong>Double</strong>(double operand);</td>
+<td>Represents an operation on a double that produces a double</td>
+</tr>
+
+</table>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* BinaryOperator Interface */
+        "text" : function(){/*
+<h1>BinaryOperator Interface</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
