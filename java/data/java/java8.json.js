@@ -107,6 +107,11 @@ var java8_que = [
     },
 
     {
+        question : "Optional",
+        tags : ["Optional"]
+    },
+
+    {
         question : "Method & Constructor reference using double-colon (::) operator",
         tags : ["Method reference", "Constructor reference", "Double Colon"]
     },
@@ -3048,7 +3053,7 @@ public interface UnaryOperator&lt;T&gt; extends Function&lt;T, T&gt; {
 
 <table>
 <tr>
-    <td style="vertical-align: top; text-align: center;"<strong>Function</strong> Interface</td>
+    <td style="vertical-align: top; text-align: center;"><strong>Function</strong> Interface</td>
     <td style="vertical-align: top; text-align: center;"><strong>UnaryOperator</strong> Interface</td>
 </tr>
 
@@ -3058,7 +3063,7 @@ public interface UnaryOperator&lt;T&gt; extends Function&lt;T, T&gt; {
 package java.util.function;
 
 @FunctionalInterface
-public interface Function&lt;T, R<&gt; {
+public interface Function&lt;T, R&gt; {
 
     R apply(T t);
 
@@ -3126,7 +3131,7 @@ public class UnaryOperatorDemo {
 </table>
 
 <p style="text-align: justify;">If the input and result are primitives than we can use the primitive type functional
-interfaces for UnaryOperator</p>
+interfaces for <strong>UnaryOperator</strong></p>
 
 <table>
 <tr>
@@ -3160,6 +3165,160 @@ interfaces for UnaryOperator</p>
     {   /* BinaryOperator Interface */
         "text" : function(){/*
 <h1>BinaryOperator Interface</h1>
+<p style="text-align: justify;">When both the <strong>inputs</strong> and the <strong>result</strong> of a
+<strong>BiFunction</strong> are of same type, then we should use <strong>BinaryOperator</strong> Interface. This interface
+represents an operation upon two operands of the same type, producing a result of the same type as the operands.</p>
+
+<pre>
+package java.util.function;
+
+import java.util.Objects;
+import java.util.Comparator;
+
+@FunctionalInterface
+public interface BinaryOperator&lt;T&gt; extends BiFunction&lt;T, T, T&gt; {
+
+    // Returns a 'BinaryOperator' which returns the lesser of two elements according to the specified 'Comparator'
+    public static &lt;T&gt; BinaryOperator&lt;T&gt; minBy(Comparator&lt;? super T&gt; comparator) {
+        Objects.requireNonNull(comparator);
+        return (a, b) -&gt; comparator.compare(a, b) &lt;= 0 ? a : b;
+    }
+
+    // Returns a 'BinaryOperator' which returns the greater of two elements according to the specified 'Comparator'
+    public static &lt;T&gt; BinaryOperator&lt;T&gt; maxBy(Comparator&lt;? super T&gt; comparator) {
+        Objects.requireNonNull(comparator);
+        return (a, b) -&gt; comparator.compare(a, b) &gt;= 0 ? a : b;
+    }
+}
+</pre>
+
+<p style="text-align: justify;"><strong>UnaryOperator</strong> <i>is-a</i> <strong>Function</strong>, so it inherits
+<strong>R apply(T t);</strong> method from its parent interface.</p>
+
+<table>
+<tr>
+    <td style="vertical-align: top; text-align: center;"><strong>BiFunction</strong> Interface</td>
+    <td style="vertical-align: top; text-align: center;"><strong>BinaryOperator</strong> Interface</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface BiFunction&lt;T, U, R&gt; {
+    R apply(T t, U u);
+
+    // more code goes here
+}
+
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+package java.util.function;
+
+@FunctionalInterface
+public interface BinaryOperator&lt;T&gt;
+    extends BiFunction&lt;T, T, T&gt; {
+    T apply(T t1, T t2);    // effective signature
+
+    // more code goes here
+}
+</pre>
+</td>
+</tr>
+</table>
+
+<p style="text-align: justify;">Example #1: </p>
+<table>
+<tr>
+    <td style="vertical-align: top; text-align: center;">Using <strong>BiFunction</strong> Interface</td>
+    <td style="vertical-align: top; text-align: center;">Using <strong>BinaryOperator</strong> Interface</td>
+</tr>
+
+<tr>
+<td style="vertical-align: top;">
+<pre>
+import java.util.function.BiFunction;
+
+public class BiFunctionDemo {
+    public static BiFunction&lt;Integer, Integer, Integer&gt
+        sumBiFunction = (a, b) -> a + b;
+
+    public static void main(String[] args) {
+        System.out.println(
+            sumBiFunction.apply(2, 5)
+        );
+
+        System.out.println(
+            sumBiFunction.apply(10, 20)
+        );
+    }
+}
+</pre>
+</td>
+
+<td style="vertical-align: top;">
+<pre>
+import java.util.function.BinaryOperator;
+
+public class BinaryOperatorDemo {
+    static BinaryOperator<Integer>
+        sumOperator = (a, b) -> a + b;
+
+    public static void main(String[] args) {
+        System.out.println(
+            sumOperator.apply(2, 5)
+        );
+
+        System.out.println(
+            sumOperator.apply(10, 20)
+        );
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+<p style="text-align: justify;">If the inputs and result are primitives than we can use the primitive type functional
+interfaces for <strong>BinaryOperator</strong></p>
+<table>
+<tr>
+<td style="vertical-align: top; text-align: center;" width=90px><strong>Primitive type functional interfaces (UnaryOperator)</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Single Abstract Method</strong></td>
+<td style="vertical-align: top; text-align: center;"><strong>Description</strong></td>
+</tr>
+
+<tr>
+<td>java.util.function.<strong>IntBinaryOperator</strong></td>
+<td>int applyAs<strong>Int</strong>(int left, int right);</td>
+<td>Represents an operation on two int that produces an int</td>
+</tr>
+
+<tr>
+<td>java.util.function.<strong>LongBinaryOperator</strong></td>
+<td>int applyAs<strong>Long</strong>(int left, int right);</td>
+<td>Represents an operation on two long that produces a long</td>
+</tr>
+
+<tr>
+<td>java.util.function.<strong>DoubleBinaryOperator</strong></td>
+<td>int applyAs<strong>Double</strong>(int left, int right);</td>
+<td>Represents an operation on two double that produces a double</td>
+</tr>
+
+</table>
+
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Optional */
+        "text" : function(){/*
+<h1>Optional</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
