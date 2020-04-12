@@ -3333,7 +3333,182 @@ interfaces for <strong>BinaryOperator</strong></p>
     {   /* Stream API */
         "text" : function(){/*
 <h1>Stream API</h1>
+<p style="text-align: justify;">A <strong>java.util.Stream</strong> represents a sequence of elements on which one or
+more operations can be performed. Stream operations are either <i>intermediate</i> or <i>terminal</i>. While terminal
+operations return a result of a certain type, intermediate operations return the stream itself so you can chain multiple
+method calls in a row. Streams are created on a source, e.g. a <strong>java.util.Collection</strong> like lists or sets
+(<strong>maps are not supported</strong>). Stream operations can either be executed sequentially or in parallel.</p>
+
+<pre>
+package java.util.stream;
+
+public interface Stream&lt;T&gt; extends BaseStream&lt;T, Stream&lt;T&gt;&gt; {
+
+    // Returns a stream consisting of the elements of this stream that match the given predicate.
+    Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);                           // intermediate op
+
+    // Returns a stream consisting of the results of applying the given function to the elements of this stream.
+    &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);           // intermediate op
+
+    // Returns a stream consisting of the distinct elements of this stream. Uses Object#equals(Object)
+    Stream&lt;T&gt; distinct();                                                             // stateful intermediate op
+
+    // Returns a stream consisting of the elements of this stream, sorted according to natural order.
+    Stream&lt;T&gt; sorted();                                                               // stateful intermediate op
+
+    // Returns a stream consisting of the elements of this stream, sorted according to the provided Comparator.
+    Stream&lt;T&gt; sorted(Comparator&lt;? super T&gt; comparator);                         // stateful intermediate op
+
+    // Returns a stream consisting of the elements of this stream, additionally performing the provided action on each
+    // element as elements are consumed from the resulting stream.
+    Stream&lt;T&gt; peek(Consumer&lt;? super T&gt; action);                                 // intermediate op
+
+    Stream&lt;T&gt; limit(long maxSize);                                    // short-circuiting stateful intermediate op
+
+    Stream&lt;T&gt; skip(long n);                                                           // stateful intermediate op
+
+    void forEach(Consumer&lt;? super T&gt; action);                                         // terminal op
+
+    T reduce(T identity, BinaryOperator&lt;T&gt; accumulator);
+
+    &lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector);
+
+    Optional&lt;T&gt; min(Comparator&lt;? super T&gt; comparator);
+
+    Optional&lt;T&gt; max(Comparator&lt;? super T&gt; comparator);
+
+    long count();
+
+    boolean anyMatch(Predicate&lt;? super T&gt; predicate);
+
+    boolean allMatch(Predicate&lt;? super T&gt; predicate);
+
+    boolean noneMatch(Predicate&lt;? super T&gt; predicate);
+
+    Optional&lt;T&gt; findFirst();
+
+    Optional&lt;T&gt; findAny();
+
+    // more code goes here
+}
+</pre>
+
+<p style="text-align: justify;"><strong>java.util.Collection</strong> in Java 8 are extended so you can simply create
+streams either by calling <strong>Collection.stream()</strong> or <strong>Collection.parallelStream()</strong>.</p>
+
+<pre>
+package java.util;
+
+public interface Collection&lt;E&gt; extends Iterable&lt;E&gt; {
+
+    // more code goes here
+
+    // Returns a sequential Stream with this collection as its source.
+    default Stream&lt;E&gt; stream() {
+        return StreamSupport.stream(spliterator(), false);
+    }
+
+    // Returns a possibly parallel Stream with this collection as its source.
+    // It is allowable for this method to return a sequential stream.
+    default Stream&lt;E&gt; parallelStream() {
+        return StreamSupport.stream(spliterator(), true);
+    }
+
+    @Override       // inherited from java.lang.Iterable
+    default Spliterator<E> spliterator() {
+        // java.util.SplitIterator traverses and partitions elements of a source to achieve parallelism
+        return Spliterators.spliterator(this, 0);
+    }
+}
+</pre>
+
+<p style="text-align: justify;">Following are the most common stream operations:</p>
+
+<h2>Filter</h2>
+<p style="text-align: justify;"><strong>Filter</strong> accepts a <strong>Predicate</strong> to filter all elements of
+the stream. This operation is <i>intermediate</i> which enables us to call another stream operation (<strong>forEach</strong>)
+on the result. <strong>ForEach</strong> accepts a <strong>Consumer</strong> to be executed for each element in the
+filtered stream. <strong>ForEach</strong> is a terminal operation. It's <strong>void</strong>, so we cannot call another
+stream operation.</p>
+
+<pre>
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; stringList = Arrays.asList("foo", "bar", "baz", "qux", "quux", "quuz", "corge", "grault");
+
+        stringList
+                .stream()
+                .filter(s -> s.startsWith("b"))
+                .forEach(s -> System.out.print(s + ", "));      //prints "bar, baz, "
+    }
+}
+</pre>
+
+<h2>Sorted</h2>
+<p style="text-align: justify;">Sorted is an <i>intermediate</i> operation which returns a sorted view of the stream.
+The elements are sorted in natural order unless you pass a custom <strong>Comparator</strong>.</p>
+
+<pre>
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; stringList = Arrays.asList("foo", "bar", "baz", "qux", "quux", "quuz", "corge", "grault");
+
+        stringList
+                .stream()
+                .sorted()                                      // (1)
+//                .sorted((s1, s2) -> s1.compareTo(s2))        // (2)
+                .filter(s -> s.startsWith("b"))
+                .forEach(s -> System.out.print(s + ", "));     // prints "bar, baz, "
+
+        System.out.println(stringList);                        // prints [foo, bar, baz, qux, quux, quuz, corge, grault]
+    }
+}
+</pre>
+<p style="text-align: justify;">Note that (1) or (2) above does only create a sorted view of the stream without manipulating
+the ordering of the backed collection. Hence, the ordering of <strong>stringList</strong> remains untouched.</p>
+
+<h2>Map</h2>
+<p style="text-align: justify;">The <i>intermediate</i> operation <strong>map()</strong> converts each element into another object via the
+given <strong>Function</strong>. The following example converts each string into uppercase:</p>
+
+<pre>
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; stringList = Arrays.asList("foo", "bar", "baz", "qux", "quux", "quuz", "corge", "grault");
+
+        stringList
+                .stream()
+                .map(s -> s.toUpperCase())                  // takes a Function for transformation
+                .sorted((s1, s2) -> s1.compareTo(s2))
+                .forEach(s -> System.out.print(s + ", "));  //prints "BAR, BAZ, CORGE, FOO, GRAULT, QUUX, QUUZ, QUX, "
+    }
+}
+</pre>
+
+<p style="text-align: justify;">But you can also use map to transform each object into another type. The generic type of
+the resulting stream depends on the generic type of the <strong>Function</strong> you pass to <strong>map()</strong>.</p>
+
+
+
+<h2>Match</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Count</h2>
+<p style="text-align: justify;">TODO</p>
+
+<h2>Reduce</h2>
+<p style="text-align: justify;">TODO</p>
+
+
         */}.toString().slice(14,-3)
     },
 
