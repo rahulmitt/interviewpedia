@@ -3571,35 +3571,35 @@ takes to sort a stream of this collection.<p>
 <pre>
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamDemo {
     public static void main(String[] args) {
         int tenMillion = 10000000;
-        List<Integer> intList = new ArrayList<>(tenMillion);
-        for (int i = 0; i < tenMillion; i++) intList.add((int) (Math.random() * 10000));
-
+        List&lt;Integer&gt; intList = new ArrayList&lt;&gt;(tenMillion);
+        for (int i = 0; i &lt; tenMillion; i++) intList.add((int) (Math.random() * 10000));
         sortUsingSequentialStream(intList);
         sortUsingParallelStream(intList);
     }
 
-    static void sortUsingSequentialStream(List<Integer> intList) {
+    static void sortUsingSequentialStream(List&lt;Integer&gt; intList) {
         long start = System.currentTimeMillis();
-        intList.stream().sorted().count();
+        List&lt;Integer&gt; sortedList = intList.stream().sorted().collect(Collectors.toList());
         long end = System.currentTimeMillis();
-        System.out.println(String.format("Time Taken %d ms", end - start));     // prints "Time Taken 7515 ms"
+        System.out.println(String.format("Time Taken %d ms", end - start));     // prints "Time Taken 8437 ms"
     }
 
-    static void sortUsingParallelStream(List<Integer> intList) {
+    static void sortUsingParallelStream(List&lt;Integer&gt; intList) {
         long start = System.currentTimeMillis();
-        intList.parallelStream().sorted().count();
+        List&lt;Integer&gt; sortedList = intList.parallelStream().sorted().collect(Collectors.toList());
         long end = System.currentTimeMillis();
-        System.out.println(String.format("Time Taken %d ms", end - start));     // prints "Time Taken 2844 ms"
+        System.out.println(String.format("Time Taken %d ms", end - start));     // prints "Time Taken 4234 ms"
     }
 }
 </pre>
 
 <p style="text-align: justify;">As you can see both code snippets are almost identical but the parallel sort is roughly
-3 times faster. All you have to do is change <code>stream()</code> to <code>parallelStream()</code>.
+twice as fast. All you have to do is change <code>stream()</code> to <code>parallelStream()</code>.
 
 <h2>Maps</h2>
 <p style="text-align: justify;">Since maps do not directly support streams, there's no <code>stream()</code> method available
