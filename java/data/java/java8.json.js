@@ -3326,6 +3326,7 @@ interfaces for <strong>BinaryOperator</strong></p>
     {   /* Method & Constructor reference using double-colon (::) operator */
         "text" : function(){/*
 <h1>Method & Constructor reference using double-colon (::) operator</h1>
+https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
@@ -3334,60 +3335,62 @@ interfaces for <strong>BinaryOperator</strong></p>
         "text" : function(){/*
 <h1>Stream API</h1>
 <p style="text-align: justify;">A <strong>java.util.Stream</strong> represents a sequence of elements on which one or
-more operations can be performed. Stream operations are either <i>intermediate</i> or <i>terminal</i>. While terminal
-operations return a result of a certain type, intermediate operations return the stream itself so you can chain multiple
-method calls in a row. Streams are created on a source, e.g. a <strong>java.util.Collection</strong> like lists or sets
-(<strong>maps are not supported</strong>). Stream operations can either be executed sequentially or in parallel.</p>
+more operations can be performed. Stream operations are either <strong>Intermediate</strong> or <strong>Terminal</strong>
+— while <i>terminal operations</i> return a result of a certain type, <i>intermediate operations</i> return the stream
+itself so you can chain multiple method-calls in a row. Streams are created on a source, e.g. a <strong>java.util.Collection</strong>
+like lists or sets (<strong>maps are not supported</strong>). Stream operations can either be executed sequentially or in parallel.</p>
 
 <pre>
 package java.util.stream;
 
 public interface Stream&lt;T&gt; extends BaseStream&lt;T, Stream&lt;T&gt;&gt; {
 
-    // Returns a stream consisting of the elements of this stream that match the given predicate.
-    Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);                           // intermediate op
+    // Returns a stream consisting of the elements
+    // of this stream that match the given predicate.
+    Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);                       // intermediate operation
 
-    // Returns a stream consisting of the results of applying the given function to the elements of this stream.
-    &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);           // intermediate op
+    // Returns a stream consisting of the elements of
+    // this stream, sorted according to natural order.
+    Stream&lt;T&gt; sorted();                                                     // stateful intermediate operation
 
-    // Returns a stream consisting of the distinct elements of this stream. Uses Object#equals(Object)
-    Stream&lt;T&gt; distinct();                                                             // stateful intermediate op
+    // Returns a stream consisting of the elements of this
+    // stream, sorted according to the provided Comparator.
+    Stream&lt;T&gt; sorted(Comparator&lt;? super T&gt; comparator);                     // stateful intermediate operation
 
-    // Returns a stream consisting of the elements of this stream, sorted according to natural order.
-    Stream&lt;T&gt; sorted();                                                               // stateful intermediate op
+    // Returns a stream consisting of the results of applying
+    // the given function to the elements of this stream.
+    &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);             // intermediate operation
 
-    // Returns a stream consisting of the elements of this stream, sorted according to the provided Comparator.
-    Stream&lt;T&gt; sorted(Comparator&lt;? super T&gt; comparator);                         // stateful intermediate op
-
-    // Returns a stream consisting of the elements of this stream, additionally performing the provided action on each
-    // element as elements are consumed from the resulting stream.
-    Stream&lt;T&gt; peek(Consumer&lt;? super T&gt; action);                                 // intermediate op
-
-    Stream&lt;T&gt; limit(long maxSize);                                    // short-circuiting stateful intermediate op
-
-    Stream&lt;T&gt; skip(long n);                                                           // stateful intermediate op
-
-    void forEach(Consumer&lt;? super T&gt; action);                                         // terminal op
-
-    T reduce(T identity, BinaryOperator&lt;T&gt; accumulator);
-
-    &lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector);
-
-    Optional&lt;T&gt; min(Comparator&lt;? super T&gt; comparator);
-
-    Optional&lt;T&gt; max(Comparator&lt;? super T&gt; comparator);
-
-    long count();
-
+    // Returns whether any elements of this stream match the
+    // provided predicate. If the stream is empty then FALSE
+    // is returned and the predicate is not evaluated.
     boolean anyMatch(Predicate&lt;? super T&gt; predicate);
 
+    // Returns whether all elements of this stream match the
+    // provided predicate. If the stream is empty then TRUE
+    // is returned and the predicate is not evaluated.
     boolean allMatch(Predicate&lt;? super T&gt; predicate);
 
+    // Returns whether no elements of this stream match the
+    // provided predicate. If the stream is empty then TRUE
+    // is returned and the predicate is not evaluated.
     boolean noneMatch(Predicate&lt;? super T&gt; predicate);
 
-    Optional&lt;T&gt; findFirst();
+    // Returns the count of elements in this stream
+    long count();
 
-    Optional&lt;T&gt; findAny();
+    Optional<T> reduce(BinaryOperator<T> accumulator);
+
+    // Returns a stream consisting of the distinct elements
+    // of this stream. Uses Object#equals(Object)
+    Stream&lt;T&gt; distinct();                                                   // stateful intermediate operation
+
+    // Performs an action for each element of this stream.
+    void forEach(Consumer&lt;? super T&gt; action);                               // terminal operation
+
+    // Performs a Mutable-Reduction operation on the elements
+    // of this stream using aCollector
+    &lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector);                 // terminal operation
 
     // more code goes here
 }
@@ -3415,7 +3418,7 @@ public interface Collection&lt;E&gt; extends Iterable&lt;E&gt; {
     }
 
     @Override       // inherited from java.lang.Iterable
-    default Spliterator<E> spliterator() {
+    default Spliterator&lt;E&gt; spliterator() {
         // java.util.SplitIterator traverses and partitions elements of a source to achieve parallelism
         return Spliterators.spliterator(this, 0);
     }
@@ -3424,7 +3427,7 @@ public interface Collection&lt;E&gt; extends Iterable&lt;E&gt; {
 
 <p style="text-align: justify;">Following are the most common stream operations:</p>
 
-<h2>Filter</h2>
+<h3>Filter</h3>
 <p style="text-align: justify;"><strong>Filter</strong> accepts a <strong>Predicate</strong> to filter all elements of
 the stream. This operation is <i>intermediate</i> which enables us to call another stream operation (<strong>forEach</strong>)
 on the result. <strong>ForEach</strong> accepts a <strong>Consumer</strong> to be executed for each element in the
@@ -3447,7 +3450,7 @@ public class StreamDemo {
 }
 </pre>
 
-<h2>Sorted</h2>
+<h3>Sorted</h3>
 <p style="text-align: justify;">Sorted is an <i>intermediate</i> operation which returns a sorted view of the stream.
 The elements are sorted in natural order unless you pass a custom <strong>Comparator</strong>.</p>
 
@@ -3473,7 +3476,7 @@ public class StreamDemo {
 <p style="text-align: justify;">Note that (1) or (2) above does only create a sorted view of the stream without manipulating
 the ordering of the backed collection. Hence, the ordering of <strong>stringList</strong> remains untouched.</p>
 
-<h2>Map</h2>
+<h3>Map</h3>
 <p style="text-align: justify;">The <i>intermediate</i> operation <strong>map()</strong> converts each element into another object via the
 given <strong>Function</strong>. The following example converts each string into uppercase:</p>
 
@@ -3499,15 +3502,144 @@ the resulting stream depends on the generic type of the <strong>Function</strong
 
 
 
-<h2>Match</h2>
-<p style="text-align: justify;">TODO</p>
+<h3>Match</h3>
+<p style="text-align: justify;">Various matching operations can be used to check whether a certain predicate matches the
+stream. All of those operations are <i>terminal</i> and return a boolean result.</p>
 
-<h2>Count</h2>
-<p style="text-align: justify;">TODO</p>
+<pre>
+import java.util.Arrays;
+import java.util.List;
 
-<h2>Reduce</h2>
-<p style="text-align: justify;">TODO</p>
+public class StreamDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; stringList = Arrays.asList("foo", "bar", "baz", "qux", "quux", "quuz", "corge", "grault");
 
+        System.out.println("Do all strings start with 'a'? " +
+                stringList.stream().allMatch(s -> s.startsWith("a")));                  // false
+
+        System.out.println("Are there strings starting with 'b'? " +
+                stringList.stream().anyMatch(s -> s.startsWith("b")));                  // true
+
+        System.out.println("None of the strings start with 'z'? " +
+                stringList.stream().noneMatch(s -> s.startsWith("z")));                 // true
+    }
+}
+</pre>
+
+<h3>Count</h3>
+<p style="text-align: justify;">Count is a <i>terminal</i> operation that returns the number of elements in the stream.</p>
+
+<pre>
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; stringList = Arrays.asList("foo", "bar", "baz", "qux", "quux", "quuz", "corge", "grault");
+
+        long count = stringList.stream().filter(s -> s.startsWith("b")).count();
+        System.out.println("Number of strings that start with 'b': " + count);               // prints 2
+    }
+}
+</pre>
+
+<h3>Reduce</h3>
+<p style="text-align: justify;">This <i>terminal</i> operation performs a reduction on the elements of the stream with
+the given function. The result is an <code>Optional</code> holding the reduced value.</p>
+
+<pre>
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; stringList = Arrays.asList("foo", "bar", "baz", "qux", "quux", "quuz", "corge", "grault");
+
+        Optional&lt;String&gt; reducedString = stringList.stream().sorted().reduce((s1, s2) -> s1 + "_" + s2);
+        reducedString.ifPresent(s -> System.out.println(s));     // prints "bar_baz_corge_foo_grault_quux_quuz_qux"
+    }
+}
+</pre>
+
+<h2>Parallel Streams</h2>
+<p style="text-align: justify;">While operations on a <strong>Sequential Stream</strong> are performed using a
+<strong>Single-Thread</strong>, those on a <strong>Parallel Stream</strong> are performed <i>concurrently</i> using
+<strong>multiple threads</strong>. To illustrate this, let's create a large list of unique elements measure the time it
+takes to sort a stream of this collection.<p>
+
+<pre>
+import java.util.ArrayList;
+import java.util.List;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        int tenMillion = 10000000;
+        List<Integer> intList = new ArrayList<>(tenMillion);
+        for (int i = 0; i < tenMillion; i++) intList.add((int) (Math.random() * 10000));
+
+        sortUsingSequentialStream(intList);
+        sortUsingParallelStream(intList);
+    }
+
+    static void sortUsingSequentialStream(List<Integer> intList) {
+        long start = System.currentTimeMillis();
+        intList.stream().sorted().count();
+        long end = System.currentTimeMillis();
+        System.out.println(String.format("Time Taken %d ms", end - start));     // prints "Time Taken 7515 ms"
+    }
+
+    static void sortUsingParallelStream(List<Integer> intList) {
+        long start = System.currentTimeMillis();
+        intList.parallelStream().sorted().count();
+        long end = System.currentTimeMillis();
+        System.out.println(String.format("Time Taken %d ms", end - start));     // prints "Time Taken 2844 ms"
+    }
+}
+</pre>
+
+<p style="text-align: justify;">As you can see both code snippets are almost identical but the parallel sort is roughly
+3 times faster. All you have to do is change <code>stream()</code> to <code>parallelStream()</code>.
+
+<h2>Maps</h2>
+<p style="text-align: justify;">Since maps do not directly support streams, there's no <code>stream()</code> method available
+on the <code>java.util.Map</code> interface itself. However, you can create specialized streams upon the <strong>keys</strong>,
+<strong>values</strong> or <strong>entries</strong> of a map via <code>map.keySet().stream()</code>, <code>map.values().stream()</code>
+and <code>map.entrySet().stream()</code> respectively.</p>
+
+<p style="text-align: justify;">Additionally, maps support various new and useful methods for doing common tasks.</p>
+
+<pre>
+import java.util.HashMap;
+import java.util.Map;
+
+public class StreamDemo {
+    public static void main(String[] args) {
+        Map<Integer, String> map = new HashMap<>();
+
+        for (int i = 0; i < 10; i++) {
+            map.putIfAbsent(i, "val" + i);
+        }
+
+        System.out.println(map);
+        map.computeIfPresent(3, (k, v) -> v + k);                                   // map.get(3); returns "val33"
+        map.computeIfPresent(9, (k, v) -> null);                                    // map.get(9); returns null
+        map.computeIfAbsent(23, num -> "val" + num);                                // map.get(23); returns "val23"
+        map.computeIfAbsent(3, num -> "bam");                                       // map.get(3); returns "val33"
+
+        map.remove(3, "val3");                                                      // map.get(3); returns "val33"
+        map.remove(3, "val33");                                                     // map.get(3); returns null
+        map.getOrDefault(42, "not found");                                          // returns "not found"
+
+        map.merge(9, "val9", (v, newValue) -> v.concat(newValue));                  // map.get(9); returns "val9"
+        map.merge(9, "concat", (v, newValue) -> v.concat(newValue));                // map.get(9); returns "val9concat"
+        System.out.println(map);
+    }
+}
+</pre>
+
+<p style="text-align: justify;">The <code>merge()</code> method either puts the key/value into the map if no entry for the key exists,
+or changes the existing value.</p>
 
         */}.toString().slice(14,-3)
     },
