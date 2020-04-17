@@ -118,7 +118,9 @@ var java8_que = [
 
     {
         question : "Stream API",
-        tags : ["Streams"]
+        tags : ["Streams", "Stream.filter()", "Stream.sorted()", "Stream.map()", "Stream.anyMatch()", "Stream.allMatch()",
+        "Stream.noneMatch()", "Stream.count()", "Stream.reduce()", "Stream.distinct()", "Stream.forEach()",
+        "Stream.collect()", "Stream.toArray()", "Stream.of()", "Sequential Stream", "Parallel Stream"]
     },
 
     {
@@ -3561,6 +3563,14 @@ public class StreamDemo {
     }
 }
 </pre>
+
+<h3>ToArray()</h3>
+<p style="text-align: justify;">TODO</p>
+
+<h3>Stream.of()</h3>
+<p style="text-align: justify;">TODO</p>
+
+<p>&nbsp;</p>
 
 <h2>Parallel Streams</h2>
 <p style="text-align: justify;">While operations on a <strong>Sequential Stream</strong> are performed using a
