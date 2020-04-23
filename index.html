@@ -1,7 +1,5 @@
 <html>
 	<head>
-		<title>Interviewpedia - Java</title>
-
 		<meta name="author" content="Rahul Mittal">
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" href="favicon.ico" type="x-icon">
@@ -10,7 +8,7 @@
 		<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
 		<script type="text/javascript" src="./js/includes.js"></script>
-		
+
 	</head>
 	<script>
 
@@ -47,9 +45,15 @@
 						.css('cursor', 'pointer')
 						.appendTo(p);
 					});
+					document.title = 'Interviewpedia';
 					$("#courseDialog").dialog("open");
 
 				} else {
+					var title = $.grep(courses, function(c, i) {
+					  return ( c.id === course);
+					})[0].name;
+					$("#label").html('<label style="font-size:25px;color:#3b5998;"><b>Interviewpedia</b> - ' + title + '</label>');
+					document.title = 'Interviewpedia - ' + title;
 					$("#courseDialog").dialog("close");
 				}
 
@@ -164,8 +168,8 @@
 	</div>
 		<table width="100%">
 			<tr valign="bottom">
-				<td width="40%" align="left" onclick="doRedirect({});">
-					<label style="font-size:25px;color:#3b5998;"><b>Interviewpedia</b> - Java</label>
+				<td id="label" width="40%" align="left">
+					<label style="font-size:25px;color:#3b5998;"><b>Interviewpedia</b></label>
 				</td>
 				<td width="47%">
 					
