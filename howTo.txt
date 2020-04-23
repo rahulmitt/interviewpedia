@@ -1,5 +1,11 @@
-How to add a new topic:
-1. Go to interviewpedia\java\data\java and add db.json.js (refer test.json.js)
-2. Edit interviewpedia\java\data\java\db.json.js and amend the format of que and ans
-3. Edit interviewpedia\java\data\java\topics.json.js and make an entry for new topic
-4. Edit interviewpedia\java\js\includes.js and make an entry in dataJS
+How to add a new course:
+	1. Create a directory interviewpedia\data\spring and add test.json.js and topics.json.js
+	2. Edit interviewpedia\js\includes.js and add "spring" data js files
+	3. Edit interviewpedia\data\courses.js and add the new course
+	
+How to add a new topic to an existing course:
+	1. Go to interviewpedia\data\java and add db.json.js (refer test.json.js)
+	2. Edit interviewpedia\data\java\db.json.js and amend the format of que and ans
+	3. Edit interviewpedia\data\java\topics.json.js and make an entry for new topic
+	4. Edit interviewpedia\js\includes.js and make an entry in "java" data js
+

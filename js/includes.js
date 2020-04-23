@@ -29,6 +29,10 @@ var ds = [
 	'test.json.js',
 ];
 
+var spring = [
+    'test.json.js',
+];
+
 var systemJS = [
 	'./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js', 
 	'./js/splitter/jquery.splitter-0.14.0.js', 
