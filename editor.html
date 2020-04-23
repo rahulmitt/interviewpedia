@@ -42,25 +42,8 @@
 				});
 
 				if(course == null) {
-					var cList = $('ul.courseList')
-					$.each(courses, function(i)
-					{
-						var p = $('<p/>').appendTo(cList);
-
-						var li = $('<li/>')
-						.text(courses[i].name)
-						.click(function() {
-							doRedirect(
-								{
-									course : eval(courses[i]).id
-								}
-							);
-						})
-						.css('cursor', 'pointer')
-						.appendTo(p);
-					});
 					document.title = 'Interviewpedia';
-					$("#courseDialog").dialog("open");
+					showDialog();
 
 				} else {
 					var title = $.grep(courses, function(c, i) {
@@ -115,6 +98,29 @@
 					});
 				}
 			});
+			
+			function showDialog() {
+				var cList = $('ul.courseList')
+				cList.html("");
+				$.each(courses, function(i)
+				{
+					var p = $('<p/>').appendTo(cList);
+
+					var li = $('<li/>')
+					.text(courses[i].name)
+					.click(function() {
+						doRedirect(
+							{
+								course : eval(courses[i]).id
+							}
+						);
+					})
+					.css('cursor', 'pointer')
+					.appendTo(p);
+				});
+
+				$("#courseDialog").dialog("open");
+			}
 			
 			function doRedirect(params){
 				var url = (window.location != window.parent.location) ? document.referrer: document.location.href;
@@ -203,7 +209,9 @@
 		</div>
 		<table width="100%">
 			<tr valign="bottom">
-				<td id="label" width="40%" align="left"></td>
+				<td id="label" width="40%" align="left" onclick='showDialog();'>
+					<label style="font-size:25px;color:#3b5998;"><b>Interviewpedia</b></label>
+				</td>
 				<td width="47%">
 					
 				</td>
