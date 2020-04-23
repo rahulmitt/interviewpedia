@@ -13,11 +13,13 @@
 		<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 		
 		<script>
+			var courses = [
+				{ "id": "java", "name": "Java" },
+				{ "id": "dp", "name": "Design Patterns" },
+				{ "id": "ds", "name": "DS & Algo" },
+			];
+		
 			var course = getQueryParam("course");
-			if(course == null) {
-				alert("No course specified. Opening JAVA course");
-				course = "java";
-			}
 			
 			tinymce.init({
 				selector: "textarea",
@@ -34,6 +36,37 @@
 			});
 
 			$(document).ready(function(){
+			
+				$("#courseDialog").dialog({
+					autoOpen  : false,
+					modal     : false,
+					title     : "Choose a Course",
+				});
+
+				if(course == null) {
+					var cList = $('ul.courseList')
+					$.each(courses, function(i)
+					{
+						var p = $('<p/>').appendTo(cList);
+
+						var li = $('<li/>')
+						.text(courses[i].name)
+						.click(function() {
+							doRedirect(
+								{
+									course : eval(courses[i]).id
+								}
+							);
+						})
+						.css('cursor', 'pointer')
+						.appendTo(p);
+					});
+					$("#courseDialog").dialog("open");
+
+				} else {
+					$("#courseDialog").dialog("close");
+				}
+				
 				loadJS(systemJS);
 				loadCSS(css);
 				loadDataJS(eval(course), course);
@@ -161,6 +194,9 @@
 	</head>
 	
 	<body onload='' bgcolor="#f7f7f7">
+		<div id="courseDialog">
+			<ul class="courseList"></ul>
+		</div>
 		<table width="100%">
 			<tr valign="bottom">
 				<td width="40%" align="left" onclick="doRedirect({});">
