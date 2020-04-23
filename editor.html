@@ -10,6 +10,7 @@
 		<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="./js/jquery-ui-1.10.4.custom/js/jquery-ui-1.10.4.custom.min.js"></script>
 		<script type="text/javascript" src="./js/includes.js"></script>
+		<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 		
 		<script>
 			var course = getQueryParam("course");
@@ -17,7 +18,21 @@
 				alert("No course specified. Opening JAVA course");
 				course = "java";
 			}
-		
+			
+			tinymce.init({
+				selector: "textarea",
+				plugins: "textcolor",
+				toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor",
+				height: 400,
+				
+				plugins: [
+					"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+					"searchreplace wordcount visualblocks visualchars code fullscreen",
+					"insertdatetime media nonbreaking save table contextmenu directionality",
+					"emoticons template paste textcolor"
+				],
+			});
+
 			$(document).ready(function(){
 				loadJS(systemJS);
 				loadCSS(css);
@@ -68,7 +83,7 @@
 				var url = (window.location != window.parent.location) ? document.referrer: document.location.href;
 				$.redirect(url, params);
 			}
-			
+
 			function getQueryParam(name, url) {
 				if (!url) url = window.location.href;
 				name = name.replace(/[\[\]]/g, '\\$&');
@@ -77,8 +92,7 @@
 				if (!results) return null;
 				if (!results[2]) return '';
 				return decodeURIComponent(results[2].replace(/\+/g, ' '));
-			}
-
+			}														 
 			$(window).load(function(){
 				var all = buildTags();
 				$("#tags").focus();
@@ -86,6 +100,7 @@
 					position: { my: "left bottom", at: "left top", collision: "flip" },
 					source: all,
 					select: function(event, ui) {
+
 						var newTopic = ui.item.topic;
 						var que = ui.item.q;
 						
@@ -122,6 +137,26 @@
 					});
 				});
 			});
+			
+			function render(){
+				$("#editor").hide();
+				$("#tabs-inner").show();
+				$("#tabs-inner").html(tinyMCE.activeEditor.getContent({format : 'raw'}));
+				$("pre").removeClass();
+				$("pre").addClass("prettyprint linenums lang-java");
+				prettyPrint();
+				
+				$("#edit").removeAttr('disabled');
+				$("#render").attr('disabled','disabled');
+			}
+			
+			function edit(){
+				$("#editor").show();
+				$("#tabs-inner").hide();
+				tinyMCE.activeEditor.setContent($("#tabs-inner").html(), {format : 'raw'});
+				$("#render").removeAttr('disabled');
+				$("#edit").attr('disabled','disabled');
+			}
 		</script>
 	</head>
 	
@@ -155,9 +190,16 @@
 					
 					<div style="font-size:12px;">
 						<div align='right'>
+							<button id="edit" onclick='edit()' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Edit" ><span class="ui-icon ui-icon-pencil"></span></button>
+							
+							<button id="render" onclick='render()' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Preview" ><span class="ui-icon ui-icon-note"></span></button>
+							
 							<button id="direct-url" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Direct Link" ><span class="ui-icon ui-icon-link"></span></button>&nbsp;&nbsp;
 						</div>
-						<div id="tabs-inner" style="color:black;"></div><br/>
+						<div id="tabs-inner" style="color:black;"></div>
+						<div id="editor" style="display:none">
+							<textarea height="80%" rows="31" cols="50"></textarea>
+						</div>
 					</div>
 
 				</div>
