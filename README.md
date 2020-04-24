@@ -9,6 +9,7 @@
 
 [4. Spring](https://rahulmitt.github.io/interviewpedia/?course=spring)
 
-[5. JavaScript](https://rahulmitt.github.io/interviewpedia/?course=js)
+###### 5. Micro-Services
 
-###### 6. Micro-Services
+[6. JavaScript](https://rahulmitt.github.io/interviewpedia/?course=js)
+
