@@ -16,8 +16,8 @@
 			
 			tinymce.init({
 				selector: "textarea",
-				plugins: "textcolor, code",
-				toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor | code",
+				plugins: "textcolor, code, nonbreaking",
+				toolbar: "insertfile undo redo | styleselect | bold italic underline nonbreaking | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor | code",
 				height: 400,
 				
 				plugins: [
@@ -192,7 +192,7 @@
 				$('pre').each(function () {
 					unformattedCode = '';
 					$(this).find("ol").children().each(function () {
-						unformattedCode += this.innerText + '\n';
+						unformattedCode += encodeHtml(this.innerText) + '\n';
 					});
 					this.innerHTML = unformattedCode;
 				});
@@ -203,6 +203,24 @@
 				tinyMCE.activeEditor.setContent($("#tabs-inner").html(), {format : 'raw'});
 				$("#render").removeAttr('disabled');
 				$("#edit").attr('disabled','disabled');
+			}
+
+			function encodeHtml(str) {
+				return str
+					.replace(/&/g, '&amp;')
+					.replace(/"/g, '&quot;')
+					.replace(/'/g, '&#39;')
+					.replace(/</g, '&lt;')
+					.replace(/>/g, '&gt;');
+			}
+
+			function decodeHtml(str) {
+				return str
+					.replace(/&quot;/g, '"')
+					.replace(/&#39;/g, "'")
+					.replace(/&lt;/g, '<')
+					.replace(/&gt;/g, '>')
+					.replace(/&amp;/g, '&');
 			}
 		</script>
 	</head>
