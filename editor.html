@@ -16,8 +16,8 @@
 			
 			tinymce.init({
 				selector: "textarea",
-				plugins: "textcolor",
-				toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor",
+				plugins: "textcolor, code",
+				toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor | code",
 				height: 400,
 				
 				plugins: [
@@ -188,7 +188,16 @@
 				$("#render").attr('disabled','disabled');
 			}
 			
-			function edit(){
+			function edit() {
+				$('pre').each(function () {
+					unformattedCode = '';
+					$(this).find("ol").children().each(function () {
+						unformattedCode += this.innerText + '\n';
+					});
+					this.innerHTML = unformattedCode;
+				});
+
+				$("pre").removeClass();
 				$("#editor").show();
 				$("#tabs-inner").hide();
 				tinyMCE.activeEditor.setContent($("#tabs-inner").html(), {format : 'raw'});
