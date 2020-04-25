@@ -1961,7 +1961,7 @@ static &lt;T&gt; Predicate&lt;T&gt; isEqual(Object targetRef) {
 import java.util.function.Predicate;
 
 public class PredicateIsEqualDemo {
-    public static final Predicate<String> stringEqualChecker = Predicate.isEqual("Hello World");
+    public static final Predicate&lt;String&gt; stringEqualChecker = Predicate.isEqual("Hello World");
 
     public static void main(String[] args) {
         String str1 = "Hello World";
@@ -1983,7 +1983,7 @@ import java.util.function.Predicate;
 
 public class PredicateIsEqualDemo {
 
-    public static final Predicate<Employee> ceoChecker = Predicate.isEqual(new Employee("1", "Foo", null));
+    public static final Predicate&lt;Employee&gt; ceoChecker = Predicate.isEqual(new Employee("1", "Foo", null));
 
     public static void main(String[] args) {
         Employee ceo = new Employee("1", "Foo", null);
