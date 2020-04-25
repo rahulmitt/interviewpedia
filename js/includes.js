@@ -30,7 +30,7 @@ var ds = [
 ];
 
 var spring = [
-    'test.json.js',
+    'intro.json.js',
 ];
 
 var js = [

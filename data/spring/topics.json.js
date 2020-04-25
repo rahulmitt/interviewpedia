@@ -1,6 +1,6 @@
 var topics = [
 	{
-		id: "test",
-		caption: "Test"
+		id: "intro",
+		caption: "Spring Framework"
 	},
 ]
