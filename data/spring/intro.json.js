@@ -18,6 +18,11 @@ var intro_que = [
 		question : "Dependency Injection",
 		tags : ["Dependency Injection", "@Autowired", "Constructor based DI", "Setter based DI", "Field based DI"]
 	},
+
+    {
+		question : "Spring Framework Modules",
+		tags : ["Spring Modules"]
+	},
 ]
 
 var intro_ans = [
@@ -170,7 +175,7 @@ Spring provides following two types of containers.<ol>
 <tbody>
 <tr>
 <td style="vertical-align: top;">
-<p><img src="data/spring/images/1.spring_behind_the_scene.png" alt="" /></p>
+<p><img src="data/spring/images/1.spring_behind the scene.png" alt="" /></p>
 </td>
 <td style="vertical-align: top;">
 <p style="text-align: justify;">Spring performs the <i>component scan</i> in the package of class annotated with
@@ -448,38 +453,12 @@ public class A {
         */}.toString().slice(14,-3)
     },
 
-    {   /* QQQQ */
+    {   /* Spring Framework Modules */
         "text" : function(){/*
-<h1>QQQQ</h1>
-<p style="text-align: justify;">TODO</p>
+<h1>Spring Framework Modules</h1>
+<p><img src="data/spring/images/5.spring_overview.png" alt="" /></p>
+<p style="text-align: justify;">Reference: <a href="https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/" target="_blank">Spring Framework Documentation</a></p>
         */}.toString().slice(14,-3)
     },
 
-    {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
-<p style="text-align: justify;">TODO</p>
-        */}.toString().slice(14,-3)
-    },
-
-    {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
-<p style="text-align: justify;">TODO</p>
-        */}.toString().slice(14,-3)
-    },
-
-    {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
-<p style="text-align: justify;">TODO</p>
-        */}.toString().slice(14,-3)
-    },
-
-    {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
-<p style="text-align: justify;">TODO</p>
-        */}.toString().slice(14,-3)
-    },
 ]
