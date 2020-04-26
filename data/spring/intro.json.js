@@ -11,7 +11,12 @@ var intro_que = [
 
 	{
 		question : "Spring - Behind the scene",
-		tags : ["Spring Example"]
+		tags : ["Spring Example", "@Primary", "@Qualifier"]
+	},
+
+	{
+		question : "Dependency Injection",
+		tags : ["Dependency Injection", "@Autowired", "Constructor based DI", "Setter based DI", "Field based DI"]
 	},
 ]
 
@@ -165,7 +170,7 @@ Spring provides following two types of containers.<ol>
 <tbody>
 <tr>
 <td style="vertical-align: top;">
-<p><img src="data/spring/images/1.spring-behind the scene.png" alt="" /></p>
+<p><img src="data/spring/images/1.spring_behind_the_scene.png" alt="" /></p>
 </td>
 <td style="vertical-align: top;">
 <p style="text-align: justify;">Spring performs the <i>component scan</i> in the package of class annotated with
@@ -283,12 +288,13 @@ public class QuickSort implements SortAlgorithm {
 }
 </pre>
 <p style="text-align: justify;">&nbsp;</p>
-<p>Now, adding <code>@Component</code> annotation to <code>QuickSort.java</code> will
+<p>Now, adding <code>@Component</code> annotation to <code>QuickSort.java</code> would
 result in <code>org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type
 'com.rahulmitt.interviewpedia.spring.basics.sort.SortAlgorithm' available: expected single matching bean but found 2:
 bubbleSort,quickSort</code></p>
 
-<p style="text-align: justify;">This issue can be be resolved using <code>@Primary</code> annotation as shown below:</p>
+<p style="text-align: justify;">This issue can be be resolved using <code>@Primary</code> annotation to give a higher
+preference to a bean when there are multiple beans of the same type.</p>
 <pre>
 package com.rahulmitt.interviewpedia.spring.basics.sort.impl;
 
@@ -306,15 +312,139 @@ public class QuickSort implements SortAlgorithm {
         return intArr;
     }
 }
-
 </pre>
+
+<p style="text-align: justify;"><code>@Primary</code> annotation marks a bean as the <strong>default</strong>. If a bean
+is <code>@Autowired</code> without any <code>@Qualifier</code>, and multiple beans of that type exist, the candidate bean
+marked <code>@Primary</code> will be chosen as a default selection.</p>
+
+<p style="text-align: justify;"><code>@Primary</code> is good when most of <code>@Autowired</code> wants a particular bean.
+That way, only the <code>@Autowired</code> that wants the other bean(s) need to specify <code>@Qualifier</code>. That way,
+you have primary beans that all autowired wants, and <code>@Qualifier</code> is only used to request an <i>alternate</i> bean.
         */}.toString().slice(14,-3)
     },
 
-    {   /* QQQQ */
+    {   /* Dependency Injection */
         "text" : function(){/*
-<h1>QQQQ</h1>
-<p style="text-align: justify;">TODO</p>
+<h1>Dependency Injection</h1>
+<p style="text-align: justify;">The <code>@Autowired</code> annotation can be used to autowire a bean on <strong>constructor</strong>,&nbsp;<strong>setter</strong> methods or <strong>fields</strong>.</p>
+<h2 style="text-align: justify;">1. Constructor-based DI</h2>
+<p style="text-align: justify;">In constructor-based DI, the class constructor is annotated with&nbsp;<code>@Autowired</code>&nbsp;and includes a variable number of arguments with the objects to be injected.</p>
+<pre>@Component
+public class ConstructorBasedInjection {
+
+&nbsp;&nbsp;private final InjectedBean injectedBean;
+
+&nbsp;&nbsp;@Autowired
+&nbsp;&nbsp;public ConstructorBasedInjection(InjectedBean injectedBean) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.injectedBean = injectedBean;
+&nbsp;&nbsp;}
+}
+</pre>
+<p style="text-align: justify;">The main advantage of constructor-based injection is that you can declare your injected fields <code>final</code>, as they will be initiated during class instantiation. This is convenient for required dependencies.</p>
+<h2 style="text-align: justify;">2. Setter-based DI</h2>
+<p style="text-align: justify;">In setter-based DI, setter methods are annotated with&nbsp;<code>@Autowired</code>. Spring container will call these setters once the Bean is instantiated using a no-argument constructor or a no-argument static factory method in order to inject the Bean&rsquo;s dependencies.</p>
+<pre>@Component
+public class SetterBasedInjection {
+
+&nbsp;&nbsp;private InjectedBean injectedBean;
+
+&nbsp;&nbsp;@Autowired
+&nbsp;&nbsp;public void setInjectedBean(InjectedBean injectedBean) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.injectedBean = injectedBean;
+&nbsp;&nbsp;}
+}
+</pre>
+<h2 style="text-align: justify;">3. Field-based DI</h2>
+<p>In field-based DI, fields/properties are annotated with&nbsp;<code>@Autowired</code>. Spring container will set these fields once the class is instantiated.</p>
+<pre>@Component
+public class FieldBasedInjection {
+&nbsp;
+&nbsp;&nbsp;@Autowired
+&nbsp;&nbsp;private InjectedBean injectedBean;
+&nbsp;
+}
+</pre>
+<p style="text-align: justify;">This is the cleanest way to inject dependencies as&nbsp;there is no need of adding the&nbsp;<em>boilerplate&nbsp;code</em> (no need to declare constructor/setter), but there is a drawback to this appraoch &mdash;&nbsp;<strong>autowired&nbsp;field cannot be made immutable </strong>&mdash; the only way to declare immutable dependencies is by using constructor-based DI.</p>
+<p><img src="data/spring/images/3.field_injection_disadvantage.png" alt="" width="100%" /></p>
+<p>&nbsp;</p>
+<h2>Circular Dependency in Spring</h2>
+<p style="text-align: justify;">This happens when a bean A depends on another bean B, and the bean B depends on the bean A as well: <strong>Bean A &rarr; Bean B &rarr; Bean A</strong></p>
+<p style="text-align: justify;">When Spring container is loading all the beans, it tries to create beans in the order needed for them to work completely. For instance, if we didn&rsquo;t have a circular dependency, like the following case:&nbsp;<strong>Bean A &rarr; Bean B &rarr; Bean C&nbsp;</strong>,&nbsp;spring will first create bean C, then create bean B (and inject bean C into it), then create bean A (and inject bean B into it).</p>
+<p style="text-align: justify;">But, when having a circular dependency, Spring cannot decide which of the beans should be created first, since they depend on one another. In these cases, Spring will raise a&nbsp;<code>org.springframework.beans.factory.BeanCurrentlyInCreationException</code> while loading the context.</p>
+<p><img src="data/spring/images/4.circular_dependency_exception.png" alt="" width="100%"/></p>
+
+<p style="text-align: justify;">This exception only occurs in the case of a <strong>constructor injection</strong>; if you use other types of injections
+you should not find this exception since the dependencies will be injected when they are needed and not on the context loading.</p>
+
+<table width="100%">
+<tbody>
+<tr>
+<td>Constructor based DI</td>
+<td style="vertical-align: top;">
+<pre>
+@SpringBootApplication
+public class CircularDependencyDemo {
+  public static void main(String[] args) {
+
+    ApplicationContext context =
+        SpringApplication.run(
+            CircularDependencyDemo.class,
+            args
+        );
+
+    A a = context.getBean(A.class);
+    B b = context.getBean(B.class);
+  }
+}
+</pre>
+<p style="text-align: justify;">Line# 5 results in <code>BeanCurrentlyInCreationException</code></p>
+</td>
+<td style="vertical-align: top;">
+<pre>
+@Component
+public class A {
+    private B b;
+
+    @Autowired
+    public A(B b) {
+        this.b = b;
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<pre>
+@Component
+public class B {
+    private A a;
+
+    @Autowired
+    public B(A a) {
+        this.a = a;
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">This can be resolved by using <code>@Lazy</code> annotation. This breaks the cycle by
+asking Spring to initialize one of the beans lazily, i.e., instead of fully initializing the bean, it will create a proxy
+to inject it into the other bean. The injected bean will only be fully created when it’s first needed.</p>
+
+<pre>
+@Component
+public class A {
+    private B b;
+
+    @Autowired
+    public A(@Lazy B b) {
+        this.b = b;
+    }
+}
+</pre>
+
         */}.toString().slice(14,-3)
     },
 
