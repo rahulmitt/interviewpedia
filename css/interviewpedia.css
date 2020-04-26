@@ -5,6 +5,17 @@ body {
 	font-size: 10px;
 }
 
+code {
+    font-family: "Consolas", "monaco", "monospace";
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+    background-color: LightGray !important;
+    color: black !important;
+}
+
 div table {
 	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
 	font-size: 13px;
