@@ -31,6 +31,7 @@ var ds = [
 
 var spring = [
     'intro.json.js',
+    'indepth.json.js',
 ];
 
 var js = [
