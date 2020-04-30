@@ -8,6 +8,11 @@ var indepth_que = [
 		question : "Bean Scope",
 		tags : ["Bean Scope"]
 	},
+
+	{
+		question : "Component Scan",
+		tags : ["Component Scan"]
+	},
 ]
 
 var indepth_ans = [
@@ -472,9 +477,9 @@ public HelloMessageGenerator websocketScopedBean() {
         */}.toString().slice(14,-3)
     },
 
-    {   /* QQQQ */
+    {   /* Component Scan */
         "text" : function(){/*
-<h1>QQQQ</h1>
+<h1>Component Scan</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },

@@ -8,4 +8,11 @@ var topics = [
 		id: "indepth",
 		caption: "Spring Framework in Depth"
 	},
+
+	{
+		id: "spring_dp",
+		caption: "Spring Design Patterns"
+	},
+
+
 ]
