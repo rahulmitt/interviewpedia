@@ -450,6 +450,8 @@ public class A {
 }
 </pre>
 
+<p style="text-align: justify;">Reference: <a href="https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/core.html#beans-dependencies" target="_blank">Spring Bean Dependencies</a></p>
+
         */}.toString().slice(14,-3)
     },
 
