@@ -18,6 +18,11 @@ var indepth_que = [
 		question : "Bean Lifecycle",
 		tags : ["Bean Lifecycle"]
 	},
+
+    {
+		question : "Contexts and Dependency Injection",
+		tags : ["Contexts and Dependency Injection", "CDI"]
+	},
 ]
 
 var indepth_ans = [
@@ -1072,10 +1077,13 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
         */}.toString().slice(14,-3)
     },
 
-    {   /* QQQQ */
+    {   /* Contexts and Dependency Injection */
         "text" : function(){/*
-<h1>QQQQ</h1>
+<h1>Contexts and Dependency Injection (CDI)</h1>
 <p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;"><a href="https://www.baeldung.com/java-ee-cdi" target="_blank">https://www.baeldung.com/java-ee-cdi</a></p>
+<p style="text-align: justify;"><a href="https://dzone.com/articles/what-cdi-how-does-it-relate" target="_blank">https://dzone.com/articles/what-cdi-how-does-it-relate</a></p>
+<p style="text-align: justify;">&nbsp;</p>
         */}.toString().slice(14,-3)
     },
 
