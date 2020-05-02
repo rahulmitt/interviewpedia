@@ -581,7 +581,494 @@ public class BinarySearchDemo {
     {   /* Bean Lifecycle */
         "text" : function(){/*
 <h1>Bean Lifecycle</h1>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The Spring IoC container manages Spring beans — spring-managed instantiation of a Java classes.
+It is responsible for instantiating, initializing and wiring beans. The container also manages the life cycle of beans. When
+container starts, beans need to be instantiated; it may be required to perform some post-initialization steps to get it into
+a usable state. Similarly, when the beans are no longer required, they will be removed from the container.</p>
+
+<p><img src="data/spring/images/8.beanLifeCycle.png" alt="" /></p>
+<p><img src="data/spring/images/9.beanLifeCycle.png" alt="" /></p>
+
+<p style="text-align: justify;">There are 4 ways of controlling the lifecycle events of a bean:</p>
+<ol>
+<li style="text-align: justify;"><code>InitializingBean</code> &amp; <code>DisposableBean</code> callback interfaces</li>
+<li style="text-align: justify;"><code>*Aware</code> interfaces for specific behavior</li>
+<li style="text-align: justify;">Custom <code>init()</code> and <code>destroy()</code> methods in bean configuration</li>
+<li style="text-align: justify;"><code>@PostConstruct</code>&nbsp;and <code>@PreDestroy</code>&nbsp;annotations</li>
+</ol>
+
+<h2>InitializingBean and DisposableBean</h2>
+<p>The <a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/beans/factory/InitializingBean.html"
+target="_blank">InitializingBean</a> interface allows a bean to perform initialization work after all the necessary properties
+on the bean have been set by the container.</p>
+<pre>
+package org.springframework.beans.factory;
+
+public interface InitializingBean {
+    void afterPropertiesSet() throws Exception;
+}
+</pre>
+
+<p>Similarly, implementing the&nbsp;<a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/beans/factory/DisposableBean.html"
+target="_blank">DisposableBean</a>&nbsp;interfaceallows a bean to get a callback when the container is being destroyed.</p>
+<pre>
+package org.springframework.beans.factory;
+
+public interface DisposableBean {
+    void destroy() throws Exception;
+}
+</pre>
+
+<table width="100%">
+<tbody>
+<tr>
+<td>
+<pre>@Component
+@Primary
+public class BubbleSort implements
+&nbsp;&nbsp;&nbsp;&nbsp;SortAlgorithm, InitializingBean, DisposableBean {
+&nbsp;
+    @Override
+    public int[] sort(int[] intArr) {
+        //TODO: impl goes here
+        return intArr;
+    }
+&nbsp;
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("afterPropertiesSet");
+    }
+&nbsp;
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("destroy()");
+    }
+}
+</pre>
+</td>
+<td><img src="data/spring/images/10.initializingBean_DisposableBean.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+
+<h2>*Aware interfaces for specific behavior</h2>
+<p style="text-align: justify;">Spring offers a range of <code>*Aware</code> interfaces that allow beans to indicate to
+the container that they require a certain infrastructure dependency. Each interface will require you to implement a method
+to inject the dependency in bean.</p>
+
+<table width="100%">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>AWARE INTERFACE</strong></td>
+<td style="text-align: center;"><strong>INTERFACE DEFINITION</strong></td>
+<td style="text-align: center;"><strong>PURPOSE</strong></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/context/ApplicationContextAware.html" target="_blank">ApplicationContextAware</a></td>
+<td>
+<pre>
+package org.springframework.context;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.Aware;
+
+public interface ApplicationContextAware extends Aware {
+    void setApplicationContext(ApplicationContext var1)
+        throws BeansException;
+}
+</pre>
+</td>
+<td><p>Interface to be implemented by any object that wishes to be notified of the <code>ApplicationContext</code> that it runs in.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/context/ApplicationEventPublisherAware.html" target="_blank">ApplicationEventPublisherAware</a></td>
+<td>
+<pre>
+package org.springframework.context;
+
+import org.springframework.beans.factory.Aware;
+
+public interface ApplicationEventPublisherAware
+    extends Aware {
+
+    void setApplicationEventPublisher(
+        ApplicationEventPublisher var1);
+}
+</pre>
+</td>
+<td><p>Set the <code>ApplicationEventPublisher</code> that this object runs in.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/beans/factory/BeanClassLoaderAware.html" target="_blank">BeanClassLoaderAware</a></td>
+<td>
+<pre>
+package org.springframework.beans.factory;
+
+public interface BeanClassLoaderAware extends Aware {
+    void setBeanClassLoader(ClassLoader var1);
+}
+</pre>
+</td>
+<td><p>Callback that supplies the bean class loader to a bean instance.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/beans/factory/BeanFactoryAware.html" target="_blank">BeanFactoryAware</a></td>
+<td>
+<pre>
+package org.springframework.beans.factory;
+
+import org.springframework.beans.BeansException;
+
+public interface BeanFactoryAware extends Aware {
+    void setBeanFactory(BeanFactory var1)
+        throws BeansException;
+}
+</pre>
+</td>
+<td><p>Callback that supplies the owning factory to a bean instance.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/beans/factory/BeanNameAware.html" target="_blank">BeanNameAware</a></td>
+<td>
+<pre>
+package org.springframework.beans.factory;
+
+public interface BeanNameAware extends Aware {
+    void setBeanName(String var1);
+}
+</pre>
+</td>
+<td><p>Set the name of the bean in the bean factory that created this bean.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/jca/context/BootstrapContextAware.html" target="_blank">BootstrapContextAware</a></td>
+<td>
+<pre>
+
+</pre>
+</td>
+<td><p>Set the BootstrapContext that this object runs in.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/context/weaving/LoadTimeWeaverAware.html" target="_blank">LoadTimeWeaverAware</a></td>
+<td>
+<pre>
+package org.springframework.context.weaving;
+
+import org.springframework.beans.factory.Aware;
+import org.springframework.instrument.classloading
+    .LoadTimeWeaver;
+
+public interface LoadTimeWeaverAware extends Aware {
+    void setLoadTimeWeaver(LoadTimeWeaver var1);
+}
+</pre>
+</td>
+<td><p>Set the LoadTimeWeaver of this object’s containing ApplicationContext.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/context/MessageSourceAware.html" target="_blank">MessageSourceAware</a></td>
+<td>
+<pre>
+package org.springframework.context;
+
+import org.springframework.beans.factory.Aware;
+
+public interface MessageSourceAware extends Aware {
+    void setMessageSource(MessageSource var1);
+}
+</pre>
+</td>
+<td><p>Set the MessageSource that this object runs in.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring/docs/5.2.3.RELEASE/javadoc-api/org/springframework/jmx/export/notification/NotificationPublisherAware.html" target="_blank">NotificationPublisherAware</a></td>
+<td>
+<pre>
+package org.springframework.jmx.export.notification;
+
+import org.springframework.beans.factory.Aware;
+
+public interface NotificationPublisherAware
+    extends Aware {
+    void setNotificationPublisher(
+        NotificationPublisher var1);
+}
+</pre>
+</td>
+<td><p>Set the NotificationPublisher instance for the current managed resource instance.</p></td>
+</tr>
+<tr>
+<td>PortletConfigAware</td>
+<td>
+<pre>
+
+</pre>
+</td>
+<td><p>Set the PortletConfig this object runs in.</p></td>
+</tr>
+<tr>
+<td>PortletContextAware</td>
+<td>
+<pre>
+
+</pre>
+</td>
+<td><p>Set the PortletContext that this object runs in.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring/docs/5.2.3.RELEASE/javadoc-api/org/springframework/context/ResourceLoaderAware.html" target="_blank">ResourceLoaderAware</a></td>
+<td>
+<pre>
+package org.springframework.context;
+
+import org.springframework.beans.factory.Aware;
+import org.springframework.core.io.ResourceLoader;
+
+public interface ResourceLoaderAware extends Aware {
+    void setResourceLoader(ResourceLoader var1);
+}
+</pre>
+</td>
+<td><p>Set the ResourceLoader that this object runs in.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/web/context/ServletConfigAware.html" target="_blank">ServletConfigAware</a></td>
+<td>
+<pre>
+
+</pre>
+</td>
+<td><p>Set the ServletConfig that this object runs in.</p></td>
+</tr>
+<tr>
+<td><a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/javadoc-api/org/springframework/web/context/ServletContextAware.html" target="_blank">ServletContextAware</a></td>
+<td>
+<pre>
+
+</pre>
+</td>
+<td><p>Set the ServletContext that this object runs in.</p></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table width="100%">
+<tbody>
+<tr>
+<td>
+<pre>
+@Component
+@Primary
+public class BubbleSort implements SortAlgorithm,
+        InitializingBean, DisposableBean,
+        ApplicationContextAware, BeanNameAware,
+        BeanFactoryAware {
+
+    @Override
+    public int[] sort(int[] intArr) {
+        //TODO: impl goes here
+        return intArr;
+    }
+
+    @Override
+    public void afterPropertiesSet()
+        throws Exception {
+
+        System.out.println("afterPropertiesSet");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("destroy()");
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory)
+        throws BeansException {
+
+        System.out.println(String.format(
+                "inside setBeanFactory() :: "
+                + "isSingleton = %b",
+                beanFactory.isSingleton("bubbleSort")
+        ));
+    }
+
+    @Override
+    public void setBeanName(String s) {
+        System.out.println(String.format(
+            "inside setBeanName() :: BeanName = %s", s
+        ));
+    }
+
+    @Override
+    public void setApplicationContext(
+        ApplicationContext applicationContext)
+        throws BeansException {
+
+        System.out.println(String.format(
+                "inside setApplicationContext() :: "
+                + "Bean Definition Names = %s",
+                Arrays.toString(applicationContext
+                    .getBeanDefinitionNames())
+        ));
+    }
+}
+</pre>
+</td>
+<td style="vertical-align: top;">
+<p style="text-align: justify;">This example implements the <code>ApplicationContextAware</code>, <code>BeanNameAware</code>,
+and <code>BeanFactoryAware</code> interfaces, in addition to <code>InitializingBean</code> and <code>DisposableBean</code>
+interfaces.</p>
+
+<p style="text-align: justify;">At line# 27, <code>BubbleSort</code> overrides <code>setBeanFactory()</code> of
+<code>BeanFactoryAware</code> interface. At runtime, spring passes the <code>BeanFactory</code> object that created the
+bean. The code uses the <code>BeanFactory</code> object to print whether or not this bean is a singleton.</p>
+
+<p style="text-align: justify;">At line# 38, this code overrides the <code>setBeanName()</code> method of the
+<code>BeanNameAware</code> interface. At runtime, spring passes the name of the bean as a String that the code prints out.
+The code uses the beanName to print the bean name defined in context.</p>
+
+<p style="text-align: justify;">At line# 45, the code overrides the <code>setApplicationContext()</code> method of the
+<code>ApplicationContextAware</code> interface. At runtime, Spring passes the <code>ApplicationContext</code> object
+that created the bean. The code uses the <code>ApplicationContext</code> object to print the bean definition names.</p>
+
+<img src="data/spring/images/11.aware_interfaces.png" alt=""/>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>@PostConstruct and @PreDestroy</h2>
+<p style="text-align: justify;"><code>@PostConstruct</code> annotated method will be invoked after the bean has been
+constructed using default constructor and just before it’s instance is returned to requesting object. <code>@PreDestroy</code>
+annotated method is called just before the bean is about be destroyed inside bean container.</p>
+
+<table width="100%">
+<tbody>
+<tr>
+<td>
+<pre>
+// more import statements goes here
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+@Component
+@Primary
+public class BubbleSort implements SortAlgorithm {
+&nbsp;
+    @Override
+    public int[] sort(int[] intArr) {
+        //TODO: impl goes here
+        return intArr;
+    }
+
+    @PostConstruct
+    public void customInit() {
+        System.out.println("customInit() invoked");
+    }
+
+    @PreDestroy
+    public void customDestroy() {
+        System.out.println("customDestroy() invoked");
+    }
+}
+</pre>
+</td>
+<td>
+<p style="text-align: justify;">The annotations <code>@PostConstruct</code> and <code>@PreDestroy</code> does not belong
+to the spring API; these are part of <strong>J2EE library common-annotations.jar</strong> file.</p>
+<pre>
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+</pre>
+<img src="data/spring/images/12.custom_init_destroy.png" alt=""/>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p style="text-align: justify;">Note that both <code>@PostConstruct</code> and <code>@PreDestroy</code> annotations are
+part of Java EE. And since Java EE has been <i>deprecated</i> in <strong>Java 9</strong> and <i>removed</i> in
+<strong>Java 11</strong>, we have to add an additional dependency to use these annotations:</p>
+<pre>
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.annotation&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.annotation-api&lt;/artifactId&gt;
+    &lt;version&gt;1.3.2&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+
+<h2>Bean PostProcessor</h2>
+<p style="text-align: justify;">Spring provides the <code>BeanPostProcessor</code> interface that gives you the means to
+tap into the Spring context lifecycle and interact with beans as they are processed. This interface allows for custom
+modification of new bean instances created by spring bean factory. If we want to implement some custom logic after the
+Spring container finishes instantiating, configuring, and initializing a bean, we can plug in one or more
+<code>BeanPostProcessor</code> implementations.</p>
+
+<p style="text-align: justify;">In case of multiple BeanPostProcessor instances, we can control the order by setting the
+order property or implement <code>Ordered</code> interface.</p>
+
+<p style="text-align: justify;">This interface contains two callback methods:</p>
+<ol>
+<li style="text-align: justify;">
+<code>postProcessBeforeInitialization</code> — Spring calls this method after calling the methods of the <code>Aware</code>
+interfaces and <strong>before</strong> any bean initialization callbacks, such as  <code>InitializingBean.afterPropertiesSet()</code>
+or a <code>@PostConstruct</code> method.
+</li>
+<li style="text-align: justify;">
+<code>postProcessAfterInitialization</code> — Spring calls this method <strong>after</strong> any bean initialization callbacks.
+</li>
+</ol>
+
+<pre>
+package org.springframework.beans.factory.config;
+
+import org.springframework.beans.BeansException;
+import org.springframework.lang.Nullable;
+
+public interface BeanPostProcessor {
+    @Nullable
+    default Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        return bean;
+    }
+
+    @Nullable
+    default Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        return bean;
+    }
+}
+</pre>
+
+<p style="text-align: justify;">For each bean instance that is managed by the container, the post-processor gets a callback
+from the container both <strong>before</strong> container initialization methods are called as well as <strong>after</strong>
+any bean initialization callbacks.</p>
+
+<pre>
+package com.rahulmitt.interviewpedia.springframework.componentscan;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
+
+@Component
+public class CustomBeanPostProcessor implements BeanPostProcessor {
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println(String.format("postProcessBeforeInitialization() :: %s is getting initialized", beanName));
+        return bean;
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println(String.format("postProcessAfterInitialization() :: %s initialization done", beanName));
+        return bean;
+    }
+}
+</pre>
+
         */}.toString().slice(14,-3)
     },
 
