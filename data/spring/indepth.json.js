@@ -13,6 +13,11 @@ var indepth_que = [
 		question : "Component Scan",
 		tags : ["Component Scan"]
 	},
+
+	{
+		question : "Bean Lifecycle",
+		tags : ["Bean Lifecycle"]
+	},
 ]
 
 var indepth_ans = [
@@ -461,6 +466,8 @@ public HelloMessageGenerator websocketScopedBean() {
 </table>
 
 <h2>Spring Singleton vs GoF Singleton</h2>
+<img src="data/spring/images/6.Singleton.png" alt=""/>
+<p>&nbsp;</p>
 <table width="100%">
 <tbody>
 <tr>
@@ -473,6 +480,7 @@ public HelloMessageGenerator websocketScopedBean() {
 </tr>
 </tbody>
 </table>
+
 <p style="text-align: justify;">Reference: <a href="https://docs.spring.io/spring/docs/5.2.5.RELEASE/spring-framework-reference/core.html#beans-factory-scopes" target="_blank">Spring Bean Scopes</a></p>
         */}.toString().slice(14,-3)
     },
@@ -480,13 +488,99 @@ public HelloMessageGenerator websocketScopedBean() {
     {   /* Component Scan */
         "text" : function(){/*
 <h1>Component Scan</h1>
-<p style="text-align: justify;">TODO</p>
+<table width="100%">
+<tbody>
+<tr>
+<td><img src="data/spring/images/7.componentScan.png" alt="" width="366" height="265" /></td>
+<td style="vertical-align: top;">
+<p style="text-align: justify;">When developing Spring applications, you need to tell the Spring Framework where to look
+for Spring components. Using <strong>component scan</strong> is one method of asking Spring to detect <i>Spring-managed</i>
+components. Spring needs the information to <strong>locate and register</strong> all the components with the IoC container
+when the application starts.</p>
+
+<p style="text-align: justify;">Spring can auto scan, detect, and instantiate components from pre-defined project packages.
+Spring can auto-scan all classes annotated with the stereotype annotations <code>@Component</code>, <code>@Controller</code>,
+<code>@Service</code>, and <code>@Repository</code></p>
+
+<p style="text-align: justify;">Spring needs to know which packages to scan for annotated components in order to add
+them to the IoC container. In a Spring Boot project, we typically annotate the main application class with the
+<code>@SpringBootApplication</code> annotation.</p>
+
+<p style="text-align: justify;">Under the hood, <code>@SpringBootApplication</code> is a composition of the
+<code>@SpringBootConfiguration</code>, <code>@EnableAutoConfiguration</code> and <code>@ComponentScan</code> annotations.
+With this default setting, Spring Boot will auto-scan for components in the current package (containing the
+<code>@SpringBootApplication</code> main class) and its sub packages.</p>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<p style="text-align: justify;">Now, <code>BinarySearchDemo</code> is annotated with <code>@SpringBootApplication</code>
+annotation. As a result, Spring Boot will auto-scan for components within <code>com.rahulmitt.interviewpedia.springframework.componentscan</code>
+package and its sub-packages, and is analogous to below:</p>
+<pre>
+package com.rahulmitt.interviewpedia.springframework.componentscan;
+
+import com.rahulmitt.interviewpedia.springframework.componentscan.search.BinarySearch;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan("com.rahulmitt.interviewpedia.springframework.componentscan")    // this component-scan is implicit
+public class BinarySearchDemo {
+
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(BinarySearchDemo.class, args);
+        BinarySearch binarySearch = context.getBean(BinarySearch.class);
+
+        // more code goes here
+    }
+}
+</pre>
+<p style="text-align: justify;">An autowiring of a bean outside the package <code>com.rahulmitt.interviewpedia.springframework.componentscan</code>
+will fail because spring container won't be able to find a bean</p>
+<pre>
+package com.rahulmitt.interviewpedia.springframework.componentscan.search;
+
+import com.rahulmitt.interviewpedia.springframework.sorting.SortAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class BinarySearch {
+
+    @Autowired
+    private SortAlgorithm sortAlgorithm;    // this is outside the default component-scan and will cause an exception
+
+    // more code goes here
+}
+</pre>
+<p>The above code results in <code>org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean
+of type 'com.rahulmitt.interviewpedia.springframework.sorting.SortAlgorithm' available: expected at least 1 bean which
+qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}</code></p>
+<p style="text-align: justify;">This means that the beans from other packages are not getting picked up. In order to fix
+this, we need to explicitly specify the component-scan:</p>
+<pre>
+@SpringBootApplication
+@ComponentScan(
+        {
+                "com.rahulmitt.interviewpedia.springframework.componentscan",
+                "com.rahulmitt.interviewpedia.springframework.sorting"              // package to be scanned
+        }
+)
+public class BinarySearchDemo {
+    // more code goes here
+}
+</pre>
         */}.toString().slice(14,-3)
     },
 
-    {   /* QQQQ */
+    {   /* Bean Lifecycle */
         "text" : function(){/*
-<h1>QQQQ</h1>
+<h1>Bean Lifecycle</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
