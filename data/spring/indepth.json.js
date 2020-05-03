@@ -1286,7 +1286,7 @@ public class ExternalService {
 <p style="text-align: justify;">In case the properties files are placed at some other path:</p>
 <p style="text-align: justify;"><img src="data/spring/images/15.external_properties_files.png" alt="" /></p>
 <p style="text-align: justify;"><img src="data/spring/images/16.external_properties_files.png" alt="" /></p>
-<p style="text-align: justify;">We can provide the details as VM args as below:</p>
+<p style="text-align: justify;">We can provide the details as <strong>VM options</strong> (under Run Configurations) as below:</p>
 <p style="text-align: justify;"><img src="data/spring/images/17.external_properties_files.png" alt="" /></p>
 <p style="text-align: justify;">In case, the properties file name is something other than <code>application*.properties</code>
 , we can use <code>-Dspring.config.name=myprops</code> to load them.</p>
