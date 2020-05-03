@@ -19,6 +19,11 @@ var indepth_que = [
 		tags : ["Bean Lifecycle"]
 	},
 
+	{
+		question : "Components",
+		tags : ["Components", "@Component", "@Controller", "Service", "@Repository"]
+	},
+
     {
 		question : "Contexts and Dependency Injection",
 		tags : ["Contexts and Dependency Injection", "CDI"]
@@ -1077,6 +1082,113 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
         */}.toString().slice(14,-3)
     },
 
+    {   /* Components */
+        "text" : function(){/*
+<h1>Components</h1>
+<table width="100%">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>ANNOTATION</strong></td>
+<td style="text-align: center;"><strong>USAGE</strong></td>
+</tr>
+<tr>
+<td><code>@Bean</code></td>
+<td>
+<p style="text-align: justify;"><code>@Bean</code> is used to explicitly declare a single bean and works in conjunction
+with a configuration class (annotated with <code>@Configuration</code>) and thus in the annotation based configuration.
+It decouples the declaration of the bean from the class definition, and lets you create and configure beans exactly how
+you choose. This annotation is applicable to methods (as opposed to <code>@Component</code> which applies to classes/
+interfaces). Such an annotated method returns an object that spring should register as bean in the IoC container. The body
+of the method bears the logic responsible for creating the instance.</p>
+</td>
+</tr>
+<tr>
+<td><code>@Component</code></td>
+<td>
+<p style="text-align: justify;"><code>@Component</code> is a generic stereotype for any Spring-managed component that is
+used to auto-detect and auto-configure beans using classpath scanning. However, it only works, if we enabled a
+<code>@ComponentScan</code> for our application and our class is included. Control of wiring is quite limited with this
+approach, since it's purely declarative.</p>
+
+<p style="text-align: justify;"><code>@Controller</code>, <code>@Service</code> and <code>@Repository</code> are
+specializations of <code>@Component</code> for more specific use cases (in the persistence, service, and presentation
+layers, respectively). The IoC container picks them up and registers their classes as beans, just as if they were
+annotated with <code>@Component</code>.</p>
+</td>
+</tr>
+<tr>
+<td><code>@Controller</code></td>
+<td>
+<p style="text-align: justify;"><code>@Controller</code> annotation indicates that a particular class serves the role of
+a controller. We cannot switch this annotation with any other like <code>@Service</code> or <code>@Repository</code>,
+even though they look same. The <strong>dispatcher</strong> scans the classes annotated with <code>@Controller</code>
+and detects methods annotated with <code>@RequestMapping</code> annotations within them. We can use <code>@RequestMapping</code>
+with only those methods whose classes are annotated with <code>@Controller</code> and it will NOT work with
+<code>@Component</code>, <code>@Service</code>, <code>@Repository</code> etc.</p>
+</td>
+</tr>
+<tr>
+<td><code>@Service</code></td>
+<td>
+<p style="text-align: justify;"><code>@Service</code> beans hold the <strong>business logic</strong> and call methods in
+the <strong>repository layer</strong>. Apart from the fact that it's used to indicate that it's holding the
+<strong>business logic</strong>, there&rsquo;s nothing else noticeable in this annotation.</p>
+</td>
+</tr>
+<tr>
+<td><code>@Repository</code></td>
+<td>
+<p style="text-align: justify;"><code>@Repository</code> annotation is a marker for any class that fulfills the role or
+stereotype of a repository (also known as Data Access Object or DAO). Among the uses of this marker is the automatic
+translation of exceptions. It catches platform specific exceptions and re-throws them as one of Spring&rsquo;s unified
+unchecked exception. For this, we&rsquo;re provided with <code>PersistenceExceptionTranslationPostProcessor</code>, that
+we are required to add to the container. This bean post processor adds an advisor to any bean that&rsquo;s annotated with
+<code>@Repository</code> so that any platform-specific exceptions are caught and then re-thrown as one of Spring&rsquo;s
+unchecked data access exceptions.</p>
+
+<p style="text-align: justify;"><strong><span style="text-decoration: underline;">Note</span>:</strong>
+<code>PersistenceExceptionTranslationPostProcessor</code> will be automatically registered if <strong>JPA</strong> is detected.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2 style="text-align: justify;">@Bean vs @Component</h2>
+<table width="100%">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>@Bean</strong></td>
+<td style="text-align: center;"><strong>@Component</strong></td>
+</tr>
+<tr>
+<td><code>@Bean</code> explicitly declares a single bean, rather than letting Spring do it automatically.</td>
+<td><code>@Component</code> auto detects and configures the beans using classpath scanning</td>
+</tr>
+<tr>
+<td><code>@Bean</code> decouples the declaration of the bean from the class definition.</td>
+<td><code>@Component</code> does not decouple the declaration of the bean from the class definition</td>
+</tr>
+<tr>
+<td><code>@Bean</code> is a method level annotation and name of the method serves as the bean name.</td>
+<td><code>@Component</code> is a class level annotation</td>
+</tr>
+<tr>
+<td><code>@Bean</code> annotation has to be used within the class which is annotated with @Configuration.</td>
+<td><code>@Component</code> need not to be used with the <code>@Configuration</code> annotation</td>
+</tr>
+<tr>
+<td>we can create a bean of a class using <code>@Bean</code> even if the class is present outside the spring container.</td>
+<td>We cannot create a bean of a class using <code>@Component</code>, if the class is outside spring container</td>
+</tr>
+<tr>
+<td><code>@Bean</code> has no specializations.</td>
+<td><code>@Component</code> has different specializations like <code>@Controller</code>, <code>@Repository</code> and <code>@Service</code></td>
+</tr>
+</tbody>
+</table>
+        */}.toString().slice(14,-3)
+    },
+
     {   /* Contexts and Dependency Injection */
         "text" : function(){/*
 <h1>Contexts and Dependency Injection (CDI)</h1>
@@ -1084,13 +1196,6 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
 <p style="text-align: justify;"><a href="https://www.baeldung.com/java-ee-cdi" target="_blank">https://www.baeldung.com/java-ee-cdi</a></p>
 <p style="text-align: justify;"><a href="https://dzone.com/articles/what-cdi-how-does-it-relate" target="_blank">https://dzone.com/articles/what-cdi-how-does-it-relate</a></p>
 <p style="text-align: justify;">&nbsp;</p>
-        */}.toString().slice(14,-3)
-    },
-
-    {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
-<p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
