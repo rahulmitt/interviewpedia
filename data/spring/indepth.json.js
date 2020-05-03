@@ -5,6 +5,11 @@ var indepth_que = [
 	},
 
 	{
+		question : "Beans",
+		tags : ["Beans"]
+	},
+
+	{
 		question : "Bean Scope",
 		tags : ["Bean Scope"]
 	},
@@ -22,6 +27,11 @@ var indepth_que = [
 	{
 		question : "Components",
 		tags : ["Components", "@Component", "@Controller", "Service", "@Repository"]
+	},
+
+	{
+		question : "Reading Properties Files",
+		tags : ["Reading Properties Files"]
 	},
 
     {
@@ -342,6 +352,19 @@ to specifically indicate using the <code>@Qualifier</code> annotation. It's wort
 <code>@Qualifier</code> and <code>@Primary</code> annotations are present, then the <code>@Qualifier</code> annotation
 will have the precedence. Basically, <code>@Primary</code> defines a <strong>default</strong>, while <code>@Qualifier</code>
 is very <strong>specific</strong>.</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Beans */
+        "text" : function(){/*
+<h1>Beans</h1>
+<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;"><a href="https://www.logicbig.com/tutorials/spring-framework/spring-core/using-bean-annotation.html" target="_blank">Using @Bean</a></p>
+<p style="text-align: justify;"><a href="https://www.logicbig.com/tutorials/spring-framework/spring-core/java-config.html" target="_blank">Using @Configuration</a></p>
+<p style="text-align: justify;"><a href="https://www.logicbig.com/tutorials/spring-framework/spring-core/bean-conditional-registration.html" target="_blank">@Bean conditional registration</a></p>
+<p style="text-align: justify;"><a href="https://www.logicbig.com/tutorials/spring-framework/spring-core/injecting-collections.html" target="_blank">Injecting Arrays and Collections</a></p>
+<p style="text-align: justify;"><a href="https://www.logicbig.com/tutorials/spring-framework/spring-core/using-depends-on.html" target="_blank">Controlling Beans Loading Order, using @DependsOn</a></p>
+<p style="text-align: justify;">&nbsp;</p>
         */}.toString().slice(14,-3)
     },
 
@@ -1078,6 +1101,7 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
     }
 }
 </pre>
+<p style="text-align: justify;">Reference: <a href="https://docs.spring.io/spring-framework/docs/5.2.3.RELEASE/spring-framework-reference/core.html#beans-factory-nature" target="_blank">Customizing the Nature of a Bean</a></p>
 
         */}.toString().slice(14,-3)
     },
@@ -1189,6 +1213,91 @@ unchecked data access exceptions.</p>
         */}.toString().slice(14,-3)
     },
 
+    {   /* Reading Properties Files */
+        "text" : function(){/*
+<h1>Reading Properties Files</h1>
+<p>Spring Boot looks for an externalized configuration file — <code>application.properties</code> or <code>application.yml</code> — in 4 predetermined locations in the following order of precedence:</p>
+<ol>
+<li>A <strong>/config</strong> subdirectory of the current directory</li>
+<li>The current directory</li>
+<li>A classpath <strong>/config</strong> package</li>
+<li>The classpath root</li>
+</ol>
+<p>Therefore, a property defined in <code>application.properties</code> and placed in the <strong>/config</strong> subdirectory of the current directory will be loaded. This will also override properties in other locations in case of a collision.</p>
+<p style="text-align: justify;"><img src="data/spring/images/14.properties.png" alt="" width="100%" /></p>
+
+<pre>package com.rahulmitt.interviewpedia.springframework.properties;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.PropertySource;
+
+@SpringBootApplication
+public class PropertiesDemo {
+
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(PropertiesDemo.class, args);
+        ExternalService externalService = context.getBean(ExternalService.class);
+        System.out.println(externalService.getUrl());
+    }
+}
+</pre>
+
+<table width="100%">
+<tbody>
+<tr>
+<td style="text-align: center;">Using <strong>@Value</strong> Annotation</td>
+<td style="text-align: center;">Using <strong>Environment</strong> property resolver</td>
+</tr>
+<tr>
+<td>
+<pre>
+@Component
+public class ExternalService {
+
+    @Value("${external.service.url}")
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+}
+</pre>
+</td>
+<td>
+<pre>
+@Component
+public class ExternalService {
+
+    @Autowired
+    private Environment environment;
+
+    public String getUrl() {
+        return environment.getProperty("external.service.url");
+    }
+}
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">In case the properties files are placed at some other path:</p>
+<p style="text-align: justify;"><img src="data/spring/images/15.external_properties_files.png" alt="" /></p>
+<p style="text-align: justify;"><img src="data/spring/images/16.external_properties_files.png" alt="" /></p>
+<p style="text-align: justify;">We can provide the details as VM args as below:</p>
+<p style="text-align: justify;"><img src="data/spring/images/17.external_properties_files.png" alt="" /></p>
+<p style="text-align: justify;">In case, the properties file name is something other than <code>application*.properties</code>
+, we can use <code>-Dspring.config.name=myprops</code> to load them.</p>
+
+
+
+<p style="text-align: justify;">Reference: <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config" target="_blank">Externalized Configuration</a></p>
+
+        */}.toString().slice(14,-3)
+    },
+
     {   /* Contexts and Dependency Injection */
         "text" : function(){/*
 <h1>Contexts and Dependency Injection (CDI)</h1>
@@ -1199,10 +1308,4 @@ unchecked data access exceptions.</p>
         */}.toString().slice(14,-3)
     },
 
-    {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
-<p style="text-align: justify;">TODO</p>
-        */}.toString().slice(14,-3)
-    },
 ]
