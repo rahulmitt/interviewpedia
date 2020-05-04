@@ -461,6 +461,7 @@ public void testAdd() {
 </table>
 <p style="text-align: justify;">&nbsp;</p>
 <p style="text-align: justify;"><a href="https://www.vogella.com/tutorials/Mockito/article.html" target="_blank">Mockito Tutorial</a></p>
+<p style="text-align: justify;"><a href="https://www.youtube.com/watch?v=d2KwvXQgQx4&t=313s" target="_blank">Mockito Tutorial - Mocking With Junit and Maven</a></p>
         */}.toString().slice(14,-3)
     },
 
