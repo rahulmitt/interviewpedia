@@ -44,4 +44,9 @@ var topics = [
         caption: "Java 8"
     },
 
+	{
+        id: "testing",
+        caption: "Testing"
+    },
+
 ]

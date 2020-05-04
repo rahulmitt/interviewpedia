@@ -8,6 +8,7 @@ var java = [
 	'unix.json.js',
 	'gc.json.js',
 	'java8.json.js',
+	'testing.json.js',
 ];
 
 var dp = [
