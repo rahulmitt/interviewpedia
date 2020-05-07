@@ -1,11 +1,49 @@
 var unix_que = [
 	{
-		question : "Useful Commands",
+		question : "Unix Commands",
 		tags : ["ls"]
-	}
+	},
+
+	{
+		question : "Some Useful Commands",
+		tags : ["ls"]
+	},
 ]
 
 var unix_ans = [
+    {   /* QQQQ */
+        "text" : function(){/*
+<h1>QQQQ</h1>
+<table width="100%">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>COMMAND</strong></td>
+<td style="text-align: center;"><strong>DESCRIPTION</strong></td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>Print Working Directory &mdash; prints out the current working directory</td>
+</tr>
+<tr>
+<td><code>cd</code></td>
+<td>Change the current directory&nbsp;</td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td>
+<p>Lists the files in a directory. There are various options; some of the important ones are below:</p>
+<p style="text-align: justify;"><img src="data/java/images/unix/1.ls.png" alt="" /></p>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+        */}.toString().slice(14,-3)
+    },
+
     {   /* Useful Commands */
         "text" : function(){/*
 <h1>Useful Commands</h1>
