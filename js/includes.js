@@ -17,7 +17,7 @@ var dp = [
 	'behavioral.json.js',
 ];
 
-var ds = [
+var ds_old = [
 	'array.json.js',
 	'string.json.js',
 	'linkedlist.json.js',
@@ -36,7 +36,7 @@ var spring = [
     'spring_dp.json.js',
 ];
 
-var js = [
+var javascript = [
     'jsBasics.json.js',
     'controlFlow.json.js',
     'functionsMethods.json.js',

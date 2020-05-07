@@ -1,7 +1,7 @@
 var courses = [
     { "id": "java", "name": "Java" },
     { "id": "dp", "name": "Design Patterns" },
-    { "id": "ds", "name": "DS & Algo" },
+    { "id": "ds_old", "name": "DS & Algo [archived]" },
     { "id": "spring", "name": "Spring" },
-    { "id": "js", "name": "JavaScript" },
+    { "id": "javascript", "name": "JavaScript" },
 ];
