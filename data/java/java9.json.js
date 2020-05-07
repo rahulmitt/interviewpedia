@@ -1,11 +1,11 @@
-var test_que = [
+var java9_que = [
 	{
 		question : "QQQQ",
 		tags : ["QQQQ"]
 	}
 ]
 
-var test_ans = [
+var java9_ans = [
     {   /* QQQQ */
         "text" : function(){/*
 <h1>QQQQ</h1>

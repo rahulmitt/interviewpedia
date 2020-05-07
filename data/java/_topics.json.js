@@ -25,16 +25,6 @@ var topics = [
 	},
 
 	{
-		id: "db",
-		caption: "Database"
-	},
-	
-	{
-		id: "unix",
-		caption: "Unix"
-	},
-	
-	{
 		id: "gc",
 		caption: "Garbage Collection"
 	},
@@ -45,8 +35,23 @@ var topics = [
     },
 
 	{
+        id: "java9",
+        caption: "Java 9"
+    },
+
+	{
         id: "testing",
         caption: "Testing"
     },
+
+	{
+		id: "db",
+		caption: "Database"
+	},
+
+	{
+		id: "unix",
+		caption: "Unix"
+	},
 
 ]

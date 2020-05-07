@@ -8,6 +8,7 @@ var java = [
 	'unix.json.js',
 	'gc.json.js',
 	'java8.json.js',
+	'java9.json.js',
 	'testing.json.js',
 ];
 
@@ -75,7 +76,7 @@ function loadJS(arr){
 }
 
 function loadDataJS(arr, course){
-	appendScriptTag('./data/' + course + '/topics.json.js');
+	appendScriptTag('./data/' + course + '/_topics.json.js');
 	$.each(arr, function(i, js){
 		appendScriptTag('./data/' + course + '/' + js);
 	});
