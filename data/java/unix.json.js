@@ -26,18 +26,67 @@ var unix_ans = [
 </tr>
 <tr>
 <td><code>cd</code></td>
-<td>Change the current directory&nbsp;</td>
+<td>Change the current directory</td>
 </tr>
 <tr>
 <td><code>ls</code></td>
 <td>
-<p>Lists the files in a directory. There are various options; some of the important ones are below:</p>
-<p style="text-align: justify;"><img src="data/java/images/unix/1.ls.png" alt="" /></p>
+<p style="text-align: justify;"><img src="data/java/images/unix/1.ls.png" alt="" width="100%" /></p>
 </td>
 </tr>
 <tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td><code>cp</code></td>
+<td>
+<p><img src="data/java/images/unix/2.cp.png" alt="" width="100%" /></p>
+</td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>
+<p><img src="data/java/images/unix/3.mv.png" alt="" width="100%" /></p>
+</td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>
+<p><img src="data/java/images/unix/4.rm.png" alt="" width="100%" /></p>
+</td>
+</tr>
+<tr>
+<td><code>mkdir</code></td>
+<td>
+<p><img src="data/java/images/unix/5.mkdir.png" alt="" width="100%" /></p>
+</td>
+</tr>
+<tr>
+<td><code>rmdir</code></td>
+<td>
+<p><img src="data/java/images/unix/6.rmdir.png" alt="" width="100%" /></p>
+</td>
+</tr>
+<tr>
+<td><code>touch</code></td>
+<td>
+<p><img src="data/java/images/unix/7.touch.png" alt="" width="100%" /></p>
+</td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td>
+<p><img src="data/java/images/unix/8.cat.png" alt="" width="100%" /></p>
+</td>
+</tr>
+<tr>
+<td><code>tac</code></td>
+<td>
+<p><img src="data/java/images/unix/9.tac.png" alt="" width="100%" /></p>
+</td>
+</tr>
+<tr>
+<td><code>less</code></td>
+<td>
+<p><img src="data/java/images/unix/10.less.png" alt="" width="100%" /></p>
+</td>
 </tr>
 </tbody>
 </table>
