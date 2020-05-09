@@ -76,7 +76,7 @@ function loadJS(arr){
 }
 
 function loadDataJS(arr, course){
-	appendScriptTag('./data/' + course + '/_topics.json.js');
+	appendScriptTag('./data/' + course + '/-topics.json.js');
 	$.each(arr, function(i, js){
 		appendScriptTag('./data/' + course + '/' + js);
 	});
