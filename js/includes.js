@@ -37,6 +37,12 @@ var ds = [
 
 ];
 
+var algo = [
+	'sort.json.js',
+	'search.json.js',
+
+];
+
 var spring = [
     'intro.json.js',
     'indepth.json.js',
