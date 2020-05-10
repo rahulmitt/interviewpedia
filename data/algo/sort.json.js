@@ -492,12 +492,42 @@ public class QuickSort {
 <tbody>
 <tr>
 <td>
-<p><img src="data/algo/images/sort/XXX.gif" alt="" width="100%" /></p>
-<p><img src="data/algo/images/sort/XXX.png" alt="" width="100%" /></p>
+<p><img src="data/algo/images/sort/7a.counting_sort.gif" alt="" width="100%" /></p>
 </td>
+</tr>
+<tr>
 <td>
 <pre>
+package com.rahulmitt.interviewpedia.algo.sort;
 
+import java.util.Arrays;
+
+public class CountingSort {
+    public static void main(String[] args) {
+        int[] intArray = {3, 4, 2, 1, 0, 0, 4, 3, 4, 2};
+        //int[] intArray = {1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0};
+        System.out.println("Original:     " + Arrays.toString(intArray));
+        //countingSort(intArray, 0, 1);
+        countingSort(intArray, 0, 4);
+        System.out.println("Sorted Array: " + Arrays.toString(intArray));
+    }
+
+    public static void countingSort(int[] input, int min, int max) {
+        int[] countArray = new int[(max - min) + 1];
+
+        for (int i = 0; i < input.length; i++) {
+            countArray[input[i] - min]++;
+        }
+
+        int j = 0;
+        for (int i = min; i <= max; i++) {
+            while (countArray[i - min] > 0) {
+                input[j++] = i;
+                countArray[i - min]--;
+            }
+        }
+    }
+}
 </pre>
 </td>
 </tr>
