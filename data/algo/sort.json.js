@@ -1,42 +1,42 @@
 var sort_que = [
 	{
 		question : "Sorting Algorithms",
-		tags : ["QQQQ"]
+		tags : ["Sorting Algorithms"]
 	},
 
 	{
 		question : "Insertion Sort",
-		tags : ["QQQQ"]
+		tags : ["Insertion Sort"]
 	},
 
 	{
 		question : "Selection Sort",
-		tags : ["QQQQ"]
+		tags : ["Selection Sort"]
 	},
 
 	{
 		question : "Bubble Sort",
-		tags : ["QQQQ"]
+		tags : ["Bubble Sort"]
 	},
 
 	{
 		question : "Merge Sort",
-		tags : ["QQQQ"]
+		tags : ["Merge Sort"]
 	},
 
 	{
 		question : "Heap Sort",
-		tags : ["QQQQ"]
+		tags : ["Heap Sort"]
 	},
 
 	{
 		question : "Quick Sort",
-		tags : ["QQQQ"]
+		tags : ["Quick Sort"]
 	},
 
 	{
 		question : "Counting Sort",
-		tags : ["QQQQ"]
+		tags : ["Counting Sort"]
 	},
 ]
 
