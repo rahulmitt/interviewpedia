@@ -32,9 +32,11 @@ var ds_old = [
 ];
 
 var ds = [
-	'linear.json.js',
-	'non_linear.json.js',
-
+    'intro.json.js',
+    'array.json.js',
+    'linkedlist.json.js',
+    'stack.json.js',
+    'queue.json.js',
 ];
 
 var algo = [

@@ -1,11 +1,26 @@
 var topics = [
+    {
+        id: "intro",
+        caption: "Introduction"
+    },
+
 	{
-		id: "linear",
-		caption: "Linear Data Structures"
+		id: "array",
+		caption: "Arrays"
 	},
 
 	{
-		id: "non_linear",
-		caption: "Non-Linear Data Structures"
+		id: "linkedlist",
+		caption: "Linked List"
+	},
+
+	{
+		id: "stack",
+		caption: "Stack"
+	},
+
+	{
+		id: "queue",
+		caption: "Queue"
 	},
 ]
