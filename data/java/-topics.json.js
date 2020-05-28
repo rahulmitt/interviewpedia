@@ -5,6 +5,11 @@ var topics = [
 	},
 
 	{
+		id: "serialization",
+		caption: "Serialization"
+	},
+	
+	{
 		id: "string",
 		caption: "String"
 	},
@@ -22,11 +27,6 @@ var topics = [
 	{
 		id: "gc",
 		caption: "Garbage Collection"
-	},
-
-	{
-		id: "serialization",
-		caption: "Serialization"
 	},
 
 	{

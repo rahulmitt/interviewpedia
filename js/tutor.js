@@ -66,7 +66,6 @@ function onLoadHandler(){
 
 function renderAnswer(topic, i){
 	var ans = eval(topic+"_ans")[i];
-	$("#heading").text(eval(topic+"_que")[i].question);
 	$("#tabs-inner").html(ans.text);
 	$("pre").removeClass();
 	$("pre").addClass("prettyprint linenums lang-java");
