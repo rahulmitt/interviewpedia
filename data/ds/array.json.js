@@ -486,7 +486,6 @@ var array_ans = [
     {   /* Rotation */
         "text" : function(){/*
 <h1>Rotation</h1>
-<p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
 <tr>
@@ -494,7 +493,16 @@ var array_ans = [
 </tr>
 <tr>
 <td>
-<pre>&nbsp;
+<pre>
+    public static void rotateArray(int[] arr) {
+        rotateArrayIterative(arr);
+    }
+
+    private static void rotateArrayIterative(int[] arr) {
+        int first = arr[0];
+        for (int i = 1; i < arr.length; i++) arr[i - 1] = arr[i];
+        arr[arr.length - 1] = first;
+    }
 </pre>
 </td>
 </tr>
@@ -508,7 +516,23 @@ var array_ans = [
 </tr>
 <tr>
 <td>
-<pre>&nbsp;
+<pre>
+    public static void rotateArray(int[] arr) {
+        rotateArrayRecursive(arr);
+    }
+
+    private static void rotateArrayRecursive(int[] arr) {
+        rotateArrayRecursive(arr, arr[0], 1);
+    }
+
+    private static void rotateArrayRecursive(int[] arr, int first, int i) {
+        if (i == arr.length) {
+            arr[i - 1] = first;
+            return;
+        }
+        arr[i - 1] = arr[i];
+        rotateArrayRecursive(arr, first, i + 1);
+    }
 </pre>
 </td>
 </tr>
