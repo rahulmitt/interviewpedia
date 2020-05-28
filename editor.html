@@ -48,7 +48,7 @@
 					document.title = 'Interviewpedia - ' + title;
 					$("#courseDialog").dialog("close");
 				}
-				
+
 				loadJS(systemJS);
 				loadCSS(css);
 				loadDataJS(eval(course), course);
@@ -250,6 +250,17 @@
 			<div id="tab-container" align='left'>
 				<ul id="horizontal"></ul>
 				<br/>
+
+				<div style="display:flex;justify-content: space-between">
+					<label style="width:20%"></label>
+					<label id="heading" style="font-size:20px;width:70%"></label>
+					<div>
+						<button id="edit" style="padding: .5px .5px;" onclick='edit()' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Edit" ><span class="ui-icon ui-icon-pencil"></span></button>
+						<button id="render" style="padding: .5px .5px;"  onclick='render()' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Preview" ><span class="ui-icon ui-icon-note"></span></button>
+						<button id="direct-url" style="padding: .5px .5px;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Direct Link" ><span class="ui-icon ui-icon-link"></span></button>&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
+
 				<div id="inner-tabs-container" align='left'>
 					<div>
 						<ul id="vertical">
@@ -257,15 +268,11 @@
 							
 						</ul>
 					</div>
-					
+
+
 					<div style="font-size:12px;">
-						<div align='right'>
-							<button id="edit" onclick='edit()' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Edit" ><span class="ui-icon ui-icon-pencil"></span></button>
-							
-							<button id="render" onclick='render()' class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Preview" ><span class="ui-icon ui-icon-note"></span></button>
-							
-							<button id="direct-url" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Direct Link" ><span class="ui-icon ui-icon-link"></span></button>&nbsp;&nbsp;
-						</div>
+
+
 						<div id="tabs-inner" style="color:black;"></div>
 						<div id="editor" style="display:none">
 							<textarea height="80%" rows="31" cols="50"></textarea>
