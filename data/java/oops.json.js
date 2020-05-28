@@ -30,7 +30,17 @@ var oops_que = [
 	{
 		question : "Creating an Immutable class",
 		tags : ["immutable"]
-	}
+	},
+
+	{
+		question : "Generics",
+		tags : ["Generics"]
+	},
+
+	{
+		question : "Reflection",
+		tags : ["Reflection"]
+	},
 ]
 
 var oops_ans = [
@@ -171,7 +181,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 <p style="text-align: justify;"><strong>private</strong> - accessible only by the same class</p>
 		*/}.toString().slice(14,-3)
 	},
-	
+
 	{
 		"text" : function(){/*
 <h3 style="text-align: justify;"><span style="text-decoration: underline;">Method Overloading</span></h3>
@@ -183,7 +193,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 <p style="text-align: justify;">Overloading is a <strong>compile-time polyphormism</strong>. This just means that the compiler determines whether the given method is correctly overloaded, and if not a compiler error is returned.</p>
 		*/}.toString().slice(14,-3)
 	},
-	
+
 	{
 		"text" : function(){/*
 <p style="text-align: justify;">Method overriding occurs when a sub-class requires a different definition for an inherited method from the super-class, then that method can be redefined in the derived class.</p>
@@ -217,7 +227,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 <p style="text-align: justify;">&nbsp;</p>
 		*/}.toString().slice(14,-3)
 	},
-	
+
 	{
 		"text" : function(){/*
 <h2 style="text-align: justify;">Overriding Vs Hiding</h2>
@@ -253,10 +263,10 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	public static void main(String[] args) {
 		Animal a1 = new Animal();
 		Animal a2 = new Dog();
-		
+
 		a1.eat();
 		a1.something();
-		
+
 		a2.eat();
 		a2.something();
 	}
@@ -276,7 +286,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 <p style="text-align: justify;">&nbsp;</p>
 		*/}.toString().slice(14,-3)
 	},
-	
+
 	{
 		"text" : function(){/*
 <h2 style="text-align: justify;"><span style="text-decoration: underline;">When to use Interfaces</span></h2>
@@ -291,7 +301,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 <p style="text-align: justify;">You may have abstract classes that provide some default behaviors. Abstract classes let you define some behaviors; they force your subclasses to provide others. For example, if you are building an application framework, an abstract class may provide default services such as event and message handling. However, there could be some application-specific functionality that only your application can perform. Such functionality might include startup and shutdown tasks, which are often application-dependent. So, instead of trying to define that behavior itself, the abstract base class can simply declare the shutdown and startup methods as abstract. When it is time to start up, the abstract class can call the startup method. And the JVM will call the method defined by the child class.</p>
 		*/}.toString().slice(14,-3)
 	},
-	
+
 	{
 		"text" : function(){/*
 <p style="text-align: justify;">Let us Assume an object- <strong>obj1</strong>, that contains two objects, <strong>containedObj1</strong> and <strong>containedObj2</strong>.</p>
@@ -388,7 +398,7 @@ public class DeepCopy implements Serializable {
 <p style="text-align: justify;">Reference:&nbsp;<a href="http://javatechniques.com/blog/faster-deep-copies-of-java-objects/" target="_blank">Faster deep copies of java Object</a></p>
 		*/}.toString().slice(14,-3)
 	},
-	
+
 	{
 		"text" : function(){/*
 <p style="text-align: justify;">An immutable class is one whose state cannot be modified once created. There are certain guidelines to create an class immutable. Immutable object not only guarantees safe publication of object&rsquo;s state, but also can be shared among other threads without any external synchronization. JDK itself contains several immutable classes like String, Integer and other wrapper classes. Any modification on immutable object will result in another immutable object. All modifications in a String object results in a new String object.</p>
@@ -402,6 +412,20 @@ public class DeepCopy implements Serializable {
 </ol>
 <p style="text-align: justify;">&nbsp;</p>
 		*/}.toString().slice(14,-3)
-	}
+	},
+
+    {   /* Generics */
+        "text" : function(){/*
+<h1>Generics</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Reflection */
+        "text" : function(){/*
+<h1>Reflection</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
 
 ]
