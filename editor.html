@@ -44,7 +44,7 @@
 					var title = $.grep(courses, function(c, i) {
 					  return ( c.id === course);
 					})[0].name;
-					$("#label").html('<label style="font-size:25px;color:#3b5998;"><b>Interviewpedia</b> - ' + title + '</label>');
+					$("#label").html('<label title="Click to select a different course" style="font-size:25px;color:#3b5998;cursor:pointer"><b>Interviewpedia</b> - ' + title + '</label>');
 					document.title = 'Interviewpedia - ' + title;
 					$("#courseDialog").dialog("close");
 				}
