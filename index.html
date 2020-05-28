@@ -29,7 +29,7 @@
 					var title = $.grep(courses, function(c, i) {
 					  return ( c.id === course);
 					})[0].name;
-					$("#label").html('<label style="font-size:25px;color:#3b5998;"><b>Interviewpedia</b> - ' + title + '</label>');
+					$("#label").html('<label title="Click to select a different course" style="font-size:25px;color:#3b5998;cursor:pointer"><b>Interviewpedia</b> - ' + title + '</label>');
 					document.title = 'Interviewpedia - ' + title;
 					$("#courseDialog").dialog("close");
 				}
@@ -187,6 +187,15 @@
 			<div id="tab-container" align='left'>
 				<ul id="horizontal"></ul>
 				<br/>
+
+				<div style="display:flex;justify-content: space-between">
+					<label style="width:17%"></label>
+					<label id="heading" style="font-size:20px;width:70%"></label>
+					<div>
+						<button id="direct-url" style="padding: .5px .5px;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Direct Link" ><span class="ui-icon ui-icon-link"></span></button>&nbsp;&nbsp;&nbsp;&nbsp;
+					</div>
+				</div>
+
 				<div id="inner-tabs-container" align='left'>
 					<div>
 						<ul id="vertical">
@@ -196,9 +205,6 @@
 					</div>
 					
 					<div style="font-size:12px;">
-						<div align='right'>
-							<button id="direct-url" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" title="Direct Link" ><span class="ui-icon ui-icon-link"></span></button>&nbsp;&nbsp;
-						</div>
 						<div id="tabs-inner" style="color:black;"></div><br/>
 					</div>
 
