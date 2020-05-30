@@ -133,11 +133,12 @@ var unix_ans = [
         "text" : function(){/*
 
 <h1>VIM Editor</h1>
-<h2>1. Replace FIRST OCCURENCE of word &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on all lines</h2>
+<p><img src="data/java/images/unix/vim/1.vim - find_replace.png" alt="" width="100%" /></p>
+<h2>1. Replace FIRST OCCURRENCE of word &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on all lines</h2>
 <p><strong><code>:%s/foo/bar/</code></strong></p>
-<h2>2. Replace ALL OCCURENCES of word &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on all lines</h2>
+<h2>2. Replace ALL OCCURRENCES of word &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on all lines</h2>
 <p><strong><code>:%s/foo/bar/g</code></strong></p>
-<h2>3. replace first occurrence of &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on lines 5 through 20 only</h2>
+<h2>3. Replace first occurrence of &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on lines 5 through 20 only</h2>
 <p><code><strong>:5,20s/foo/bar/</strong></code></p>
 <h2>4. Find all words that matches a pattern and replace them:</h2>
 <p>pattern is --&gt; starts with a space, then 'p' then many alphabets, then ends with 'c' and space. e.g., ' public '</p>
