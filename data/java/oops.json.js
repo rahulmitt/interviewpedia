@@ -30,7 +30,18 @@ var oops_que = [
 	{
 		question : "Creating an Immutable class",
 		tags : ["immutable"]
-	}
+	},
+
+	{
+		question : "Generics",
+		tags : ["Generics"]
+	},
+
+	{
+		question : "Reflection",
+		tags : ["Reflection"]
+	},
+
 ]
 
 var oops_ans = [
@@ -402,6 +413,20 @@ public class DeepCopy implements Serializable {
 </ol>
 <p style="text-align: justify;">&nbsp;</p>
 		*/}.toString().slice(14,-3)
-	}
+	},
+
+    {   /* Generics */
+        "text" : function(){/*
+<h1>Generics</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Reflection */
+        "text" : function(){/*
+<h1>Reflection</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
 
 ]

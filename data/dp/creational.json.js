@@ -38,8 +38,10 @@ var creational_que = [
 var creational_ans = [
     {   /* Builder */
         "text" : function(){/*
+
+<p><a href="https://stackoverflow.com/questions/1673841/examples-of-gof-design-patterns-in-javas-core-libraries" target="_blank">https://stackoverflow.com/questions/1673841/examples-of-gof-design-patterns-in-javas-core-libraries</a></p>
+
 <h1>Builder</h1>
-<p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/creational/1.builder.png" alt="" width="800" height="400"/></p>
 
 <table>
