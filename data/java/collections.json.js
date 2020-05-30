@@ -361,6 +361,8 @@ public int hashCode() {
 	return result;
 }
 </pre>
+
+<a href="https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/" target="_blank">https://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/</a></p>
 		*/}.toString().slice(14,-3)
 	},
 	
