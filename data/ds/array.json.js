@@ -1,5 +1,10 @@
 var array_que = [
 	{
+		question : "ArrayList - Dynamic Array",
+		tags : ["ArrayList", "Dynamic Array", "ADT"]
+	},
+
+	{
 		question : "Print All Elements",
 		tags : ["Print All Elements"]
 	},
@@ -62,6 +67,13 @@ var array_que = [
 ]
 
 var array_ans = [
+    {   /* ArrayList - Dynamic Array */
+        "text" : function(){/*
+<h1>ArrayList - Dynamic Array</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
+
     {   /* Print All Elements */
         "text" : function(){/*
 <h1>Print All Elements</h1>
