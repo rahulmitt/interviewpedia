@@ -8,6 +8,11 @@ var unix_que = [
 		question : "Some Useful Commands",
 		tags : ["ls"]
 	},
+
+	{
+		question : "VIM Editor",
+		tags : ["VIM Editor"]
+	},
 ]
 
 var unix_ans = [
@@ -111,8 +116,35 @@ var unix_ans = [
 <p><strong>&lt;</strong><em>command<strong>&gt;</strong></em> <code>| grep --color=always</code> <strong>&lt;</strong><em>text to highlight<strong>&gt;</strong></em></p>
 <h2>7. Check disk space:</h2>
 <p><code><strong>du -hsx * | sort -rh</strong></code></p>
+<h2>&nbsp;8. Delete all contents of a file:</h2>
+<p><strong><code>cat /dev/null &gt; blah.txt</code></strong></p>
+<h2>&nbsp;9. Find files in a directory</h2>
+<p><strong><code>find scripts/ -name '*.pl'</code></strong></p>
+<h2>&nbsp;10. Find files (recursively) containing text in a directory</h2>
+<p><strong><code>grep -r 'rahul' scripts/*.pl</code></strong></p>
+<p><strong><code>grep -r 'ENV_A' scripts/*.pl | cut -d: -f1</code></strong></p>
+<h2>11. top command</h2>
+<p><code><strong>top</strong></code></p>
 <p>&nbsp;</p>
-<p>&nbsp;</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* VIM Editor */
+        "text" : function(){/*
+
+<h1>VIM Editor</h1>
+<h2>1. Replace FIRST OCCURENCE of word &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on all lines</h2>
+<p><strong><code>:%s/foo/bar/</code></strong></p>
+<h2>2. Replace ALL OCCURENCES of word &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on all lines</h2>
+<p><strong><code>:%s/foo/bar/g</code></strong></p>
+<h2>3. replace first occurrence of &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on lines 5 through 20 only</h2>
+<p><code><strong>:5,20s/foo/bar/</strong></code></p>
+<h2>4. Find all words that matches a pattern and replace them:</h2>
+<p>pattern is --&gt; starts with a space, then 'p' then many alphabets, then ends with 'c' and space. e.g., ' public '</p>
+<p><code><strong>:%s/\sp\w*c\s/ private /c</strong></code></p>
+
+<p style="text-align: justify;">&nbsp;</p>
+<p>Reference: <a href="http://vimregex.com/" target="_blank">http://vimregex.com/</a></p>
         */}.toString().slice(14,-3)
     },
 ]
