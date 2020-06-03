@@ -51,6 +51,10 @@ var spring = [
     'spring_dp.json.js',
 ];
 
+var openshift = [
+    'minishift.json.js',
+];
+
 var javascript = [
     'jsBasics.json.js',
     'controlFlow.json.js',
