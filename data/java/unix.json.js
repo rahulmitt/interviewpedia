@@ -1,6 +1,6 @@
 var unix_que = [
 	{
-		question : "Unix Commands",
+		question : "Basic Commands",
 		tags : ["ls"]
 	},
 
@@ -13,12 +13,17 @@ var unix_que = [
 		question : "VIM Editor",
 		tags : ["VIM Editor"]
 	},
+
+    {
+        question : "Ubuntu",
+        tags : ["ubuntu"]
+    },
 ]
 
 var unix_ans = [
-    {   /* QQQQ */
+    {   /* Basic Commands */
         "text" : function(){/*
-<h1>QQQQ</h1>
+<h1>Basic Commands</h1>
 <table width="100%">
 <tbody>
 <tr>
@@ -146,6 +151,92 @@ var unix_ans = [
 
 <p style="text-align: justify;">&nbsp;</p>
 <p>Reference: <a href="http://vimregex.com/" target="_blank">http://vimregex.com/</a></p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Ubuntu */
+        "text" : function(){/*
+<h1>Ubuntu</h1>
+<h2 style="text-align: justify;">1. Create Shared Folder Between Windows 10 Host and Ubuntu Guest OS on Virtualbox</h2>
+<table width="100%">
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Update package list</td>
+<td><code>sudo apt update</code></td>
+</tr>
+<tr>
+<td>Upgrade packages</td>
+<td>
+<p><code>sudo apt upgrade</code></p>
+<p>Power off the VirtualBox VM</p>
+</td>
+</tr>
+<tr>
+<td>Enable shared clipboard and Drag/Drop features.</td>
+<td>
+<p>VirtualBox --&gt; VM --&gt; Settings --&gt; General --&gt;Advanced</p>
+<img src="data\java\images\ubuntu\1.VirtualBox Setup.png" alt="" width="616" height="295" /></td>
+</tr>
+<tr>
+<td>Install dependencies required for guest additions</td>
+<td>
+<p><code>sudo apt install build-essential dkms linux-headers-$(uname -r)</code></p>
+<p>Close the terminal</p>
+</td>
+</tr>
+<tr>
+<td>&nbsp;Install virtualbox-guest-dkms to enable shared clipboard and Drag/drop features</td>
+<td>
+<p>Click Devices --&gt; Insert guest additions CD image</p>
+<p><code>sudo apt install virtualbox-guest-dkms</code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Reference:&nbsp;<a href="https://www.youtube.com/watch?v=QfCdx6wWkf8" target="_blank">How to Install Guest Additions on Ubuntu in VirtualBox?</a></p>
+<p>Reference:&nbsp;<a href="https://www.youtube.com/watch?v=oZs2hQj_-OA" target="_blank">How to Create Shared Folder Between Windows 10 Host and Ubuntu Guest OS on Virtualbox?</a></p>
+<h2>2. Fix Citrix Issue</h2>
+<pre> cd /opt/Citrix/ICAClient/keystore/cacerts/
+ sudo cp /etc/ssl/certs/* .
+</pre>
+<h2>3.&nbsp;Connect to Ubuntu VirtualBox from Windows host via Putty</h2>
+<table width="100%">
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><code>sudo apt install ssh</code></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><code>sudo service ssh status</code></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><code>sudo apt install net-tools</code></td>
+</tr>
+<tr>
+<td>ipconfig on Ubuntu shell</td>
+<td><code>ifconfig</code></td>
+</tr>
+</tbody>
+</table>
+<p>Reference:&nbsp;<a href="https://www.youtube.com/watch?v=8Lxb7BT7cAk" target="_blank">How to connect Linux / Ubuntu on Virtual Box through PUTTY?</a></p>
+<h2>4. Putty Configuration</h2>
+<p>Load Default Settings</p>
+<p><strong>Window --&gt; Appearance --&gt; Font Settings --&gt; Change </strong></p>
+<p>Consolas, Regular, 12</p>
+<p><strong>Window --&gt; Colours --&gt; Select a Color to Adjust</strong></p>
+<p><strong>Default Foreground</strong>: Red:237, Green:209, Blue:18</p>
+<p><strong>Default Background</strong>: Red:64, Green:0, Blue:64</p>
+<p>Session --&gt; Save</p>
         */}.toString().slice(14,-3)
     },
 ]
