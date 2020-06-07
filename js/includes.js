@@ -52,6 +52,7 @@ var spring = [
 ];
 
 var openshift = [
+    'docker.json.js',
     'minishift.json.js',
 ];
 
