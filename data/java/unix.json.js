@@ -243,15 +243,18 @@ var unix_ans = [
 <h2>Putty Configurations</h2>
 <p>Load Default Settings</p>
 <p><strong>Window --&gt; Appearance --&gt; Font Settings --&gt; Change </strong></p>
-<p>Consolas, Regular, 12</p>
+<p>Lucida Console, Regular, 10</p>
 <p><strong>Window --&gt; Colours --&gt; Select a Color to Adjust</strong></p>
 <p><strong>Default Foreground</strong>: Red:237, Green:209, Blue:18</p>
 <p><strong>Default Background</strong>: Red:64, Green:0, Blue:64</p>
 <p>Session --&gt; Save</p>
 <p>Reference: <a href="https://github.com/wlvchandler/PuTTY-Ubuntu-Theme" target="_blank">PuTTY Ubuntu Theme</a></p>
 <h2>Change the color of Shell prompt</h2>
-<p>Add the below&nbsp;customization to&nbsp;<strong>~/.profile</strong> file by typing&nbsp;<code>vim ~/.profile</code></p>
-<p><code>export PS1="\[\e[32m\][\[\e[m\]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]:\[\e[36m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32;47m\]\\$\[\e[m\] "</code></p>
+<p>Default value of<strong> PS1</strong> is:&nbsp;<code>export PS1="\s-\v\$ "</code></p>
+<p>My preferred customization is:</p>
+<p><code>export PS1="\n<span style="background-color: #99cc00;">\e[32m<span style="color: #ffffff;"><strong>[</strong></span>\e[m</span><span style="background-color: #ff0000;">\e[31m<span style="color: #ffffff;"><strong>\u</strong></span>\e[m</span><span style="background-color: #ffcc00;">\e[33m<span style="color: #ffffff;"><strong>@</strong></span>\e[m</span><span style="background-color: #99cc00;">\e[32m<span style="color: #ffffff;"><strong>\h</strong></span>\e[m</span><span style="background-color: #ffcc00;">\e[33m<span style="color: #ffffff;"><strong>:</strong></span>\e[m</span><span style="background-color: #00ccff;">\e[36m<span style="color: #ffffff;"><strong>\w</strong></span>\e[m</span><span style="background-color: #99cc00;">\e[32m<span style="color: #ffffff;"><strong>]</strong></span>\e[m</span><span style="background-color: #ffcc00;">\e[33m<span style="color: #ffffff;"><strong>$</strong></span>\e[m</span> "</code></p>
+<p style="text-align: justify;"><img src="data\java\images\ubuntu\2.customize PS1.png" alt="" width="100%" /></p>
+<p>Add the above&nbsp;customization to&nbsp;<strong>~/.profile</strong> file by typing&nbsp;<code>vim ~/.profile</code></p>
 <p>Reference:&nbsp;<a href="https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/" target="_blank">Change the color of Shell prompt</a></p>
         */}.toString().slice(14,-3)
     },

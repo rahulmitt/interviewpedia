@@ -18,6 +18,21 @@ var docker_que = [
 		question : "Basic Docker Commands",
 		tags : ["Basic Docker Commands"]
 	},
+
+	{
+		question : "Docker run — port mapping",
+		tags : ["Docker run — port mapping"]
+	},
+
+	{
+		question : "Docker run — volume mapping",
+		tags : ["Docker run — volume mapping"]
+	},
+
+	{
+		question : "Create a Docker image — manually",
+		tags : ["Create a Docker image — manually"]
+	},
 ]
 
 var docker_ans = [
@@ -188,13 +203,110 @@ ecute a specific task or process &mdash; e.g., host a web server or a database, 
 <p style="text-align: justify;">Another option is to run the docker container in the <strong>detached mode</strong> by providing the <code>-d</code> option to the run command, which runs the docker container in the background, and you will be back to your prompt immediately, and the container will continue to run in the background.</p>
 <p style="text-align: justify;"><img src="data\openshift\images\docker\4. docker run detached mode.png" alt="" width="100%"/></p>
 
-<p style="text-align: justify;"><img src="data\openshift\images\docker\5.run -it.png" /></p>
+<table width="100%">
+<tbody>
+<tr valign="top">
+<td><p style="text-align: justify;"><img src="data\openshift\images\docker\5.run -it.png" /></p></td>
+<td>
+<p style="text-align: justify;">If you would like to provide some input, you must map the <strong>stdin</strong> of your host to the docker container using the <code>-i</code> option. This option is for <strong>interactive</strong> mode.</p>
+<p style="text-align: justify;">The applications prompt on the <strong>terminal</strong> and we may need to <strong>attach</strong> it to the container's terminal. Use <code>-t</code> option to attach a <strong>pseudo terminal</strong>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
 <p style="text-align: justify;">Docker containers can be removed either using container-id, names or just the first few letters of the container-id. Multiple containers can also be removed at once, as shown below:</p>
 <p style="text-align: justify;"><img src="data\openshift\images\docker\6. docker rm.png" alt="" width="100%"/></p>
 <p style="text-align: justify;">Before removing an image make sure that there are no containers for this image, otherwise, it will give an error as illustrated below. Any containers for the image to be deleted must be removed first:</p>
 <p style="text-align: justify;"><img src="data\openshift\images\docker\7. docker rmi.png" alt="" width="100%"/></p>
 <p style="text-align: justify;">Using docker exec command:</p>
 <p style="text-align: justify;"><img src="data\openshift\images\docker\8. docker exec.png" alt="" width="100%"/></p>
+
+<h2 style="text-align: justify;">Docker Run &mdash; Tag</h2>
+<p><a href="https://hub.docker.com/_/ubuntu" target="_blank">Ubuntu Image — Supported tags</a></p>
+<p style="text-align: justify;"><img src="data\openshift\images\docker\9. docker run tag1.png" alt="" width="690" height="289" /></p>
+<p style="text-align: justify;"><img src="data\openshift\images\docker\9. docker run tag2.png" alt="" /></p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Docker run — port mapping */
+        "text" : function(){/*
+<h1>Docker run &mdash; port mapping</h1>
+
+<p style="text-align: justify;">Docker <strong>port-mapping</strong> (or port forwarding) helps to bind the <strong>container ports</strong> with <strong>docker-host</strong> in order to access the applications running on the containers through network.</p>
+<p><img src="data\openshift\images\docker\10. docker run port mapping.png" /></p>
+<p style="text-align: justify;">By default, when we create any container that doesn't publish/export the application ports running on the container. So we can access these applications only within the docker-host and not through network systems.</p>
+
+<p><code>docker run -dit --name container1 docker.io/httpd</code></p>
+<p style="text-align: justify;">I have created one container for <strong>httpd apache webservice</strong> with name <strong>container1</strong>. This container has got IP address <strong>172.17.0.2</strong>, and running on port <strong>80</strong>. But these httpd service port is not published, so we can access it only using the assigned IP address locally within the docker-host.</p>
+<p><code>curl 172.17.0.2:80</code></p>
+
+<p><img src="data\openshift\images\docker\11. docker run port mapping1.png" width="100%" /></p>
+
+<p style="text-align: justify;">In order to access these applications or services through network, we must <strong>publish the ports</strong> while running the container using <code>-p</code> option. This will create a firewall rule to bind the container port to a docker-host port.</p>
+<p><code>docker run -dit --name container2 -p 8080:80 docker.io/httpd</code></p>
+    <p style="text-align: justify;">Users must use the docker-host IP address <strong>192.168.0.103</strong> to access the containers through network with published port <strong>8080</strong>. The request would first reach the docker-host (192.168.0.103:8080) and subsequently gets forwarded to the respective containers (8080--&gt; 80)</p>
+<p><code>curl 192.168.0.103:8080</code></p>
+<p><img src="data\openshift\images\docker\12. docker run port mapping2.png" width="100%" /></p>
+
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Docker run — volume mapping */
+        "text" : function(){/*
+<h1>Docker run — volume mapping</h1>
+<p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Create a Docker image — manually */
+        "text" : function(){/*
+<h1>Create a Docker image &mdash; manually</h1>
+<ol>
+<li style="text-align: justify;">
+<p>Identify a jar for which a docker image needs to be created</p>
+<p><img src="data\openshift\images\docker\create image - manually\1.png" /></p>
+</li>
+<li style="text-align: justify;">
+<p>Pull the image for&nbsp;<a href="https://hub.docker.com/layers/openjdk/library/openjdk/8-jdk-alpine/images/sha256-a3562aa0b991a80cfe8172847c8be6dbf6e46340b759c2b782f8b8be45342717?context=explore" target="_blank">openjdk:8-jdk-alpine</a> and run a container</p>
+<pre>
+docker ps
+docker run -dit openjdk:8-jdk-alpine
+docker ps
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\2.png" width="100%"/></p>
+</li>
+<li style="text-align: justify;">
+<p>Copy the jar onto some path inside the container</p>
+<pre>
+docker exec &lt;container name&gt; ls -ltra /tmp
+docker cp target/gbce-1.0-SNAPSHOT.jar &lt;container name&gt;:/tmp
+docker exec &lt;container name&gt; ls -ltra /tmp
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\3.png" width="100%"/></p>
+</li>
+<li style="text-align: justify;">
+<p>Save the container as an image</p>
+<pre>
+docker commit --change='CMD ["java", "-jar", "&lt;jar's absolute path&gt;"]' &lt;container name&gt; &lt;repo:tag&gt;
+docker images
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\4.png" width="100%"/></p>
+</li>
+<li style="text-align: justify;">
+<p>Run the container for the new created image</p>
+<pre>
+docker run -d -p 8080:8080 interviewpedia/gbce:v1
+docker ps
+docker logs -f &lt;containerid | name&gt;
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\5.png" width="100%"/></p>
+</li>
+<li style="text-align: justify;">
+<p>Access the application</p>
+<p><a href="http://192.168.0.108:8080/stock-exchange/stock/list" target="_blank">http://&lt;docker-host IP&gt;:8080/stock-exchange/stock/list</a></p>
+</li>
+</ol>
         */}.toString().slice(14,-3)
     },
 ]
