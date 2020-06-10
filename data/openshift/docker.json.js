@@ -30,8 +30,18 @@ var docker_que = [
 	},
 
 	{
-		question : "Create a Docker image — manually",
-		tags : ["Create a Docker image — manually"]
+		question : "Dockerizing — manually",
+		tags : ["Dockerizing — manually"]
+	},
+
+	{
+		question : "Dockerizing — automatically",
+		tags : ["Dockerizing — automatically"]
+	},
+
+	{
+		question : "Docker Image Layers",
+		tags : ["Docker Image Layers"]
 	},
 ]
 
@@ -288,7 +298,7 @@ docker exec &lt;container name&gt; ls -ltra /tmp
 <li style="text-align: justify;">
 <p>Save the container as an image</p>
 <pre>
-docker commit --change='CMD ["java", "-jar", "&lt;jar's absolute path&gt;"]' &lt;container name&gt; &lt;repo:tag&gt;
+docker commit --change='CMD ["java", "-jar", "&lt;absolute path of jar file&gt;"]' &lt;container name&gt; &lt;repo:tag&gt;
 docker images
 </pre>
 <p><img src="data\openshift\images\docker\create image - manually\4.png" width="100%"/></p>
@@ -306,7 +316,52 @@ docker logs -f &lt;containerid | name&gt;
 <p>Access the application</p>
 <p><a href="http://192.168.0.108:8080/stock-exchange/stock/list" target="_blank">http://&lt;docker-host IP&gt;:8080/stock-exchange/stock/list</a></p>
 </li>
+<li style="text-align: justify;">
+<p>Check the docker image layers</p>
+<pre>
+docker history interviewpedia/gbce:v1
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\6.png" width="100%"/></p>
+</li>
+
 </ol>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Dockerizing — automatically */
+        "text" : function(){/*
+<h1>Dockerizing &mdash; automatically</h1>
+<pre>
+ls -ltra
+cat Dockerfile
+docker images
+docker build -t interviewpedia/gbce:v2 .
+docker images
+docker run -d -p 8080:8080 interviewpedia/gbce:v2
+docker ps
+docker logs -f 0df97cdcd216
+</pre>
+<p><img src="data\openshift\images\docker\create image - automatically\1.png" width="100%"/></p>
+<p>Access the application: <a href="http://192.168.0.108:8080/stock-exchange/stock/list" target="_blank">http://&lt;docker-host IP&gt;:8080/stock-exchange/stock/list</a></p>
+<p>Check the docker image layers</p>
+<pre>
+docker history interviewpedia/gbce:v2
+</pre>
+<p><img src="data\openshift\images\docker\create image - automatically\2.png" width="100%"/></p>
+<p>References:</p>
+<p>1.&nbsp;<a href="https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1" target="_blank">Creating Docker Images With Spring Boot 2.3.0.m1</a></p>
+<p>2.&nbsp;<a href="https://github.com/spotify/dockerfile-maven" target="_blank">Spotify Dockerfile Maven Plugin</a>&nbsp;<a href="https://github.com/spotify/dockerfile-maven/issues/112" target="_blank">[Issues]</a></p>
+
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Docker Image Layers */
+        "text" : function(){/*
+<h1>Docker Image Layers</h1>
+<p style="text-align: justify;">Docker layers are cached; so, if we run the docker build command again without making any changes, it should pickup everything from cache.</p>
+<p style="text-align: justify;"><img src="data\openshift\images\docker\create image - automatically\3.png" alt="" width="100%" /></p>
+<p style="text-align: justify;">Unless there are modifications, layers wiould be cache whenever possible. In case there are modifications (e.g., change in Dockerfile),&nbsp;the&nbsp;change and the subsequent steps are recreated again (and not picked from cache), as shown below:</p>
+<p style="text-align: justify;"><img src="data\openshift\images\docker\create image - automatically\4.png" alt="" width="100%" /></p>
         */}.toString().slice(14,-3)
     },
 ]
