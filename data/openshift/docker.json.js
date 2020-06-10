@@ -28,6 +28,11 @@ var docker_que = [
 		question : "Docker run — volume mapping",
 		tags : ["Docker run — volume mapping"]
 	},
+
+	{
+		question : "Create a Docker image — manually",
+		tags : ["Create a Docker image — manually"]
+	},
 ]
 
 var docker_ans = [
@@ -251,6 +256,57 @@ ecute a specific task or process &mdash; e.g., host a web server or a database, 
         "text" : function(){/*
 <h1>Docker run — volume mapping</h1>
 <p style="text-align: justify;">TODO</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Create a Docker image — manually */
+        "text" : function(){/*
+<h1>Create a Docker image &mdash; manually</h1>
+<ol>
+<li style="text-align: justify;">
+<p>Identify a jar for which a docker image needs to be created</p>
+<p><img src="data\openshift\images\docker\create image - manually\1.png" /></p>
+</li>
+<li style="text-align: justify;">
+<p>Pull the image for&nbsp;<a href="https://hub.docker.com/layers/openjdk/library/openjdk/8-jdk-alpine/images/sha256-a3562aa0b991a80cfe8172847c8be6dbf6e46340b759c2b782f8b8be45342717?context=explore" target="_blank">openjdk:8-jdk-alpine</a> and run a container</p>
+<pre>
+docker ps
+docker run -dit openjdk:8-jdk-alpine
+docker ps
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\2.png" width="100%"/></p>
+</li>
+<li style="text-align: justify;">
+<p>Copy the jar onto some path inside the container</p>
+<pre>
+docker exec &lt;container name&gt; ls -ltra /tmp
+docker cp target/gbce-1.0-SNAPSHOT.jar &lt;container name&gt;:/tmp
+docker exec &lt;container name&gt; ls -ltra /tmp
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\3.png" width="100%"/></p>
+</li>
+<li style="text-align: justify;">
+<p>Save the container as an image</p>
+<pre>
+docker commit --change='CMD ["java", "-jar", "&lt;jar's absolute path&gt;"]' &lt;container name&gt; &lt;repo:tag&gt;
+docker images
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\4.png" width="100%"/></p>
+</li>
+<li style="text-align: justify;">
+<p>Run the container for the new created image</p>
+<pre>
+docker run -d -p 8080:8080 interviewpedia/gbce:v1
+docker ps
+docker logs -f &lt;containerid | name&gt;
+</pre>
+<p><img src="data\openshift\images\docker\create image - manually\5.png" width="100%"/></p>
+</li>
+<li style="text-align: justify;">
+<p>Access the application</p>
+<p><a href="http://192.168.0.108:8080/stock-exchange/stock/list" target="_blank">http://&lt;docker-host IP&gt;:8080/stock-exchange/stock/list</a></p>
+</li>
+</ol>
         */}.toString().slice(14,-3)
     },
 ]
