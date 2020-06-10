@@ -30,8 +30,13 @@ var docker_que = [
 	},
 
 	{
-		question : "Create a Docker image — manually",
-		tags : ["Create a Docker image — manually"]
+		question : "Dockerizing — manually",
+		tags : ["Dockerizing — manually"]
+	},
+
+	{
+		question : "Dockerizing — automatically",
+		tags : ["Dockerizing — automatically"]
 	},
 ]
 
@@ -288,7 +293,7 @@ docker exec &lt;container name&gt; ls -ltra /tmp
 <li style="text-align: justify;">
 <p>Save the container as an image</p>
 <pre>
-docker commit --change='CMD ["java", "-jar", "&lt;jar's absolute path&gt;"]' &lt;container name&gt; &lt;repo:tag&gt;
+docker commit --change='CMD ["java", "-jar", "&lt;absolute path of jar file&gt;"]' &lt;container name&gt; &lt;repo:tag&gt;
 docker images
 </pre>
 <p><img src="data\openshift\images\docker\create image - manually\4.png" width="100%"/></p>
@@ -307,6 +312,24 @@ docker logs -f &lt;containerid | name&gt;
 <p><a href="http://192.168.0.108:8080/stock-exchange/stock/list" target="_blank">http://&lt;docker-host IP&gt;:8080/stock-exchange/stock/list</a></p>
 </li>
 </ol>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Dockerizing — automatically */
+        "text" : function(){/*
+<h1>Dockerizing &mdash; automatically</h1>
+<pre>
+ls -ltra
+cat Dockerfile
+docker images
+docker build -t interviewpedia/gbce:v2 .
+docker images
+docker run -d -p 8080:8080 interviewpedia/gbce:v2
+docker ps
+docker logs -f 0df97cdcd216
+</pre>
+<p><img src="data\openshift\images\docker\create image - automatically\1.png" width="100%"/></p>
+<p>Access the application: <a href="http://192.168.0.108:8080/stock-exchange/stock/list" target="_blank">http://&lt;docker-host IP&gt;:8080/stock-exchange/stock/list</a></p>
         */}.toString().slice(14,-3)
     },
 ]
