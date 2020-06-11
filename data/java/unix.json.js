@@ -249,13 +249,22 @@ var unix_ans = [
 <p><strong>Default Background</strong>: Red:64, Green:0, Blue:64</p>
 <p>Session --&gt; Save</p>
 <p>Reference: <a href="https://github.com/wlvchandler/PuTTY-Ubuntu-Theme" target="_blank">PuTTY Ubuntu Theme</a></p>
+<p>&nbsp;</p>
 <h2>Change the color of Shell prompt</h2>
 <p>Default value of<strong> PS1</strong> is:&nbsp;<code>export PS1="\s-\v\$ "</code></p>
 <p>My preferred customization is:</p>
-<p><code>export PS1="\n<span style="background-color: #99cc00;">\e[32m<span style="color: #ffffff;"><strong>[</strong></span>\e[m</span><span style="background-color: #ff0000;">\e[31m<span style="color: #ffffff;"><strong>\u</strong></span>\e[m</span><span style="background-color: #ffcc00;">\e[33m<span style="color: #ffffff;"><strong>@</strong></span>\e[m</span><span style="background-color: #99cc00;">\e[32m<span style="color: #ffffff;"><strong>\h</strong></span>\e[m</span><span style="background-color: #ffcc00;">\e[33m<span style="color: #ffffff;"><strong>:</strong></span>\e[m</span><span style="background-color: #00ccff;">\e[36m<span style="color: #ffffff;"><strong>\w</strong></span>\e[m</span><span style="background-color: #99cc00;">\e[32m<span style="color: #ffffff;"><strong>]</strong></span>\e[m</span><span style="background-color: #ffcc00;">\e[33m<span style="color: #ffffff;"><strong>$</strong></span>\e[m</span> "</code></p>
+<pre>
+Color_Off="\[\033[0m\]"
+Red="\[\033[0;31m\]"
+Green="\[\033[0;32m\]"
+Yellow="\[\033[0;33m\]"
+Blue="\[\033[0;34m\]"
+Cyan="\[\033[0;36m\]"
+export PS1="\n$Green[$Red\u$Yellow@$Green\h$Yellow:$Cyan\w$Green]$Yellow\$$Color_Off "
+</pre>
 <p style="text-align: justify;"><img src="data\java\images\ubuntu\2.customize PS1.png" alt="" width="100%" /></p>
 <p>Add the above&nbsp;customization to&nbsp;<strong>~/.profile</strong> file by typing&nbsp;<code>vim ~/.profile</code></p>
-<p>Reference:&nbsp;<a href="https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/" target="_blank">Change the color of Shell prompt</a></p>
+<p>Reference:&nbsp;<a href="https://gist.github.com/vratiu/9780109" target="_blank">Color Codes</a></p>
         */}.toString().slice(14,-3)
     },
 ]
