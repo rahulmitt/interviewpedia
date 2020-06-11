@@ -67,6 +67,10 @@ function onLoadHandler(){
 function renderAnswer(topic, i){
 	var ans = eval(topic+"_ans")[i];
 	$("#tabs-inner").html(ans.text);
+	$( ":header" ).css({
+        background: "#ccc",
+        color: "#3b5998"
+	});
 	$("pre").removeClass();
 	$("pre").addClass("prettyprint linenums lang-java");
 	prettyPrint();
