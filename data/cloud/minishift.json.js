@@ -26,30 +26,30 @@ var minishift_ans = [
 <p><code> Get-ExecutionPolicy</code></p>
 <p><code>Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) </code></p>
 <p style="text-align: justify;">as shown below:</p>
-<p><img src="data\openshift\images\1. Install choco.png" alt="" width="100%" /></p>
+<p><img src="data\cloud\images\1. Install choco.png" alt="" width="100%" /></p>
 <h2>2. Install Minishift</h2>
 <p><code>choco install -y minishift</code></p>
 <p>Run <code>choco install -y minishift --force</code> in case a force run is needed</p>
-<p><img src="data\openshift\images\2. Install minishift.png" alt="" width="100%" /></p>
+<p><img src="data\cloud\images\2. Install minishift.png" alt="" width="100%" /></p>
 <h2>3. Start Minishift</h2>
 <p><code>minishift config set vm-driver virtualbox</code></p>
 <p><code>minishift start</code></p>
-<p><img src="data\openshift\images\3. Start minishift.png" alt="" width="100%" /></p>
+<p><img src="data\cloud\images\3. Start minishift.png" alt="" width="100%" /></p>
 <h2>4. Stop & Start minishift</h2>
 <p><code>minishift&nbsp;stop</code></p>
 <p><code>minishift start --vm-driver virtualbox</code></p>
-<p><img src="data\openshift\images\4.minishift restart.png" alt="" width="100%" /></p>
+<p><img src="data\cloud\images\4.minishift restart.png" alt="" width="100%" /></p>
 <h2>5. Stop & Delete minishift VM</h2>
 <p><code>minishift&nbsp;stop</code></p>
 <p><code>minishift delete --clear-cache</code></p>
-<p><img src="data\openshift\images\5.delete minishift VM.png" alt="" width="100%" /></p>
+<p><img src="data\cloud\images\5.delete minishift VM.png" alt="" width="100%" /></p>
 <h2>6.&nbsp;Install OpenShift CLI</h2>
 <p><code>choco install -y openshift-cli</code></p>
-<p><img src="data\openshift\images\6.Install OpenShift CLI.png" alt="" width="100%" /></p>
+<p><img src="data\cloud\images\6.Install OpenShift CLI.png" alt="" width="100%" /></p>
 <h2>7. OC Login & Logout</h2>
 <p><code>oc login -u dev -p dev</code></p>
 <p><code>oc logout</code></p>
-<p><img src="data\openshift\images\7.oc login logout.png" alt="" width="100%" /></p>
+<p><img src="data\cloud\images\7.oc login logout.png" alt="" width="100%" /></p>
         */}.toString().slice(14,-3)
     },
 

@@ -5,6 +5,11 @@ var topics = [
 	},
 
 	{
+		id: "k8s",
+		caption: "Kubernetes"
+	},
+
+	{
 		id: "minishift",
 		caption: "MiniShift"
 	},
