@@ -5,13 +5,13 @@ var k8s_que = [
 	},
 
 	{
-		question : "Minikube Setup",
+		question : "Minikube Setup (windows)",
 		tags : ["k8s setup", "Kubernetes Setup", "Minikube Setup"]
 	},
 
 	{
-		question : "TODO",
-		tags : ["TODO"]
+		question : "Minikube Setup (unix)",
+		tags : ["k8s setup", "Kubernetes Setup", "Minikube Setup"]
 	},
 ]
 
@@ -68,7 +68,7 @@ var k8s_ans = [
 <h2>Master Vs Worker Nodes</h2>
 <p><img src="data\cloud\images\k8s\2.Master Vs Worker Nodes.png" alt="" width="100%"/></p>
 
-<h2>kubectl &mdash; the kube command-line tool</h2>
+<h2>kubectl &mdash; the kube controller</h2>
 <p>Used to manage and deploy applications on a kubernetes cluster.&nbsp;</p>
 <table width="100%">
 <tbody>
@@ -93,9 +93,9 @@ var k8s_ans = [
         */}.toString().slice(14,-3)
     },
 
-    {   /* Minikube Setup */
+    {   /* Minikube Setup (windows) */
         "text" : function(){/*
-<h1>Minikube Setup</h1>
+<h1>Minikube Setup (windows)</h1>
 <strong><p>Prerequisite:</strong> Install&nbsp;<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Oracle VM VirtualBox</a></p>
 <p>&nbsp;</p>
 <ol>
@@ -127,20 +127,63 @@ minikube service hello-minikube --url
 kubectl delete services hello-minikube
 kubectl delete deployment hello-minikube
 minikube stop
-minikube delete
 </pre>
 <img src="data\cloud\images\k8s\5. cleanup.png" alt="" />
 </li>
-<li><p>Notice that the VM automatically gets removed from Oracle VM VirtualBox Manager</p></li>
+<li>
+<p>Delete Minikube VM from Oracle VM VirtualBox Manager</p>
+<pre>
+minikube delete
+</pre>
+<img src="data\cloud\images\k8s\6. delete minikube.png" alt="" />
+<p>Notice that the VM automatically gets removed from Oracle VM VirtualBox Manager</p>
+</li>
 </ol>
 <p>Reference:&nbsp;<a href="https://kubernetes.io/docs/setup/learning-environment/minikube/#quickstart" target="_blank">Minikube Quickstart Guide</a></p>
         */}.toString().slice(14,-3)
     },
 
-    {   /* TODO */
+    {   /* Minikube Setup (unix) */
         "text" : function(){/*
-<h1>TODO</h1>
-<p style="text-align: justify;">TODO</p>
+<h1>Minikube Setup (unix)</h1>
+<ol>
+<li>
+<p>Download kubectl</p>
+<pre>
+sudo mkdir -p /usr/local/bin/
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl \
+    -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/
+</pre>
+<p>Resource:&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux" target="_blank">Kubernetes Documentation - kubectl</a>
+</li>
+<li>
+<p>Download Minikube</p>
+<pre>
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x ./minikube
+sudo mv ./minikube /usr/local/bin/
+</pre>
+<p>Resource:&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank">Kubernetes Documentation - Minikube</a>
+</li>
+<li>
+<p>Install Minikube</p>
+<pre>
+minikube start --vm-driver docker --disk-size='2000mb'
+</pre>
+</li>
+<li>
+<p>Delete Minikube</p>
+<pre>
+minikube delete
+</pre>
+</li>
+</ol>
+
+<p>&nbsp;</p>
         */}.toString().slice(14,-3)
     },
 ]

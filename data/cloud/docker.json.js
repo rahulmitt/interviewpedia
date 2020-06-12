@@ -49,22 +49,17 @@ var docker_ans = [
     {   /* Uninstalling Docker */
         "text" : function(){/*
 <h1>Uninstalling Docker</h1>
-<table width="100%">
-<tbody>
-<tr>
-<td>
-<p><code>sudo apt-get purge -y docker-engine docker docker.io docker-ce</code></p>
-<p><code>sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce </code></p>
-<p><code>sudo umount /var/lib/docker/ </code></p>
-<p><code>sudo rm -rf /var/lib/docker /etc/docker </code></p>
-<p><code>sudo rm /etc/apparmor.d/docker </code></p>
-<p><code>sudo groupdel docker </code></p>
-<p><code>sudo rm -rf /var/run/docker.sock </code></p>
-<p><code>sudo rm -rf /usr/bin/docker-compose </code></p>
-</td>
-</tr>
-</tbody>
-</table>
+
+<pre>
+sudo apt-get purge -y docker-engine docker docker.io docker-ce
+sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
+sudo umount /var/lib/docker/
+sudo rm -rf /var/lib/docker /etc/docker
+sudo rm /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+sudo rm -rf /usr/bin/docker-compose
+</pre>
 <p>Reference:&nbsp;<a href="https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker" target="_blank">https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker</a></p>
         */}.toString().slice(14,-3)
     },
@@ -85,7 +80,7 @@ var docker_ans = [
 <tr>
 <td>2. Download convenience script</td>
 <td>
-<p><code>cd&nbsp;/home/rahul/Desktop</code></p>
+<p><code>cd&nbsp;/home/rahul/Downloads</code></p>
 <p><code>curl -fsSL https://get.docker.com -o get-docker.sh</code></p>
 <p><code>ls -ltra</code></p>
 </td>
@@ -97,10 +92,17 @@ var docker_ans = [
 </td>
 </tr>
 <tr>
-<td>4. Check Docker version and remove the script</td>
+<td>4. In order to use docker as a non-root user, add your user to the docker group</td>
 <td>
-<p><code>sudo docker version</code></p>
-<p><code>rm -f&nbsp;/home/rahul/Desktop/get-docker.sh</code></p>
+<p><code>sudo usermod -aG docker &lt;unix-user&gt;</code></p>
+<p>Remember to log out and back in for this to take effect</p>
+</td>
+</tr>
+<tr>
+<td>5. Check Docker version and remove the script</td>
+<td>
+<p><code>docker version</code></p>
+<p><code>rm -f&nbsp;/home/rahul/Downloads/get-docker.sh</code></p>
 </td>
 </tr>
 </tbody>
@@ -314,7 +316,7 @@ docker logs -f &lt;containerid | name&gt;
 </li>
 <li style="text-align: justify;">
 <p>Access the application</p>
-<p><a href="http://192.168.0.108:8080/stock-exchange/stock/list" target="_blank">http://&lt;docker-host IP&gt;:8080/stock-exchange/stock/list</a></p>
+<p><a href="http://ubuntu:8080/stock-exchange/stock/list" target="_blank">http://&lt;docker-host IP&gt;:8080/stock-exchange/stock/list</a></p>
 </li>
 <li style="text-align: justify;">
 <p>Check the docker image layers</p>
