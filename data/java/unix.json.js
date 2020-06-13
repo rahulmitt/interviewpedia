@@ -252,6 +252,7 @@ var unix_ans = [
 <p>&nbsp;</p>
 <h2>Change the color of Shell prompt</h2>
 <p>Default value of<strong> PS1</strong> is:&nbsp;<code>export PS1="\s-\v\$ "</code></p>
+<p style="text-align: justify;"><img src="data\java\images\ubuntu\2.default PS1.png" alt="" width="100%" /></p>
 <p>My preferred customization is:</p>
 <pre>
 Color_Off="\[\033[0m\]"
@@ -262,8 +263,8 @@ Blue="\[\033[0;34m\]"
 Cyan="\[\033[0;36m\]"
 export PS1="\n$Green[$Red\u$Yellow@$Green\h$Yellow:$Cyan\w$Green]$Yellow\$$Color_Off "
 </pre>
-<p style="text-align: justify;"><img src="data\java\images\ubuntu\2.customize PS1.png" alt="" width="100%" /></p>
 <p>Add the above&nbsp;customization to&nbsp;<strong>~/.profile</strong> file by typing&nbsp;<code>vim ~/.profile</code></p>
+<p style="text-align: justify;"><img src="data\java\images\ubuntu\3.customize PS1.png" alt="" width="100%" /></p>
 <p>Reference:&nbsp;<a href="https://gist.github.com/vratiu/9780109" target="_blank">Color Codes</a></p>
         */}.toString().slice(14,-3)
     },

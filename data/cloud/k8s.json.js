@@ -36,7 +36,7 @@ var k8s_ans = [
 </tbody>
 </table>
 <h2>Components</h2>
-<p><img src="data\cloud\images\k8s\1.k8s pomponents.png" alt="" width="100%"/></p>
+<p><img src="data\cloud\images\k8s\1.k8s components.png" alt="" width="100%"/></p>
 <table width="100%">
 <tbody>
 <tr>
@@ -158,6 +158,7 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl \
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/
 </pre>
+<p><img src="data\cloud\images\k8s\minikube setup unix\1.download kubectl.png" alt="" width="100%"/></p>
 <p>Resource:&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux" target="_blank">Kubernetes Documentation - kubectl</a>
 </li>
 <li>
@@ -167,6 +168,7 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 chmod +x ./minikube
 sudo mv ./minikube /usr/local/bin/
 </pre>
+<p><img src="data\cloud\images\k8s\minikube setup unix\2.download minikube.png" alt="" width="100%"/></p>
 <p>Resource:&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank">Kubernetes Documentation - Minikube</a>
 </li>
 <li>
