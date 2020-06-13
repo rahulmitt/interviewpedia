@@ -178,11 +178,17 @@ minikube start --vm-driver docker --disk-size='2000mb'
 </pre>
 </li>
 <li>
+<p>Stop Minikube</p>
+<pre>
+minikube stop
+</pre>
+<p><img src="data\cloud\images\k8s\minikube setup unix\3.install minikube.png" alt="" width="100%"/></p>
+</li>
+<li>
 <p>Delete Minikube</p>
 <pre>
 minikube delete
 </pre>
-<p><img src="data\cloud\images\k8s\minikube setup unix\3.install minikube.png" alt="" width="100%"/></p>
 </li>
 </ol>
 <p>&nbsp;</p>
