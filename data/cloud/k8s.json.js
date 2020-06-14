@@ -13,6 +13,16 @@ var k8s_que = [
 		question : "Minikube Setup (unix)",
 		tags : ["k8s setup", "Kubernetes Setup", "Minikube Setup"]
 	},
+
+	{
+		question : "Test Deployment on Minikube",
+		tags : ["Test Deployment on Minikube"]
+	},
+
+	{
+		question : "Running local docker images on Minikube",
+		tags : ["Running local docker images on Minikube"]
+	},
 ]
 
 var k8s_ans = [
@@ -36,7 +46,7 @@ var k8s_ans = [
 </tbody>
 </table>
 <h2>Components</h2>
-<p><img src="data\cloud\images\k8s\1.k8s components.png" alt="" width="100%"/></p>
+<p><img src="data\cloud\images\k8s\1.the k8s cluster\1.k8s components.png" alt="" width="100%"/></p>
 <table width="100%">
 <tbody>
 <tr>
@@ -66,7 +76,7 @@ var k8s_ans = [
 </tbody>
 </table>
 <h2>Master Vs Worker Nodes</h2>
-<p><img src="data\cloud\images\k8s\2.Master Vs Worker Nodes.png" alt="" width="100%"/></p>
+<p><img src="data\cloud\images\k8s\1.the k8s cluster\2.Master Vs Worker Nodes.png" alt="" width="100%"/></p>
 
 <h2>kubectl &mdash; the kube controller</h2>
 <p>Used to manage and deploy applications on a kubernetes cluster.&nbsp;</p>
@@ -115,11 +125,11 @@ kubectl get pods
 kubectl expose deployment hello-minikube --type=NodePort --port=8080
 minikube service hello-minikube --url
 </pre>
-<img src="data\cloud\images\k8s\3.install minikube and kubectl.png" alt="" width="100%" />
+<img src="data\cloud\images\k8s\2.Minikube Setup (windows)\1.install minikube and kubectl.png" alt="" width="100%" />
 </li>
 <li>
 <p>The application can be acccessed at this url. Also, notice that a VM gets automatically created for this Minikube</p>
-<img src="data\cloud\images\k8s\4.VM gets created automatically.png" alt="" width="100%" />
+<img src="data\cloud\images\k8s\2.Minikube Setup (windows)\2.VM gets created automatically.png" alt="" width="100%" />
 </li>
 <li>
 <p>Lets do the cleanup by running the following commands:</p>
@@ -128,14 +138,14 @@ kubectl delete services hello-minikube
 kubectl delete deployment hello-minikube
 minikube stop
 </pre>
-<img src="data\cloud\images\k8s\5. cleanup.png" alt="" />
+<img src="data\cloud\images\k8s\2.Minikube Setup (windows)\3. cleanup.png" alt="" />
 </li>
 <li>
 <p>Delete Minikube VM from Oracle VM VirtualBox Manager</p>
 <pre>
 minikube delete
 </pre>
-<img src="data\cloud\images\k8s\6. delete minikube.png" alt="" />
+<img src="data\cloud\images\k8s\2.Minikube Setup (windows)\4. delete minikube.png" alt="" />
 <p>Notice that the VM automatically gets removed from Oracle VM VirtualBox Manager</p>
 </li>
 </ol>
@@ -158,8 +168,8 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl \
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/
 </pre>
-<p><img src="data\cloud\images\k8s\minikube setup unix\1.download kubectl.png" alt="" width="100%"/></p>
-<p>Resource:&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux" target="_blank">Kubernetes Documentation - kubectl</a>
+<p><img src="data\cloud\images\k8s\3.minikube setup (unix)\1.download kubectl.png" alt="" width="100%"/></p>
+<p>Reference:&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux" target="_blank">Kubernetes Documentation - kubectl</a>
 </li>
 <li>
 <p>Download Minikube</p>
@@ -168,8 +178,8 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 chmod +x ./minikube
 sudo mv ./minikube /usr/local/bin/
 </pre>
-<p><img src="data\cloud\images\k8s\minikube setup unix\2.download minikube.png" alt="" width="100%"/></p>
-<p>Resource:&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank">Kubernetes Documentation - Minikube</a>
+<p><img src="data\cloud\images\k8s\3.minikube setup (unix)\2.download minikube.png" alt="" width="100%"/></p>
+<p>Reference:&nbsp;<a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank">Kubernetes Documentation - Minikube</a>
 </li>
 <li>
 <p>Install Minikube</p>
@@ -182,7 +192,7 @@ minikube start --vm-driver docker --disk-size='2000mb'
 <pre>
 minikube stop
 </pre>
-<p><img src="data\cloud\images\k8s\minikube setup unix\3.install minikube.png" alt="" width="100%"/></p>
+<p><img src="data\cloud\images\k8s\3.minikube setup (unix)\3.install minikube.png" alt="" width="100%"/></p>
 </li>
 <li>
 <p>Delete Minikube</p>
@@ -192,6 +202,60 @@ minikube delete
 </li>
 </ol>
 <p>&nbsp;</p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Test Deployment on Minikube */
+        "text" : function(){/*
+<h1>Test Deployment on Minikube</h1>
+<pre>
+docker images
+docker ps
+minikube start
+docker ps
+kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+kubectl get pod
+minikube service hello-minikube --url
+curl http://172.17.0.2:31001
+</pre>
+<p><img src="data\cloud\images\k8s\4.test deployment\1.png" alt="" width="100%"/></p>
+
+<pre>
+kubectl delete services hello-minikube
+kubectl delete deployment hello-minikube
+</pre>
+<p>Reference:&nbsp;<a href="https://kubernetes.io/docs/setup/learning-environment/minikube/" target="_blank">Minikube - Quickstart</a>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Running local docker images on Minikube */
+        "text" : function(){/*
+<h1>Running local docker images on Minikube</h1>
+<pre>
+minikube docker-env
+eval $(minikube -p minikube docker-env)
+docker build -t interviewpedia/gbce:v2 .
+docker images
+kubectl create deployment gbce --image=interviewpedia/gbce:v2
+kubectl expose deployment gbce --type=NodePort --port=8080
+kubectl get pod
+minikube service gbce --url
+
+curl http://172.17.0.3:31714/stock-exchange/stock/list
+</pre>
+<p><img src="data\cloud\images\k8s\5.running local docker images on minikube\1.png" alt="" width="100%"/></p>
+<pre>
+kubectl delete services gbce
+kubectl delete deployment gbce
+docker ps | grep gbce
+docker images | grep gbce
+docker rmi &lt;image-id&gt;
+docker images | grep gbce
+</pre>
+<p>Reference:</p>
+<p>1.&nbsp;<a href="https://dzone.com/articles/running-local-docker-images-in-kubernetes-1" target="_blank">Running Local Docker Images in Kubernetes</a></p>
+<p>2.&nbsp;<a href="https://codingbee.net/tutorials/kubernetes/using-docker-with-minikube" target="_blank">Using Docker with Minikube</a></p>
         */}.toString().slice(14,-3)
     },
 ]
