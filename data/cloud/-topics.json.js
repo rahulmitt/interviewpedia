@@ -10,8 +10,13 @@ var topics = [
 	},
 
 	{
+		id: "openshift",
+		caption: "Openshift"
+	},
+
+	{
 		id: "minishift",
-		caption: "MiniShift"
+		caption: "MiniShift [archived]"
 	},
 
 ]

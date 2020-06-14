@@ -54,6 +54,7 @@ var spring = [
 var cloud = [
     'docker.json.js',
     'k8s.json.js',
+    'openshift.json.js',
     'minishift.json.js',
 ];
 
