@@ -107,7 +107,7 @@ var k8s_ans = [
         "text" : function(){/*
 <h1>Minikube Setup (windows)</h1>
 <strong><p>Prerequisite:</strong> Install&nbsp;<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Oracle VM VirtualBox</a></p>
-<p>&nbsp;</p>
+<p><strong>Installation Steps:</strong></p>
 <ol>
 <li><p>Click&nbsp;<a href="https://github.com/kubernetes/minikube/releases/latest" target="_blank">here</a>&nbsp;and download&nbsp;<code>minikube-windows-amd64.exe</code> file</p></li>
 <li><p>Click&nbsp;<a href="https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/windows/amd64/kubectl.exe" target="_blank">here</a> to download&nbsp;<code>kubectl.exe</code> v1.18.0 file</p></li>
@@ -232,9 +232,20 @@ kubectl delete deployment hello-minikube
     {   /* Running local docker images on Minikube */
         "text" : function(){/*
 <h1>Running local docker images on Minikube</h1>
+<p style="text-align: justify;">When minikube is installed using the command <code>minikube start --vm-driver docker</code>,
+there will be two <strong>docker-daemon</strong> running — the one installed on the host, and the one inside minikube.</p>
 <pre>
 minikube docker-env
 eval $(minikube -p minikube docker-env)
+</pre>
+<p style="text-align: justify;">The command <code>eval $(minikube -p minikube docker-env)</code> configures the
+<strong>Docker CLI</strong> in the <strong>current terminal session</strong> to connect to the <strong>docker-daemon</strong>
+running on <strong>Minikube</strong>, rather than the one running on the host. Once this is done, commands such as
+<code>docker build</code> will store the images directly in the <strong>minikube local registry</strong>. No need to push
+to <strong>docker-hub</strong> to deploy a container. And if there is a need to clean the registry, the <code>docker rmi</code>
+command will do the job.</p>
+<p><img src="data\cloud\images\k8s\5.running local docker images on minikube\1.png" alt="" width="100%"/></p>
+<pre>
 docker build -t interviewpedia/gbce:v2 .
 docker images
 kubectl create deployment gbce --image=interviewpedia/gbce:v2
@@ -244,7 +255,7 @@ minikube service gbce --url
 
 curl http://172.17.0.3:31714/stock-exchange/stock/list
 </pre>
-<p><img src="data\cloud\images\k8s\5.running local docker images on minikube\1.png" alt="" width="100%"/></p>
+<p><img src="data\cloud\images\k8s\5.running local docker images on minikube\2.png" alt="" width="100%"/></p>
 <pre>
 kubectl delete services gbce
 kubectl delete deployment gbce
@@ -253,6 +264,7 @@ docker images | grep gbce
 docker rmi &lt;image-id&gt;
 docker images | grep gbce
 </pre>
+<p><img src="data\cloud\images\k8s\5.running local docker images on minikube\3.png" alt="" width="100%"/></p>
 <p>Reference:</p>
 <p>1.&nbsp;<a href="https://dzone.com/articles/running-local-docker-images-in-kubernetes-1" target="_blank">Running Local Docker Images in Kubernetes</a></p>
 <p>2.&nbsp;<a href="https://codingbee.net/tutorials/kubernetes/using-docker-with-minikube" target="_blank">Using Docker with Minikube</a></p>

@@ -11,5 +11,7 @@
 
 ###### 5. Micro-Services
 
-[6. JavaScript](https://rahulmitt.github.io/interviewpedia/?course=js)
+[6. Cloud](https://rahulmitt.github.io/interviewpedia/?course=cloud)
+
+[7. JavaScript](https://rahulmitt.github.io/interviewpedia/?course=js)
 
