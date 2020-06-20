@@ -1,34 +1,39 @@
 var k8s_que = [
 	{
+		id : 1,
 		question : "K8s Overview",
 		tags : ["K8s Overview", "Kubernetes Overview"]
 	},
 
 	{
+		id : 2,
 		question : "Minikube Setup (windows)",
 		tags : ["k8s setup", "Kubernetes Setup", "Minikube Setup"]
 	},
 
 	{
+		id : 3,
 		question : "Minikube Setup (unix)",
 		tags : ["k8s setup", "Kubernetes Setup", "Minikube Setup"]
 	},
 
 	{
+		id : 4,
 		question : "Test Deployment on Minikube",
 		tags : ["Test Deployment on Minikube"]
 	},
 
 	{
+		id : 5,
 		question : "Running local docker images on Minikube",
 		tags : ["Running local docker images on Minikube"]
 	},
-]
+];
 
 var k8s_ans = [
     {   /* K8s Overview */
+		id : 1,
         "text" : function(){/*
-<h1>The k8s Cluster</h1>
 <table width="100%">
 <tbody>
 <tr>
@@ -104,8 +109,8 @@ var k8s_ans = [
     },
 
     {   /* Minikube Setup (windows) */
+		id : 2,
         "text" : function(){/*
-<h1>Minikube Setup (windows)</h1>
 <strong><p>Prerequisite:</strong> Install&nbsp;<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Oracle VM VirtualBox</a></p>
 <p><strong>Installation Steps:</strong></p>
 <ol>
@@ -154,8 +159,8 @@ minikube delete
     },
 
     {   /* Minikube Setup (unix) */
+		id : 3,
         "text" : function(){/*
-<h1>Minikube Setup (unix)</h1>
 <ol>
 <li>
 <p>Download kubectl</p>
@@ -206,8 +211,8 @@ minikube delete
     },
 
     {   /* Test Deployment on Minikube */
+		id : 4,
         "text" : function(){/*
-<h1>Test Deployment on Minikube</h1>
 <pre>
 docker images
 docker ps
@@ -230,8 +235,8 @@ kubectl delete deployment hello-minikube
     },
 
     {   /* Running local docker images on Minikube */
+		id : 5,
         "text" : function(){/*
-<h1>Running local docker images on Minikube</h1>
 <p style="text-align: justify;">When minikube is installed using the command <code>minikube start --vm-driver docker</code>,
 there will be two <strong>docker-daemon</strong> running — the one installed on the host, and the one inside minikube.</p>
 <pre>
@@ -270,4 +275,4 @@ docker images | grep gbce
 <p>2.&nbsp;<a href="https://codingbee.net/tutorials/kubernetes/using-docker-with-minikube" target="_blank">Using Docker with Minikube</a></p>
         */}.toString().slice(14,-3)
     },
-]
+];

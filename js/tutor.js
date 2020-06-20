@@ -65,8 +65,9 @@ function onLoadHandler(){
 }
 
 function renderAnswer(topic, i){
+    var que = "<h1>" + eval(topic+"_que")[i].question + "</h1>";
 	var ans = eval(topic+"_ans")[i];
-	$("#tabs-inner").html(ans.text);
+	$("#tabs-inner").html(que + ans.text);
 	$( ":header" ).css({
         background: "#ccc",
         color: "#3b5998"

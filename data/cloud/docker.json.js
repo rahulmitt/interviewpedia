@@ -1,49 +1,57 @@
 var docker_que = [
 	{
+		id : 1,
 		question : "Docker Setup",
 		tags : ["Docker Setup", "Installing Docker", "Uninstalling Docker"]
 	},
 
 	{
+		id : 2,
 		question : "Running a Docker Container",
 		tags : ["Running a Docker Container"]
 	},
 
 	{
+		id : 3,
 		question : "Basic Docker Commands",
 		tags : ["Basic Docker Commands"]
 	},
 
 	{
+		id : 4,
 		question : "Port Mapping",
 		tags : ["Port Mapping"]
 	},
 
 	{
+		id : 5,
 		question : "Docker run — volume mapping",
 		tags : ["Docker run — volume mapping"]
 	},
 
 	{
+		id : 6,
 		question : "Dockerizing — manually",
 		tags : ["Dockerizing — manually"]
 	},
 
 	{
+		id : 7,
 		question : "Dockerizing — automatically",
 		tags : ["Dockerizing — automatically"]
 	},
 
 	{
+		id : 8,
 		question : "Docker Image Layers",
 		tags : ["Docker Image Layers"]
 	},
-]
+];
 
 var docker_ans = [
     {   /* Docker Setup */
+		id : 1,
         "text" : function(){/*
-<h1>Docker Setup</h1>
 <h2>Docker Installation</h2>
 <pre>
 sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -77,8 +85,8 @@ sudo rm -rf /usr/bin/docker-compose
     },
 
     {   /* Running a Docker Container */
+		id : 2,
         "text" : function(){/*
-<h1>Running a Docker Container</h1>
 <p style="text-align: justify;"><strong>Docker Hub:</strong>&nbsp;<a href="https://hub.docker.com/" target="_blank">https://hub.docker.com/</a></p>
 <p style="text-align: justify;">Execute the following command in order to run a simple&nbsp;<a href="https://hub.docker.com/r/docker/whalesay" target="_blank">whalesay</a>&nbsp;container for testing the installation:</p>
 <pre>
@@ -90,8 +98,8 @@ docker images
     },
 
     {   /* Basic Docker Commands */
+		id : 3,
         "text" : function(){/*
-<h1>Basic Docker Commands</h1>
 <table width="100%">
 <tbody>
 <tr>
@@ -326,9 +334,8 @@ Use the <code>docker exec heuristic_ritchie cat /etc/hosts</code> command to pri
     },
 
     {   /* Port Mapping */
+		id : 4,
         "text" : function(){/*
-<h1>Port Mapping</h1>
-
 <p style="text-align: justify;">Docker <strong>port-mapping</strong> (or port forwarding) helps to bind the <strong>container ports</strong> with <strong>docker-host</strong> in order to access the applications running on the containers through network.</p>
 <p><img src="data\cloud\images\1.docker\4.port mapping\1. docker run port mapping.png" /></p>
 <p style="text-align: justify;">By default, when we create any container that doesn't publish/export the application ports running on the container. So we can access these applications only within the docker-host and not through network systems.</p>
@@ -349,15 +356,15 @@ Use the <code>docker exec heuristic_ritchie cat /etc/hosts</code> command to pri
     },
 
     {   /* Docker run — volume mapping */
+		id : 5,
         "text" : function(){/*
-<h1>Docker run — volume mapping</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Create a Docker image — manually */
+		id : 6,
         "text" : function(){/*
-<h1>Create a Docker image &mdash; manually</h1>
 <ol>
 <li style="text-align: justify;">
 <p>Identify a jar for which a docker image needs to be created</p>
@@ -415,8 +422,8 @@ docker history interviewpedia/gbce:v1
     },
 
     {   /* Dockerizing — automatically */
+		id : 7,
         "text" : function(){/*
-<h1>Dockerizing &mdash; automatically</h1>
 <pre>
 ls -ltra
 cat Dockerfile
@@ -442,12 +449,12 @@ docker history interviewpedia/gbce:v2
     },
 
     {   /* Docker Image Layers */
+		id : 8,
         "text" : function(){/*
-<h1>Docker Image Layers</h1>
 <p style="text-align: justify;">Docker layers are cached; so, if we run the docker build command again without making any changes, it should pickup everything from cache.</p>
 <p style="text-align: justify;"><img src="data\cloud\images\1.docker\6.create image - automatically\3.png" alt="" width="100%" /></p>
 <p style="text-align: justify;">Unless there are modifications, layers wiould be cache whenever possible. In case there are modifications (e.g., change in Dockerfile),&nbsp;the&nbsp;change and the subsequent steps are recreated again (and not picked from cache), as shown below:</p>
 <p style="text-align: justify;"><img src="data\cloud\images\1.docker\6.create image - automatically\4.png" alt="" width="100%" /></p>
         */}.toString().slice(14,-3)
     },
-]
+];
