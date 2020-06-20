@@ -1,19 +1,21 @@
 var minishift_que = [
 	{
+		id : 1,
 		question : "MiniShift Installation",
 		tags : ["MiniShift Installation"]
 	},
 
 	{
+		id : 2,
 		question : "OpenShift CLI",
 		tags : ["OpenShift CLI"]
 	},
-]
+];
 
 var minishift_ans = [
     {   /* MiniShift Installation */
+    	id : 1,
         "text" : function(){/*
-<h1>MiniShift Installation</h1>
 <p style="text-align: justify;"><a href="https://www.okd.io/minishift/" target="_blank">MiniShift</a>&nbsp;is a tool to run&nbsp;<a href="https://www.openshift.com/blog/okd310release" target="_blank">OpenShift Origin</a> locally by launching a single-node cluster inside a VM.</p>
 <p style="text-align: justify;"><strong>Prerequisites:</strong></p>
 <ol>
@@ -54,8 +56,8 @@ var minishift_ans = [
     },
 
     {   /* OpenShift CLI */
+    	id : 2,
         "text" : function(){/*
-<h1>OpenShift CLI</h1>
 <table width="100%">
 <tbody>
 <tr>
@@ -222,9 +224,9 @@ dev       1d46cf2e-a5c6-11ea-bb9a-0800272135b8               anypassword:dev
     },
 
     {   /* QQQQ */
+    	id : 3,
         "text" : function(){/*
-<h1>QQQQ</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
-]
+];
