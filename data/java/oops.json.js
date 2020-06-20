@@ -1,43 +1,53 @@
 var oops_que = [
 	{
+		id : 1,
 		question : "Association, Aggregation & Composition",
 		tags : ["UML", "Association", "Aggregation", "Composition", "is-a", "has-a", "part-whole"]
 	},
 	{
+		id : 2,
 		question : "Access modifiers",
 		tags : ["access", "modifiers", "public", "protected", "default", "private"]
 	},
 	{
+		id : 3,
 		question : "Method Overloading",
 		tags : ["overloading", "compile time", "polymorphism"]
 	},
 	{
+		id : 4,
 		question : "Method Overriding",
 		tags : ["overriding", "run time", "polymorphism"]
 	},
 	{
+		id : 5,
 		question : "Overriding Vs Hiding",
 		tags : ["overriding", "hiding", "static", "dynamic method lookup", "early binding", "late binding"]
 	},
 	{
+		id : 6,
 		question : "Interfaces Vs Abstract Classes",
 		tags : ["interface", "abstract class"]
 	},
 	{
+		id : 7,
 		question : "Deep copy Vs Shallow copy",
 		tags : ["deep copy", "shallow copy", "copy", "cloning"]
 	},
 	{
+		id : 8,
 		question : "Creating an Immutable class",
 		tags : ["immutable"]
 	},
 
 	{
+		id : 9,
 		question : "Generics",
 		tags : ["Generics"]
 	},
 
 	{
+		id : 10,
 		question : "Reflection",
 		tags : ["Reflection"]
 	},
@@ -46,6 +56,7 @@ var oops_que = [
 
 var oops_ans = [
 	{   /* UML Association vs Aggregation vs Composition */
+		id : 1,
 		"text" : function(){/*
 <h1>Association Vs Aggregation Vs Composition Vs Inheritance</h1>
 <p style="text-align: justify;">Consider the classes of the following objects: Pets, Dogs, Tails, Owners.</p>
@@ -174,6 +185,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 		*/}.toString().slice(14,-3)
 	},
 	{
+		id : 2,
 		"text" : function(){/*
 <h3 style="text-align: justify;"><span style="text-decoration: underline;">Access Modifiers</span></h3>
 <p style="text-align: justify;"><strong>public</strong> - accessible from anywhere</p>
@@ -184,6 +196,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	},
 	
 	{
+		id : 3,
 		"text" : function(){/*
 <h3 style="text-align: justify;"><span style="text-decoration: underline;">Method Overloading</span></h3>
 <p style="text-align: justify;">Method overloading occurs when two or more methods in the same class have the exact same name but different parameters.</p>
@@ -196,6 +209,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	},
 	
 	{
+		id : 4,
 		"text" : function(){/*
 <p style="text-align: justify;">Method overriding occurs when a sub-class requires a different definition for an inherited method from the super-class, then that method can be redefined in the derived class.</p>
 <p style="text-align: justify;">The new method definition:</p>
@@ -230,6 +244,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	},
 	
 	{
+		id : 5,
 		"text" : function(){/*
 <h2 style="text-align: justify;">Overriding Vs Hiding</h2>
 <p style="text-align: justify;">If a subclass defines a static method with the same signature as a static method in the superclass, then the method in the subclass <em><strong>hides</strong> </em>the one in the superclass.</p>
@@ -289,6 +304,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	},
 	
 	{
+		id : 6,
 		"text" : function(){/*
 <h2 style="text-align: justify;"><span style="text-decoration: underline;">When to use Interfaces</span></h2>
 <p style="text-align: justify;">I use interfaces when I see that something in my design will change frequently. For example, the<strong> Strategy pattern</strong> lets you swap new algorithms into your program at runtime without altering the objects that use them.<br />The strategy pattern:</p>
@@ -304,6 +320,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	},
 	
 	{
+		id : 7,
 		"text" : function(){/*
 <p style="text-align: justify;">Let us Assume an object- <strong>obj1</strong>, that contains two objects, <strong>containedObj1</strong> and <strong>containedObj2</strong>.</p>
 <p style="text-align: justify;">&nbsp;<img src="data/java/images/object-copy.gif" alt="" width="289" height="173" /></p>
@@ -401,6 +418,7 @@ public class DeepCopy implements Serializable {
 	},
 	
 	{
+		id : 8,
 		"text" : function(){/*
 <p style="text-align: justify;">An immutable class is one whose state cannot be modified once created. There are certain guidelines to create an class immutable. Immutable object not only guarantees safe publication of object&rsquo;s state, but also can be shared among other threads without any external synchronization. JDK itself contains several immutable classes like String, Integer and other wrapper classes. Any modification on immutable object will result in another immutable object. All modifications in a String object results in a new String object.</p>
 <p style="text-align: justify;"><strong>Creating an immutable class</strong></p>
@@ -416,14 +434,16 @@ public class DeepCopy implements Serializable {
 	},
 
     {   /* Generics */
-        "text" : function(){/*
+        id : 9,
+		"text" : function(){/*
 <h1>Generics</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Reflection */
-        "text" : function(){/*
+        id : 10,
+		"text" : function(){/*
 <h1>Reflection</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
