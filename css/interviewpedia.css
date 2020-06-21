@@ -1,9 +1,81 @@
-@charset "utf-8";
-
 body {
-	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
-	font-size: 10px;
+    font-family: Tahoma, Helvetica, sans-serif;
+    padding:20px;
+    font-size:12px;
+	margin: 0; 
+	padding: 0; 
+	border: 0; 
+	outline: 0;
+	background-color: #222f3e;
+	color: #c8d6e5;
 }
+h2 {
+    font-size:18px;
+    font-weight:bold;
+    margin:0;
+    margin-bottom:15px;
+}
+.demo-info{
+	padding:0 0 12px 0;
+}
+.demo-tip{
+	display:none;
+}
+.label-top{
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    vertical-align: middle;
+}
+
+.header {
+	height:2%;
+	margin: auto;
+    font-size: 20px;
+	width:33%;
+}
+
+.footer {
+	text-align: center;
+	height:2%;
+	margin: auto;
+    font-size: 12px;
+}
+
+a {
+  color: #8395a7;
+  //font-weight: bold;
+}
+
+#dlg {
+	color: #222f3e;
+	//font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-family: Tahoma, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+/****************************************/
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #576574;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #718093;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8395a7;
+}
+/****************************************/
 
 code {
     font-family: "Consolas", "monaco", "monospace";
@@ -18,30 +90,31 @@ code {
 }
 
 div table {
-	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	//font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-family: Tahoma, Helvetica, sans-serif;
 	font-size: 13px;
-	border: dotted 1px #9BBB59;
+	border: dotted 1px #636e72;
 	border-collapse: collapse;
 }
 
 div table td{
 	padding: 5px;
-	border: dotted 1px #9BBB59;
+	border: dotted 1px #636e72;
 }
 
 div table th{
 	padding: 5px;
-	border: dotted 1px #9BBB59;
-	background-color: #9BBB59;
+	border: dotted 1px #636e72;
+	background-color: #636e72;
 	color: #EAF1DD;
 }
 
 div table tr:nth-child(even){
-	background-color: #EAF1DD;
-	color: #4F6228;
+	background-color: #b2bec3;
+	color: #636e72;
 }
 
 div table tr:nth-child(odd){
-	background-color: #D7E4BC;
-	color: #4F6228;
+	background-color: #dfe6e9;
+	color: #636e72;
 }
