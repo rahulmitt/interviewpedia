@@ -1,34 +1,39 @@
 var unix_que = [
 	{
+		id : 1,
 		question : "Basic Commands",
 		tags : ["ls"]
 	},
 
 	{
+		id : 2,
 		question : "Some Useful Commands",
 		tags : ["ls"]
 	},
 
 	{
+		id : 3,
 		question : "VIM Editor",
 		tags : ["VIM Editor"]
 	},
 
     {
-        question : "Ubuntu",
+        id : 4,
+		question : "Ubuntu",
         tags : ["ubuntu"]
     },
 
     {
-        question : "Putty",
+        id : 5,
+		question : "Putty",
         tags : ["Putty"]
     },
 ]
 
 var unix_ans = [
     {   /* Basic Commands */
-        "text" : function(){/*
-<h1>Basic Commands</h1>
+        id : 1,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -109,8 +114,8 @@ var unix_ans = [
     },
 
     {   /* Useful Commands */
-        "text" : function(){/*
-<h1>Useful Commands</h1>
+        id : 2,
+		"text" : function(){/*
 <h2>1. SCP Command:</h2>
 <p><code>scp</code> <strong>&lt;</strong><em>filename</em><strong>&gt; &lt;</strong><em>userId</em><strong>&gt;</strong><code>@</code><strong>&lt;</strong><em>hostname</em><strong>&gt;</strong><code>:</code><strong>&lt;</strong><em>destination-directory</em><strong>&gt;</strong></p>
 <p><br /> <code>scp -r</code> <strong>&lt;</strong><em>source-directory</em><strong>&gt; &lt;</strong><em>userId</em><strong>&gt;</strong><code>@</code><strong>&lt;</strong><em>hostname</em><strong>&gt;</strong><code>:</code><strong>&lt;</strong><em>destination-directory<strong>&gt;</strong></em></p>
@@ -140,9 +145,9 @@ var unix_ans = [
     },
 
     {   /* VIM Editor */
-        "text" : function(){/*
+        id : 3,
+		"text" : function(){/*
 
-<h1>VIM Editor</h1>
 <p><img src="data/java/images/unix/vim/1.vim - find_replace.png" alt="" width="100%" /></p>
 <h2>1. Replace FIRST OCCURRENCE of word &lsquo;foo&rsquo; with &lsquo;bar&rsquo; on all lines</h2>
 <p><strong><code>:%s/foo/bar/</code></strong></p>
@@ -160,8 +165,8 @@ var unix_ans = [
     },
 
     {   /* Ubuntu */
-        "text" : function(){/*
-<h1>Ubuntu</h1>
+        id : 4,
+		"text" : function(){/*
 <h2 style="text-align: justify;">1. Create Shared Folder Between Windows 10 Host and Ubuntu Guest OS on Virtualbox</h2>
 <table width="100%">
 <tbody>
@@ -238,8 +243,8 @@ var unix_ans = [
     },
 
     {   /* Putty */
-        "text" : function(){/*
-<h1>Putty</h1>
+        id : 5,
+		"text" : function(){/*
 <h2>Putty Configurations</h2>
 <p>Load Default Settings</p>
 <p><strong>Window --&gt; Appearance --&gt; Font Settings --&gt; Change </strong></p>
