@@ -68,10 +68,16 @@ function renderAnswer(topic, i){
     var que = "<h1>" + eval(topic+"_que")[i].question + "</h1>";
 	var ans = eval(topic+"_ans")[i];
 	$("#tabs-inner").html(que + ans.text);
+
+	$("#tabs-inner img").each(function() {
+        $(this).attr('src', '../' + $(this).attr('src'));
+    });
+
 	$( ":header" ).css({
         background: "#ccc",
         color: "#3b5998"
 	});
+
 	$("pre").removeClass();
 	$("pre").addClass("prettyprint linenums lang-java");
 	prettyPrint();
