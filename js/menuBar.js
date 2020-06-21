@@ -1,23 +1,28 @@
 class MenuBar {
-	constructor(sourceDiv, topics) {
-		this.sourceDiv = sourceDiv;
-		this.topics = topics;
+	constructor(uiElement) {
+		this.uiElement = uiElement;
 	}
+
+    static instance = null;
+
+    static getInstance(uiElement) {
+        if(MenuBar.instance == null) MenuBar.instance = new MenuBar(uiElement);
+        return MenuBar.instance;
+    }
 	
-	build(selectedT, selectedQ) {
-		let sourceDiv = this.sourceDiv;
+	build(topicToSelect, queToSelect) {
+		let uiElement = this.uiElement;
 		$(topics).each(function(index, topic) {
-			let options = {};
-			options["title"] = topic.caption;
-			options["href"] = '#';
-			options["closable"] = false;
-			options["border"] = false;
-			sourceDiv.tabs('add', options);
+			let addOptions = {};
+			addOptions["title"] = topic.caption;
+			addOptions["href"] = '#';
+			addOptions["closable"] = false;
+			addOptions["border"] = false;
+			uiElement.tabs('add', addOptions);
 		});
 		
-		let opt = {};
-		//opt["border"] = false;
-		opt["onSelect"] = (function(title){
+		let selectOptions = {};
+		selectOptions["onSelect"] = (function(title){
 			let topicId = null;
 			$(topics).each(function(index, topic) {
 				if(topic.caption == title) {
@@ -25,18 +30,12 @@ class MenuBar {
 				}
 			});
 			
-			let que;
-			try {
-				que = eval(topicId + "_que");
-			} catch(e) {
-				que = [];
-			}
-			new SideMenu($("#sm"), topicId, que, $("#ans")).build(selectedQ);
+			SideMenu.getInstance($("#sm"), $("#ans")).build(topicId, queToSelect);
 			
 		}).bind(this);			// binding the callback's this to the value of constructor's this
 		
-		this.sourceDiv.tabs(opt);
-		this.sourceDiv.tabs('select', selectedT);
-		selectedQ = 0;
+		this.uiElement.tabs(selectOptions);
+		this.uiElement.tabs('select', topicToSelect);
+		queToSelect = 0;
 	}
 }
