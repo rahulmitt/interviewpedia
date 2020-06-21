@@ -1,13 +1,16 @@
 var string_que = [
 	{
+		id : 1,
 		question : "Why String is final in Java?",
 		tags : ["string", "stringpool", "immutable", "final"]
 	},
 	{
+		id : 2,
 		question : "Can we compare String using == operator?",
 		tags : ["equals", "compare"]
 	},
 	{
+		id : 3,
 		question : "String pool and intern() method",
 		tags : ["stringpool", "intern"]
 	}
@@ -15,6 +18,7 @@ var string_que = [
 
 var string_ans = [
 	{
+		id : 1,
 		"text" : function(){/*
 		<p style='text-align: justify;'>
 Imagine <strong><span style="color:#a52a2a;">StringPool </span></strong>facility without making string immutable, its not possible at all because in case of string pool, one string object/literal e.g. &quot;Test&quot; could be referenced by many reference variables, so if anyone of them change the value, others would automatically get affected. Since String is immutable it can be safely shared between many threads, which is very important for multithreaded programming and to avoid any synchronization issues in Java. Immutability also makes String instance thread-safe in Java. Another important point to note about String is memory leak caused by SubString, which is not a thread related issues but something to be aware of.</p>
@@ -24,6 +28,7 @@ Imagine <strong><span style="color:#a52a2a;">StringPool </span></strong>facility
 	},
 	
 	{
+		id : 2,
 		"text" : function(){/*
 <p>equals() return true if two String points to same object or two String has same contents while == operator returns true if two String object points to same object but return false if two different String object contains same contents.</p>
 <pre>
@@ -67,12 +72,14 @@ string == "!abc".substring(1).intern() : true<br />
 	},
 	
 	{
+		id : 3,
 		"text" : function(){/*
 String pool is a special storage area in Java heap, mostly located on PerGen space, to store String literals like "abc". When Java program creates a new String using String literal, JVM checks for that String in pool and if String literal is already present in pool than same object is returned instead of creating a whole new object. String pool check is only performed when you create String as literal, if you create String using new() operator, a new String object will be created even if String with same content is available in pool. String object crated by new() operator is by default not added in String pool as opposed to String literal. intern() method allows to put an String object into pool.
 		*/}.toString().slice(14,-3)
 	},
 	
 	{
+		id : 4,
 		"text" : function(){/*
 		TODO
 		*/}.toString().slice(14,-3)

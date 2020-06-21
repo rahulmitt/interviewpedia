@@ -1,55 +1,66 @@
 var serialization_que = [
 	{
+		id : 1,
 		question : "Serialization",
 		tags : ["serialization", "default serialization", "NotSerializableException"]
 	},
 	
 	{
+		id : 2,
 		question : "Rules of Serialization",
 		tags : ["serialization process"]
 	},
 	
 	{
+		id : 3,
 		question : "ObjectOutputStream & ObjectInputStream",
 		tags : ["objectOutputStream", "objectInputStream"]
 	},
 	
 	{
+		id : 4,
 		question : "NotSerializableException",
 		tags : ["NotSerializableException"]
 	},
 	
 	{
+		id : 5,
 		question : "InvalidClassException",
 		tags : ["invalidClassException", "SerialVersionUID", "no args constructor"]
 	},
 	
 	{
+		id : 6,
 		question : "Custom Serialization",
 		tags : ["Custom Serialization", "readObject", "writeObject", "defaultReadObject", "defaultWriteObject"]
 	},
 	
 	{
+		id : 7,
 		question : "Compatible & Incompatible changes",
 		tags : ["compatible changes", "incompatible changes", "serialization"]
 	},
 	
 	{
+		id : 8,
 		question : "Serialization: Special methods",
 		tags : ["writeObject", "writeReplace", "readObject", "validateObject", "readResolve", "readObjectNoData", "ObjectInputValidation"]
 	},
 	
 	{
+		id : 9,
 		question : "Validating a deserialized Object",
 		tags : ["ObjectInputValidation", "validateObject", "InvalidObjectException", "registerValidation"]
 	},
 	
 	{
+		id : 10,
 		question : "Externalizable Interface",
 		tags : ["Externalizable", "readExternal", "writeExternal"]
 	},
 	
 	{
+		id : 11,
 		question : "Serializable Vs Externalizable",
 		tags : ["serializable", "externalizable", "difference"]
 	},
@@ -58,6 +69,7 @@ var serialization_que = [
 var serialization_ans = [
 
 	{	/* Serialization */
+		id : 1,
 		"text" : function(){/*
 <p style="text-align: justify;"><strong>Serialization</strong> is the process of encoding an object, including the objects it refers to, as a byte stream such that an equal object can be reconstructed by reading from the stream (which is referred to as <strong>deserialization</strong>). Serialization allows saving objects in files and transmitting objects over a network. In particular, technologies that support invoking the methods of an object on another host such as Java RMI use a form of serialization to implement parameter passing across the network. Fields that are marked as <strong>transient</strong> are not serialized. Serialization does not write <strong>static</strong>&nbsp;variables because they are not part of the state of the object. It also does not transmit the object's class object (e.g., its method dictionary) because the program deserializing the stream must load that class.</p>
 <h4 style="text-align: justify;"><span style="color: #993300;">What is the default serialization process?</span></h4>
@@ -76,6 +88,7 @@ var serialization_ans = [
 	},
 	
 	{	/* Rules of Serialization */
+		id : 2,
 		"text" : function(){/*
 <h4 style="text-align: justify;">Rules of Serialization process</h4>
 <ol style="text-align: justify;">
@@ -92,6 +105,7 @@ var serialization_ans = [
 	},
 	
 	{	/* ObjectOutputStream & ObjectInputStream */
+		id : 3,
 		"text" : function(){/*
 <p>Suppose that the variable <strong>appointments</strong> refers to a <strong>HashMap&lt;Date, String&gt;</strong> object. We can serialize&nbsp;the map to a file as follows:</p>
 <pre>	try {
@@ -127,6 +141,7 @@ var serialization_ans = [
 	},
 	
 	{	/* NotSerializableException */
+		id : 4,
 		"text" : function(){/*
 <p>If an object includes a non-primitive field and that field refers to an instance of a <em>non-serializable</em> class, the object stream methods will throw <strong>NotSerializableException</strong> (runtime exception) when attempting to <strong>write</strong> that&nbsp;instance.</p>
 <pre>class Person {
@@ -202,6 +217,7 @@ class Address {
 	},
 	
 	{	/* InvalidClassException */
+		id : 5,
 		"text" : function(){/*
 <p>There are 2 main causes of <strong>InvalidClassException</strong>:</p>
 <ol>
@@ -294,6 +310,7 @@ Caused by: java.io.InvalidClassException: com.rahul.serialization.Employee; no v
 	},
 	
 	{	/* Custom Serialization */
+		id : 6,
 		"text" : function(){/*
 <h4 style="text-align: justify;">Custom Serialization</h4>
 <p style="text-align: justify;">If a class has a non-serializable super-class or instance variables, or requires more efficient serialization methods or other special processing, the class can implement custom serialization by defining the following methods:</p>
@@ -339,6 +356,7 @@ Caused by: java.io.InvalidClassException: com.rahul.serialization.Employee; no v
 	},
 	
 	{	/* Compatible & Incompatible changes */
+		id : 7,
 		"text" : function(){/*
 <p style="text-align: justify;">&nbsp;Below are the <strong>compatible</strong> and <strong>incompatible</strong> changes that should be considered while serializing an object:</p>
 <table>
@@ -395,6 +413,7 @@ Caused by: java.io.InvalidClassException: com.rahul.serialization.Employee; no v
 	},
 	
 	{	/* Special methods */
+		id : 8,
 		"text" : function(){/*
 <p style="text-align: justify;">When an instance is <strong>serialized</strong>, the&nbsp;<strong>ObjectOutputStream</strong> looks for a handful of <em>special</em> methods. These are JVM hooks that can be provided to customize the Serialization process.</p>
 <ol style="text-align: justify;">
@@ -443,6 +462,7 @@ public interface ObjectInputValidation {
 	},
 	
 	{	/* Validating a deserialized Object */
+		id : 9,
 		"text" : function(){/*
 <p style="text-align: justify;">At times, when an object is deserialized, it need to be checked whether the object is still valid. For example, consider an object that represents a <strong>credit-card</strong>, including cardholder's name, credit-card-number, and expiration-date. If this credit-card object is deserialized after its expiration date, then although its state is intact, the card is no longer valid and can't be used in a purchase transaction.</p>
 <p style="text-align: justify;">To validate an object, you need to do two things:</p>
@@ -537,6 +557,7 @@ public interface ObjectInputValidation {
 	},
 	
 	{	/* Externalizable Interface */
+		id : 10,
 		"text" : function(){/*
 <p>In most real time scenarios, you can use Serializable and write your own custom implementation for serialization by providing readObject() and writeObject() methods.</p>
 <p>You may need Externalizable if:</p>
@@ -559,6 +580,7 @@ public interface Externalizable extends java.io.Serializable {
 	},
 	
 	{	/* Serializable Vs Externalizable */
+		id : 11,
 		"text" : function(){/*
 <p>Difference between <strong>Externalizable</strong> and <strong>Serializable</strong> interfaces:</p>
 <table>

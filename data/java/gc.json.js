@@ -1,26 +1,31 @@
 var gc_que = [
 	{
+		id : 1,
 		question : "Stack Vs Heap",
 		tags : ["Stack", "Heap", "OutOfMemoryError", "StackOverflowError"]
 	},
 
 	{
-        question : "Java Memory Architecture",
+        id : 2,
+		question : "Java Memory Architecture",
         tags : ["Java Memory Architecture", "Java Memory Model", "Heap", "Eden", "Survivor", "Tenored", "PermGen",
         "MetaSpace", "JVM Tuning", "Garbage Collection", "GC"]
     },
 
 	{
+		id : 3,
 		question : "Memory Leaks & Heap Dump",
 		tags : ["Memory Leaks", "Debugging of Memory Leaks", "OutOfMemoryError", "JMap", "Heap Dump", "JCmd", "JVisualVM"]
 	},
 
 	{
+		id : 4,
 		question : "JMX Monitoring",
 		tags : ["JMX Monitoring", "JConsole", "JVisualVM"]
 	},
 
 	{
+		id : 5,
 		question : "Remote Debugging",
 		tags : ["Remote Debugging"]
 	},
@@ -28,9 +33,8 @@ var gc_que = [
 
 var gc_ans = [
     {   /* Stack Vs Heap */
-        "text" : function(){/*
-<h1>Stack Vs Heap</h1>
-
+        id : 1,
+		"text" : function(){/*
 <p style="text-align: justify;">JVM provides automatic Memory Management and that prevents problems like deallocating
 memory too early (corrupted pointer) or too late (memory leak) Inspite of this implicit memeory management, a wrongly
 programmed code can result in exceptions like java.lang.OutOfMemoryError. This exception is thrown when the JVM cannot
@@ -222,8 +226,8 @@ on the stack) does not throw an Java OutOfMemory error but as the JVM specificat
     },
 
     {   /* Java Memory Architecture */
-        "text" : function(){/*
-<h1>Java Memory Architecture</h1>
+        id : 2,
+		"text" : function(){/*
 <p style="text-align: justify;">Below is the Java Memory Model for the <strong>Heap</strong> as well as the
 <strong>PermGen</strong> for any Java Application running in the JVM. The ratios are also provided to get a fair
 understanding of how the distribution of allowed memory is done across each of the generation types. All of the information
@@ -367,8 +371,8 @@ usually starting with the region that has less live data, hence "Garbage First".
     },
 
     {   /* Memory Leaks & Heap Dump */
-        "text" : function(){/*
-<h1>Memory Leaks</h1>
+        id : 3,
+		"text" : function(){/*
 <p style="text-align: justify;">A Memory Leak is a situation when an object is no longer used in the program but is still
 referenced somewhere at a location that is not reachable. Thus, the garbage collector cannot delete it. The memory space
 used for this object will not be released and the total memory used for the program will grow. This will degrade
@@ -471,9 +475,8 @@ can be found at <strong>C:/Program Files/Java/jdk1.8.0_25/bin/</strong></p>
     },
 
     {   /* JMX Monitoring */
-        "text" : function(){/*
-<h1>JMX Monitoring</h1>
-
+        id : 4,
+		"text" : function(){/*
 https://stackoverflow.com/questions/22280229/how-to-monitor-a-java-program-using-jconsole<br/>
 https://www.cleantutorials.com/jconsole
 <p style="text-align: justify;">TODO</p>
@@ -481,8 +484,8 @@ https://www.cleantutorials.com/jconsole
     },
 
     {   /* Remote Debugging */
-        "text" : function(){/*
-<h1>Remote Debugging</h1>
+        id : 5,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },

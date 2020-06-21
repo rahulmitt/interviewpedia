@@ -1,86 +1,103 @@
 var java8_que = [
     {
-        question : "What's new in Java 8",
+        id : 1,
+		question : "What's new in Java 8",
         tags : ["What's new?", "Java 8"]
     },
 
     {
-        question : "Lambda Expressions",
+        id : 2,
+		question : "Lambda Expressions",
         tags : ["Lambda Expressions"]
     },
 
     {
-        question : "Functional Interfaces",
+        id : 3,
+		question : "Functional Interfaces",
         tags : ["Functional Interfaces", "Functional", "Interfaces"]
     },
 
     {
-        question : "Invoking Lambda Expressions using Functional interfaces",
+        id : 4,
+		question : "Invoking Lambda Expressions using Functional interfaces",
         tags : ["Invoking", "Lambda Expressions", "Functional Interfaces"]
     },
 
     {
-        question : "Lambda Expressions with Collections",
+        id : 5,
+		question : "Lambda Expressions with Collections",
         tags : ["Lambda Expressions", "Collections"]
     },
 
     {
-        question : "Anonymous Inner Class  Vs Lambda Expressions",
+        id : 6,
+		question : "Anonymous Inner Class  Vs Lambda Expressions",
         tags : ["Lambda Expressions", "Anonymous Inner Class"]
     },
 
     {
-        question : "Default methods in Interfaces",
+        id : 7,
+		question : "Default methods in Interfaces",
         tags : ["Default methods", "Interfaces", "Abstract Classes", "Difference between Interface and Abstract Class"]
     },
 
     {
-        question : "Static methods in Interfaces",
+        id : 8,
+		question : "Static methods in Interfaces",
         tags : ["Static methods", "Interfaces"]
     },
 
     {
-        question : "Built-in Functional Interfaces",
+        id : 9,
+		question : "Built-in Functional Interfaces",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional"]
     },
 
     {
-        question : "Predicate Interface",
+        id : 10,
+		question : "Predicate Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Predicate"]
     },
 
     {
-        question : "Function Interface",
+        id : 11,
+		question : "Function Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Function"]
     },
 
     {
-        question : "Consumer Interface",
+        id : 12,
+		question : "Consumer Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Consumer"]
     },
 
     {
-        question : "Supplier Interface",
+        id : 13,
+		question : "Supplier Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "Supplier"]
     },
 
     {
-        question : "BiPredicate Interface",
+        id : 14,
+		question : "BiPredicate Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "BiPredicate"]
     },
 
     {
-        question : "BiFunction Interface",
+        id : 15,
+		question : "BiFunction Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "BiFunction"]
     },
 
     {
-        question : "BiConsumer Interface",
+        id : 16,
+		question : "BiConsumer Interface",
         tags : ["Predefined Functional Interfaces", "Predefined", "Functional", "Interfaces", "BiConsumer"]
     },
 
     {
-        question : "Primitive Type Functional Interfaces",
+        id : 17,
+		question : "Primitive Type Functional Interfaces",
         tags : ["Predefined Functional Interfaces", "Primitive Type Functional Interfaces",
 
         "Primitive Predicates", "IntPredicate", "LongPredicate", "DoublePredicate",
@@ -97,34 +114,40 @@ var java8_que = [
     },
 
     {
-        question : "UnaryOperator Interface",
+        id : 18,
+		question : "UnaryOperator Interface",
         tags : ["Predefined Functional Interfaces", "UnaryOperator", "IntUnaryOperator", "LongUnaryOperator", "DoubleUnaryOperator"]
     },
 
     {
-        question : "BinaryOperator Interface",
+        id : 19,
+		question : "BinaryOperator Interface",
         tags : ["Predefined Functional Interfaces", "BinaryOperator"]
     },
 
     {
-        question : "Optional",
+        id : 20,
+		question : "Optional",
         tags : ["Optional"]
     },
 
     {
-        question : "Method & Constructor reference using double-colon (::) operator",
+        id : 21,
+		question : "Method & Constructor reference using double-colon (::) operator",
         tags : ["Method reference", "Constructor reference", "Double Colon"]
     },
 
     {
-        question : "Stream API",
+        id : 22,
+		question : "Stream API",
         tags : ["Streams", "Stream.filter()", "Stream.sorted()", "Stream.map()", "Stream.anyMatch()", "Stream.allMatch()",
         "Stream.noneMatch()", "Stream.count()", "Stream.reduce()", "Stream.distinct()", "Stream.forEach()",
         "Stream.collect()", "Stream.toArray()", "Stream.of()", "Sequential Stream", "Parallel Stream"]
     },
 
     {
-        question : "Date & Time API",
+        id : 23,
+		question : "Date & Time API",
         tags : ["Date", "Time", "joda"]
     },
 
@@ -132,15 +155,15 @@ var java8_que = [
 
 var java8_ans = [
     {   /* What's new? */
-        "text" : function(){/*
-<h1>What's new in Java 8?</h1>
+        id : 1,
+		"text" : function(){/*
 <p><img src="data/java/images/java8/1.java-8-features.png" alt="" width="800"/></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Lambda Expressions */
-        "text" : function(){/*
-<h1>Lambda Expressions</h1>
+        id : 2,
+		"text" : function(){/*
 <p>It is an anonymous function that does not have:</p>
 <ol>
 <li>A name</li>
@@ -224,8 +247,8 @@ str -> str.length();
     },
 
     {   /* Functional Interfaces */
-        "text" : function(){/*
-<h1 style="text-align: justify;">Functional Interface</h1>
+        id : 3,
+		"text" : function(){/*
 <p style="text-align: justify;">Functional Interfaces are used to invoke Lambda expressions.</p>
 <p style="text-align: justify;">If an interface has a <strong>single abstract method</strong>, such an interface is a Functional Interface.</p>
 <table>
@@ -378,8 +401,8 @@ interface Child extends Parent {    // No error
     },
 
     {   /* Invoking Lambda Expressions using Functional interfaces */
-        "text" : function(){/*
-<h1>Invoking Lambda Expressions using Functional interfaces</h1>
+        id : 4,
+		"text" : function(){/*
 <p style="text-align: justify;">Functional Interfaces act as a <strong>type</strong> for Lambda expressions.</p>
 <p style="text-align: justify;">&nbsp;</p>
 <h2>Example #1: invoking method having no arguments</h2>
@@ -569,8 +592,8 @@ public class RunnableDemo {
     },
 
     {   /* Lambda Expressions with Collections */
-        "text" : function(){/*
-<h1>Lambda Expressions with Collections</h1>
+        id : 5,
+		"text" : function(){/*
 <p style="text-align: justify;">Here is an implementation of a comparator that sorts in descending order</p>
 <pre>
 public class DescendingComparator implements Comparator<Integer> {
@@ -809,8 +832,8 @@ public class SortDemo {
     },
 
     {   /* Anonymous Inner Class  Vs Lambda Expressions */
-        "text" : function(){/*
-<h1 style="text-align: justify;">Anonymous Inner Classes Vs Lambda Expressions</h1>
+        id : 6,
+		"text" : function(){/*
 <p style="text-align: justify;">An <strong>Anonymous Inner Class</strong> can be replaced by a <strong>Lambda Expression</strong> only in few cases</p>
 <h2>Can be replaced when Anonymous Inner Class:</h2>
 <ol style="text-align: justify;">
@@ -1028,8 +1051,8 @@ public class Demo {
     },
 
     {   /* Default methods in Interfaces */
-        "text" : function(){/*
-<h1 style="text-align: justify;">Default methods in Interfaces</h1>
+        id : 7,
+		"text" : function(){/*
 <p style="text-align: justify;">In&nbsp;<strong>java 7</strong> or before, every method present inside an interface&nbsp;had to be public and abstract.
 Similarly, every peroperty had to be public static final. It was not possible to have concrete methods in an interface.
 From <strong>java 8</strong> onwards, it is possible to declare concrete methods inside interfaces. Such methods are called <strong>Default methods</strong>.</p>
@@ -1355,8 +1378,8 @@ methods.
     },
 
     {   /* Static methods in Interfaces */
-        "text" : function(){/*
-<h1 style="text-align: justify;">Static methods in interfaces</h1>
+        id : 8,
+		"text" : function(){/*
 <p style="text-align: justify;">Java 8 introduced static methods in interfaces.&nbsp;</p>
 <p style="text-align: justify;">Static methods are general utility methods, and are not related to an object's state, it makes sense to define them within the interface.</p>
 <p style="text-align: justify;">These interface static methods are not available to the concrete classes; these can be accessed using the interface name only.</p>
@@ -1593,9 +1616,9 @@ public interface Person {
     },
 
     {   /* Built-in Functional Interfaces */
-        "text" : function(){/*
+        id : 9,
+		"text" : function(){/*
 
-<h1>Built-in Functional Interfaces</h1>
 <p style="text-align: justify;">The <strong>JDK8 API</strong> contains many built-in functional interfaces.
 Some of them are well known from <strong>JDK7 or before</strong> like <strong>Runnable</strong>, <strong>Callable</strong> or <strong>Comparator</strong>.
 These existing interfaces are extended to enable Lambda support via the <strong>@FunctionalInterface</strong> annotation.</p>
@@ -1752,8 +1775,8 @@ These can be found in <strong>java.util.function</strong> package. Some of the p
     },
 
     {   /* Predicate Interface */
-        "text" : function(){/*
-<h1>Predicate Interface</h1>
+        id : 10,
+		"text" : function(){/*
 <p style="text-align: justify;">Predicates are <strong>boolean-valued functions</strong> of <strong>one argument</strong>.
 The interface contains various <strong>default</strong> methods for composing predicates to complex logical terms (and, or, negate) and one <strong>static</strong> method.</p>
 <pre>
@@ -2032,8 +2055,8 @@ class Employee {
     },
 
     {   /* Function Interface */
-        "text" : function(){/*
-<h1>Function Interface</h1>
+        id : 11,
+		"text" : function(){/*
 <p style="text-align: justify;">Functions accept <strong>one argument</strong> and produce a result.
 Default methods can be used to chain multiple functions together (compose, andThen).</p>
 
@@ -2206,8 +2229,8 @@ public class FunctionDemo {
     },
 
     {   /* Consumer Interface */
-        "text" : function(){/*
-<h1>Consumer Interface</h1>
+        id : 12,
+		"text" : function(){/*
 <p style="text-align: justify;">Represents an operation that <i>accepts</i> a <strong>single input argument</strong> and
 <strong>returns no result</strong>. Unlike most other functional interfaces, <strong>Consumer</strong> is expected
 to operate via side-effects.</p>
@@ -2301,8 +2324,8 @@ class Movie {
     },
 
     {   /* Supplier Interface */
-        "text" : function(){/*
-<h1>Supplier Interface</h1>
+        id : 13,
+		"text" : function(){/*
 <p style="text-align: justify;">Suppliers produce a result of a given generic type. Unlike Predicate, Function and
 Consumer, <strong>Supplier</strong> don't accept arguments. There is no requirement that a new or distinct result
 be returned each time the <strong>Supplier</strong> is invoked.</p>
@@ -2359,8 +2382,8 @@ public class SupplierDemo {
     },
 
     {   /* BiPredicate Interface */
-        "text" : function(){/*
-<h1>BiPredicate Interface</h1>
+        id : 14,
+		"text" : function(){/*
 <p style="text-align: justify;">Represents a <strong>predicate</strong> (boolean-valued function) of
 <strong>two arguments</strong>. This is the <i>two-arity specialization</i> of <strong>Predicate</strong>.</p>
 
@@ -2413,8 +2436,8 @@ public class BiPredicateDemo {
     },
 
     {   /* BiFunction Interface */
-        "text" : function(){/*
-<h1>BiFunction Interface</h1>
+        id : 15,
+		"text" : function(){/*
 <p style="text-align: justify;">Represents a <strong>function</strong> that accepts <strong>two arguments</strong> and
 produces a result. This is the <i>two-arity specialization</i> of <strong>Function</strong>.</p>
 
@@ -2482,8 +2505,8 @@ class Employee {
     },
 
     {   /* BiConsumer Interface */
-        "text" : function(){/*
-<h1>BiConsumer Interface</h1>
+        id : 16,
+		"text" : function(){/*
 <p style="text-align: justify;">Represents an operation that accepts <strong>two input arguments</strong> and
 <strong>returns no result</strong>. This is the <i>two-arity specialization</i> of <strong>Consumer</strong>.</p>
 
@@ -2526,8 +2549,8 @@ public class BiConsumerDemo {
     },
 
     {   /* Primitive Type Functional Interfaces */
-        "text" : function(){/*
-<h1>Primitive Type Functional Interfaces</h1>
+        id : 17,
+		"text" : function(){/*
 <h2>Primitive Predicates</h2>
 <p style="text-align: justify;"><strong>java.util.function.IntPredicate</strong> represents a predicate (boolean-valued
 function) of one 'int'-valued argument. This is the 'int'-consuming primitive type specialization of 'Predicate'.</p>
@@ -3031,8 +3054,8 @@ public class IntSupplierDemo {
     },
 
     {   /* UnaryOperator Interface */
-        "text" : function(){/*
-<h1>UnaryOperator Interface</h1>
+        id : 18,
+		"text" : function(){/*
 <p style="text-align: justify;">When an <strong>input</strong> and the <strong>result</strong> of a function are of same
 type, then we should use <strong>UnaryOperator</strong> Interface. This interface represents an operation on a single
 operand, and produces a result of the same type as its operand.</p>
@@ -3165,8 +3188,8 @@ interfaces for <strong>UnaryOperator</strong></p>
     },
 
     {   /* BinaryOperator Interface */
-        "text" : function(){/*
-<h1>BinaryOperator Interface</h1>
+        id : 19,
+		"text" : function(){/*
 <p style="text-align: justify;">When both the <strong>inputs</strong> and the <strong>result</strong> of a
 <strong>BiFunction</strong> are of same type, then we should use <strong>BinaryOperator</strong> Interface. This interface
 represents an operation upon two operands of the same type, producing a result of the same type as the operands.</p>
@@ -3319,23 +3342,23 @@ interfaces for <strong>BinaryOperator</strong></p>
     },
 
     {   /* Optional */
-        "text" : function(){/*
-<h1>Optional</h1>
+        id : 20,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Method & Constructor reference using double-colon (::) operator */
-        "text" : function(){/*
-<h1>Method & Constructor reference using double-colon (::) operator</h1>
+        id : 21,
+		"text" : function(){/*
 https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Stream API */
-        "text" : function(){/*
-<h1>Stream API</h1>
+        id : 22,
+		"text" : function(){/*
 <p style="text-align: justify;">A <strong>java.util.Stream</strong> represents a sequence of elements on which one or
 more operations can be performed. Stream operations are either <strong>Intermediate</strong> or <strong>Terminal</strong>
 — while <i>terminal operations</i> return a result of a certain type, <i>intermediate operations</i> return the stream
@@ -3655,8 +3678,8 @@ or changes the existing value.</p>
     },
 
     {   /* Date & Time API */
-        "text" : function(){/*
-<h1>Date & Time API</h1>
+        id : 23,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },

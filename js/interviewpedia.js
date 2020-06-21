@@ -13,7 +13,7 @@ class Interviewpedia {
 			
 			setTimeout(function() {
 				$(document).trigger('afterReady');
-			}, 100);
+			}, 200);
 		}
 	}
 	

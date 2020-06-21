@@ -1,125 +1,150 @@
 var multithreading_que = [
 	{
+		id : 1,
 		question : "Thread & Runnable",
 		tags : ["thread", "runnable"]
 	},
 	
 	{
+		id : 2,
 		question : "Thread transitions",
 		tags : ["Thread transitions"]
 	},
 	
 	{
+		id : 3,
 		question : "wait(), notify(), notifyAll()",
 		tags : ["wait", "notify", "notifyall"]
 	},
 	
 	{
+		id : 4,
 		question : "yield(), sleep(), join()",
 		tags : ["yield", "sleep", "join"]
 	},
 	
 	{
+		id : 5,
 		question : "Java Memory Model",
 		tags : ["java memory model", "jmm", "jsr133"]
 	},
 	
 	{
+		id : 6,
 		question : "Double Checked Locking",
 		tags : ["Double Checked Locking"]
 	},
 	
 	{
+		id : 7,
 		question : "Volatile Vs. Synchronized",
 		tags : ["volatile", "synchronized"]
 	},
 	
 	{
+		id : 8,
 		question : "Producer-Consumer",
 		tags : ["producer consumer"]
 	},
 	
 	{
+		id : 9,
 		question : "Daemon Thread",
 		tags : ["Daemon thread"]
 	},
 	
 	{
+		id : 10,
 		question : "Deadlock Vs Livelock Vs Starvation",
 		tags : ["Deadlock", "Livelock", "Starvation"]
 	},
 	
 	{
+		id : 11,
 		question : "Race Condition",
 		tags : ["Race Condition"]
 	},
 	
 	{
+		id : 12,
 		question : "Executor Framework",
 		tags : ["Executor Framework", "Executor Interface", "ExecutorService Interface", "ScheduledExecutorService Interface", "Executors", "Thread Pool"]
 	},
 	
 	{
+		id : 13,
 		question : "Write a custom ThreadPool",
 		tags : ["Custom Thread Pool", "Thread Pool"]
 	},
 	
 	{
+		id : 14,
 		question : "Blocking Queue",
 		tags : ["BlockingQueue", "ArrayBlockingQueue", "LinkedBlockingQueue", "PriorityBlockingQueue"]
 	},
 	
 	{
+		id : 15,
 		question : "ConcurrentHashMap",
 		tags : []
 	},
 	
 	{
+		id : 16,
 		question : "Future & Callable",
 		tags : []
 	},
 	
 	{
+		id : 17,
 		question : "CountDownLatch",
 		tags : []
 	},
 	
 	{
+		id : 18,
 		question : "CyclicBarrier",
 		tags : []
 	},
 	
 	{
+		id : 19,
 		question : "Semaphore",
 		tags : []
 	},
 	
 	{
+		id : 20,
 		question : "ThreadLocal",
 		tags : []
 	},
 	
 	{
+		id : 21,
 		question : "Fork-Join Framework",
 		tags : []
 	},
 	
 	{
+		id : 22,
 		question : "AtomicInteger",
 		tags : ["AtomicInteger", "CAS"]
 	},
 		
 	{
+		id : 23,
 		question : "AtomicBoolean",
 		tags : ["AtomicBoolean", "CAS"]
 	},
 
 	{
+		id : 24,
 		question : "Print Sequence Using Multiple Threads",
 		tags : ["PrintSequence", "Puzzle", "Multithreading", "Threads"]
 	},
 
 	{
+		id : 25,
 		question : "Implement Traffic Signal Using Multiple Threads",
 		tags : ["TrafficSignal", "Puzzle", "Multithreading", "Threads"]
 	},
@@ -127,6 +152,7 @@ var multithreading_que = [
 
 var multithreading_ans = [
 	{	/* Thread & Runnable */
+		id : 1,
 		"text" : function(){/*
 <p style="text-align: justify;">Threads can be implemented in 2 ways:</p>
 <ol style="text-align: justify;">
@@ -145,6 +171,7 @@ var multithreading_ans = [
 	},
 	
 	{	/* Thread transitions */
+		id : 2,
 		"text" : function(){/*
 <h4 style="text-align: justify;">Thread Transitions</h4>
 <p style="text-align: justify;"><img src="data/java/images/thread-transitions.gif" alt="Thread Transistions" width="505" height="155" /></p>
@@ -193,6 +220,7 @@ var multithreading_ans = [
 	},
 	
 	{	/* wait(), notify(), notifyAll() */
+		id : 3,
 		"text" : function(){/*
 <p style="text-align: justify;"><img src="data/java/images/wait.gif" alt="wait() notify() notifyAll()" width="500" height="133" /></p>
 <pre>final void wait() throws InterruptedException
@@ -246,6 +274,7 @@ synchronized (lock) {
 	},
 	
 	{	/* yield(), sleep(), join() */
+		id : 4,
 		"text" : function(){/*
 <h4 style="text-align: justify;">yield()</h4>
 <p style="text-align: justify;"><img src="data/java/images/yield.gif" alt="yield.gif" width="194" height="126" /></p>
@@ -265,6 +294,7 @@ synchronized (lock) {
 	},
 	
 	{	/* Java Memory Model */
+		id : 5,
 		"text" : function(){/*
 <h4 style="text-align: justify;">Java Memory Model</h4>
 <p style="text-align: justify;">In multiprocessor systems, processors generally have one or more layers of memory cache, which improves performance both by speeding access to data and reducing traffic on the shared memory bus.</p>
@@ -390,6 +420,7 @@ The string s2 will have an offset of 4 and a length of 4. But, under the old mod
 	},
 	
 	{	/* Double Checked Locking */
+		id : 6,
 		"text" : function(){/*
 <h4 style="text-align: justify;">Double checked Locking</h4>
 <pre>public class Singleton {
@@ -415,6 +446,7 @@ The string s2 will have an offset of 4 and a length of 4. But, under the old mod
 	},
 	
 	{	/* Volatile Vs. Synchronized */
+		id : 7,
 		"text" : function(){/*
 <h4 style="text-align: justify;">Volatile</h4>
 <p style="text-align: justify;">To ensure that <em>shared variables</em> are consistently and reliably updated, a thread should ensure that it has exclusive use of such variables by obtaining a lock enforces mutual exclusion for those shared variables. Java provides a second mechanism, <strong>volatile</strong> fields, that is more convenient than locking for some purposes. A field may be declared volatile, in which case the JMM ensures that all threads see a consistent value for that variable.</p>
@@ -471,6 +503,7 @@ The string s2 will have an offset of 4 and a length of 4. But, under the old mod
 	},
 	
 	{	/* Producer-Consumer */
+		id : 8,
 		"text" : function(){/*
 <ol>
 <li>
@@ -654,6 +687,7 @@ class Consumer implements Runnable {
 	},
 	
 	{	/* Daemon Thread */
+		id : 9,
 		"text" : function(){/*
 <p style="text-align: justify;"><strong>Daemon threads</strong> are those which run in background and mostly created by JVM for performing background task like garbage collection and other house keeping tasks. Difference between Daemon and non-daemon is that as soon as all user thread finish execution, JVM doesn't wait for daemon thread to finish their execution. As soon as last non daemon thread finishes, JVM terminates no matter how many daemon threads exist or running -- finally blocks are not executed, stacks are not unwounded. JVM just exits.</p>
 <p style="text-align: justify;">When a thread creates a new thread, the new thread has its priority initially set equal to the priority of the creating thread. So, any thread created by main thread is by default non-daemon. However, it can be explicitly made daemon by calling <strong>setDaemon(true)</strong>.</p>
@@ -666,6 +700,7 @@ daemon.start();
 	},
 	
 	{	/* Deadlock Vs Livelock Vs Starvation */
+		id : 10,
 		"text" : function(){/*
 <h4 style="text-align: justify;">Deadlock</h4>
 <p style="text-align: justify;">Deadlock describes a situation where two or more threads are blocked forever, waiting for each other.</p>
@@ -693,6 +728,7 @@ daemon.start();
 	},
 	
 	{	/* Race Condition */
+		id : 11,
 		"text" : function(){/*
 <p style="text-align: justify;">A <strong>race condition</strong> occurs when two or more threads access shared data and they try to change it at the same time. Because the thread scheduling algorithm can swap between threads at any time, we&nbsp;don't know the order in which the threads will attempt to access the shared data. Therefore, the result of the change in data is dependent on the thread scheduling algorithm, i.e. both threads are "racing" to access/change the data.</p>
 <p style="text-align: justify;">A classical example of race-condition is incrementing a counter since increment is not an atomic operation and can be further divided into three steps -- <em>Read, Update and Write</em>. If two threads tries to increment count at same time and if they read same value because of interleaving of read operation of one thread to update operation of another thread, one count will be lost when one thread overwrite increment done by other thread. Atomic operations are not subject to race conditions because those operations cannot be interleaved.</p>
@@ -718,6 +754,7 @@ daemon.start();
 	},
 	
 	{	/* Executor Framework */
+		id : 12,
 		"text" : function(){/*
 <p style="text-align: justify;"><strong>Executor framework</strong> is used to launch <em>runnables</em> and <em>callables</em> without creating new threads every time and re-using the already created ones from a <strong>thread pool</strong>. Since, creating a thread is a very expensive process which includes memory overhead also, it&rsquo;s a good idea if we can re-use these worker threads once created, to run our future runnables.</p>
 <p style="text-align: justify;">The <strong>java.util.concurrent</strong> package defines 3&nbsp;executor interfaces:</p>
@@ -744,6 +781,7 @@ daemon.start();
 	},
 	
 	{	/* Write a custom ThreadPool */
+		id : 13,
 		"text" : function(){/*
 <pre>
 class ThreadPool {
@@ -842,6 +880,7 @@ public class ThreadPoolDemo {
 	},
 	
 	{	/* Blocking Queue */
+		id : 14,
 		"text" : function(){/*
 <p style="text-align: justify;">A <strong>BlockingQueue</strong> is a <strong>Queue</strong> that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element. BlockingQueue methods come in 4 forms, with different ways of handling operations that cannot be satisfied immediately, but may be satisfied at some point in the future: <br />1. throws an exception,<br />2. returns a special value (either null or false, depending on the operation),<br />3. blocks the current thread indefinitely until the operation can succeed,<br />4. blocks for only a given maximum time limit before giving up.</p>
 <p style="text-align: justify;">These methods are summarized in the following table:</p>
@@ -938,6 +977,7 @@ public class ThreadPoolDemo {
 	},
 	
 	{	/* ConcurrentHashMap */
+		id : 15,
 		"text" : function(){/*
 <p><a href="https://www.quora.com/How-concurrent-hashmap-works-in-java" target="_blank">https://www.quora.com/How-concurrent-hashmap-works-in-java</a></p>
 <p><a href="http://opensourceforgeeks.blogspot.in/2017/05/how-concurrenthashmap-works-internally.html" target="_blank">http://opensourceforgeeks.blogspot.in/2017/05/how-concurrenthashmap-works-internally.html</a></p>
@@ -946,42 +986,49 @@ public class ThreadPoolDemo {
 	},
 	
 	{	/* Future & Callable */
+		id : 16,
 		"text" : function(){/*
 		TODO
 		*/}.toString().slice(14,-3)
 	},
 	
 	{	/* CountDownLatch */
+		id : 17,
 		"text" : function(){/*
 		TODO
 		*/}.toString().slice(14,-3)
 	},
 	
 	{	/* CyclicBarrier */
+		id : 18,
 		"text" : function(){/*
 		TODO
 		*/}.toString().slice(14,-3)
 	},
 	
 	{	/* Semaphore */
+		id : 19,
 		"text" : function(){/*
 		TODO
 		*/}.toString().slice(14,-3)
 	},
 	
 	{	/* ThreadLocal */
+		id : 20,
 		"text" : function(){/*
 		TODO
 		*/}.toString().slice(14,-3)
 	},
 	
 	{	/* Fork-Join Framework */
+		id : 21,
 		"text" : function(){/*
 		TODO
 		*/}.toString().slice(14,-3)
 	},
 	
 	{	/* AtomicInteger */
+		id : 22,
 		"text" : function(){/*
 <p><a href="http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/atomic/AtomicInteger.java" target="_blank">JDK6: AtomicInteger.java</a></p>
 		
@@ -1114,6 +1161,7 @@ public class MyAtomicInteger {
 	},
 	
 	{	/* AtomicBoolean */
+		id : 23,
 		"text" : function(){/*
 <p><a href="http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/concurrent/atomic/AtomicBoolean.java" target="_blank">JDK6: AtomicBoolean.java</a></p>
 
@@ -1176,6 +1224,7 @@ public class MyAtomicBoolean {
 	},
 
     {	/* Print Sequence Using Multiple Threads */
+		id : 24,
 		"text" : function(){/*
 <pre>
 public class PrintSequenceUsingMultipleThreads implements Runnable {
@@ -1219,6 +1268,7 @@ public class PrintSequenceUsingMultipleThreads implements Runnable {
 	},
 
     {	/* Implement Traffic Signal Using Multiple Threads */
+		id : 25,
 		"text" : function(){/*
 <pre>
 public class TrafficSignal implements Runnable {

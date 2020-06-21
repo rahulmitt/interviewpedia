@@ -1,15 +1,18 @@
 var db_que = [
 	{
+		id : 1,
 		question : "Normalisation",
 		tags : ["Normalisation"]
 	},
 	
 	{
+		id : 2,
 		question : "Indexes",
 		tags : ["Indexes"]
 	},
 	
 	{
+		id : 3,
 		question : "SQL",
 		tags : ["SQL"]
 	},
@@ -17,18 +20,21 @@ var db_que = [
 
 var db_ans = [
 	{   /* Normalisation */
+		id : 1,
 		"text" : function(){/*
 qqq
 		*/}.toString().slice(14,-3)
 	},
 
 	{   /* Indexes */
+		id : 2,
 		"text" : function(){/*
 www
 		*/}.toString().slice(14,-3)
 	},
 
 	{   /* SQL */
+		id : 3,
 		"text" : function(){/*
 <p>Find nth highest salary</p>
 <pre>
