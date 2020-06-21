@@ -58,7 +58,6 @@ var oops_ans = [
 	{   /* UML Association vs Aggregation vs Composition */
 		id : 1,
 		"text" : function(){/*
-<h1>Association Vs Aggregation Vs Composition Vs Inheritance</h1>
 <p style="text-align: justify;">Consider the classes of the following objects: Pets, Dogs, Tails, Owners.</p>
 <table>
 
@@ -436,7 +435,6 @@ public class DeepCopy implements Serializable {
     {   /* Generics */
         id : 9,
 		"text" : function(){/*
-<h1>Generics</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
@@ -444,7 +442,6 @@ public class DeepCopy implements Serializable {
     {   /* Reflection */
         id : 10,
 		"text" : function(){/*
-<h1>Reflection</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
