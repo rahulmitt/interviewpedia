@@ -50,11 +50,12 @@ class Interviewpedia {
 		if(this.q == null) return 0;
 		let selectedQ = 0;
 		let t = this.topic != null ? this.topic : eval(this.course)[0].split(".")[0];
-		$.each(eval(t + "_que"), function(index, que) {
-			if(que.id == this.q) {
-				selectedQ = index;
-			}
-		});
+		$.each(eval(t + "_que"), (function(index, que) {
+                if(que.id == this.q) {
+                    selectedQ = index;
+                }
+            }).bind(this)
+		)
 		
 		return selectedQ;
 	}
