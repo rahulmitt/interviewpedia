@@ -1,19 +1,36 @@
 class SideMenu {
-	constructor(sourceDiv, topicId, data, targetDiv) {
+	constructor(sourceDiv, targetDiv) {
 		this.sourceDiv = sourceDiv;
 		this.targetDiv = targetDiv;
-		this.options = {};
+		this.data = [];
+		this.topicId = null;
+	}
+	
+    static instance = null;
+
+    static getInstance(sourceDiv, targetDiv) {
+        if(SideMenu.instance == null) SideMenu.instance = new SideMenu(sourceDiv, targetDiv);
+        return SideMenu.instance;
+    }
+	
+	build(topicId, queToSelect) {
 		this.topicId = topicId;
-		this.data = data;
+		try {
+			this.data = eval(topicId + "_que");
+		} catch(e) {
+			this.data = [];
+		}
+
+		this.targetDiv.panel('setTitle', ' ');
+		
+		this.options = {};
 		this.options["border"] = false;
 		//this.options["fit"] = true;
 		this.options["width"] = 2000;
-		this.options["height"] = data.length * 42;	// some weird logic to manage vertical scrollbar. So, no need to set: options["fit"]
-		this.options["data"] = this.transform(data);
-		this.targetDiv.panel('setTitle', ' ');
+		this.options["height"] = this.data.length * 42;	// some weird logic to manage vertical scrollbar. So, no need to set: options["fit"]
+		this.options["data"] = this.transform(this.data);
 		this.options["onSelect"] = (function(item) {
 			let answer = this.findAnswer(item.text);
-			
 			this.targetDiv.panel({
 				title:item.text,
 				tools:[
@@ -31,6 +48,10 @@ class SideMenu {
 			$("pre").addClass("prettyprint linenums lang-java");
 			prettyPrint();
 		}).bind(this);			// binding the callback's this to the value of constructor's this
+		
+		this.sourceDiv.sidemenu(this.options);
+		if(queToSelect == null || queToSelect >= this.options.data[0].children.length || queToSelect < 0) queToSelect = 0;
+		this.sourceDiv.find('ul:first li:eq(' + queToSelect + ') div').click();
 	}
 	
 	findQid(textToSearch) {
@@ -74,11 +95,12 @@ class SideMenu {
 		return outputJsonArray;
 	}
 
+	/*
 	build(selected) {
-		this.sourceDiv.empty();
-		this.targetDiv.empty();
+//		this.sourceDiv.empty();
+//		this.targetDiv.empty();
 		this.sourceDiv.sidemenu(this.options);
 		if(selected == null || selected >= this.options.data[0].children.length || selected < 0) selected = 0;
 		this.sourceDiv.find('ul:first li:eq(' + selected + ') div').click();
-	}
+	}*/
 }
