@@ -6,9 +6,10 @@ class DataLoader {
         return DataLoader.instance;
 	}
 
-	loadData(arr, course){
+	loadData(jsArr, course){
+	    this.latch = jsArr.length + 1;
 		DataLoader.appendScriptTag('./data/' + course + '/-topics.json.js');
-		$.each(arr, function(i, js){
+		$.each(jsArr, function(i, js) {
 			DataLoader.appendScriptTag('./data/' + course + '/' + js);
 		});
 	}
@@ -17,6 +18,7 @@ class DataLoader {
 		let script = document.createElement('script');
 		script.setAttribute("type","text/javascript");
         script.setAttribute("src", src);
+        //script.addEventListener('load', callback);
 		$('head')[0].appendChild(script);
 	}
 

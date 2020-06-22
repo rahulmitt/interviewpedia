@@ -30,7 +30,7 @@ class MenuBar {
 				}
 			});
 			
-			SideMenu.getInstance($("#sm"), $("#ans")).build(topicId, queToSelect);
+			SideMenu.getInstance($("#sm"), $("#ans"), $("#toc"), $("#tags")).build(topicId, queToSelect);
 			
 		}).bind(this);			// binding the callback's this to the value of constructor's this
 		
