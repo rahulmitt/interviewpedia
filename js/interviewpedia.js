@@ -46,7 +46,7 @@ class Interviewpedia {
 	}
 	
 	findQuestionNo() {
-		if(this.q == null) return 0;
+		if(this.q == null || this.q == '0') return 0;
 		let selectedQ = 0;
 		let t = this.topic != null ? this.topic : eval(this.course)[0].split(".")[0];
 		$.each(eval(t + "_que"), (function(index, que) {

@@ -1,12 +1,17 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="author" content="Rahul Mittal">
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="favicon.ico" type="x-icon">
+		<link rel="icon" href="favicon.ico" type="x-icon">
+
 		<title>Interviewpedia</title>
-		
-		<link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.9.5/themes/material-blue/easyui-custom.css">
+
+		<link rel="stylesheet" type="text/css" href="css/easyui-custom.css">
 		<link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.9.5/themes/icon.css">
 		<link rel="stylesheet" type="text/css" href="css/interviewpedia.css">
-		
+
 		<script type="text/javascript" src="js/jquery-easyui-1.9.5/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery-easyui-1.9.5/jquery.easyui.min.js"></script>
 		<script type="text/javascript" src="js/google-code-prettify/run_prettify.js?skin=sons-of-obsidian"></script>
@@ -30,6 +35,17 @@
 			$(window).bind('afterReady', function() {
 				Interviewpedia.getInstance().render();
 			});
+
+			$(window).bind('keydown', function(event) {
+				if (event.ctrlKey || event.metaKey) {
+					switch (String.fromCharCode(event.which).toLowerCase()) {
+					case 's':
+						event.preventDefault();
+						$("#search").focus().select();
+						break;
+					}
+				}
+			});
 		</script>
 		
 	</head>
@@ -40,7 +56,7 @@
 			<tr>
 				<td class="header"><label id="label" onclick="CourseChooserDialog.getInstance($('#dlg')).open();" title="Click to select a different course" style="cursor:pointer"><b>Interviewpedia</b></label></td>
 				<td width="50%"><div id="tags"></div></td>
-				<td width="20%" style="text-align:right">Search: <input type="text" size="23"/></td>
+				<td width="20%" style="text-align:right"><input id="search" type="text" placeholder="Grep: <ctrl+s> " size="35"/></td>
 			</tr>
 		</table>
 		

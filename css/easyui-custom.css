@@ -76,7 +76,7 @@
   position: relative;
 }
 .panel-title {
-  background: url('images/blank.gif') no-repeat;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/blank.gif') no-repeat;
 }
 .panel-header-noborder {
   border-width: 0 0 1px 0;
@@ -147,25 +147,25 @@
   overflow: hidden;
 }
 .panel-loading {
-  background: url('images/loading.gif') no-repeat 10px 10px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/loading.gif') no-repeat 10px 10px;
 }
 .panel-tool-close {
-  background: url('images/panel_tools.png') no-repeat -16px 0px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/panel_tools.png') no-repeat -16px 0px;
 }
 .panel-tool-min {
-  background: url('images/panel_tools.png') no-repeat 0px 0px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/panel_tools.png') no-repeat 0px 0px;
 }
 .panel-tool-max {
-  background: url('images/panel_tools.png') no-repeat 0px -16px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/panel_tools.png') no-repeat 0px -16px;
 }
 .panel-tool-restore {
-  background: url('images/panel_tools.png') no-repeat -16px -16px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/panel_tools.png') no-repeat -16px -16px;
 }
 .panel-tool-collapse {
-  background: url('images/panel_tools.png') no-repeat -32px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/panel_tools.png') no-repeat -32px 0;
 }
 .panel-tool-expand {
-  background: url('images/panel_tools.png') no-repeat -32px -16px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/panel_tools.png') no-repeat -32px -16px;
 }
 .panel-header,
 .panel-body {
@@ -343,10 +343,10 @@
   border-width: 0 0 1px;
 }
 .accordion-collapse {
-  background: url('images/accordion_arrows.png') no-repeat 0 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/accordion_arrows.png') no-repeat 0 0;
 }
 .accordion-expand {
-  background: url('images/accordion_arrows.png') no-repeat -16px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/accordion_arrows.png') no-repeat -16px 0;
 }
 .accordion {
   background: #576574;
@@ -996,10 +996,10 @@
   transform: translate(0,0);
 }
 .passwordbox-open {
-  background: url('images/passwordbox_open.png') no-repeat center center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/passwordbox_open.png') no-repeat center center;
 }
 .passwordbox-close {
-  background: url('images/passwordbox_close.png') no-repeat center center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/passwordbox_close.png') no-repeat center center;
 }
 .filebox .textbox-value {
   vertical-align: top;
@@ -1016,7 +1016,7 @@
   left: 0;
   top: 0;
   z-index: 10;
-  background: url('images/blank.gif') no-repeat;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/blank.gif') no-repeat;
 }
 .l-btn-disabled .filebox-label {
   cursor: default;
@@ -1039,7 +1039,7 @@
   overflow: auto;
 }
 .combo-arrow {
-  background: url('images/combo_arrow.png') no-repeat center center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/combo_arrow.png') no-repeat center center;
 }
 .combo-panel {
   background-color: #576574;
@@ -1117,7 +1117,7 @@
   color: #2196f3;
 }
 .tagbox-remove {
-  background: url('images/tagbox_icons.png') no-repeat -16px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tagbox_icons.png') no-repeat -16px center;
   position: absolute;
   display: block;
   width: 16px;
@@ -1257,16 +1257,16 @@
   z-index: 4;
 }
 .layout-button-up {
-  background: url('images/layout_arrows.png') no-repeat -16px -16px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/layout_arrows.png') no-repeat -16px -16px;
 }
 .layout-button-down {
-  background: url('images/layout_arrows.png') no-repeat -16px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/layout_arrows.png') no-repeat -16px 0;
 }
 .layout-button-left {
-  background: url('images/layout_arrows.png') no-repeat 0 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/layout_arrows.png') no-repeat 0 0;
 }
 .layout-button-right {
-  background: url('images/layout_arrows.png') no-repeat 0 -16px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/layout_arrows.png') no-repeat 0 -16px;
 }
 .layout-split-proxy-h,
 .layout-split-proxy-v {
@@ -1611,7 +1611,7 @@
   background: #222f3e url('images/tabs_icons.png') no-repeat -15px center;
 }
 .tabs li a.tabs-close {
-  background: url('images/tabs_icons.png') no-repeat -34px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tabs_icons.png') no-repeat -34px center;
 }
 .tabs li .tabs-inner:hover {
   background: #576574;
@@ -1874,23 +1874,23 @@
 .datagrid-sort .datagrid-sort-icon {
   display: inline;
   padding: 0 13px 0 0;
-  background: url('images/datagrid_icons.png') no-repeat -64px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/datagrid_icons.png') no-repeat -64px center;
 }
 .datagrid-sort-desc .datagrid-sort-icon {
   display: inline;
   padding: 0 13px 0 0;
-  background: url('images/datagrid_icons.png') no-repeat -16px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/datagrid_icons.png') no-repeat -16px center;
 }
 .datagrid-sort-asc .datagrid-sort-icon {
   display: inline;
   padding: 0 13px 0 0;
-  background: url('images/datagrid_icons.png') no-repeat 0px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/datagrid_icons.png') no-repeat 0px center;
 }
 .datagrid-row-collapse {
-  background: url('images/datagrid_icons.png') no-repeat -48px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/datagrid_icons.png') no-repeat -48px center;
 }
 .datagrid-row-expand {
-  background: url('images/datagrid_icons.png') no-repeat -32px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/datagrid_icons.png') no-repeat -32px center;
 }
 .datagrid-mask-msg {
   background: #576574 url('images/loading.gif') no-repeat scroll 5px center;
@@ -2146,22 +2146,22 @@
   min-width: 28px;
 }
 .pagination-first {
-  background: url('images/pagination_icons.png') no-repeat 0 center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/pagination_icons.png') no-repeat 0 center;
 }
 .pagination-prev {
-  background: url('images/pagination_icons.png') no-repeat -16px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/pagination_icons.png') no-repeat -16px center;
 }
 .pagination-next {
-  background: url('images/pagination_icons.png') no-repeat -32px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/pagination_icons.png') no-repeat -32px center;
 }
 .pagination-last {
-  background: url('images/pagination_icons.png') no-repeat -48px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/pagination_icons.png') no-repeat -48px center;
 }
 .pagination-load {
-  background: url('images/pagination_icons.png') no-repeat -64px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/pagination_icons.png') no-repeat -64px center;
 }
 .pagination-loading {
-  background: url('images/loading.gif') no-repeat center center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/loading.gif') no-repeat center center;
 }
 .pagination-page-list,
 .pagination .pagination-num {
@@ -2226,19 +2226,19 @@
 }
 .calendar-prevmonth {
   left: 30px;
-  background: url('images/calendar_arrows.png') no-repeat -16px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/calendar_arrows.png') no-repeat -16px 0;
 }
 .calendar-nextmonth {
   right: 30px;
-  background: url('images/calendar_arrows.png') no-repeat -32px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/calendar_arrows.png') no-repeat -32px 0;
 }
 .calendar-prevyear {
   left: 10px;
-  background: url('images/calendar_arrows.png') no-repeat 0px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/calendar_arrows.png') no-repeat 0px 0;
 }
 .calendar-nextyear {
   right: 10px;
-  background: url('images/calendar_arrows.png') no-repeat -48px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/calendar_arrows.png') no-repeat -48px 0;
 }
 .calendar-body {
   position: relative;
@@ -2308,11 +2308,11 @@
 }
 .calendar-menu-prev {
   margin-right: 10px;
-  background: url('images/calendar_arrows.png') no-repeat 5px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/calendar_arrows.png') no-repeat 5px center;
 }
 .calendar-menu-next {
   margin-left: 10px;
-  background: url('images/calendar_arrows.png') no-repeat -44px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/calendar_arrows.png') no-repeat -44px center;
 }
 .calendar-menu-month {
   text-align: center;
@@ -2517,18 +2517,18 @@
   filter: alpha(opacity=60);
 }
 .spinner-arrow-up {
-  background: url('images/spinner_arrows.png') no-repeat 1px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/spinner_arrows.png') no-repeat 1px center;
   background-color: #222f3e;
 }
 .spinner-arrow-down {
-  background: url('images/spinner_arrows.png') no-repeat -15px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/spinner_arrows.png') no-repeat -15px center;
   background-color: #222f3e;
 }
 .spinner-button-up {
-  background: url('images/spinner_arrows.png') no-repeat -32px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/spinner_arrows.png') no-repeat -32px center;
 }
 .spinner-button-down {
-  background: url('images/spinner_arrows.png') no-repeat -48px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/spinner_arrows.png') no-repeat -48px center;
 }
 .progressbar {
   border-width: 1px;
@@ -2614,7 +2614,7 @@
   border-width: 0 1px 0 0;
 }
 .searchbox-button {
-  background: url('images/searchbox_button.png') no-repeat center center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/searchbox_button.png') no-repeat center center;
 }
 .searchbox .l-btn-plain {
   background: #222f3e;
@@ -2713,7 +2713,7 @@
   left: 23px;
 }
 .slider-handle {
-  background: url('images/slider_handle.png') no-repeat;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/slider_handle.png') no-repeat;
 }
 .slider-inner {
   border-color: #576574;
@@ -2812,7 +2812,7 @@
   filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
 }
 .menu-rightarrow {
-  background: url('images/menu_arrows.png') no-repeat -32px center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/menu_arrows.png') no-repeat -32px center;
 }
 .menu-line {
   border-left: 1px solid #dfdfdf;
@@ -2930,7 +2930,7 @@
 }
 .m-btn-downarrow,
 .s-btn-downarrow {
-  background: url('images/menu_arrows.png') no-repeat 0 center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/menu_arrows.png') no-repeat 0 center;
 }
 .m-btn-plain-active,
 .s-btn-plain-active {
@@ -3051,16 +3051,16 @@
   margin: 0 10px 10px 0;
 }
 .messager-error {
-  background: url('images/messager_icons.png') no-repeat scroll -64px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/messager_icons.png') no-repeat scroll -64px 0;
 }
 .messager-info {
-  background: url('images/messager_icons.png') no-repeat scroll 0 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/messager_icons.png') no-repeat scroll 0 0;
 }
 .messager-question {
-  background: url('images/messager_icons.png') no-repeat scroll -32px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/messager_icons.png') no-repeat scroll -32px 0;
 }
 .messager-warning {
-  background: url('images/messager_icons.png') no-repeat scroll -96px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/messager_icons.png') no-repeat scroll -96px 0;
 }
 .messager-progress {
   padding: 10px;
@@ -3112,62 +3112,62 @@
   overflow: hidden;
 }
 .tree-expanded {
-  background: url('images/tree_icons.png') no-repeat -18px 0px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -18px 0px;
 }
 .tree-expanded-hover {
-  background: url('images/tree_icons.png') no-repeat -50px 0px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -50px 0px;
 }
 .tree-collapsed {
-  background: url('images/tree_icons.png') no-repeat 0px 0px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat 0px 0px;
 }
 .tree-collapsed-hover {
-  background: url('images/tree_icons.png') no-repeat -32px 0px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -32px 0px;
 }
 .tree-lines .tree-expanded,
 .tree-lines .tree-root-first .tree-expanded {
-  background: url('images/tree_icons.png') no-repeat -144px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -144px 0;
 }
 .tree-lines .tree-collapsed,
 .tree-lines .tree-root-first .tree-collapsed {
-  background: url('images/tree_icons.png') no-repeat -128px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -128px 0;
 }
 .tree-lines .tree-node-last .tree-expanded,
 .tree-lines .tree-root-one .tree-expanded {
-  background: url('images/tree_icons.png') no-repeat -80px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -80px 0;
 }
 .tree-lines .tree-node-last .tree-collapsed,
 .tree-lines .tree-root-one .tree-collapsed {
-  background: url('images/tree_icons.png') no-repeat -64px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -64px 0;
 }
 .tree-line {
-  background: url('images/tree_icons.png') no-repeat -176px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -176px 0;
 }
 .tree-join {
-  background: url('images/tree_icons.png') no-repeat -192px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -192px 0;
 }
 .tree-joinbottom {
-  background: url('images/tree_icons.png') no-repeat -160px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -160px 0;
 }
 .tree-folder {
-  background: url('images/tree_icons.png') no-repeat -208px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -208px 0;
 }
 .tree-folder-open {
-  background: url('images/tree_icons.png') no-repeat -224px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -224px 0;
 }
 .tree-file {
-  background: url('images/tree_icons.png') no-repeat -240px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -240px 0;
 }
 .tree-loading {
-  background: url('images/loading.gif') no-repeat center center;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/loading.gif') no-repeat center center;
 }
 .tree-checkbox0 {
-  background: url('images/tree_icons.png') no-repeat -208px -18px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -208px -18px;
 }
 .tree-checkbox1 {
-  background: url('images/tree_icons.png') no-repeat -224px -18px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -224px -18px;
 }
 .tree-checkbox2 {
-  background: url('images/tree_icons.png') no-repeat -240px -18px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -240px -18px;
 }
 .tree-title {
   font-size: 14px;
@@ -3198,10 +3198,10 @@
   margin-top: -9px;
 }
 .tree-dnd-yes {
-  background: url('images/tree_icons.png') no-repeat -256px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -256px 0;
 }
 .tree-dnd-no {
-  background: url('images/tree_icons.png') no-repeat -256px -18px;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tree_icons.png') no-repeat -256px -18px;
 }
 .tree-node-top {
   border-top: 1px dotted red;
@@ -3463,13 +3463,13 @@
   position: absolute;
   top: 50%;
   margin-top: -8px;
-  background: url('images/accordion_arrows.png') no-repeat 0 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/accordion_arrows.png') no-repeat 0 0;
   width: 16px;
   height: 16px;
   right: 5px;
 }
 .sidemenu .tree-node-nonleaf-collapsed::after {
-  background: url('images/accordion_arrows.png') no-repeat -16px 0;
+  background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/accordion_arrows.png') no-repeat -16px 0;
 }
 .sidemenu-collapsed .panel-icon {
   left: 50%;
