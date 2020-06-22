@@ -39,14 +39,16 @@
 		<table width="100%" height="2%">
 			<tr>
 				<td class="header"><label id="label" onclick="CourseChooserDialog.getInstance($('#dlg')).open();" title="Click to select a different course" style="cursor:pointer"><b>Interviewpedia</b></label></td>
-				<td width="33%"></td>
-				<td width="33%" style="text-align:right">Search: <input type="text" size="23"/></td>
+				<td width="50%"><div id="tags"></div></td>
+				<td width="20%" style="text-align:right">Search: <input type="text" size="23"/></td>
 			</tr>
 		</table>
 		
 		<div id="horizontal-tabs" class="easyui-tabs" style="width:100%;height:32px;"></div>
 		<div class="easyui-layout" style="width:100%;height:88%;">
-			<div id="toc" data-options="region:'east',title:'Structure',split:true,collapsed:true" style="width:200px;"></div>
+			<div id="toc" data-options="region:'east',title:'Table of Contents',split:true,collapsed:true" style="width:200px;">
+			</div>
+
 			<div id="que" data-options="region:'west',title:'Topics',split:true" style="width:250px;">
 				<div id="sm" style="width:100%;height:100%;border:none"></div>
 			</div>

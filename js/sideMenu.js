@@ -1,15 +1,17 @@
 class SideMenu {
-	constructor(sourceDiv, targetDiv) {
-		this.sourceDiv = sourceDiv;
-		this.targetDiv = targetDiv;
+	constructor(uiElement, answerDiv, tocDiv, tagsDiv) {
+		this.uiElement = uiElement;
+		this.answerDiv = answerDiv;
+		this.tocDiv = tocDiv;
+		this.tagsDiv = tagsDiv;
 		this.data = [];
 		this.topicId = null;
 	}
 	
     static instance = null;
 
-    static getInstance(sourceDiv, targetDiv) {
-        if(SideMenu.instance == null) SideMenu.instance = new SideMenu(sourceDiv, targetDiv);
+    static getInstance(uiElement, answerDiv, tocDiv, tagsDiv) {
+        if(SideMenu.instance == null) SideMenu.instance = new SideMenu(uiElement, answerDiv, tocDiv, tagsDiv);
         return SideMenu.instance;
     }
 	
@@ -21,7 +23,7 @@ class SideMenu {
 			this.data = [];
 		}
 
-		this.targetDiv.panel('setTitle', ' ');
+		this.answerDiv.panel('setTitle', ' ');
 		
 		this.options = {};
 		this.options["border"] = false;
@@ -31,7 +33,7 @@ class SideMenu {
 		this.options["data"] = this.transform(this.data);
 		this.options["onSelect"] = (function(item) {
 			let answer = this.findAnswer(item.text);
-			this.targetDiv.panel({
+			this.answerDiv.panel({
 				title:item.text,
 				tools:[
 					{
@@ -43,15 +45,18 @@ class SideMenu {
 				]
 			}); 
 			
-			this.targetDiv.html(answer);
+			this.answerDiv.html(answer);
 			$("pre").removeClass();
 			$("pre").addClass("prettyprint linenums lang-java");
 			prettyPrint();
+			this.buildToc();
+			this.tagsDiv.html(this.findTags(item.text));
+			this.answerDiv.scrollTop(0);
 		}).bind(this);			// binding the callback's this to the value of constructor's this
 		
-		this.sourceDiv.sidemenu(this.options);
+		this.uiElement.sidemenu(this.options);
 		if(queToSelect == null || queToSelect >= this.options.data[0].children.length || queToSelect < 0) queToSelect = 0;
-		this.sourceDiv.find('ul:first li:eq(' + queToSelect + ') div').click();
+		this.uiElement.find('ul:first li:eq(' + queToSelect + ') div').click();
 	}
 	
 	findQid(textToSearch) {
@@ -78,6 +83,25 @@ class SideMenu {
 		
 		return answer;
 	}
+
+	findTags(textToSearch) {
+        let tags = null
+		$(this.data).each(function(index, que) {
+			if(que.question == textToSearch.replace(/\d*.\s/,'')) {
+				tags = que.tags;
+			}
+		});
+
+		let tagBox = $("<div>");
+		$(tags).each(function(index, t) {
+		    let tagItem = $("<div>");
+            tagItem.addClass("tag-label");
+            tagItem.text(t);
+            tagBox.append(tagItem);
+		});
+
+		return tagBox.html();
+	}
 	
 	transform(rawData) {
 		let questions = {};
@@ -95,12 +119,15 @@ class SideMenu {
 		return outputJsonArray;
 	}
 
-	/*
-	build(selected) {
-//		this.sourceDiv.empty();
-//		this.targetDiv.empty();
-		this.sourceDiv.sidemenu(this.options);
-		if(selected == null || selected >= this.options.data[0].children.length || selected < 0) selected = 0;
-		this.sourceDiv.find('ul:first li:eq(' + selected + ') div').click();
-	}*/
+	buildToc() {
+	    this.tocDiv.empty();
+	    let id = 1;
+	    for (var i = 0; i < this.answerDiv.find(':header').length; i++) {
+	        let ele = this.answerDiv.find(':header')[i];
+            $(ele).attr('id', id);
+            let link = $("<a>").attr("href", "#" + id).text(id++ + ". " + $(ele).text());
+            this.tocDiv.append(link);
+            this.tocDiv.append("<br/><br/>");
+        };
+	}
 }

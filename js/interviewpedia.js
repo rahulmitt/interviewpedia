@@ -3,7 +3,6 @@ class Interviewpedia {
 		this.course = $.urlParam("course");
 		this.topic = $.urlParam("topic");
         this.q = $.urlParam("q");
-		this.dataLoader = DataLoader.getInstance();
 	}
 
 	static instance = null;
@@ -18,7 +17,7 @@ class Interviewpedia {
 			CourseChooserDialog.getInstance($("#dlg")).open();
 		} else {
 			CourseChooserDialog.getInstance($("#dlg")).hide();
-			this.dataLoader.loadData(eval(this.course), this.course);
+			DataLoader.getInstance().loadData(eval(this.course), this.course);
 			
 			setTimeout(function() {
 				$(document).trigger('afterReady');
