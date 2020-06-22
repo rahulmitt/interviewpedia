@@ -38,9 +38,13 @@ class SideMenu {
 				tools:[
 					{
 						iconCls: 'icon-reload',
-						handler: function(){
-							//alert('This would give the direct url for this article');
-						}
+						handler: (function() {
+							$.doRedirect({
+                                    course : $.urlParam("course"),
+                                    topic : this.topicId,
+                                    q : this.findQid(item.text),
+                            });
+						}).bind(this)
 					},
 				]
 			}); 

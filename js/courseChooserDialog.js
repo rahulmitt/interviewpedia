@@ -17,8 +17,8 @@ class CourseChooserDialog {
 			.click(function() {
 				$.doRedirect({
 					course : eval(course).id,
-					//topic : null,
-					//q : 0
+					topic : null,
+					q : 0
 				});
 			})
 			.css('cursor', 'pointer')
