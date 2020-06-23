@@ -29,6 +29,14 @@
 		
 		<script>
 			$(document).ready(function() {
+				try {
+					eval('"use strict"; class foo {}');
+					//alert("ES6 Supported by Browser");
+				} catch (e) {
+					console.log(e);
+					alert("ES6 NOT Supported by Browser");
+				}
+
 				Interviewpedia.getInstance().loadCourse();
 			});
 			
