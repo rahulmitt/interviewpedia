@@ -31,6 +31,7 @@ class Interviewpedia {
 		let q = this.findQuestionNo();
 		MenuBar.getInstance($('#horizontal-tabs')).build(t, q);
 		q = 0;
+		SearchBox.getInstance($("#search")).build();
 	}
 	
 	enrichCourseTitle() {
