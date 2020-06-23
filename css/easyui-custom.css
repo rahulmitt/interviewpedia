@@ -1605,10 +1605,10 @@
   margin-left: -1px;
 }
 .tabs-scroller-left {
-  background: #222f3e url('images/tabs_icons.png') no-repeat 1px center;
+  background: #222f3e url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tabs_icons.png') no-repeat 1px center;
 }
 .tabs-scroller-right {
-  background: #222f3e url('images/tabs_icons.png') no-repeat -15px center;
+  background: #222f3e url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tabs_icons.png') no-repeat -15px center;
 }
 .tabs li a.tabs-close {
   background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/tabs_icons.png') no-repeat -34px center;
@@ -1893,7 +1893,7 @@
   background: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/datagrid_icons.png') no-repeat -32px center;
 }
 .datagrid-mask-msg {
-  background: #576574 url('images/loading.gif') no-repeat scroll 5px center;
+  background: #576574 url('../js/jquery-easyui-1.9.5/themes/material-blue/images/loading.gif') no-repeat scroll 5px center;
 }
 .datagrid-header,
 .datagrid-td-rownumber {
@@ -2407,7 +2407,7 @@
   float: right;
 }
 .datebox .combo-arrow {
-  background-image: url('images/datebox_arrow.png');
+  background-image: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/datebox_arrow.png');
   background-position: center center;
 }
 .datebox-button {
@@ -3866,14 +3866,14 @@
   color: #ffffff;
 }
 .m-btn .m-btn-downarrow {
-  background-image: url('images/menu_arrows2.png');
+  background-image: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/menu_arrows2.png');
 }
 .textbox .m-btn.l-btn .m-btn-downarrow,
 .m-btn.l-btn-plain .m-btn-downarrow {
-  background-image: url('images/menu_arrows1.png');
+  background-image: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/menu_arrows1.png');
 }
 .textbox .m-btn-active.l-btn .m-btn-downarrow {
-  background-image: url('images/menu_arrows2.png');
+  background-image: url('../js/jquery-easyui-1.9.5/themes/material-blue/images/menu_arrows2.png');
 }
 .spinner .l-btn {
   opacity: 0.6;
