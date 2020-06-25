@@ -1,35 +1,42 @@
 var structural_que = [
 	{
+		id : 1,
 		question : "Adapter",
 		tags : ["GoF", "Structural Design Patterns", "Adapter"]
 	},
 
 	{
+		id : 2,
 		question : "Bridge",
 		tags : ["GoF", "Structural Design Patterns", "Bridge"]
 	},
 
 	{
+		id : 3,
 		question : "Decorator",
 		tags : ["GoF", "Structural Design Patterns", "Decorator"]
 	},
 
 	{
+		id : 4,
 		question : "Composite",
 		tags : ["GoF", "Structural Design Patterns", "Composite"]
 	},
 
 	{
+		id : 5,
 		question : "Facade",
 		tags : ["GoF", "Structural Design Patterns", "Facade"]
 	},
 
 	{
+		id : 6,
 		question : "Flyweight",
 		tags : ["GoF", "Structural Design Patterns", "Flyweight"]
 	},
 
 	{
+		id : 7,
 		question : "Proxy",
 		tags : ["GoF", "Structural Design Patterns", "Proxy"]
 	},
@@ -37,8 +44,8 @@ var structural_que = [
 
 var structural_ans = [
     {   /* Adapter */
-        "text" : function(){/*
-<h1>Adapter</h1>
+        id : 1,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/structural/1.1.class_adapter.png" alt="" width="800" height="400"/></p>
 <p style="text-align: justify;">&nbsp;</p>
@@ -47,48 +54,48 @@ var structural_ans = [
     },
 
     {   /* Bridge */
-        "text" : function(){/*
-<h1>Bridge</h1>
+        id : 2,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/structural/2.bridge.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Decorator */
-        "text" : function(){/*
-<h1>Decorator</h1>
+        id : 3,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/structural/3.decorator.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Composite */
-        "text" : function(){/*
-<h1>Composite</h1>
+        id : 4,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/structural/4.composite.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Facade */
-        "text" : function(){/*
-<h1>Facade</h1>
+        id : 5,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/structural/5.facade.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Flyweight */
-        "text" : function(){/*
-<h1>Flyweight</h1>
+        id : 6,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/structural/6.flyweight.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Proxy */
-        "text" : function(){/*
-<h1>Proxy</h1>
+        id : 7,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/structural/7.proxy.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)

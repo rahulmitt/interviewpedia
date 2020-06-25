@@ -1,10 +1,10 @@
 var courses = [
-    { "id": "java", "name": "Java" },
-    { "id": "dp", "name": "Design Patterns" },
-    { "id": "ds_old", "name": "DS & Algo [archived]" },
-    { "id": "ds", "name": "Data Structures" },
-    { "id": "algo", "name": "Algorithms" },
-    { "id": "spring", "name": "Spring" },
-    { "id": "cloud", "name": "Cloud" },
-    { "id": "javascript", "name": "JavaScript" },
+    { "id": "java",         "v": 1, "name": "Java",                 },
+    { "id": "dp",           "v": 1, "name": "Design Patterns",      },
+    { "id": "ds_old",       "v": 0, "name": "DS & Algo [archived]", },
+    { "id": "ds",           "v": 1, "name": "Data Structures",      },
+    { "id": "algo",         "v": 1, "name": "Algorithms",           },
+    { "id": "spring",       "v": 1, "name": "Spring",               },
+    { "id": "cloud",        "v": 1, "name": "Cloud",                },
+    { "id": "javascript",   "v": 1, "name": "JavaScript",           },
 ];
