@@ -1,40 +1,48 @@
 var sort_que = [
 	{
+		id : 1,
 		question : "Sorting Algorithms",
 		tags : ["Sorting Algorithms"]
 	},
 
 	{
+		id : 2,
 		question : "Insertion Sort",
 		tags : ["Insertion Sort"]
 	},
 
 	{
+		id : 3,
 		question : "Selection Sort",
 		tags : ["Selection Sort"]
 	},
 
 	{
+		id : 4,
 		question : "Bubble Sort",
 		tags : ["Bubble Sort"]
 	},
 
 	{
+		id : 5,
 		question : "Merge Sort",
 		tags : ["Merge Sort"]
 	},
 
 	{
+		id : 6,
 		question : "Heap Sort",
 		tags : ["Heap Sort"]
 	},
 
 	{
+		id : 7,
 		question : "Quick Sort",
 		tags : ["Quick Sort"]
 	},
 
 	{
+		id : 8,
 		question : "Counting Sort",
 		tags : ["Counting Sort"]
 	},
@@ -42,15 +50,15 @@ var sort_que = [
 
 var sort_ans = [
     {   /* Sorting Algorithms */
-        "text" : function(){/*
-<h1>Sorting Algorithms</h1>
+        id : 1,
+		"text" : function(){/*
 <p><img src="data/algo/images/sort/0.sorting_algos.gif" alt="" width="100%" /></p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Insertion Sort */
-        "text" : function(){/*
-<h1>Insertion Sort</h1>
+        id : 2,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -121,16 +129,18 @@ public class InsertionSort {
     },
 
     {   /* Selection Sort */
-        "text" : function(){/*
-<h1>Selection Sort</h1>
+        id : 3,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
-<td width="40%">
-<p><img src="data/algo/images/sort/2a.selection_sort.gif" alt="" width="20%" /></p>
+<td width="9%">
+<p><img src="data/algo/images/sort/2a.selection_sort.gif" alt="" width="100%" /></p>
+</td>
+<td width="41%">
 <p><img src="data/algo/images/sort/2b.selection_sort.png" alt="" width="100%" /></p>
 </td>
-<td width="60%">
+<td width="50%">
 <pre>
 package com.rahulmitt.interviewpedia.algo.sort;
 
@@ -197,8 +207,8 @@ public class SelectionSort {
     },
 
     {   /* Bubble Sort */
-        "text" : function(){/*
-<h1>Bubble Sort</h1>
+        id : 4,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -268,8 +278,8 @@ public class BubbleSort {
     },
 
     {   /* Merge Sort */
-        "text" : function(){/*
-<h1>Merge Sort</h1>
+        id : 5,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -357,8 +367,8 @@ public class MergeSort {
     },
 
     {   /* Heap Sort */
-        "text" : function(){/*
-<h1>Heap Sort</h1>
+        id : 6,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -403,8 +413,8 @@ public class MergeSort {
     },
 
     {   /* Quick Sort */
-        "text" : function(){/*
-<h1>Quick Sort</h1>
+        id : 7,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -486,8 +496,8 @@ public class QuickSort {
     },
 
     {   /* Counting Sort */
-        "text" : function(){/*
-<h1>Counting Sort</h1>
+        id : 8,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
