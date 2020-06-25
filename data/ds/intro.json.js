@@ -1,10 +1,12 @@
 var intro_que = [
 	{
+		id : 1,
 		question : "Introduction to Data Structures",
 		tags : ["Introduction to Data Structures"]
 	},
 
 	{
+		id : 2,
 		question : "The List ADT",
 		tags : ["The List ADT"]
 	},
@@ -13,8 +15,8 @@ var intro_que = [
 
 var intro_ans = [
     {   /* Introduction to Data Structures */
-        "text" : function(){/*
-<h1>Introduction to Data Structures</h1>
+        id : 1,
+		"text" : function(){/*
 <h2 style="text-align: justify;">Linear Data Structures</h2>
 <ol>
 <li style="text-align: justify;">Array</li>
@@ -35,8 +37,8 @@ var intro_ans = [
     },
 
     {   /* The List ADT */
-        "text" : function(){/*
-<h1>The List ADT</h1>
+        id : 2,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <pre>
 package com.rahulmitt.interviewpedia.ds.list;
