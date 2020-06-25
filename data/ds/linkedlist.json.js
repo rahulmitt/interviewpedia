@@ -1,14 +1,15 @@
 var linkedlist_que = [
 	{
-		question : "QQQQ",
-		tags : ["QQQQ"]
+	    id : 1,
+		question : "TODO",
+		tags : ["TODO"]
 	}
 ]
 
 var linkedlist_ans = [
-    {   /* QQQQ */
+    {   /* TODO */
+        id : 1,
         "text" : function(){/*
-<h1>QQQQ</h1>
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },

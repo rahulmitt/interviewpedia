@@ -6,5 +6,5 @@ var courses = [
     { "id": "algo",         "v": 1, "name": "Algorithms",           },
     { "id": "spring",       "v": 1, "name": "Spring",               },
     { "id": "cloud",        "v": 1, "name": "Cloud",                },
-    { "id": "javascript",   "v": 1, "name": "JavaScript",           },
+    { "id": "javascript",   "v": 0, "name": "JavaScript",           },
 ];

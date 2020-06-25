@@ -1,40 +1,48 @@
 var indepth_que = [
 	{
+		id : 1,
 		question : "Autowiring in Depth",
 		tags : ["Autowiring"]
 	},
 
 	{
+		id : 2,
 		question : "Beans",
 		tags : ["Beans"]
 	},
 
 	{
+		id : 3,
 		question : "Bean Scope",
 		tags : ["Bean Scope"]
 	},
 
 	{
+		id : 4,
 		question : "Component Scan",
 		tags : ["Component Scan"]
 	},
 
 	{
+		id : 5,
 		question : "Bean Lifecycle",
 		tags : ["Bean Lifecycle"]
 	},
 
 	{
+		id : 6,
 		question : "Components",
 		tags : ["Components", "@Component", "@Controller", "Service", "@Repository"]
 	},
 
 	{
+		id : 7,
 		question : "Reading Properties Files",
 		tags : ["Reading Properties Files"]
 	},
 
     {
+		id : 8,
 		question : "Contexts and Dependency Injection",
 		tags : ["Contexts and Dependency Injection", "CDI"]
 	},
@@ -42,8 +50,8 @@ var indepth_que = [
 
 var indepth_ans = [
     {   /* Autowiring in Depth */
-        "text" : function(){/*
-<h1>Autowiring in Depth</h1>
+        id : 1,
+		"text" : function(){/*
 <p style="text-align: justify;">Let's say, we have two implementations of <code>SortAlgorithm</code> interface, and, among
 them, <code>BubbleSort</code> is the primary component. In other words, there are two beans of type <code>SortAlgorithm</code>
 — named <code>BubbleSort</code> and <code>QuickSort</code> respectively.</p>
@@ -356,8 +364,8 @@ is very <strong>specific</strong>.</p>
     },
 
     {   /* Beans */
-        "text" : function(){/*
-<h1>Beans</h1>
+        id : 2,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p style="text-align: justify;"><a href="https://www.logicbig.com/tutorials/spring-framework/spring-core/using-bean-annotation.html" target="_blank">Using @Bean</a></p>
 <p style="text-align: justify;"><a href="https://www.logicbig.com/tutorials/spring-framework/spring-core/java-config.html" target="_blank">Using @Configuration</a></p>
@@ -369,8 +377,8 @@ is very <strong>specific</strong>.</p>
     },
 
     {   /* Bean Scope */
-        "text" : function(){/*
-<h1>Bean Scope</h1>
+        id : 3,
+		"text" : function(){/*
 <p style="text-align: justify;">The scope of a bean defines the <strong>lifecycle</strong> and <strong>visibility</strong>
 of that bean in the contexts in which it is used. Spring 5 defines six types of scopes (four of which are available only
 if you use a <strong>web-aware</strong> <code>ApplicationContext</code>):</p>
@@ -519,8 +527,8 @@ public HelloMessageGenerator websocketScopedBean() {
     },
 
     {   /* Component Scan */
-        "text" : function(){/*
-<h1>Component Scan</h1>
+        id : 4,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -612,8 +620,8 @@ public class BinarySearchDemo {
     },
 
     {   /* Bean Lifecycle */
-        "text" : function(){/*
-<h1>Bean Lifecycle</h1>
+        id : 5,
+		"text" : function(){/*
 <p style="text-align: justify;">The Spring IoC container manages Spring beans — spring-managed instantiation of a Java classes.
 It is responsible for instantiating, initializing and wiring beans. The container also manages the life cycle of beans. When
 container starts, beans need to be instantiated; it may be required to perform some post-initialization steps to get it into
@@ -1107,8 +1115,8 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
     },
 
     {   /* Components */
-        "text" : function(){/*
-<h1>Components</h1>
+        id : 6,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -1214,8 +1222,8 @@ unchecked data access exceptions.</p>
     },
 
     {   /* Reading Properties Files */
-        "text" : function(){/*
-<h1>Reading Properties Files</h1>
+        id : 7,
+		"text" : function(){/*
 <p>Spring Boot looks for an externalized configuration file — <code>application.properties</code> or <code>application.yml</code> — in 4 predetermined locations in the following order of precedence:</p>
 <ol>
 <li>A <strong>/config</strong> subdirectory of the current directory</li>
@@ -1299,8 +1307,8 @@ public class ExternalService {
     },
 
     {   /* Contexts and Dependency Injection */
-        "text" : function(){/*
-<h1>Contexts and Dependency Injection (CDI)</h1>
+        id : 8,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p style="text-align: justify;"><a href="https://www.baeldung.com/java-ee-cdi" target="_blank">https://www.baeldung.com/java-ee-cdi</a></p>
 <p style="text-align: justify;"><a href="https://dzone.com/articles/what-cdi-how-does-it-relate" target="_blank">https://dzone.com/articles/what-cdi-how-does-it-relate</a></p>

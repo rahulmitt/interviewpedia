@@ -1,75 +1,64 @@
 var array_que = [
 	{
+		id : 1,
 		question : "ArrayList - Dynamic Array",
 		tags : ["ArrayList", "Dynamic Array", "ADT"]
 	},
 
 	{
+		id : 2,
 		question : "Print All Elements",
 		tags : ["Print All Elements"]
 	},
 
 	{
+		id : 3,
 		question : "Print All Elements in Reverse Order",
 		tags : ["Print All Elements in Reverse Order"]
 	},
 
 	{
+		id : 4,
 		question : "Search a key",
 		tags : ["Find a key", "Search a Key", "Linear Search", "Binary Search"]
 	},
 
 	{
+		id : 5,
 		question : "Array Reversal",
 		tags : ["Array Reversal"]
 	},
 
 	{
+		id : 6,
 		question : "Check Array Equality",
 		tags : ["Check Array Equality"]
 	},
 
 	{
+		id : 7,
 		question : "Remove Duplicates in Sorted Array",
 		tags : ["Remove Duplicates in Sorted Array"]
 	},
 
 	{
+		id : 8,
 		question : "Remove Duplicates in Unsorted Array",
 		tags : ["Remove Duplicates in Unsorted Array"]
 	},
 
 	{
+		id : 9,
 		question : "Rotation",
 		tags : ["Rotation"]
-	},
-
-	{
-		question : "QQQQ",
-		tags : ["QQQQ"]
-	},
-
-	{
-		question : "QQQQ",
-		tags : ["QQQQ"]
-	},
-
-	{
-		question : "QQQQ",
-		tags : ["QQQQ"]
-	},
-
-	{
-		question : "QQQQ",
-		tags : ["QQQQ"]
 	},
 
 ]
 
 var array_ans = [
     {   /* ArrayList - Dynamic Array */
-        "text" : function(){/*
-<h1>ArrayList - Dynamic Array</h1>
+        id : 1,
+		"text" : function(){/*
 <pre>
 package com.rahulmitt.interviewpedia.ds.list.impl;
 
@@ -248,8 +237,8 @@ public class ArrayList implements List {
     },
 
     {   /* Print All Elements */
-        "text" : function(){/*
-<h1>Print All Elements</h1>
+        id : 2,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -305,8 +294,8 @@ public class ArrayList implements List {
     },
 
     {   /* Print All Elements in Reverse Order */
-        "text" : function(){/*
-<h1>Print All Elements in Reverse Order</h1>
+        id : 3,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -364,8 +353,8 @@ public class ArrayList implements List {
     },
 
     {   /* Search a key */
-        "text" : function(){/*
-<h1>Search a key</h1>
+        id : 4,
+		"text" : function(){/*
 <h2>Linear Search</h2>
 <table width="100%">
 <tbody>
@@ -417,6 +406,7 @@ public class ArrayList implements List {
 </tr>
 </tbody>
 </table>
+<p>&nbsp;</p>
 <h2>Binary Search</h2>
 <table width="100%">
 <tbody>
@@ -482,8 +472,8 @@ public class ArrayList implements List {
     },
 
     {   /* Array Reversal */
-        "text" : function(){/*
-<h1>Array Reversal</h1>
+        id : 5,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -542,8 +532,8 @@ public class ArrayList implements List {
     },
 
     {   /* Check Array Equality */
-        "text" : function(){/*
-<h1>Check Array Equality</h1>
+        id : 6,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -599,8 +589,8 @@ public class ArrayList implements List {
     },
 
     {   /* Remove Duplicates in Sorted Array */
-        "text" : function(){/*
-<h1>Remove Duplicates in Sorted Array</h1>
+        id : 7,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -634,8 +624,8 @@ public class ArrayList implements List {
     },
 
     {   /* Remove Duplicates in Unsorted Array */
-        "text" : function(){/*
-<h1>Remove Duplicates in Unsorted Array</h1>
+        id : 8,
+		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -669,8 +659,8 @@ public class ArrayList implements List {
     },
 
     {   /* Rotation */
-        "text" : function(){/*
-<h1>Rotation</h1>
+        id : 9,
+		"text" : function(){/*
 <table width="100%">
 <tbody>
 <tr>
@@ -728,8 +718,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 10,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -763,8 +754,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 11,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -798,8 +790,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 12,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -833,8 +826,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 13,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -868,8 +862,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 14,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -903,8 +898,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 15,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -938,8 +934,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 16,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -973,8 +970,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 17,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -1008,8 +1006,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 18,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -1043,8 +1042,9 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 19,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
@@ -1078,8 +1078,45 @@ public class ArrayList implements List {
     },
 
     {   /* QQQQ */
-        "text" : function(){/*
-<h1>QQQQ</h1>
+        id : 20,
+		"text" : function(){/*
+
+<p style="text-align: justify;">TODO</p>
+<table width="100%">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>ITERATIVE APPROACH</strong></td>
+</tr>
+<tr>
+<td>
+<pre>&nbsp;
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">&nbsp;</p>
+<table width="100%">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>RECURSIVE APPROACH</strong></td>
+</tr>
+<tr>
+<td>
+<pre>&nbsp;
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* QQQQ */
+        id : 21,
+		"text" : function(){/*
+
 <p style="text-align: justify;">TODO</p>
 <table width="100%">
 <tbody>
