@@ -5,20 +5,10 @@ var topics = [
 	},
 
 	{
-		id: "serialization",
-		caption: "Serialization"
-	},
-	
-	{
-		id: "string",
-		caption: "String"
-	},
-	
-	{
 		id: "collections",
 		caption: "Collections"
 	},
-	
+
 	{
 		id: "multithreading",
 		caption: "Multithreading"
@@ -30,6 +20,16 @@ var topics = [
 	},
 
 	{
+		id: "serialization",
+		caption: "Serialization"
+	},
+	
+	{
+		id: "string",
+		caption: "String"
+	},
+	
+	{
         id: "java8",
         caption: "Java 8"
     },
@@ -40,9 +40,14 @@ var topics = [
     },
 
 	{
-        id: "testing",
-        caption: "Testing"
-    },
+		id: "git",
+		caption: "Git"
+	},
+
+	{
+		id: "unix",
+		caption: "Unix"
+	},
 
 	{
 		id: "db",
@@ -50,8 +55,8 @@ var topics = [
 	},
 
 	{
-		id: "unix",
-		caption: "Unix"
-	},
+        id: "testing",
+        caption: "Testing"
+    },
 
 ]
