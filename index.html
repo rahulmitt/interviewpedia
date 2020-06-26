@@ -42,7 +42,11 @@
 			});
 			
 			$(window).bind('afterReady', function() {
-				Interviewpedia.getInstance().render();
+				try {
+					Interviewpedia.getInstance().render();
+				} catch (e) {
+					alert("Oops! There seems to be some issue. Try refreshing the page");
+				}
 			});
 
 			$(window).bind('keydown', function(event) {
