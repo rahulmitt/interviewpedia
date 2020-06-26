@@ -40,6 +40,11 @@ var topics = [
     },
 
 	{
+		id: "intellij",
+		caption: "IntelliJ"
+	},
+
+	{
 		id: "git",
 		caption: "Git"
 	},

@@ -11,6 +11,7 @@ var java = [
 	'java9.json.js',
 	'testing.json.js',
 	'git.json.js',
+	'intellij.json.js',
 ];
 
 var dp = [
