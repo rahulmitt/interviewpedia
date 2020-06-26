@@ -19,40 +19,62 @@ var git_ans = [
 <h2>Basic Git Commands</h2>
 <table width="100%">
 <tbody>
+
 <tr>
 <td style="text-align: center;" width="50%"><strong>ACTION</strong></td>
 <td style="text-align: center;" width="50%"><strong>COMMAND</strong></td>
 </tr>
+
 <tr>
 <td>Check git version</td>
 <td>
 <pre>git --version</pre>
 </td>
 </tr>
+
 <tr>
 <td>Turn a directory into a git (local) repository</td>
 <td>
 <pre>git init</pre>
 </td>
 </tr>
+
 <tr>
 <td>Add a file to the git staging area</td>
 <td>
 <pre>git add &lt;filename&gt;</pre>
 </td>
 </tr>
+
 <tr>
 <td>Add all the files to the staging area</td>
 <td>
 <pre>git add .</pre>
 </td>
 </tr>
+
 <tr>
 <td>Commit change to the repo with a message</td>
 <td>
 <pre>git commit -m &lt;message&gt;</pre>
 </td>
 </tr>
+
+<tr>
+<td>Ammend the commit message</td>
+<td>
+<pre>git commit --amend</pre>
+<p>This will open a file in vi editor. Modify the commit message and <code>:wq</code></p>
+</td>
+</tr>
+
+<tr>
+<td>Undo the last commit</td>
+<td>
+<pre>git reset --soft HEAD~1</pre>
+</td>
+</tr>
+
 <tr>
 <td>Print&nbsp;the current state of the repo</td>
 <td>
@@ -61,6 +83,7 @@ var git_ans = [
 <p>- prints the current working branch<br /> - also shows all changes to be committed</p>
 </td>
 </tr>
+
 </tbody>
 </table>
 <p style="text-align: justify;">&nbsp;</p>
@@ -68,10 +91,12 @@ var git_ans = [
 <h2>Setting Git Configs</h2>
 <table width="100%">
 <tbody>
+
 <tr>
 <td style="text-align: center;" width="50%"><strong>ACTION</strong></td>
 <td style="text-align: center;" width="50%"><strong>COMMAND</strong></td>
 </tr>
+
 <tr>
 <td>&nbsp;</td>
 <td>
@@ -79,6 +104,7 @@ var git_ans = [
 git config --global user.email "rahulmitt@yahoo.com"</pre>
 </td>
 </tr>
+
 <tr>
 <td>&nbsp;</td>
 <td>
@@ -86,6 +112,7 @@ git config --global user.email "rahulmitt@yahoo.com"</pre>
 git config user.email "rahulmitt@yahoo.com"</pre>
 </td>
 </tr>
+
 </tbody>
 </table>
 <p style="text-align: justify;">&nbsp;</p>
@@ -93,10 +120,12 @@ git config user.email "rahulmitt@yahoo.com"</pre>
 <h2>Branching</h2>
 <table width="100%">
 <tbody>
+
 <tr>
 <td style="text-align: center;" width="50%"><strong>ACTION</strong></td>
 <td style="text-align: center;" width="50%"><strong>COMMAND</strong></td>
 </tr>
+
 <tr>
 <td>List all the branches</td>
 <td>
@@ -104,6 +133,7 @@ git config user.email "rahulmitt@yahoo.com"</pre>
 </pre>
 </td>
 </tr>
+
 <tr>
 <td>Create a new branch</td>
 <td>
@@ -111,6 +141,7 @@ git config user.email "rahulmitt@yahoo.com"</pre>
 </pre>
 </td>
 </tr>
+
 <tr>
 <td>Switch to another branch</td>
 <td>
@@ -118,36 +149,42 @@ git config user.email "rahulmitt@yahoo.com"</pre>
 </pre>
 </td>
 </tr>
+
 <tr>
 <td>Checkout a branch</td>
 <td>
 <pre>git checkout &lt;branch name&gt;</pre>
 </td>
 </tr>
+
 <tr>
 <td>Merge feature branch to the current branch</td>
 <td>
 <pre>git merge &lt;branch name&gt;</pre>
 </td>
 </tr>
+
 <tr>
 <td>Delete a branch (warn if unmerged changes present)</td>
 <td>
 <pre>git branch -d &lt;branch name&gt;</pre>
 </td>
 </tr>
+
 <tr>
 <td>Delete a branch (without warning)</td>
 <td>
 <pre>git branch -D &lt;branch name&gt;</pre>
 </td>
 </tr>
+
 <tr>
 <td>Create a new branch and switch to this branch</td>
 <td>
 <pre>git checkout -b &lt;branch name&gt;</pre>
 </td>
 </tr>
+
 </tbody>
 </table>
 <p style="text-align: justify;">&nbsp;</p>
@@ -155,34 +192,40 @@ git config user.email "rahulmitt@yahoo.com"</pre>
 <h2>Working with Remote Repositories — Pull & Push</h2>
 <table width="100%">
 <tbody>
+
 <tr>
 <td style="text-align: center;" width="50%"><strong>ACTION</strong></td>
 <td style="text-align: center;" width="50%"><strong>COMMAND</strong></td>
 </tr>
+
 <tr>
 <td>Connect a local repo to a remote repo</td>
 <td>
 <pre>git remote add origin &lt;remote repo url&gt;</pre>
 </td>
 </tr>
+
 <tr>
 <td>Create a local working copy of an existing remote repo</td>
 <td>
 <pre>git clone &lt;remote repo url&gt;</pre>
 </td>
 </tr>
+
 <tr>
 <td>Pull changes from remote repo to local repo</td>
 <td>
 <pre>git pull origin master</pre>
 </td>
 </tr>
+
 <tr>
 <td>Push local repo changes to the remote repo</td>
 <td>
 <pre>git push origin master</pre>
 </td>
 </tr>
+
 </tbody>
 </table>
 <p style="text-align: justify;">&nbsp;</p>
@@ -190,6 +233,7 @@ git config user.email "rahulmitt@yahoo.com"</pre>
 <h2>Advanced Git commands</h2>
 <table width="100%">
 <tbody>
+
 <tr>
 <td style="text-align: center;" width="50%"><strong>ACTION</strong></td>
 <td style="text-align: center;" width="50%"><strong>COMMAND</strong></td>
