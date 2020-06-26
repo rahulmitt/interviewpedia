@@ -67,3 +67,10 @@ var javascript = [
     'dom.json.js',
     'test.json.js',
 ];
+
+//==================================== Placeholder Course ======================================
+var placeholdercourse = [
+    'placeholder1.json.js',
+    'placeholder2.json.js',
+];
+//==================================== Placeholder Course ======================================
