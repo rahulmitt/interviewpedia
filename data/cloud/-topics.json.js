@@ -11,7 +11,7 @@ var topics = [
 
 	{
 		id: "openshift",
-		caption: "Openshift"
+		caption: "OpenShift"
 	},
 
 	{
