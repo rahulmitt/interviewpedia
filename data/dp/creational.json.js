@@ -1,54 +1,53 @@
 var creational_que = [
 	{
 		id : 1,
-		question : "Builder",
-		tags : ["GoF", "Creational Design Patterns", "Builder"]
+		question : "GoF — Abstract Factory",
+		tags : ["GoF", "Creational Design Patterns", "Abstract Factory"]
 	},
 
 	{
 		id : 2,
-		question : "Simple Factory",
-		tags : ["GoF", "Creational Design Patterns", "Simple Factory"]
+		question : "GoF — Builder",
+		tags : ["GoF", "Creational Design Patterns", "Builder"]
 	},
 
 	{
 		id : 3,
-		question : "Factory Method",
+		question : "GoF — Factory Method",
 		tags : ["GoF", "Creational Design Patterns", "Factory Method"]
 	},
 
 	{
 		id : 4,
-		question : "Prototype",
+		question : "GoF — Prototype",
 		tags : ["GoF", "Creational Design Patterns", "Prototype"]
 	},
 
 	{
 		id : 5,
-		question : "Abstract Factory",
-		tags : ["GoF", "Creational Design Patterns", "Abstract Factory"]
-	},
-
-	{
-		id : 6,
-		question : "Singleton",
+		question : "GoF — Singleton",
 		tags : ["GoF", "Creational Design Patterns", "Singleton"]
 	},
 
     {
-		id : 7,
+		id : 6,
 		question : "Object Pool",
-		tags : ["GoF", "Creational Design Patterns", "Object Pool"]
+		tags : ["Creational Design Patterns", "Object Pool"]
 	},
 ]
 
 var creational_ans = [
-    {   /* Builder */
-        id : 1,
+	{   /* Abstract Factory */
+		id : 1,
 		"text" : function(){/*
+<p style="text-align: justify;">TODO</p>
+<p><img src="data/dp/images/creational/5.abstract_factory.png" alt="" width="800" height="400"/></p>
+        */}.toString().slice(14,-3)
+	},
 
-<p><a href="https://stackoverflow.com/questions/1673841/examples-of-gof-design-patterns-in-javas-core-libraries" target="_blank">https://stackoverflow.com/questions/1673841/examples-of-gof-design-patterns-in-javas-core-libraries</a></p>
-
+    {   /* Builder */
+        id : 2,
+		"text" : function(){/*
 <p><img src="data/dp/images/creational/1.builder.png" alt="" width="800" height="400"/></p>
 
 <table>
@@ -240,14 +239,6 @@ public class Director {
         */}.toString().slice(14,-3)
     },
 
-    {   /* Simple Factory */
-        id : 2,
-		"text" : function(){/*
-<p style="text-align: justify;">TODO</p>
-<p><img src="data/dp/images/creational/2.simple_factory.png" alt="" width="800" height="400"/></p>
-        */}.toString().slice(14,-3)
-    },
-
     {   /* Factory Method */
         id : 3,
 		"text" : function(){/*
@@ -264,16 +255,8 @@ public class Director {
         */}.toString().slice(14,-3)
     },
 
-    {   /* Abstract Factory */
-        id : 5,
-		"text" : function(){/*
-<p style="text-align: justify;">TODO</p>
-<p><img src="data/dp/images/creational/5.abstract_factory.png" alt="" width="800" height="400"/></p>
-        */}.toString().slice(14,-3)
-    },
-
     {   /* Singleton */
-        id : 6,
+        id : 5,
 		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/creational/6.singleton.png" alt="" width="800" height="400"/></p>
@@ -281,7 +264,7 @@ public class Director {
     },
 
     {   /* Object Pool */
-        id : 7,
+        id : 6,
 		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/creational/7.object_pool.png" alt="" width="800" height="400"/></p>

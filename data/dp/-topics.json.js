@@ -1,16 +1,26 @@
 var topics = [
 	{
+		id: "intro",
+		caption: "Introduction"
+	},
+
+	{
 		id: "creational",
-		caption: "GoF - Creational Design Patterns"
+		caption: "Creational Patterns"
 	},
 
 	{
 		id: "structural",
-		caption: "GoF - Structural Design Patterns"
+		caption: "Structural Patterns"
 	},
 
     {
 		id: "behavioral",
-		caption: "GoF - Behavioral Design Patterns"
+		caption: "Behavioral Patterns"
+	},
+
+	{
+		id: "concurrency",
+		caption: "Concurrency Patterns"
 	},
 ]
