@@ -15,9 +15,11 @@ var java = [
 ];
 
 var dp = [
+	'intro.json.js',
 	'creational.json.js',
 	'structural.json.js',
 	'behavioral.json.js',
+	'concurrency.json.js',
 ];
 
 var ds_old = [
