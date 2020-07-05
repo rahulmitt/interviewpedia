@@ -20,6 +20,7 @@ var dp = [
 	'structural.json.js',
 	'behavioral.json.js',
 	'concurrency.json.js',
+	'distributed.json.js',
 ];
 
 var ds_old = [
