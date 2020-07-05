@@ -13,14 +13,14 @@ var structural_que = [
 
 	{
 		id : 3,
-		question : "Decorator",
-		tags : ["GoF", "Structural Design Patterns", "Decorator"]
+		question : "Composite",
+		tags : ["GoF", "Structural Design Patterns", "Composite"]
 	},
 
 	{
 		id : 4,
-		question : "Composite",
-		tags : ["GoF", "Structural Design Patterns", "Composite"]
+		question : "Decorator",
+		tags : ["GoF", "Structural Design Patterns", "Decorator"]
 	},
 
 	{
@@ -61,19 +61,19 @@ var structural_ans = [
         */}.toString().slice(14,-3)
     },
 
-    {   /* Decorator */
-        id : 3,
-		"text" : function(){/*
-<p style="text-align: justify;">TODO</p>
-<p><img src="data/dp/images/structural/3.decorator.png" alt="" width="800" height="400"/></p>
-        */}.toString().slice(14,-3)
-    },
-
-    {   /* Composite */
-        id : 4,
+	{   /* Composite */
+		id : 3,
 		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
 <p><img src="data/dp/images/structural/4.composite.png" alt="" width="800" height="400"/></p>
+        */}.toString().slice(14,-3)
+	},
+
+    {   /* Decorator */
+        id : 4,
+		"text" : function(){/*
+<p style="text-align: justify;">TODO</p>
+<p><img src="data/dp/images/structural/3.decorator.png" alt="" width="800" height="400"/></p>
         */}.toString().slice(14,-3)
     },
 

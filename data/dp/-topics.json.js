@@ -23,4 +23,9 @@ var topics = [
 		id: "concurrency",
 		caption: "Concurrency Patterns"
 	},
+
+	{
+		id: "distributed",
+		caption: "Distributed Patterns"
+	},
 ]
