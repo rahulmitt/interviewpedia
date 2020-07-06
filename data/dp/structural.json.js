@@ -55,7 +55,7 @@ that couldn’t otherwise because of an incompatible interface. The Adapter patt
 	<li style="text-align: justify;">It allows two or more previously incompatible objects to interact.</li>
 	<li style="text-align: justify;">It allows reusability of existing functionality.</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">An object needs to utilize an existing class with an incompatible interface.</li>
 	<li style="text-align: justify;">You want to create a reusable class that cooperates with classes that don’t necessarily have compatible interfaces.</li>
@@ -79,18 +79,24 @@ that couldn’t otherwise because of an incompatible interface. The Adapter patt
         id : 2,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The <strong>Bridge</strong> pattern’s intent is to <strong>decouple</strong> the functional
+abstraction from the implementation so that the two can be changed and can vary independently. The Bridge pattern is also
+known as <strong>Handle/Body</strong>.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">It enables the separation of implementation from the interface.</li>
+	<li style="text-align: justify;">It improves extensibility.</li>
+	<li style="text-align: justify;">It allows the hiding of implementation details from the client.</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">You want to avoid a permanent binding between the functional abstraction and its implementation.</li>
+	<li style="text-align: justify;">Both the functional abstraction and its implementation need to be extended using subclasses.</li>
+	<li style="text-align: justify;">Changes to the implementation should not impact the client (not even a recompile).</li>
 </ol>
 <p><img src="data/dp/images/structural/2.bridge.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Bridge Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/bridge" target="_blank">Github — Bridge Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
@@ -98,18 +104,23 @@ that couldn’t otherwise because of an incompatible interface. The Adapter patt
 		id : 3,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The <strong>Composite</strong> pattern’s intent is to allow clients to operate in a generic
+manner on objects that may or may not represent a hierarchy of objects.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">It defines class hierarchies consisting of primitive and complex objects.</li>
+	<li style="text-align: justify;">It makes it easier for you to add new kinds of components.</li>
+	<li style="text-align: justify;">It provides the flexibility of structure with a manageable interface.</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">You want to represent a full or partial hierarchy of objects.</li>
+	<li style="text-align: justify;">You want clients to be able to ignore the differences between the varying objects in the hierarchy.</li>
+	<li style="text-align: justify;">The structure is dynamic and can have any level of complexity.</li>
 </ol>
 <p><img src="data/dp/images/structural/3.composite.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Composite Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/Composite" target="_blank">Github — Composite Design Pattern</a></p>
         */}.toString().slice(14,-3)
 	},
 
@@ -122,7 +133,7 @@ that couldn’t otherwise because of an incompatible interface. The Adapter patt
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
@@ -141,7 +152,7 @@ that couldn’t otherwise because of an incompatible interface. The Adapter patt
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
@@ -160,7 +171,7 @@ that couldn’t otherwise because of an incompatible interface. The Adapter patt
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
@@ -179,7 +190,7 @@ that couldn’t otherwise because of an incompatible interface. The Adapter patt
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
