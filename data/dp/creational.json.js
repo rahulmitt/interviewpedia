@@ -54,7 +54,7 @@ having to know which concrete subclass of object to create. The Abstract Factory
 	<li style="text-align: justify;">It promotes consistency among objects.</li>
 </ol>
 
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">The system needs to be independent of how its objects are created, composed, and represented.</li>
 	<li style="text-align: justify;">The system needs to be configured with one of a multiple family of objects.</li>
@@ -83,7 +83,7 @@ a single step, as in other patterns. It achieves this by separating the process 
 	<li style="text-align: justify;">It isolates the code for construction and representation.</li>
 	<li style="text-align: justify;">It provides finer control over the construction process.</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">The algorithm for creating a complex object needs to be independent of the components that compose the object and how they are assembled.</li>
 	<li style="text-align: justify;">The construction process is to allow different representations of the constructed object.</li>
@@ -110,7 +110,7 @@ Its client needs to know only about the published abstract interface.</p>
 	<li style="text-align: justify;">Because creating objects inside a class is more flexible than creating an object directly,
 	it enables the subclass to provide an extended version of an object.</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">A class is not able to anticipate the class of objects it needs to create.</li>
 	<li style="text-align: justify;">A class wants its subclasses to specify the objects it instantiates.</li>
@@ -137,7 +137,7 @@ copying this prototype. This is similar to the <code>java.lang.Object#clone()</c
 	<li style="text-align: justify;">It reduces the need for subclassing.</li>
 	<li style="text-align: justify;">It lets you dynamically configure an application with classes.</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">The classes to instantiate are specified at runtime.</li>
 	<li style="text-align: justify;">You need to avoid building a class hierarchy of factories that parallels the hierarchy of objects.</li>
@@ -164,7 +164,7 @@ objects that use an instance of this class are using the <strong>same instance</
 	<li style="text-align: justify;">It can also permit a variable number of instances.</li>
 	<li style="text-align: justify;">It is more flexible than class methods (operations).</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">When a single instance of a class is needed and must be accessible to clients from
 	a well-known access point.</li>
@@ -184,7 +184,7 @@ objects that use an instance of this class are using the <strong>same instance</
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
-<h3 style="text-align: justify;">Usecases</h3>
+<h3 style="text-align: justify;">Use Cases</h3>
 <ol>
 	<li style="text-align: justify;">TODO</li>
 </ol>
