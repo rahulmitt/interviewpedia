@@ -207,18 +207,23 @@ number of fine-grained objects in an efficient manner.</p>
         id : 7,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The <strong>Proxy</strong> pattern’s intent is to provide a <strong>surrogate</strong> or
+<strong>placeholder</strong> for another object to control access to it. The most common implementations are <strong>remote</strong>
+and <strong>virtual proxy</strong>.
+The Proxy pattern is also known as Surrogate.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">The remote proxy can shield the fact that the implementation resides in another address space.</li>
+	<li style="text-align: justify;">The virtual proxy can perform optimizations — for example, by creating objects on demand.</li>
 </ol>
 <h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">The Proxy pattern is appropriate when a more versatile or sophisticated reference to
+	an object, rather than a simple pointer, is needed.</li>
 </ol>
 <p><img src="data/dp/images/structural/7.proxy.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Proxy Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/proxy" target="_blank">Github — Proxy Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
