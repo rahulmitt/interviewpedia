@@ -128,18 +128,26 @@ manner on objects that may or may not represent a hierarchy of objects.</p>
         id : 4,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">An alternative to subclassing to extend functionality, the <strong>Decorator</strong> pattern’s
+intent is to attach flexible additional responsibilities to an object dynamically. The Decorator pattern uses composition
+instead of inheritance to extend the functionality of an object at runtime. The Decorator pattern is also known as <strong>Wrapper</strong>.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">It provides greater flexibility than static inheritance.</li>
+	<li style="text-align: justify;">It avoids the need to place feature-laden classes higher up the hierarchy.</li>
+	<li style="text-align: justify;">It simplifies coding by allowing you to develop a series of functionality- targeted classes,
+	instead of coding all of the behavior into the object.</li>
+	<li style="text-align: justify;">It enhances the extensibility of the object, because changes are made by coding new classes.</li>
 </ol>
 <h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">You want to transparently and dynamically add responsibilities to objects without affecting other objects.</li>
+	<li style="text-align: justify;">You want to add responsibilities to an object that you may want to change in the future.</li>
+	<li style="text-align: justify;">Extending functionality by subclassing is no longer practical.</li>
 </ol>
 <p><img src="data/dp/images/structural/4.decorator.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Decorator Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/decorator" target="_blank">Github — Decorator Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
@@ -147,18 +155,27 @@ manner on objects that may or may not represent a hierarchy of objects.</p>
         id : 5,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The <strong>Facade</strong> pattern’s intent is to provide a <strong>unified and simplified
+interface</strong> to a set of interfaces in a subsystem. The Facade pattern describes a <strong>higher level interface</strong>
+that makes the subsystem(s) easier to use. Practically every <strong>Abstract Factory</strong> is a type of Facade.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">It provides a simpler interface to a complex subsystem without reducing the options
+	provided by the subsystem.</li>
+	<li style="text-align: justify;">It shields clients from the complexity of the subsystem components.</li>
+	<li style="text-align: justify;">It promotes looser coupling between the subsystem and its clients.</li>
+	<li style="text-align: justify;">It reduces the coupling between subsystems provided that every subsystem uses its own
+	Facade pattern and other parts of the system use the Facade pattern to communicate with the subsystem.</li>
 </ol>
 <h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">You need to provide a simple interface to a complex subsystem.</li>
+	<li style="text-align: justify;">Several dependencies exist between clients and the implementation classes of an abstraction.</li>
+	<li style="text-align: justify;">When layering the subsystems is necessary or desired.</li>
 </ol>
 <p><img src="data/dp/images/structural/5.facade.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Facade Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/facade" target="_blank">Github — Facade Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
@@ -166,18 +183,23 @@ manner on objects that may or may not represent a hierarchy of objects.</p>
         id : 6,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The <strong>Flyweight</strong> pattern’s intent is to utilize sharing to support large
+number of fine-grained objects in an efficient manner.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">It reduces the number of objects to deal with.</li>
+	<li style="text-align: justify;">It reduces the amount of memory and storage required if the objects are persisted.</li>
 </ol>
 <h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">An application uses a considerable number of objects.</li>
+	<li style="text-align: justify;">The storage costs are high because of the quantity of objects.</li>
+	<li style="text-align: justify;">The application does not depend on object identity.</li>
+
 </ol>
 <p><img src="data/dp/images/structural/6.flyweight.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Flyweight Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/flyweight" target="_blank">Github — Flyweight Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
@@ -185,18 +207,23 @@ manner on objects that may or may not represent a hierarchy of objects.</p>
         id : 7,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The <strong>Proxy</strong> pattern’s intent is to provide a <strong>surrogate</strong> or
+<strong>placeholder</strong> for another object to control access to it. The most common implementations are <strong>remote</strong>
+and <strong>virtual proxy</strong>.
+The Proxy pattern is also known as Surrogate.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">The remote proxy can shield the fact that the implementation resides in another address space.</li>
+	<li style="text-align: justify;">The virtual proxy can perform optimizations — for example, by creating objects on demand.</li>
 </ol>
 <h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">The Proxy pattern is appropriate when a more versatile or sophisticated reference to
+	an object, rather than a simple pointer, is needed.</li>
 </ol>
 <p><img src="data/dp/images/structural/7.proxy.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Proxy Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/proxy" target="_blank">Github — Proxy Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
