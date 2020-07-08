@@ -155,18 +155,27 @@ instead of inheritance to extend the functionality of an object at runtime. The 
         id : 5,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The <strong>Facade</strong> pattern’s intent is to provide a <strong>unified and simplified
+interface</strong> to a set of interfaces in a subsystem. The Facade pattern describes a <strong>higher level interface</strong>
+that makes the subsystem(s) easier to use. Practically every <strong>Abstract Factory</strong> is a type of Facade.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">It provides a simpler interface to a complex subsystem without reducing the options
+	provided by the subsystem.</li>
+	<li style="text-align: justify;">It shields clients from the complexity of the subsystem components.</li>
+	<li style="text-align: justify;">It promotes looser coupling between the subsystem and its clients.</li>
+	<li style="text-align: justify;">It reduces the coupling between subsystems provided that every subsystem uses its own
+	Facade pattern and other parts of the system use the Facade pattern to communicate with the subsystem.</li>
 </ol>
 <h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">You need to provide a simple interface to a complex subsystem.</li>
+	<li style="text-align: justify;">Several dependencies exist between clients and the implementation classes of an abstraction.</li>
+	<li style="text-align: justify;">When layering the subsystems is necessary or desired.</li>
 </ol>
 <p><img src="data/dp/images/structural/5.facade.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Facade Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/facade" target="_blank">Github — Facade Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
