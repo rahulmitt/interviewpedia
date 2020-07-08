@@ -183,18 +183,23 @@ that makes the subsystem(s) easier to use. Practically every <strong>Abstract Fa
         id : 6,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The <strong>Flyweight</strong> pattern’s intent is to utilize sharing to support large
+number of fine-grained objects in an efficient manner.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">It reduces the number of objects to deal with.</li>
+	<li style="text-align: justify;">It reduces the amount of memory and storage required if the objects are persisted.</li>
 </ol>
 <h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">An application uses a considerable number of objects.</li>
+	<li style="text-align: justify;">The storage costs are high because of the quantity of objects.</li>
+	<li style="text-align: justify;">The application does not depend on object identity.</li>
+
 </ol>
 <p><img src="data/dp/images/structural/6.flyweight.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Flyweight Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/flyweight" target="_blank">Github — Flyweight Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
