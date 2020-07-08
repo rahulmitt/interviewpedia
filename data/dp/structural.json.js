@@ -128,18 +128,26 @@ manner on objects that may or may not represent a hierarchy of objects.</p>
         id : 4,
 		"text" : function(){/*
 <h3 style="text-align: justify;">Intent</h3>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">An alternative to subclassing to extend functionality, the <strong>Decorator</strong> pattern’s
+intent is to attach flexible additional responsibilities to an object dynamically. The Decorator pattern uses composition
+instead of inheritance to extend the functionality of an object at runtime. The Decorator pattern is also known as <strong>Wrapper</strong>.</p>
 <h3 style="text-align: justify;">Benefits</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">It provides greater flexibility than static inheritance.</li>
+	<li style="text-align: justify;">It avoids the need to place feature-laden classes higher up the hierarchy.</li>
+	<li style="text-align: justify;">It simplifies coding by allowing you to develop a series of functionality- targeted classes,
+	instead of coding all of the behavior into the object.</li>
+	<li style="text-align: justify;">It enhances the extensibility of the object, because changes are made by coding new classes.</li>
 </ol>
 <h3 style="text-align: justify;">Use Cases</h3>
 <ol>
-	<li style="text-align: justify;">TODO</li>
+	<li style="text-align: justify;">You want to transparently and dynamically add responsibilities to objects without affecting other objects.</li>
+	<li style="text-align: justify;">You want to add responsibilities to an object that you may want to change in the future.</li>
+	<li style="text-align: justify;">Extending functionality by subclassing is no longer practical.</li>
 </ol>
 <p><img src="data/dp/images/structural/4.decorator.png" alt="" width="100%"/></p>
 
-<p>Reference: <a href="TODO" target="_blank">Github — Decorator Design Pattern</a></p>
+<p>Reference: <a href="https://github.com/rahulmitt/design-patterns/tree/master/structural/src/main/java/com/rahulmitt/interviewpedia/dp/structural/decorator" target="_blank">Github — Decorator Design Pattern</a></p>
         */}.toString().slice(14,-3)
     },
 
