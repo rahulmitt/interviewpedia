@@ -1,9 +1,9 @@
 $.redirect = function (url, params) {
 	url = url || window.location.href || '';
-	url = url.match(/\?/) ? url : url + '?';
+	url = url.match(/\?/) ? url.substr(0, url.indexOf('?')) + '?' : url + '?';
 
 	for (var key in params) {
-		var re = RegExp('&?' + key + '=?[^&;]*', 'g');
+		var re = RegExp('&' + key + '=?[^&;]*', 'g');
 		url = url.replace(re, '');
 		url += '&' + key + '=' + params[key];
 	}
