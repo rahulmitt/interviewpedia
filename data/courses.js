@@ -7,7 +7,7 @@ var courses = [
     { "id": "spring",                   "v": 1, "name": "Spring",                   },
     { "id": "cloud",                    "v": 1, "name": "Cloud",                    },
     { "id": "javascript",               "v": 0, "name": "JavaScript",               },
-    { "id": "nosql",                    "v": 1, "name": "No SQL",	                },
+    { "id": "nosql",                    "v": 1, "name": "NoSQL",	                },
 
 //==================================== Placeholder Course ======================================
 	{ "id": "placeholdercourse",        "v": 0, "name": "Placeholder Course",	    },
