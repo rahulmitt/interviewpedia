@@ -72,6 +72,11 @@ var javascript = [
     'test.json.js',
 ];
 
+var nosql = [
+	'mongodb.json.js',
+	'placeholder2.json.js',
+];
+
 //==================================== Placeholder Course ======================================
 var placeholdercourse = [
     'placeholder1.json.js',
