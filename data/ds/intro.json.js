@@ -17,6 +17,26 @@ var intro_ans = [
     {   /* Introduction to Data Structures */
         id : 1,
 		"text" : function(){/*
+
+<h2>Types of Data Structures</h2>
+<ol>
+<li>Physical Data Structures
+<ol style="list-style-type: lower-alpha;">
+<li>Arrays</li>
+<li>Linked-List</li>
+</ol>
+</li>
+<li>Logical Data Structures
+<ol style="list-style-type: lower-alpha;">
+<li>Stack</li>
+<li>Queue</li>
+<li>Tree</li>
+<li>Graph</li>
+<li>Hashtable</li>
+</ol>
+</li>
+</ol>
+
 <h2 style="text-align: justify;">Linear Data Structures</h2>
 <ol>
 <li style="text-align: justify;">Array</li>
