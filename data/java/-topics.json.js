@@ -40,21 +40,6 @@ var topics = [
     },
 
 	{
-		id: "intellij",
-		caption: "IntelliJ"
-	},
-
-	{
-		id: "git",
-		caption: "Git"
-	},
-
-	{
-		id: "unix",
-		caption: "Unix"
-	},
-
-	{
 		id: "db",
 		caption: "Database"
 	},
@@ -63,5 +48,10 @@ var topics = [
         id: "testing",
         caption: "Testing"
     },
+
+	{
+		id: "misc",
+		caption: "Miscellaneous"
+	},
 
 ]
