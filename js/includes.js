@@ -5,13 +5,11 @@ var java = [
 	'string.json.js',
 	'serialization.json.js',
 	'db.json.js',
-	'unix.json.js',
 	'gc.json.js',
 	'java8.json.js',
 	'java9.json.js',
 	'testing.json.js',
-	'git.json.js',
-	'intellij.json.js',
+	'misc.json.js',
 ];
 
 var dp = [

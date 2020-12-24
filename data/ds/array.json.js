@@ -66,7 +66,7 @@ import com.rahulmitt.interviewpedia.ds.list.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ArrayList implements List {
+public class ArrayList implements ListADT {
 
     private int[] arr;
     private static final int DEFAULT_CAPACITY = 10;

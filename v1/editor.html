@@ -10,14 +10,20 @@
 		<script type="text/javascript" src="../js/includes.js"></script>
 		<script type="text/javascript" src="./js/includesHelper.js"></script>
 		<script type="text/javascript" src="../data/courses.js"></script>
-		<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-		
+
+		<!-- tinymce is upgraded from 4.0 to 4.9.11-->
+		<!--<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>-->
+
+		<!-- tinymce is now placed locally at v1/js/tinyMCE path. No need to hit their cdn-->
+		<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.11/tinymce.min.js"></script>-->
+
+		<script type="text/javascript" src="js/tinyMCE/v4.9.11/tinymce.min.js"></script>
+
 		<script>
 			var course = getQueryParam("course");
 			
-			tinymce.init({
+			tinyMCE.init({
 				selector: "textarea",
-				plugins: "textcolor, code, nonbreaking",
 				toolbar: "insertfile undo redo | styleselect | bold italic underline nonbreaking | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor | code",
 				height: 400,
 				

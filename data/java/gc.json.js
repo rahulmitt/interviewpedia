@@ -178,6 +178,8 @@ PermGen (till Java 7) or Metaspace (Java 8 onwards).</p>
 </tr>
 </table>
 <p style="text-align: justify;">Metaspace is part of native memory, so no need to worry about OOM:Pergem Exeption now.</p>
+<p style="text-align: justify;">Arrays are objects in java, so they are always stored on heap —
+<a href="https://stackoverflow.com/questions/2099695/is-a-java-array-of-primitives-stored-in-stack-or-heap/16326590#16326590" target="_blank">even an array of primitives</a></p>
 <p>&nbsp;</p>
 
 <h2>Sun HotSpot JVM & OutOfMemoryError / StackOverflowError</h2>
