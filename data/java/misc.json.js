@@ -50,7 +50,7 @@ var misc_que = [
     {
         id : 9,
         question : "Clean Code",
-        tags : ["Clean Code"]
+        tags : ["Clean Code", "Coding Standards", "Coding Conventions"]
     },
 ];
 
