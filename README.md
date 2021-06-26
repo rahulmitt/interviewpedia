@@ -13,5 +13,5 @@
 
 [6. Cloud](https://rahulmitt.github.io/interviewpedia/?course=cloud)
 
-[7. JavaScript](https://rahulmitt.github.io/interviewpedia/?course=js)
+[7. Kafka](https://rahulmitt.github.io/interviewpedia/?course=kafka)
 
