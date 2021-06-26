@@ -5,7 +5,7 @@ var topics = [
 	},
 
 	{
-		id: "placeholder2",
+		id: "nosql_placeholder2",
 		caption: "Placeholder 2"
 	},
 ]
