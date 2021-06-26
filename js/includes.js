@@ -61,18 +61,14 @@ var cloud = [
     'minishift.json.js',
 ];
 
-var javascript = [
-    'jsBasics.json.js',
-    'controlFlow.json.js',
-    'functionsMethods.json.js',
-    'objectLiterals.json.js',
-    'dom.json.js',
-    'test.json.js',
-];
-
 var nosql = [
 	'mongodb.json.js',
-	'placeholder2.json.js',
+	'nosql_placeholder2.json.js',
+];
+
+var kafka = [
+	'kafkaTheory.json.js',
+	'placeholder3.json.js',
 ];
 
 //==================================== Placeholder Course ======================================

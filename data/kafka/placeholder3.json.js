@@ -1,4 +1,4 @@
-var placeholder2_que = [
+var placeholder3_que = [
     {
         id : 1,
         question : "TODO",
@@ -6,7 +6,7 @@ var placeholder2_que = [
     }
 ];
 
-var placeholder2_ans = [
+var placeholder3_ans = [
     {   /* TODO */
         id : 1,
         "text" : function(){/*
