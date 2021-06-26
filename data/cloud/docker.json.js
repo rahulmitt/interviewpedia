@@ -55,7 +55,7 @@ var docker_ans = [
 <h2>Docker Installation</h2>
 <pre>
 sudo apt-get remove docker docker-engine docker.io containerd runc
-cd /home/rahul/Downloads
+cd /home/rahulmitt/Downloads
 curl -fsSL https://get.docker.com -o get-docker.sh
 ls -ltra
 sudo sh get-docker.sh
@@ -69,18 +69,28 @@ rm -f /home/rahul/Downloads/get-docker.sh
 <p style="text-align: justify;"><img src="data\cloud\images\1.docker\1.installation\1.Installing Docker.png" alt="" width="100%"/></p>
 <p>Reference:&nbsp;<a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank">https://docs.docker.com/engine/install/ubuntu/</a></p>
 
+<h2>Docker Compose Installation</h2>
+<pre>
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+</pre>
+
+
 <h2>Uninstalling Docker</h2>
 <pre>
-sudo apt-get purge -y docker-engine docker docker.io docker-ce
-sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce
-sudo umount /var/lib/docker/
-sudo rm -rf /var/lib/docker /etc/docker
-sudo rm /etc/apparmor.d/docker
-sudo groupdel docker
-sudo rm -rf /var/run/docker.sock
-sudo rm -rf /usr/bin/docker-compose
+sudo apt-cache policy docker*
+sudo apt purge docker-engine-cs docker-compose docker-ce-rootless-extras docker docker.io-doc docker2aci docker-engine docker-registry docker-scan-plugin docker-doc docker-ce docker-ce-cli docker.io
+sudo apt autoremove
 </pre>
-<p>Reference:&nbsp;<a href="https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker" target="_blank">https://askubuntu.com/questions/935569/how-to-completely-uninstall-docker</a></p>
+
+<h2>Uninstalling Docker Compose</h2>
+<pre>
+sudo rm /usr/local/bin/docker-compose
+sudo apt remove docker-compose
+sudo apt autoremove
+</pre>
+
         */}.toString().slice(14,-3)
     },
 
