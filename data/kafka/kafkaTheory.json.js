@@ -3,7 +3,13 @@ var kafkaTheory_que = [
         id : 1,
         question : "Kafka — Overview",
         tags : ["Apache Kafka"]
-    }
+    },
+
+    {
+        id : 2,
+        question : "Running Kafka on Docker",
+        tags : ["Kafka", "Docker"]
+    },
 ];
 
 var kafkaTheory_ans = [
@@ -61,6 +67,51 @@ var kafkaTheory_ans = [
 <p style="padding-left: 40px;"><img src="data/kafka/images/kafkaTheory/consumer_group.png" alt="" width="622" height="282" /></p>
 
 
+    */}.toString().slice(14,-3)
+    },
+
+    {   /* Running Kafka on Docker */
+        id : 2,
+        "text" : function(){/*
+<p>Create the docker-compose.yml at a path on unix</p>
+<pre>
+version: '3'
+
+services:
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    restart: always
+    ports:
+      - 2181:2181
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    restart: always
+    ports:
+      - 9092:9092
+    depends_on:
+      - zookeeper
+    links:
+      - zookeeper:zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: interviewpedia
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+</pre>
+
+<p>Run the below commands to install kafka on docker</p>
+<pre>
+cd &lt;directory where docker-compose.yml is present&gt;
+docker-compose -f docker-compose.yml up -d
+docker exec -it kafka /bin/sh
+cd /opt/kafka/bin/
+kafka-topics.sh --zookeeper zookeeper:2181 --list
+kafka-topics.sh --zookeeper zookeeper:2181 --topic first_topic --create --partitions 3 --replication-factor 1
+kafka-console-producer.sh --broker-list interviewpedia:9092 --topic first_topic
+kafka-console-consumer.sh --bootstrap-server interviewpedia:9092 --topic first_topic --group app1
+</pre>
     */}.toString().slice(14,-3)
     },
 ];
