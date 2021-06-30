@@ -770,6 +770,20 @@ git log
 <p><code>sudo apt install virtualbox-guest-dkms</code></p>
 </td>
 </tr>
+<tr>
+<td>Map a shared folder between between Windows 10 Host and Ubuntu Guest OS on Virtualbox</td>
+<td>
+<img src="data\java\images\ubuntu\2.virtualBox_sharedFolder.png" alt="" width="616" height="295" />
+<p><code>sudo adduser rahulmitt vboxsf</code></p>
+</td>
+</tr>
+<tr>
+<td>Install few commands</td>
+<td>
+<code>sudo apt install vim</code></br>
+<code>sudo apt install curl</code>
+</td>
+</tr>
 </tbody>
 </table>
 <p>Reference:&nbsp;<a href="https://www.youtube.com/watch?v=QfCdx6wWkf8" target="_blank">How to Install Guest Additions on Ubuntu in VirtualBox?</a></p>
@@ -822,7 +836,7 @@ git log
 <p>&nbsp;</p>
 <h2>Change the color of Shell prompt</h2>
 <p>Default value of<strong> PS1</strong> is:&nbsp;<code>export PS1="\s-\v\$ "</code></p>
-<p style="text-align: justify;"><img src="data\java\images\ubuntu\2.default PS1.png" alt="" width="100%" /></p>
+<p style="text-align: justify;"><img src="data\java\images\ubuntu\3.default PS1.png" alt="" width="100%" /></p>
 <p>My preferred customization is:</p>
 <pre>
 Color_Off="\[\033[0m\]"
@@ -834,7 +848,7 @@ Cyan="\[\033[0;36m\]"
 export PS1="\n$Green[$Red\u$Yellow@$Green\h$Yellow:$Cyan\w$Green]$Yellow\$$Color_Off "
 </pre>
 <p>Add the above&nbsp;customization to&nbsp;<strong>~/.profile</strong> file by typing&nbsp;<code>vim ~/.profile</code></p>
-<p style="text-align: justify;"><img src="data\java\images\ubuntu\3.customize PS1.png" alt="" width="100%" /></p>
+<p style="text-align: justify;"><img src="data\java\images\ubuntu\4.customize PS1.png" alt="" width="100%" /></p>
 <p>Reference:&nbsp;<a href="https://gist.github.com/vratiu/9780109" target="_blank">Color Codes</a></p>
         */}.toString().slice(14,-3)
     },
