@@ -774,7 +774,7 @@ git log
 <td>Map a shared folder between between Windows 10 Host and Ubuntu Guest OS on Virtualbox</td>
 <td>
 <img src="data\java\images\ubuntu\2.virtualBox_sharedFolder.png" alt="" width="616" height="295" />
-<p><code>sudo adduser rahulmitt vboxsf</code></p>
+<p><code>sudo adduser &lt;unix-user&gt; vboxsf</code></p>
 </td>
 </tr>
 <tr>
