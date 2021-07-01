@@ -59,7 +59,7 @@ cd /home/rahulmitt/Downloads
 curl -fsSL https://get.docker.com -o get-docker.sh
 ls -ltra
 sudo sh get-docker.sh
-sudo usermod -aG docker &lt;unix-user&gt;
+sudo usermod -aG docker $USER
 </pre>
 <p>Remember to log out and back in for this to take effect</p>
 <pre>
