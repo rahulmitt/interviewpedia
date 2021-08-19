@@ -688,22 +688,29 @@ git log
 <p><code>grep -o</code>&nbsp;<strong>&lt;</strong><em>text to search</em><strong>&gt;&nbsp;&lt;</strong><em>filename</em><strong>&gt;</strong> <code>| wc -l</code></p>
 <h2>3. Find the files that contain text:</h2>
 <p><code>find . -name</code> '<em>*.log</em>' <code>-print | xargs grep</code> '<em>NullPointerException</em>' <code>| cut -d ':' -f 1 | sort | uniq</code></p>
-<h2>4. Search inside an archive:</h2>
+
+<h2>4. Find *test*.mp4 files and rename them to *test1*.mp4 recursively:</h2>
+<p><code>find . -type f -iname</code> "*test*.mp4" <code>| \</code></p>
+<p><code>while IFS= read -r line; \</code></p>
+<p><code>do mv "$line" "$(printf %s "$line" | sed -re 's/</code>test<code>/</code>test1<code>/g')"; done;</code>
+</p>
+
+<h2>5. Search inside an archive:</h2>
 <p><code>zgrep</code> '<em>test to search</em>' <strong>&lt;</strong><em>filename</em><strong>&gt;.gz</strong></p>
-<h2>5. Find archive names that contain text:</h2>
+<h2>6. Find archive names that contain text:</h2>
 <p><code>find . -name</code> <strong>&lt;</strong><em>filename</em><strong>&gt;.gz</strong> <code>-print | xargs zgrep</code> '<em>NullPointerException</em>' <code>| cut -d ':' -f 1 | sort | uniq</code></p>
-<h2>6. Grep a text and highlight it in color:</h2>
+<h2>7. Grep a text and highlight it in color:</h2>
 <p><strong>&lt;</strong><em>command<strong>&gt;</strong></em> <code>| grep --color=always</code> <strong>&lt;</strong><em>text to highlight<strong>&gt;</strong></em></p>
-<h2>7. Check disk space:</h2>
+<h2>8. Check disk space:</h2>
 <p><code><strong>du -hsx * | sort -rh</strong></code></p>
-<h2>&nbsp;8. Delete all contents of a file:</h2>
+<h2>9. Delete all contents of a file:</h2>
 <p><strong><code>cat /dev/null &gt; blah.txt</code></strong></p>
-<h2>&nbsp;9. Find files in a directory</h2>
+<h2>10. Find files in a directory</h2>
 <p><strong><code>find scripts/ -name '*.pl'</code></strong></p>
-<h2>&nbsp;10. Find files (recursively) containing text in a directory</h2>
+<h2>11. Find files (recursively) containing text in a directory</h2>
 <p><strong><code>grep -r 'rahul' scripts/*.pl</code></strong></p>
 <p><strong><code>grep -r 'ENV_A' scripts/*.pl | cut -d: -f1</code></strong></p>
-<h2>11. top command</h2>
+<h2>12. top command</h2>
 <p><code><strong>top</strong></code></p>
 <p>&nbsp;</p>
         */}.toString().slice(14,-3)
@@ -830,7 +837,7 @@ git log
 <p>Lucida Console, Regular, 10</p>
 <p><strong>Window --&gt; Colours --&gt; Select a Color to Adjust</strong></p>
 <p><strong>Default Foreground</strong>: Red:237, Green:209, Blue:18</p>
-<p><strong>Default Background</strong>: Red:64, Green:0, Blue:64</p>
+<p><strong>Default Background</strong>: Red:0, Green:43, Blue:54</p>
 <p>Session --&gt; Save</p>
 <p>Reference: <a href="https://github.com/wlvchandler/PuTTY-Ubuntu-Theme" target="_blank">PuTTY Ubuntu Theme</a></p>
 <p>&nbsp;</p>
