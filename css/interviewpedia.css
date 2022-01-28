@@ -5,6 +5,15 @@
         https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8
 */
 
+:root {
+  --container: #3C3F41; /* alternatively can use #222f3e as well */
+  --answerPanel: #2B2B2B;
+  --highlighted: #0180FF;
+  --textColor1: #AFB1B3;
+  --textColor2: #018690;
+  --anchors: #8395a7;
+}
+
 body {
     font-family: Tahoma, Helvetica, sans-serif;
     padding:20px;
@@ -13,8 +22,8 @@ body {
 	padding: 0; 
 	border: 0; 
 	outline: 0;
-	background-color: #222f3e;
-	color: #c8d6e5;
+	background-color: var(--container);
+	color: var(--textColor2);
 }
 h2 {
     font-size:18px;
@@ -22,6 +31,12 @@ h2 {
     margin:0;
     margin-bottom:15px;
 }
+
+h1, h2, h3,
+h4, h5, h6 {
+    color: var(--textColor2);
+}
+
 .demo-info{
 	padding:0 0 12px 0;
 }
@@ -44,18 +59,18 @@ h2 {
 
 .footer {
 	text-align: center;
-	height:2%;
+	height:1%;
 	margin: auto;
     font-size: 12px;
 }
 
 a {
-  color: #8395a7;
+  color: var(--anchors);
   //font-weight: bold;
 }
 
 #dlg {
-	color: #222f3e;
+	color: var(--container);
 	//font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
 	font-family: Tahoma, Helvetica, sans-serif;
 	font-weight: bold;
@@ -63,7 +78,7 @@ a {
 
 #toc a {
     text-decoration: none;
-    color: #c8d6e5;
+    color: var(--textColor1);
 }
 
 .tag-label {
@@ -77,8 +92,8 @@ a {
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background: #576574;
-  color: #c8d6e5;
+  background: var(--answerPanel);
+  color: var(--textColor1);
   font-size:10px;
 }
 

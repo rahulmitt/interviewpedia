@@ -63,7 +63,7 @@
 	</head>
 		
 	<body>
-		<table width="100%" height="2%">
+		<table width="100%">
 			<tr>
 				<td class="header"><label id="label" onclick="CourseChooserDialog.getInstance($('#dlg')).open();" title="Click to select a different course" style="cursor:pointer"><b>Interviewpedia</b></label></td>
 				<td width="50%"><div id="tags"></div></td>
@@ -72,20 +72,16 @@
 		</table>
 		
 		<div id="horizontal-tabs" class="easyui-tabs" style="width:100%;height:32px;"></div>
-		<div class="easyui-layout" style="width:100%;height:88%;">
-			<div id="toc" data-options="region:'east',title:'Table of Contents',split:true,collapsed:true" style="width:200px;">
-			</div>
-
+		<div class="easyui-layout" style="width:100%;height:92%;">
 			<div id="que" data-options="region:'west',title:'Sub Topics',split:true" style="width:250px;">
 				<div id="sm" style="width:100%;height:100%;border:none"></div>
 			</div>
 
 			<div data-options="region:'center'" >
-				<div id="ans" data-options="fit:true,border:false" class="easyui-panel" title=" " style="width:100%;height:100%;padding:10px;">
-
-				</div>
+				<div id="ans" data-options="fit:true,border:false" class="easyui-panel" title=" " style="width:100%;height:100%;padding:10px;background-color: var(--answerPanel);"></div>
 			</div>
 
+			<div id="toc" data-options="region:'east',title:'Table of Contents',split:true" style="width:200px;"></div>
 		</div>
 		
 		<div id="dlg" style="width:50%;height:70%;padding:10px"></div>
