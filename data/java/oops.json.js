@@ -4,36 +4,43 @@ var oops_que = [
 		question : "Association, Aggregation & Composition",
 		tags : ["UML", "Association", "Aggregation", "Composition", "is-a", "has-a", "part-whole"]
 	},
+
 	{
 		id : 2,
 		question : "Access modifiers",
 		tags : ["access", "modifiers", "public", "protected", "default", "private"]
 	},
+
 	{
 		id : 3,
 		question : "Method Overloading",
 		tags : ["overloading", "compile time", "polymorphism"]
 	},
+
 	{
 		id : 4,
 		question : "Method Overriding",
 		tags : ["overriding", "run time", "polymorphism"]
 	},
+
 	{
 		id : 5,
 		question : "Overriding Vs Hiding",
 		tags : ["overriding", "hiding", "static", "dynamic method lookup", "early binding", "late binding"]
 	},
+
 	{
 		id : 6,
 		question : "Interfaces Vs Abstract Classes",
 		tags : ["interface", "abstract class"]
 	},
+
 	{
 		id : 7,
 		question : "Deep copy Vs Shallow copy",
 		tags : ["deep copy", "shallow copy", "copy", "cloning"]
 	},
+
 	{
 		id : 8,
 		question : "Creating an Immutable class",
@@ -42,12 +49,18 @@ var oops_que = [
 
 	{
 		id : 9,
+		question : "Pass by Value",
+		tags : ["Pass by Value"]
+	},
+
+	{
+		id : 10,
 		question : "Generics",
 		tags : ["Generics"]
 	},
 
 	{
-		id : 10,
+		id : 11,
 		question : "Reflection",
 		tags : ["Reflection"]
 	},
@@ -102,7 +115,7 @@ multiplicity adornments to the line denoting the association.</p>
 <p style="text-align: justify;"><strong>Many to One</strong>: The example indicates that every Instructor has one or more Students:</p>
 <img src="data/java/images/oops/7.many_to_one.png" alt="" />
 
-<p style="text-align: justify;"><strong>Manay to Many</strong>: We can also indicate the behavior of an object in an
+<p style="text-align: justify;"><strong>Many to Many</strong>: We can also indicate the behavior of an object in an
 association (i.e., the role of an object) using role names.</p>
 <img src="data/java/images/oops/8.many_to_many.png" alt="" />
 <p>&nbsp;</p>
@@ -186,7 +199,7 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	{
 		id : 2,
 		"text" : function(){/*
-<h3 style="text-align: justify;"><span style="text-decoration: underline;">Access Modifiers</span></h3>
+<h3>Access modifiers</h3>
 <p style="text-align: justify;"><strong>public</strong> - accessible from anywhere</p>
 <p style="text-align: justify;"><strong>protected</strong> - Accessible by all classes in the same package + accessible by all sub-classes</p>
 <p style="text-align: justify;"><strong>default</strong> - accessible only by classes in the same package</p>
@@ -197,61 +210,93 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	{
 		id : 3,
 		"text" : function(){/*
-<h3 style="text-align: justify;"><span style="text-decoration: underline;">Method Overloading</span></h3>
-<p style="text-align: justify;">Method overloading occurs when two or more methods in the same class have the exact same name but different parameters.</p>
+<h3>Method Overloading</h3>
+<p>Method overloading occurs when two or more methods in the same class have the exact same name but different parameters.</p>
 <ol style="text-align: justify;">
 <li>Method name is same but the parameter list differs (in type, order or number)</li>
 <li>As return type is not a part of the method signature, having different return types is not enough to overload methods.</li>
 </ol>
-<p style="text-align: justify;">Overloading is a <strong>compile-time polyphormism</strong>. This just means that the compiler determines whether the given method is correctly overloaded, and if not a compiler error is returned.</p>
+<p style="text-align: justify;">Overloading is a <strong>compile-time polymorphism</strong>. This just means that the compiler
+determines whether the given method is correctly overloaded, and if not a compiler error is returned.</p>
+<pre>
+public class MethodOverloading {
+
+    public static void main(String[] args) {
+        A a = new A();
+        a.compute();
+        a.compute(10);
+        a.compute(10, 10.5f);
+
+        B b = new B();
+        b.compute();
+        b.compute(10);
+        b.compute(10, 10.5f);
+
+        // Ambiguous method call. Cast some params to resolve ambiguity
+        // b.compute(null, null);
+    }
+
+    private static class A {
+        public void compute() {
+
+        }
+
+        public void compute(int i) {
+
+        }
+
+        public float compute(Integer i, Float j) {
+            return i + j;
+        }
+
+        public float compute(int i, float j) {
+            return i + j;
+        }
+
+        // Compilation error: compute(int, float) is already defined in 'MethodOverloading.A'
+        // public Long compute(int i, float j) {
+        //    return null;
+        // }
+    }
+
+    private static class B extends A {
+        public long compute(Long i, Long j) {
+            return i + j;
+        }
+    }
+}
+</pre>
 		*/}.toString().slice(14,-3)
 	},
 	
 	{
 		id : 4,
 		"text" : function(){/*
-<p style="text-align: justify;">Method overriding occurs when a sub-class requires a different definition for an inherited method from the super-class, then that method can be redefined in the derived class.</p>
+<h3>Method Overloading</h3>
+<p style="text-align: justify;">Method overriding occurs when a sub-class requires a different definition for an inherited
+method from the super-class, then that method can be redefined in the derived class.</p>
 <p style="text-align: justify;">The new method definition:</p>
 <ol style="text-align: justify;">
-<li>Must have the same method signature (method name + parameters) and the same return type.</li>
-<li>Cannot narrow the accessibility of the method, but it can widen it.</li>
-<li>Can only specify all or none (or a subset) of the exception classes (including their sub-classes) specified in the throws clause of the overridden method in the super-class.</li>
+<li>Must have the same <b>method signature</b> (method name + parameters) and the same <b>return type</b>.</li>
+<li>Cannot narrow the <b>accessibility</b> of the method, but it can widen it.</li>
+<li>Can only specify <b>all or none (or a subset) of the exception</b> classes (including their sub-classes) specified
+in the throws clause of the overridden method in the super-class.</li>
 </ol>
-<p style="text-align: justify;">Method overriding is a <strong>runtime polymorphism</strong> as opposed to method overloading. Adding the annotation <strong>@Override</strong> to the overriding method tells the compiler that this method is intended to override another.</p>
-<pre>public class Oops {
+<p style="text-align: justify;">Method overriding is a <strong>runtime polymorphism</strong> as opposed to method overloading.
+Adding the annotation <b>@Override</b> to the overriding method tells the compiler that this method is intended to override another.</p>
 
-	public static void main(String[] args) {
-		String s = new String("java");				// (1)
-		System.out.println(s.getClass());			// (2)
-		System.out.println(s.length());				// (3)
-
-		Object obj = s;						// (4)
-
-		// System.out.println(obj.length());			   (5) Compile-time error
-		System.out.println(obj.equals("java"));			// (6)
-		System.out.println(obj.getClass());			// (7)
-
-		s = (String) obj;					// (8)
-		System.out.println(s.equals("unix"));			// (9)
-	}
-}
-</pre>
-<p style="text-align: justify;"><span style="text-decoration: underline;">Output:</span></p>
-<p style="text-align: justify;">class java.lang.String<br />4<br />true<br />class java.lang.String<br />false</p>
-<p style="text-align: justify;">&nbsp;</p>
-		*/}.toString().slice(14,-3)
-	},
-	
-	{
-		id : 5,
-		"text" : function(){/*
-<h2 style="text-align: justify;">Overriding Vs Hiding</h2>
-<p style="text-align: justify;">If a subclass defines a static method with the same signature as a static method in the superclass, then the method in the subclass <em><strong>hides</strong> </em>the one in the superclass.</p>
+<h3>Method Hiding</h3>
+<p style="text-align: justify;">If a subclass defines a <b>static method</b> with the same signature as a static method
+in the superclass, then the method in the subclass <b>hides</b> the one in the superclass.</p>
 <ol style="text-align: justify;">
-<li>The version of the overridden instance method that gets invoked is the one in the subclass.</li>
-<li>The version of the hidden static method that gets invoked depends on whether it is invoked from the superclass or the subclass.</li>
+<li>The version of the <b>overridden instance method</b> that gets invoked is the one in the <b>subclass</b>.</li>
+<li>The version of the <b>hidden static method</b> that gets invoked depends on the <b>reference</b> — whether the static method is invoked from the superclass or the subclass.</li>
 </ol>
+<p style="text-align: justify;"><b>Overriding</b> supports <b>late binding</b>. Therefore, which method will be invoked is decided at runtime. It is for <b>instance methods</b> only.<br />
+<b>Hiding</b> is for all other members — static methods, instance members, static members. It is based on the <b>early binding</b>. The method or member to be called or used is decided during compile time.</p>
+
 <p style="text-align: justify;">Consider an example that contains two classes. The first is Animal, which contains one instance method and one static method:</p>
+
 <pre>public class Animal {
 	public static void something() {
 		System.out.println("animal does something");
@@ -273,22 +318,22 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 	}
 }
 </pre>
-<p style="text-align: justify;"><strong>Overriding</strong> supports <strong>late binding</strong>. Therefore, which method will be invoked is decided at runtime. It is for non-static methods.<br /><strong>Hiding</strong> is for all other members (static methods, instance members, static members). It is based on the <strong>early binding</strong>. The method or member to be called or used is decided during compile time.</p>
+
 <pre>public class Main {
 	public static void main(String[] args) {
 		Animal a1 = new Animal();
 		Animal a2 = new Dog();
-		
+
 		a1.eat();
 		a1.something();
-		
+
 		a2.eat();
 		a2.something();
 	}
 }
 </pre>
 <ol style="text-align: justify;">
-<li>Compiler will check the delcaration of the reference variable's class. If the method to be executed is not present in the class, it will give compile-time error.</li>
+<li>Compiler will check the declaration of the reference variable's class. If the method to be executed is not present in the class, it will give compile-time error.</li>
 <li>If the method is present, then it does a <strong>dynamic method lookup</strong>:
 <ul>
 <li>If it's an instance method then it will invoke the method if the actual object denoted by the reference variable at runtime.</li>
@@ -296,25 +341,292 @@ from existing ones using Aggregation/Composition, a composite object is built fr
 </ul>
 </li>
 </ol>
-<p style="text-align: justify;"><span style="text-decoration: underline;">output:</span></p>
-<p style="text-align: justify;">Animal eats<br />animal does something<br />dog eats<br />animal does something<br /><br /></p>
-<p style="text-align: justify;">&nbsp;</p>
+
+<table width="100%">
+<tr><td>
+<b><u>Output</u>:</b></br></br>
+Animal eats<br/>
+animal does something<br/>
+dog eats<br/>
+animal does something<br/>
+</tr></td>
+</table>
+
+		*/}.toString().slice(14,-3)
+	},
+	
+	{
+		id : 5,
+		"text" : function(){/*
+<h2 style="text-align: justify;">Overriding Vs Hiding</h2>
+
+<pre>
+public class Overriding_vs_Hiding {
+
+    public static void main(String[] args) {
+
+        Parent parentRef = new Child();
+        System.out.println("parentRef.publicInstanceVariable: " + parentRef.publicInstanceVariable);
+        System.out.println("parentRef.protectedInstanceVariable: " + parentRef.protectedInstanceVariable);
+        System.out.println("parentRef.defaultInstanceVariable: " + parentRef.defaultInstanceVariable);
+        System.out.println("parentRef.privateInstanceVariable: " + parentRef.privateInstanceVariable);
+
+        System.out.println();
+
+        System.out.println("parentRef.publicStaticVariable: " + parentRef.publicStaticVariable);
+        System.out.println("parentRef.protectedStaticVariable: " + parentRef.protectedStaticVariable);
+        System.out.println("parentRef.defaultStaticVariable: " + parentRef.defaultStaticVariable);
+        System.out.println("parentRef.privateStaticVariable: " + parentRef.privateStaticVariable);
+
+        System.out.println();
+
+        parentRef.publicInstanceMethod();
+        parentRef.protectedInstanceMethod();
+        parentRef.defaultInstanceMethod();
+        parentRef.privateInstanceMethod();
+        parentRef.publicStaticMethod();
+        parentRef.protectedStaticMethod();
+        parentRef.defaultStaticMethod();
+        parentRef.privatStaticMethod();
+        parentRef.staticMethodNotHiddenByChild();
+
+        System.out.println("-------------------------------------------------------------------------------");
+
+        Child childRef = new Child();
+        System.out.println("childRef.publicInstanceVariable: " + childRef.publicInstanceVariable);
+        System.out.println("childRef.protectedInstanceVariable: " + childRef.protectedInstanceVariable);
+        System.out.println("childRef.defaultInstanceVariable: " + childRef.defaultInstanceVariable);
+        System.out.println("childRef.privateInstanceVariable: " + childRef.privateInstanceVariable);
+
+        System.out.println();
+
+        System.out.println("childRef.publicStaticVariable: " + childRef.publicStaticVariable);
+        System.out.println("childRef.protectedStaticVariable: " + childRef.protectedStaticVariable);
+        System.out.println("childRef.defaultStaticVariable: " + childRef.defaultStaticVariable);
+        System.out.println("childRef.privateStaticVariable: " + childRef.privateStaticVariable);
+
+        System.out.println();
+
+        childRef.publicInstanceMethod();
+        childRef.protectedInstanceMethod();
+        childRef.defaultInstanceMethod();
+        childRef.privateInstanceMethod();
+        childRef.publicStaticMethod();
+        childRef.protectedStaticMethod();
+        childRef.defaultStaticMethod();
+        childRef.privatStaticMethod();
+        childRef.staticMethodNotHiddenByChild();
+    }
+
+    private static class Parent {
+
+        public String publicInstanceVariable = "Parent - publicInstanceVariable";
+        protected String protectedInstanceVariable = "Parent - protectedInstanceVariable";
+        String defaultInstanceVariable = "Parent - defaultInstanceVariable";
+        private String privateInstanceVariable = "Parent - privateInstanceVariable";
+
+        public static String publicStaticVariable = "Parent - publicStaticVariable";
+        protected static String protectedStaticVariable = "Parent - protectedStaticVariable";
+        static String defaultStaticVariable = "Parent - defaultStaticVariable";
+        private static String privateStaticVariable = "Parent - privateStaticVariable";
+
+
+        public void publicInstanceMethod() {
+            System.out.println("Parent - publicInstanceMethod");
+        }
+
+        public static void publicStaticMethod() {
+            System.out.println("Parent - publicStaticMethod");
+        }
+
+        protected void protectedInstanceMethod() {
+            System.out.println("Parent - protectedInstanceMethod");
+        }
+
+        protected static void protectedStaticMethod() {
+            System.out.println("Parent - protectedStaticMethod");
+        }
+
+        void defaultInstanceMethod() {
+            System.out.println("Parent - defaultInstanceMethod");
+        }
+
+        static void defaultStaticMethod() {
+            System.out.println("Parent - defaultStaticMethod");
+        }
+
+        // private methods cannot be overridden
+        private void privateInstanceMethod() {
+            System.out.println("Parent - privateInstanceMethod");
+        }
+
+        private static void privatStaticMethod() {
+            System.out.println("Parent - privatStaticMethod");
+        }
+
+        static void staticMethodNotHiddenByChild() {
+            System.out.println("Parent - staticMethodNotHiddenByChild");
+        }
+
+        void eat(){}
+    }
+
+    private static class Child extends Parent {
+
+        // public --> protected --> default --> private
+
+        public String publicInstanceVariable = "Child - publicInstanceVariable";
+        protected String protectedInstanceVariable = "Child - protectedInstanceVariable";
+        String defaultInstanceVariable = "Child - defaultInstanceVariable";
+        private String privateInstanceVariable = "Child - privateInstanceVariable";
+
+        public static String publicStaticVariable = "Child - publicStaticVariable";
+        protected static String protectedStaticVariable = "Child - protectedStaticVariable";
+        static String defaultStaticVariable = "Child - defaultStaticVariable";
+        private static String privateStaticVariable = "Child - privateStaticVariable";
+
+        // This has to be public. Any attempt to assign a weaker access-modifier will give compile-time exception
+        public void publicInstanceMethod() {
+            System.out.println("Child - publicInstanceMethod");
+        }
+
+        // This has to be public. Any attempt to assign a weaker access-modifier will give compile-time exception
+        public static void publicStaticMethod() {
+            System.out.println("Child - publicStaticMethod");
+        }
+
+        // This has to be either public/protected. Any attempt to assign a weaker access-modifier will give compile-time exception
+        protected void protectedInstanceMethod() {
+            System.out.println("Child - protectedInstanceMethod");
+        }
+
+        // This has to be either public/protected. Any attempt to assign a weaker access-modifier will give compile-time exception
+        protected static void protectedStaticMethod() {
+            System.out.println("Child - protectedStaticMethod");
+        }
+
+        // This cannot be private. Any attempt to assign a weaker access-modifier will give compile-time exception
+        void defaultInstanceMethod() {
+            System.out.println("Child - defaultInstanceMethod");
+        }
+
+        // This cannot be private. Any attempt to assign a weaker access-modifier will give compile-time exception
+        static void defaultStaticMethod() {
+            System.out.println("Child - defaultStaticMethod");
+        }
+
+        // private methods are be overridden
+        private void privateInstanceMethod() {
+            System.out.println("Child - privateInstanceMethod");
+        }
+
+        private static void privatStaticMethod() {
+            System.out.println("Child - privatStaticMethod");
+        }
+
+        // Compilation error: instance method in sub-class cannot override a static method in parent-class
+        // public void staticMethodNotHiddenByChild() {}
+
+        // Compilation error: static method in sub-class cannot override an instance method in parent-class
+        // static void eat() {}
+    }
+}
+</pre>
+
+<table width="100%">
+<tr><td>
+<b><u>Output</u>:</b></br></br>
+parentRef.publicInstanceVariable: Parent - publicInstanceVariable</br>
+parentRef.protectedInstanceVariable: Parent - protectedInstanceVariable</br>
+parentRef.defaultInstanceVariable: Parent - defaultInstanceVariable</br>
+parentRef.privateInstanceVariable: Parent - privateInstanceVariable</br>
+</br>
+parentRef.publicStaticVariable: Parent - publicStaticVariable</br>
+parentRef.protectedStaticVariable: Parent - protectedStaticVariable</br>
+parentRef.defaultStaticVariable: Parent - defaultStaticVariable</br>
+parentRef.privateStaticVariable: Parent - privateStaticVariable</br>
+</br>
+Child - publicInstanceMethod</br>
+Child - protectedInstanceMethod</br>
+Child - defaultInstanceMethod</br>
+Parent - privateInstanceMethod</br>
+Parent - publicStaticMethod</br>
+Parent - protectedStaticMethod</br>
+Parent - defaultStaticMethod</br>
+Parent - privatStaticMethod</br>
+Parent - staticMethodNotHiddenByChild</br>
+-------------------------------------------------------------------------------</br>
+childRef.publicInstanceVariable: Child - publicInstanceVariable</br>
+childRef.protectedInstanceVariable: Child - protectedInstanceVariable</br>
+childRef.defaultInstanceVariable: Child - defaultInstanceVariable</br>
+childRef.privateInstanceVariable: Child - privateInstanceVariable</br>
+</br>
+childRef.publicStaticVariable: Child - publicStaticVariable</br>
+childRef.protectedStaticVariable: Child - protectedStaticVariable</br>
+childRef.defaultStaticVariable: Child - defaultStaticVariable</br>
+childRef.privateStaticVariable: Child - privateStaticVariable</br>
+</br>
+Child - publicInstanceMethod</br>
+Child - protectedInstanceMethod</br>
+Child - defaultInstanceMethod</br>
+Child - privateInstanceMethod</br>
+Child - publicStaticMethod</br>
+Child - protectedStaticMethod</br>
+Child - defaultStaticMethod</br>
+Child - privatStaticMethod</br>
+Parent - staticMethodNotHiddenByChild</br>
+</td></tr></table>
+
 		*/}.toString().slice(14,-3)
 	},
 	
 	{
 		id : 6,
 		"text" : function(){/*
-<h2 style="text-align: justify;"><span style="text-decoration: underline;">When to use Interfaces</span></h2>
-<p style="text-align: justify;">I use interfaces when I see that something in my design will change frequently. For example, the<strong> Strategy pattern</strong> lets you swap new algorithms into your program at runtime without altering the objects that use them.<br />The strategy pattern:</p>
+<h3>Interface Vs Abstract Class</h3>
+<ol style="text-align: justify;">
+<li>An abstract class is a class and an interface is an interface. A class can have a state which can be modified by
+non-abstract methods but an interface cannot have the state because they can't have instance variables</li>
+<li>Abstract class can have constructors but interface cannot have.</li>
+<li>Abstract classes lets you define some behaviors and force the subclasses to provide others — <b>template pattern</b></br>
+            Whereas, interfaces are generally used when something in my design is going to change frequently — <b>strategy pattern</b></li>
+</ol>
+
+<h3>Static methods in Interface</h3>
+<p>Static methods are general utility methods, and are not related to an object's state, it makes sense to define them within the interface.
+These interface static methods are not available to the concrete classes; these can be accessed using the interface name only.
+We can declare public static void main() method inside an interface
+</p>
+
+<h3>Default methods in Interfaces</h3>
+<p>We can declare concrete methods inside interfaces using Default methods. "default" is not an access modifier; it is a keyword
+used to write concrete methods within interfaces. This method is available to the implementation class by default.
+It is up to the implementation class whether to use it as is, or override it.
+</p>
+
+<h3>When to use Interfaces</h3>
+<p style="text-align: justify;">I use interfaces when I see that something in my design will change frequently. For example, the<strong> Strategy pattern</strong>
+lets you swap new algorithms into your program at runtime without altering the objects that use them.<br />The strategy pattern:</p>
 <ol style="text-align: justify;">
 <li>defines a family of algorithms (the interface)</li>
 <li>encapsulates each algorithm (the concrete implementations of the interface)</li>
 <li>makes the algorithms interchangeable within that family.</li>
 </ol>
-<p style="text-align: justify;">For instance, a <strong>media player</strong> might know how to play CDs, MP3s, and wav files. Of course, you don't want to hardcode those playback algorithms into the player; that will make it difficult to add a new format like AVI. Furthermore, your code will be littered with useless switch-case statements and you will need to update those case statements each time you add a new algorithm. All in all, this is not a very object-oriented way to program. With the Strategy pattern, you can simply encapsulate the algorithm behind an object. If you do that, you can provide new media plug-ins at any time. Let's call the plug-in interface Media which would have one method: play(). So to add a new algorithm, we simply implement this interface in our new algorithm class. Now, when the MediaPlayer encounters a new media type, it simply delegates the playing of the stream to our media strategy.</p>
-<h2 style="text-align: justify;"><br /><span style="text-decoration: underline;">When to use Abstract classes</span></h2>
-<p style="text-align: justify;">You may have abstract classes that provide some default behaviors. Abstract classes let you define some behaviors; they force your subclasses to provide others. For example, if you are building an application framework, an abstract class may provide default services such as event and message handling. However, there could be some application-specific functionality that only your application can perform. Such functionality might include startup and shutdown tasks, which are often application-dependent. So, instead of trying to define that behavior itself, the abstract base class can simply declare the shutdown and startup methods as abstract. When it is time to start up, the abstract class can call the startup method. And the JVM will call the method defined by the child class.</p>
+<p style="text-align: justify;">For instance, a <strong>media player</strong> might know how to play CDs, MP3s, and wav files. Of course, you don't
+want to hardcode those playback algorithms into the player; that will make it difficult to add a new format like AVI. Furthermore, your code will be
+littered with useless switch-case statements and you will need to update those case statements each time you add a new algorithm. All in all, this
+is not a very object-oriented way to program. With the Strategy pattern, you can simply encapsulate the algorithm behind an object. If you do that,
+you can provide new media plug-ins at any time. Let's call the plug-in interface Media which would have one method: play(). So to add a new algorithm,
+we simply implement this interface in our new algorithm class. Now, when the MediaPlayer encounters a new media type, it simply delegates the playing
+of the stream to our media strategy.</p>
+
+<h3>When to use Abstract classes</h3>
+<p style="text-align: justify;">You may have abstract classes that provide some default behaviors. Abstract classes let you define some behaviors;
+they force your subclasses to provide others. For example, if you are building an application framework, an abstract class may provide default
+services such as event and message handling. However, there could be some application-specific functionality that only your application can perform.
+Such functionality might include startup and shutdown tasks, which are often application-dependent. So, instead of trying to define that behavior
+itself, the abstract base class can simply declare the shutdown and startup methods as abstract. When it is time to start up, the abstract class
+can call the startup method. And the JVM will call the method defined by the child class.</p>
 		*/}.toString().slice(14,-3)
 	},
 	
@@ -420,27 +732,202 @@ public class DeepCopy implements Serializable {
 		id : 8,
 		"text" : function(){/*
 <p style="text-align: justify;">An immutable class is one whose state cannot be modified once created. There are certain guidelines to create an class immutable. Immutable object not only guarantees safe publication of object&rsquo;s state, but also can be shared among other threads without any external synchronization. JDK itself contains several immutable classes like String, Integer and other wrapper classes. Any modification on immutable object will result in another immutable object. All modifications in a String object results in a new String object.</p>
-<p style="text-align: justify;"><strong>Creating an immutable class</strong></p>
+
+<h3>Rules</h3>
 <ol style="text-align: justify;">
-<li>Don&rsquo;t allow subclasses to override methods. Declare the class as <strong>final</strong>.</li>
-<li>Make all fields <strong>private</strong> and <strong>final</strong>.</li>
-<li>Don&rsquo;t provide <strong>setter</strong> methods &mdash; methods that modify fields or objects referred to by fields.</li>
-<li>All parameterized <strong>constructors</strong> must make a <strong>defensive copy</strong> of parameters before settings the object's state.</li>
-<li>All <strong>getter</strong> methods must return a <strong>defensive copy</strong>.</li>
+<li>Don't allow subclasses — declare the class as final</li>
+<li>Make all the fields as final and private</li>
+<li>Don't provide setter methods — methods that modify fields or objects referred by fields</li>
+<li>All parameterized constructors must make a defensive copy of parameters before settings the object's state.</li>
+<li>All getter methods must return a defensive copy.</li>
 </ol>
+
+<pre>
+// Address is a mutable class
+public class Address {
+    private String city;
+    private String country;
+
+    public Address(String city, String country) {
+        this.city = city;
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                '}';
+    }
+}
+</pre>
+
+<pre>
+// Person is an immutable class
+public final class Person {
+    private final String name;
+    private final int age;
+    private final Address address;    // Mutable
+
+    public Person(String name, int age, Address address) {
+        this.name = name;
+        this.age = age;
+        this.address = new Address(address.getCity(), address.getCountry());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Address getAddress() {
+        return new Address(address.getCity(), address.getCountry());
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", address=" + address +
+                '}';
+    }
+}
+</pre>
+
+<pre>
+public class ImmutableClass {
+    public static void main(String[] args) {
+        Address address = new Address("Bangalore", "India");
+
+        Person person = new Person("Rahul", 30, address);
+        System.out.println(person);
+
+        address.setCity("Mumbai");
+        System.out.println(person);
+
+        person.getAddress().setCountry("Glasgow");
+        System.out.println(person);
+    }
+}
+</pre>
+
+<table width="100%">
+<tr><td>
+<b><u>Output</u>:</b></br></br>
+Person{name='Rahul', age=30, address=Address{city='Bangalore', country='India'}}</br>
+Person{name='Rahul', age=30, address=Address{city='Bangalore', country='India'}}</br>
+Person{name='Rahul', age=30, address=Address{city='Bangalore', country='India'}}</br>
+</tr></td>
+</table>
+
 <p style="text-align: justify;">&nbsp;</p>
 		*/}.toString().slice(14,-3)
 	},
 
-    {   /* Generics */
+    {   /* Pass by Value */
         id : 9,
+		"text" : function(){/*
+<p style="text-align: justify;">Java is always pass-by-value. In case of objects, the references are also pass-by-value</p>
+
+
+<pre>
+public class PassByValue {
+    public static void main(String[] args) {
+        System.out.println("Using primitives");
+        int a = 10, b = 20;
+        System.out.printf("a=%d :: b=%d%n", a, b);
+        swap(a, b);
+        System.out.printf("a=%d :: b=%d%n", a, b);
+
+        System.out.println("------------------------------------------");
+
+        System.out.println("Using holder class");
+        IntHolder aa = new IntHolder(a);
+        IntHolder bb = new IntHolder(b);
+        System.out.printf("aa=%d :: bb=%d%n", aa.get(), bb.get());
+        swap(aa, bb);
+        System.out.printf("aa=%d :: bb=%d%n", aa.get(), bb.get());
+    }
+
+    public static void swap(int a, int b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    public static void swap(IntHolder a, IntHolder b) {
+        int temp = a.get();
+        a.set(b.get());
+        b.set(temp);
+    }
+}
+</pre>
+
+<pre>
+public class IntHolder {
+    int i;
+
+    public IntHolder(int i) {
+        this.i = i;
+    }
+
+    public int get() {
+        return i;
+    }
+
+    public void set(int i) {
+        this.i = i;
+    }
+}
+</pre>
+
+<table width="100%">
+<tr><td>
+<b><u>Output</u>:</b></br></br>
+Using primitives</br>
+a=10 :: b=20</br>
+a=10 :: b=20</br>
+------------------------------------------</br>
+Using holder class</br>
+aa=10 :: bb=20</br>
+aa=20 :: bb=10</br>
+</tr></td>
+</table>
+
+<p style="text-align: justify;">Reference:&nbsp;<a href="https://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value?rq=1" target="_blank">Is Java "pass-by-reference" or "pass-by-value"?</a></p>
+        */}.toString().slice(14,-3)
+    },
+
+    {   /* Generics */
+        id : 10,
 		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
     },
 
     {   /* Reflection */
-        id : 10,
+        id : 11,
 		"text" : function(){/*
 <p style="text-align: justify;">TODO</p>
         */}.toString().slice(14,-3)
