@@ -12,6 +12,7 @@
   --textColor1: #AFB1B3;
   --textColor2: #018690;
   --anchors: #8395a7;
+  --bold: white;
 }
 
 body {
@@ -25,6 +26,7 @@ body {
 	background-color: var(--container);
 	color: var(--textColor2);
 }
+
 h2 {
     font-size:18px;
     font-weight:bold;
@@ -35,6 +37,10 @@ h2 {
 h1, h2, h3,
 h4, h5, h6 {
     color: var(--textColor2);
+}
+
+p b, p strong, li b, li strong {
+    color: var(--bold);
 }
 
 .demo-info{
