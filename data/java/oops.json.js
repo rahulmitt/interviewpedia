@@ -283,7 +283,7 @@ method from the super-class, then that method can be redefined in the derived cl
 in the throws clause of the overridden method in the super-class.</li>
 </ol>
 <p style="text-align: justify;">Method overriding is a <strong>runtime polymorphism</strong> as opposed to method overloading.
-Adding the annotation <b>@Override</b> to the overriding method tells the compiler that this method is intended to override another.</p>
+Adding the annotation <code>@Override</code> to the overriding method tells the compiler that this method is intended to override another.</p>
 
 <h3>Method Hiding</h3>
 <p style="text-align: justify;">If a subclass defines a <b>static method</b> with the same signature as a static method
