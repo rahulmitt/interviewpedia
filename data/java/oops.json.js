@@ -8,25 +8,25 @@ var oops_que = [
 	{
 		id : 2,
 		question : "Access modifiers",
-		tags : ["access", "modifiers", "public", "protected", "default", "private"]
+		tags : ["access modifiers", "public", "protected", "default", "private"]
 	},
 
 	{
 		id : 3,
 		question : "Method Overloading",
-		tags : ["overloading", "compile time", "polymorphism"]
+		tags : ["overloading", "compile time polymorphism"]
 	},
 
 	{
 		id : 4,
 		question : "Method Overriding",
-		tags : ["overriding", "run time", "polymorphism"]
+		tags : ["overriding", "runtime polymorphism", "hiding", "early binding", "late binding", "dynamic method lookup"]
 	},
 
 	{
 		id : 5,
 		question : "Overriding Vs Hiding",
-		tags : ["overriding", "hiding", "static", "dynamic method lookup", "early binding", "late binding"]
+		tags : ["overriding", "hiding", "early binding", "late binding"]
 	},
 
 	{

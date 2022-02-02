@@ -19,7 +19,7 @@ class SearchBox {
             data: SearchBox.buildTags(),
             valueField: 'tag',
             textField: 'label',
-            panelWidth: 400,
+            panelWidth: 600,
             panelHeight:'auto',
             panelMinHeight:100,
             panelMaxHeight:550,
