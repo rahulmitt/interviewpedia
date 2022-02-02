@@ -8,7 +8,7 @@ var multithreading_que = [
 	{
 		id : 2,
 		question : "Thread transitions",
-		tags : ["Thread transitions"]
+		tags : ["Thread transitions", "thread lifecycle"]
 	},
 	
 	{
@@ -74,7 +74,7 @@ var multithreading_que = [
 	{
 		id : 13,
 		question : "Future & Callable",
-		tags : []
+		tags : ["future", "callable"]
 	},
 	
 	{
@@ -98,37 +98,37 @@ var multithreading_que = [
 	{
 		id : 17,
 		question : "ConcurrentHashMap",
-		tags : []
+		tags : ["ConcurrentHashMap"]
 	},
 	
 	{
 		id : 18,
 		question : "CountDownLatch",
-		tags : []
+		tags : ["CountDownLatch"]
 	},
 	
 	{
 		id : 19,
 		question : "CyclicBarrier",
-		tags : []
+		tags : ["CyclicBarrier"]
 	},
 	
 	{
 		id : 20,
 		question : "Semaphore",
-		tags : []
+		tags : ["Semaphore"]
 	},
 	
 	{
 		id : 21,
 		question : "ThreadLocal",
-		tags : []
+		tags : ["ThreadLocal"]
 	},
 	
 	{
 		id : 22,
 		question : "Fork-Join Framework",
-		tags : []
+		tags : ["Fork Join"]
 	},
 
 	{
