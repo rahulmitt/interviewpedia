@@ -15,8 +15,9 @@ class SearchBox {
 
     build() {
         this.uiComponent.combobox({
+            hasDownArrow:false,
             data: SearchBox.buildTags(),
-            valueField: 'q',
+            valueField: 'tag',
             textField: 'label',
             panelWidth: 400,
             panelHeight:'auto',
@@ -29,7 +30,7 @@ class SearchBox {
             }).bind(this),
 
             onClick: (function(record) {
-                //alert("CLICKED !! Label : " + record.label + " || topic : " + record.topic + " || q : " + record.q + " || tag : " + record.tag);
+//                alert("CLICKED !! Label : " + record.label + " || topic : " + record.topic + " || q : " + record.q + " || tag : " + record.tag);
                 $.doRedirect({
                     course : $.urlParam("course"),
                     topic : record.topic,
@@ -38,14 +39,13 @@ class SearchBox {
             }).bind(this),
         });
 
-        $("span.textbox-addon").remove();
         $("#_easyui_textbox_input1").attr("placeholder", "Grep: <ctrl+s>");
         $("#_easyui_textbox_input1").focus().select();
         $("#_easyui_textbox_input1").on('keydown', (function (e) {
             if (e.which == 13) {
                 e.preventDefault();
                 //TODO: check if any selection was made
-                //alert("ENTER PRESSED !! Label : " + this.label + " || topic : " + this.topic + " || q : " + this.q + " || tag : " + this.tag);
+//                alert("ENTER PRESSED !! Label : " + this.label + " || topic : " + this.topic + " || q : " + this.q + " || tag : " + this.tag);
                 $.doRedirect({
                     course : $.urlParam("course"),
                     topic : this.topic,
