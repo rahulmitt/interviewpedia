@@ -272,7 +272,7 @@ public class MethodOverloading {
 	{
 		id : 4,
 		"text" : function(){/*
-<h3>Method Overloading</h3>
+<h3>Method Overriding</h3>
 <p style="text-align: justify;">Method overriding occurs when a sub-class requires a different definition for an inherited
 method from the super-class, then that method can be redefined in the derived class.</p>
 <p style="text-align: justify;">The new method definition:</p>
