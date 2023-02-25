@@ -47,6 +47,9 @@ class CourseChooserDialog {
 		});
         */
 
+//        $('#dlg').attr("style", "width:50%;height:70%;padding:10px");
+        $("#dlg").width("50%").height("70%");
+
 		$("#dlg").dialog({
 			title: 'Choose a Course',
 			closed: false,

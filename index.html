@@ -20,6 +20,7 @@
 		<script type="text/javascript" src="js/interviewpedia.js"></script>
 		<script type="text/javascript" src="js/searchBox.js"></script>
 		<script type="text/javascript" src="js/courseChooserDialog.js"></script>
+		<script type="text/javascript" src="js/whoAmI.js"></script>
 		<script type="text/javascript" src="js/dataLoader.js"></script>
 		<script type="text/javascript" src="js/sideMenu.js"></script>
 		<script type="text/javascript" src="js/menuBar.js"></script>
@@ -84,8 +85,9 @@
 			<div id="toc" data-options="region:'east',title:'Table of Contents',split:true" style="width:200px;"></div>
 		</div>
 		
-		<div id="dlg" style="width:50%;height:70%;padding:10px"></div>
+		<div id="dlg"></div>
+		<div id="dlgWhoAmI"></div>
 
-		<div class="footer">Curated by: <a href="mailto:rahulmitt@yahoo.com">Rahul Mittal</a></div>
+		<div class="footer">Curated by: <a href="#" onclick="WhoAmI.getInstance($('#dlg')).open();" title="Who am I?">Rahul Mittal</a></div>
 	</body>
 </html>
