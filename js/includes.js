@@ -71,6 +71,11 @@ var kafka = [
 	'placeholder3.json.js',
 ];
 
+var system_design = [
+    'ood.json.js',
+    'ood_case_studies.json.js',
+];
+
 //==================================== Placeholder Course ======================================
 var placeholdercourse = [
     'placeholder1.json.js',
