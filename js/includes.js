@@ -7,7 +7,7 @@ var java = [
 	'db.json.js',
 	'gc.json.js',
 	'java8.json.js',
-	'java9.json.js',
+	'java8functional.json.js',
 	'testing.json.js',
 	'misc.json.js',
 ];
