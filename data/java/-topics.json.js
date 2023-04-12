@@ -35,8 +35,8 @@ var topics = [
     },
 
 	{
-        id: "java9",
-        caption: "Java 9"
+        id: "java8functional",
+        caption: "Functional Programming"
     },
 
 	{
