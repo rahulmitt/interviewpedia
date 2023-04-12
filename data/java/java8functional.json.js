@@ -133,7 +133,7 @@ var java8functional_que = [
 
    {
        id : 23,
-       question : "xxx",
+       question : "TODO",
        tags : ["forEach", "stream"]
    },
 ]
@@ -265,14 +265,14 @@ private static void functionalStyle(List&lt;Integer&gt; numbers) {
         id : 3,
 		"text" : function(){/*
 <pre class="">
-    public static void main(String[] args) {
-        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        imperativeStyle(numbers);
+public static void main(String[] args) {
+    List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    imperativeStyle(numbers);
 
-        System.out.println();
+    System.out.println();
 
-        functionalStyle(numbers);
-    }
+    functionalStyle(numbers);
+}
 </pre>
 <p>&nbsp;</p>
 <table style="border-collapse: collapse; width: 100%;" border="1">
@@ -283,9 +283,9 @@ private static void functionalStyle(List&lt;Integer&gt; numbers) {
 <tr valign="top">
 <td style="width: 50%;">
 <pre class="">
-    private static void imperativeStyle(List&lt;Integer&gt; numbers) {
-        for (Integer i : numbers) if (i % 2 != 0) System.out.print(i + ", ");
-    }
+private static void imperativeStyle(List&lt;Integer&gt; numbers) {
+    for (Integer i : numbers) if (i % 2 != 0) System.out.print(i + ", ");
+}
 </pre>
 </td>
 </tr>
@@ -300,11 +300,11 @@ private static void functionalStyle(List&lt;Integer&gt; numbers) {
 <tr valign="top">
 <td style="width: 50%;">
 <pre class="">
-    private static void functionalStyle(List&lt;Integer&gt; numbers) {
-        numbers.stream().filter(i -&gt; i % 2 != 0).forEach(n -&gt; System.out.print(n + ", "));
-        // Alternatively, below can also be used:
-        // numbers.stream().filter(i -&gt; i % 2 != 0).map(n -&gt; n + ", ").forEach(System.out::print);
-    }
+private static void functionalStyle(List&lt;Integer&gt; numbers) {
+    numbers.stream().filter(i -&gt; i % 2 != 0).forEach(n -&gt; System.out.print(n + ", "));
+    // Alternatively, below can also be used:
+    // numbers.stream().filter(i -&gt; i % 2 != 0).map(n -&gt; n + ", ").forEach(System.out::print);
+}
 </pre>
 </td>
 </tr>
@@ -345,9 +345,9 @@ public static void main(String[] args) {
 <tr valign="top">
 <td style="width: 50%;">
 <pre class="">
-    private static void imperativeStyle(List&lt;String&gt; courses) {
-        for (String course : courses) System.out.print(course + ", ");
-    }
+private static void imperativeStyle(List&lt;String&gt; courses) {
+    for (String course : courses) System.out.print(course + ", ");
+}
 </pre>
 </td>
 </tr>
@@ -362,11 +362,11 @@ public static void main(String[] args) {
 <tr valign="top">
 <td style="width: 50%;">
 <pre class="">
-    private static void functionalStyle(List&lt;String&gt; courses) {
-        courses.forEach(course -&gt; System.out.print(course + ", "));
-        // Alternatively, below can also be used:
-        // courses.stream().map(course -&gt; course + ", ").forEach(System.out::print);
-    }
+private static void functionalStyle(List&lt;String&gt; courses) {
+    courses.forEach(course -&gt; System.out.print(course + ", "));
+    // Alternatively, below can also be used:
+    // courses.stream().map(course -&gt; course + ", ").forEach(System.out::print);
+}
 </pre>
 </td>
 </tr>
