@@ -226,7 +226,34 @@ for our Twitter-like service:</p>
 </ul>
 <p><img src="data/system_design/images/sysdesign_concepts/load_balancing.png" alt="" width="50%" /></p>
 
+<h2>Client-side load balancing (using service discovery design pattern)</h2>
+<p>Consider the following deployment architecture:</p>
+<p><img src="data/system_design/images/sysdesign_concepts/client_side_lb1.png" alt="" width="50%" /></p>
+<p>We can add a <strong>service registry</strong> in our deployment architecture so that all the services (<strong>booking-service</strong>, <strong>payment-service</strong> and <strong>account-service</strong>), that needs to communicate with each other, <i>register</i> each of their instances with the <strong>service registry</strong>.</p>
+<p><img src="data/system_design/images/sysdesign_concepts/client_side_lb2.png" alt="" width="50%" /></p>
+<p>Client-side load balancers are <strong>software load balancers</strong> and are used when the client directly chooses which service instance to hit. In this example, <strong>booking-service</strong> retrieves all the information from the <strong>service registry</strong>, and chooses one of the instance and sends the request. Here, the <strong>booking-service</strong> acts as a client and it chooses which particular service instance to hit directly.</p>
+<p><strong>Ribbon</strong> is a framework that enables client-side load balancing.</p>
+
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>No need to have a dedicated load balancer</li>
+<li>Service can choose the load balancing strategy themselves</li>
+</ul>
+
+<h2>Service-side load balancing</h2>
+<p>In server-side load balancing, the load balancer can either be a software load balancer (embedded in the service registry) ar a dedicated hardware load balancer as a separate machine.</p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 50%;"><p><img src="data/system_design/images/sysdesign_concepts/server_side_lb1.png" alt="" width="100%" /></p></td>
+<td style="width: 50%;"><p><img src="data/system_design/images/sysdesign_concepts/server_side_lb2.png" alt="" width="100%" /></p></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+
 <h2>Benefits of Load Balancing</h2>
+<ul>
 <li>Users experience faster, uninterrupted service. Users won&rsquo;t have to wait for a single struggling server to finish its previous tasks. Instead, their requests are immediately passed on to a more readily available resource.</li>
 <li>Service providers experience less downtime and higher throughput. Even a full server failure won&rsquo;t affect the end user experience as the load balancer will simply route around it to a healthy server.</li>
 <li>Load balancing makes it easier for system administrators to handle incoming requests while decreasing wait time for users.</li>
