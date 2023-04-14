@@ -1,4 +1,4 @@
-var grokking_sdi_que = [
+var sysdesign_concepts_que = [
     {
         id : 1,
         question : "System Design Interviews: A step by step guide",
@@ -79,7 +79,7 @@ var grokking_sdi_que = [
 
 ];
 
-var grokking_sdi_ans = [
+var sysdesign_concepts_ans = [
     {   /* System Design Interviews: A step by step guide */
         id : 1,
         "text" : function(){/*
@@ -132,7 +132,7 @@ for our Twitter-like service:</p>
 <h2>High-level design</h2>
 <p>Draw a block diagram with 5-6 boxes representing the core components of our system. We should identify enough components that are needed to solve the actual problem from end-to-end.</p>
 <p>For Twitter, at a high-level, we will need multiple application servers to serve all the read/write requests with load balancers in front of them for traffic distributions. If we&rsquo;re assuming that we will have a lot more read traffic (as compared to write), we can decide to have separate servers for handling these scenarios. On the backend, we need an efficient database that can store all the tweets and can support a huge number of reads. We will also need a distributed file storage system for storing photos and videos.</p>
-<p><img src="data/system_design/images/grokking_sdi/hld.png" alt="" width="50%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/hld.png" alt="" width="50%" /></p>
 
 <h2>Detailed design</h2>
 <p>Dig deeper into two or three major components; interviewer&rsquo;s feedback should always guide us to what parts of the system need further discussion. We should be able to present different approaches, their pros and cons, and explain why we will prefer one approach on the other. Remember there is no single answer; the only important thing is to consider tradeoffs between different options while keeping system constraints in mind.</p>
@@ -185,7 +185,7 @@ for our Twitter-like service:</p>
 <p><strong>Horizontal vs. Vertical Scaling:</strong> Horizontal scaling means that you scale by adding more servers into your pool of resources whereas Vertical scaling means that you scale by adding more power (CPU, RAM, Storage, etc.) to an existing server.</p>
 <p>With horizontal-scaling it is often easier to scale dynamically by adding more machines into the existing pool; Vertical-scaling is usually limited to the capacity of a single server and scaling beyond that capacity often involves downtime and comes with an upper limit.</p>
 <p>Good examples of horizontal scaling are <a href="https://en.wikipedia.org/wiki/Apache_Cassandra" target="_blank">Cassandra</a> and <a href="https://en.wikipedia.org/wiki/MongoDB" target="_blank">MongoDB</a> as they both provide an easy way to scale horizontally by adding more machines to meet growing needs. Similarly, a good example of vertical scaling is MySQL as it allows for an easy way to scale vertically by switching from smaller to bigger machines. However, this process often involves downtime.</p>
-<p><img src="data/system_design/images/grokking_sdi/scaling.png" alt="" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/scaling.png" alt="" /></p>
 
 <h2>Reliability</h2>
 <p>By definition, reliability is the probability a system will fail in a given period. In simple terms, a distributed system is considered reliable if it keeps delivering its services even when one or several of its software or hardware components fail. Reliability represents one of the main characteristics of any distributed system, since in such systems any failing machine can always be replaced by another healthy one, ensuring the completion of the requested task.</p>
@@ -217,16 +217,43 @@ for our Twitter-like service:</p>
         "text" : function(){/*
 <p>Load Balancer (LB) is another critical component of any distributed system. It helps to spread the traffic across a cluster of servers to improve responsiveness and availability of applications, websites or databases. LB also keeps track of the status of all the resources while distributing requests. If a server is not available to take new requests or is not responding or has elevated error rate, LB will stop sending traffic to such a server.</p>
 <p>Typically a load balancer sits between the client and the server accepting incoming network and application traffic and distributing the traffic across multiple backend servers using various algorithms. By balancing application requests across multiple servers, a load balancer reduces individual server load and prevents any one application server from becoming a single point of failure, thus improving overall application availability and responsiveness.</p>
-<p><img src="data/system_design/images/grokking_sdi/load_balancer.png" alt="" width="50%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/load_balancer.png" alt="" width="50%" /></p>
 <p>To utilize full scalability and redundancy, we can try to balance the load at each layer of the system. We can add LBs at three places:</p>
 <ul>
 <li>Between the user and the web server</li>
 <li>Between web servers and an internal platform layer, like application servers or cache servers</li>
 <li>Between internal platform layer and database.</li>
 </ul>
-<p><img src="data/system_design/images/grokking_sdi/load_balancing.png" alt="" width="50%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/load_balancing.png" alt="" width="50%" /></p>
+
+<h2>Client-side load balancing (using service discovery design pattern)</h2>
+<p>Consider the following deployment architecture:</p>
+<p><img src="data/system_design/images/sysdesign_concepts/client_side_lb1.png" alt="" width="50%" /></p>
+<p>We can add a <strong>service registry</strong> in our deployment architecture so that all the services (<strong>booking-service</strong>, <strong>payment-service</strong> and <strong>account-service</strong>), that needs to communicate with each other, <i>register</i> each of their instances with the <strong>service registry</strong>.</p>
+<p><img src="data/system_design/images/sysdesign_concepts/client_side_lb2.png" alt="" width="50%" /></p>
+<p>Client-side load balancers are <strong>software load balancers</strong> and are used when the client directly chooses which service instance to hit. In this example, <strong>booking-service</strong> retrieves all the information from the <strong>service registry</strong>, and chooses one of the instance and sends the request. Here, the <strong>booking-service</strong> acts as a client and it chooses which particular service instance to hit directly.</p>
+<p><strong>Ribbon</strong> is a framework that enables client-side load balancing.</p>
+
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>No need to have a dedicated load balancer</li>
+<li>Service can choose the load balancing strategy themselves</li>
+</ul>
+
+<h2>Service-side load balancing</h2>
+<p>In server-side load balancing, the load balancer can either be a software load balancer (embedded in the service registry) ar a dedicated hardware load balancer as a separate machine.</p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 50%;"><p><img src="data/system_design/images/sysdesign_concepts/server_side_lb1.png" alt="" width="100%" /></p></td>
+<td style="width: 50%;"><p><img src="data/system_design/images/sysdesign_concepts/server_side_lb2.png" alt="" width="100%" /></p></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
 
 <h2>Benefits of Load Balancing</h2>
+<ul>
 <li>Users experience faster, uninterrupted service. Users won&rsquo;t have to wait for a single struggling server to finish its previous tasks. Instead, their requests are immediately passed on to a more readily available resource.</li>
 <li>Service providers experience less downtime and higher throughput. Even a full server failure won&rsquo;t affect the end user experience as the load balancer will simply route around it to a healthy server.</li>
 <li>Load balancing makes it easier for system administrators to handle incoming requests while decreasing wait time for users.</li>
@@ -250,7 +277,7 @@ for our Twitter-like service:</p>
 
 <h2>Redundant Load Balancers</h2>
 <p>The load balancer can be a single point of failure; to overcome this, a second load balancer can be connected to the first to form a cluster. Each LB monitors the health of the other and, since both of them are equally capable of serving traffic and failure detection, in the event the main load balancer fails, the second load balancer takes over.</p>
-<p><img src="data/system_design/images/grokking_sdi/redundant_load_balancers.png" alt="" width="50%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/redundant_load_balancers.png" alt="" width="50%" /></p>
 
 <p>Following links have some good discussion about load balancers:</p>
 <ol>
@@ -369,7 +396,7 @@ for our Twitter-like service:</p>
 <h2>Example: A library catalog</h2>
 <p style="text-align: justify;">A library catalog is a register that contains the list of books found in a library. The catalog is organized like a database table generally with four columns: book title, writer, subject, and date of publication. There are usually two such catalogs: one sorted by the book title and one sorted by the writer name. That way, you can either think of a writer you want to read and then look through their books or look up a specific book title you know you want to read in case you don’t know the writer’s name. These catalogs are like indexes for the database of books. They provide a sorted list of data that is easily searchable by relevant information.</p>
 <p style="text-align: justify;">Simply saying, an index is a data structure that can be perceived as a table of contents that points us to the location where actual data lives. So when we create an index on a column of a table, we store that column and a pointer to the whole row in the index. Let’s assume a table containing a list of books, the following diagram shows how an index on the ‘Title’ column looks like:</p>
-<p><img src="data/system_design/images/grokking_sdi/library_catalog.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/library_catalog.png" alt="" width="80%" /></p>
 <p style="text-align: justify;">Just like a traditional relational data store, we can also apply this concept to larger datasets. The trick with indexes is that we must carefully consider how users will access the data. In the case of data sets that are many terabytes in size, but have very small payloads (e.g., 1 KB), indexes are a necessity for optimizing data access. Finding a small payload in such a large dataset can be a real challenge, since we can’t possibly iterate over that much data in any reasonable time. Furthermore, it is very likely that such a large data set is spread over several physical devices—this means we need some way to find the correct physical location of the desired data. Indexes are the best way to do this.</p>
 
 <h2>How do Indexes decrease write performance?</h2>
@@ -384,7 +411,7 @@ for our Twitter-like service:</p>
         "text" : function(){/*
 <p style="text-align: justify;">A proxy server is an intermediate server between the client and the back-end server. Clients connect to proxy servers to make a request for a service like a web page, file, connection, etc. In short, a <a href="https://en.wikipedia.org/wiki/Proxy_server" target="_blank">proxy server</a> is a piece of software or hardware that acts as an intermediary for requests from clients seeking resources from other servers.</p>
 <p style="text-align: justify;">Typically, proxies are used to filter requests, log requests, or sometimes transform requests (by adding/removing headers, encrypting/decrypting, or compressing a resource). Another advantage of a proxy server is that its cache can serve a lot of requests. If multiple clients access a particular resource, the proxy server can cache it and serve it to all the clients without going to the remote server.</p>
-<p><img src="data/system_design/images/grokking_sdi/proxy_server.png" alt="" width="50%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/proxy_server.png" alt="" width="50%" /></p>
 
 <h2>Proxy Server Types</h2>
 <p style="text-align: justify;">Proxies can reside on the client’s local server or anywhere between the client and the remote servers. Here are a few famous types of proxy servers:</p>
@@ -409,7 +436,7 @@ for our Twitter-like service:</p>
 <h2>Redundancy</h2>
 <p style="text-align: justify;"><a href="https://en.wikipedia.org/wiki/Redundancy_(engineering)" target="_blank">Redundancy</a> is the duplication of critical components or functions of a system with the intention of increasing the reliability of the system, usually in the form of a backup or fail-safe, or to improve actual system performance. For example, if there is only one copy of a file stored on a single server, then losing that server means losing the file. Since losing data is seldom a good thing, we can create duplicate or redundant copies of the file to solve this problem.</p>
 <p style="text-align: justify;">Redundancy plays a key role in removing the single points of failure in the system and provides backups if needed in a crisis. For example, if we have two instances of a service running in production and one fails, the system can failover to the other one.</p>
-<p><img src="data/system_design/images/grokking_sdi/data_replication.png" alt="" width="50%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/data_replication.png" alt="" width="50%" /></p>
 <h2>Replication</h2>
 <p style="text-align: justify;"><a href="https://en.wikipedia.org/wiki/Replication_(computing)" target="_blank">Replication</a> means sharing information to ensure consistency between redundant resources, such as software or hardware components, to improve reliability, <a href="https://en.wikipedia.org/wiki/Fault_tolerance" target="_blank">fault-tolerance</a>, or accessibility.</p>
 <p style="text-align: justify;">Replication is widely used in many database management systems (DBMS), usually with a master-slave relationship between the original and the copies. The master gets all the updates, which then ripple through to the slaves. Each slave outputs a message stating that it has received the update successfully, thus allowing the sending of subsequent updates.</p>
@@ -509,7 +536,7 @@ for our Twitter-like service:</p>
 <p style="text-align: justify;"><strong>Partition tolerance</strong>: The system continues to work despite message loss or partial failure. A system that is partition-tolerant can sustain any amount of network failure that doesn’t result in a failure of the entire network. Data is sufficiently replicated across combinations of nodes and networks to keep the system up through intermittent outages.</p>
 </li>
 </ol>
-<p><img src="data/system_design/images/grokking_sdi/cap_theorem.png" alt="" width="50%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/cap_theorem.png" alt="" width="50%" /></p>
 <p style="text-align: justify;">We cannot build a general data store that is continually available, sequentially consistent, and tolerant to any partition failures. We can only build a system that has any two of these three properties. Because, to be consistent, all nodes should see the same set of updates in the same order. But if the network suffers a partition, updates in one partition might not make it to the other partitions before a client reads from the out-of-date partition after having read from the up-to-date one. The only thing that can be done to cope with this possibility is to stop serving requests from the out-of-date partition, but then the service is no longer 100% available.</p>
 
     */}.toString().slice(14,-3)
@@ -553,11 +580,11 @@ for our Twitter-like service:</p>
 </li>
 </ol>
 
-<p><img src="data/system_design/images/grokking_sdi/consistent_hashing1.png" alt="" width="80%" /></p>
-<p><img src="data/system_design/images/grokking_sdi/consistent_hashing2.png" alt="" width="80%" /></p>
-<p><img src="data/system_design/images/grokking_sdi/consistent_hashing3.png" alt="" width="80%" /></p>
-<p><img src="data/system_design/images/grokking_sdi/consistent_hashing4.png" alt="" width="80%" /></p>
-<p><img src="data/system_design/images/grokking_sdi/consistent_hashing5.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/consistent_hashing1.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/consistent_hashing2.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/consistent_hashing3.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/consistent_hashing4.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/consistent_hashing5.png" alt="" width="80%" /></p>
 <p style="text-align: justify;">To add a new server, say D, keys that were originally residing at C will be split. Some of them will be shifted to D, while other keys will not be touched.</p>
 <p style="text-align: justify;">To remove a cache or, if a cache fails, say A, all keys that were originally mapped to A will fall into B, and only those keys need to be moved to B; other keys will not be affected.</p>
 <p style="text-align: justify;">For load balancing, as we discussed in the beginning, the real data is essentially randomly distributed and thus may not be uniform. It may make the keys on caches unbalanced.</p>
@@ -582,7 +609,7 @@ for our Twitter-like service:</p>
 <p style="text-align: justify;">The server sends the response back to the client on the opened request.</p>
 </li>
 </ol>
-<p><img src="data/system_design/images/grokking_sdi/http_protocol.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/http_protocol.png" alt="" width="80%" /></p>
 
 <h2>Ajax Polling</h2>
 <p style="text-align: justify;">Polling is a standard technique used by the vast majority of AJAX applications. The basic idea is that the client repeatedly polls (or requests) a server for data. The client makes a request and waits for the server to respond with data. If no data is available, an empty response is returned.</p>
@@ -601,7 +628,7 @@ for our Twitter-like service:</p>
 </li>
 </ol>
 <p style="text-align: justify;">The problem with Polling is that the client has to keep asking the server for any new data. As a result, a lot of responses are empty, creating HTTP overhead.</p>
-<p><img src="data/system_design/images/grokking_sdi/ajax_polling.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/ajax_polling.png" alt="" width="80%" /></p>
 
 <h2>HTTP Long-Polling</h2>
 <p style="text-align: justify;">This is a variation of the traditional polling technique that allows the server to push information to a client whenever the data is available. With Long-Polling, the client requests information from the server exactly as in normal polling, but with the expectation that the server may not respond immediately. That’s why this technique is sometimes referred to as a “Hanging GET”.</p>
@@ -631,11 +658,11 @@ for our Twitter-like service:</p>
 <p style="text-align: justify;">Each Long-Poll request has a timeout. The client has to reconnect periodically after the connection is closed due to timeouts.</p>
 </li>
 </ol>
-<p><img src="data/system_design/images/grokking_sdi/http_long_polling.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/http_long_polling.png" alt="" width="80%" /></p>
 
 <h2>WebSockets</h2>
 <p style="text-align: justify;">WebSocket provides <a href="Full duplex" target="_blank">Full duplex</a> communication channels over a single TCP connection. It provides a persistent connection between a client and a server that both parties can use to start sending data at any time. The client establishes a WebSocket connection through a process known as the WebSocket handshake. If the process succeeds, then the server and client can exchange data in both directions at any time. The WebSocket protocol enables communication between a client and a server with lower overheads, facilitating real-time data transfer from and to the server. This is made possible by providing a standardized way for the server to send content to the browser without being asked by the client and allowing for messages to be passed back and forth while keeping the connection open. In this way, a two-way (bi-directional) ongoing conversation can take place between a client and a server.</p>
-<p><img src="data/system_design/images/grokking_sdi/web_sockets.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/web_sockets.png" alt="" width="80%" /></p>
 
 <h2>Server-Sent Events (SSEs)</h2>
 <p style="text-align: justify;">Under SSEs the client establishes a persistent and long-term connection with the server. The server uses this connection to send data to a client. If the client wants to send data to the server, it would require the use of another technology/protocol to do so.</p>
@@ -651,7 +678,7 @@ for our Twitter-like service:</p>
 </li>
 </ol>
 <p style="text-align: justify;">SSEs are best when we need real-time traffic from the server to the client or if the server is generating data in a loop and will be sending multiple events to the client.</p>
-<p><img src="data/system_design/images/grokking_sdi/server_sent_events.png" alt="" width="80%" /></p>
+<p><img src="data/system_design/images/sysdesign_concepts/server_sent_events.png" alt="" width="80%" /></p>
 
     */}.toString().slice(14,-3)
     },

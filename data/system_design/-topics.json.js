@@ -10,7 +10,7 @@ var topics = [
 	},
 
 	{
-		id: "grokking_sdi",
-		caption: "Grokking the System Design Interview"
+		id: "sysdesign_concepts",
+		caption: "System Design concepts"
 	},
 ]
