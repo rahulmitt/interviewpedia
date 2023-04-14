@@ -74,7 +74,7 @@ var kafka = [
 var system_design = [
     'ood.json.js',
     'ood_case_studies.json.js',
-    'grokking_sdi.json.js'
+    'sysdesign_concepts.json.js'
 ];
 
 //==================================== Placeholder Course ======================================
