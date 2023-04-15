@@ -72,6 +72,12 @@ var kafka = [
 ];
 
 var system_design = [
+    'gof_intro.json.js',
+    'gof_creational.json.js',
+    'gof_structural.json.js',
+    'gof_behavioral.json.js',
+    'solid.json.js',
+    'grasp.json.js',
     'ood.json.js',
     'ooad_puzzles.json.js',
     'sysdesign_concepts.json.js'
