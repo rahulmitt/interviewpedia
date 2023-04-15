@@ -73,7 +73,7 @@ var kafka = [
 
 var system_design = [
     'ood.json.js',
-    'ood_case_studies.json.js',
+    'ooad_puzzles.json.js',
     'sysdesign_concepts.json.js'
 ];
 
