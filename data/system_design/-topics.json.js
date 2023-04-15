@@ -5,8 +5,8 @@ var topics = [
 	},
 
 	{
-		id: "ood_case_studies",
-		caption: "OOD Case Studies"
+		id: "ooad_puzzles",
+		caption: "OOAD Puzzles"
 	},
 
 	{
