@@ -80,7 +80,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -95,7 +98,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -110,7 +116,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -125,7 +134,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -140,7 +152,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -155,7 +170,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -170,7 +188,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -185,7 +206,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -200,7 +224,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -215,7 +242,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -230,7 +260,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
@@ -245,7 +278,10 @@ var gof_behavioral_ans = [
 <p style="text-align: justify;">TODO</p>
 
 <h2>Class Diagram</h2>
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">The class diagram consists of the following entities:</p>
+<ul>
+<li style="text-align: justify;">TODO</li>
+</ul>
 <p style="text-align: center;"><img src="data/system_design/images/gof_behavioral/TODO.png" alt="" /></p>
 
 <h2>Example</h2>
