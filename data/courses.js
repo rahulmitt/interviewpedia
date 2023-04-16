@@ -1,7 +1,7 @@
 var courses = [
     { "id": "java",                     "v": 1, "name": "Java",                     },
     { "id": "spring",                   "v": 1, "name": "Spring",                   },
-    { "id": "dp",                       "v": 1, "name": "Design Patterns",          },
+    { "id": "dp",                       "v": 0, "name": "Design Patterns",          },
     { "id": "system_design",            "v": 1, "name": "System Design",            },
     { "id": "cloud",                    "v": 1, "name": "Cloud",                    },
     { "id": "nosql",                    "v": 1, "name": "NoSQL",	                },
