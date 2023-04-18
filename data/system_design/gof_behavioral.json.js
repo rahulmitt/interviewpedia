@@ -1,67 +1,67 @@
 var gof_behavioral_que = [
 	{
 		id : 1,
-		question : "Chain of Responsibility",
+		question : "GoF — Chain of Responsibility",
 		tags : ["GoF", "Behavioral Design Patterns", "Chain of Responsibility"]
 	},
 
 	{
 		id : 2,
-		question : "Observer",
+		question : "GoF — Observer",
 		tags : ["GoF", "Behavioral Design Patterns", "Observer"]
 	},
 
 	{
 		id : 3,
-		question : "Interpreter",
+		question : "GoF — Interpreter",
 		tags : ["GoF", "Behavioral Design Patterns", "Interpreter"]
 	},
 
 	{
 		id : 4,
-		question : "Command",
+		question : "GoF — Command",
 		tags : ["GoF", "Behavioral Design Patterns", "Command"]
 	},
 
 	{
 		id : 5,
-		question : "Iterator",
+		question : "GoF — Iterator",
 		tags : ["GoF", "Behavioral Design Patterns", "Iterator"]
 	},
 
 	{
 		id : 6,
-		question : "Mediator",
+		question : "GoF — Mediator",
 		tags : ["GoF", "Behavioral Design Patterns", "Mediator"]
 	},
 
 	{
 		id : 7,
-		question : "Momento",
+		question : "GoF — Momento",
 		tags : ["GoF", "Behavioral Design Patterns", "Momento"]
 	},
 
 	{
 		id : 8,
-		question : "State",
+		question : "GoF — State",
 		tags : ["GoF", "Behavioral Design Patterns", "State"]
 	},
 
 	{
 		id : 9,
-		question : "Template Method",
+		question : "GoF — Template Method",
 		tags : ["GoF", "Behavioral Design Patterns", "Template Method"]
 	},
 
 	{
 		id : 10,
-		question : "Strategy",
+		question : "GoF — Strategy",
 		tags : ["GoF", "Behavioral Design Patterns", "Strategy"]
 	},
 
 	{
 		id : 11,
-		question : "Visitor",
+		question : "GoF — Visitor",
 		tags : ["GoF", "Behavioral Design Patterns", "Visitor"]
 	},
 
@@ -88,6 +88,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -106,6 +113,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -124,6 +138,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -142,6 +163,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -160,6 +188,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -178,6 +213,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -196,6 +238,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -214,6 +263,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -232,6 +288,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -250,6 +313,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -268,6 +338,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 
@@ -286,6 +363,13 @@ var gof_behavioral_ans = [
 
 <h2>Example</h2>
 <p style="text-align: justify;">TODO</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>
+<p style="text-align: justify;">TODO</p>
+</li>
+</ul>
     */}.toString().slice(14,-3)
     },
 ];
