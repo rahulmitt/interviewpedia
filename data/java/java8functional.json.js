@@ -133,8 +133,8 @@ var java8functional_que = [
 
    {
        id : 23,
-       question : "TODO",
-       tags : ["forEach", "stream"]
+       question : "Version Sorter",
+       tags : ["Version Sorter", "Comparator"]
    },
 ]
 
@@ -1449,10 +1449,30 @@ namesBySortedCity: {Bangalore=[Rahul Mittal, Neha Bansal], Gurgaon=[Tushar Mitta
         */}.toString().slice(14,-3)
     },
 
-{   /* XXX */
+{   /* Version Sorter */
         id : 23,
 		"text" : function(){/*
-<p style="text-align: justify;">TODO</p>
+<p style="text-align: justify;">Write a program to sort Maven version strings in descending order</p>
+<p style="text-align: justify;"><strong>Input:</strong> ["21.03.1", "21.03.2", "1.9.3", "1.9.5", "20.01.2"]</p>
+<p style="text-align: justify;"><strong>Output:</strong> ["21.03.2", "21.03.1", "20.01.2", "1.9.5", "1.9.3"]</p>
+<pre>
+List&lt;String&gt; input = Arrays.asList("21.03.1", "21.03.2", "1.9.3", "1.9.5", "20.01.2");
+System.out.println("input: " + input);
+
+Pattern pattern = Pattern.compile("\\.");
+Comparator&lt;String&gt; versionComparator = Comparator.comparing(version -&gt; pattern.splitAsStream(version).mapToInt(Integer::parseInt).toArray(), Arrays::compare);
+input.sort(versionComparator.reversed());
+
+System.out.println("output: " + input);
+</pre>
+
+<table width="100%">
+<tr><td>
+<b><u>Output</u>:</b></br></br>
+input: [21.03.1, 21.03.2, 1.9.3, 1.9.5, 20.01.2]</br>
+output: [21.03.2, 21.03.1, 20.01.2, 1.9.5, 1.9.3]</br>
+</tr></td>
+</table>
         */}.toString().slice(14,-3)
     },
 ]
