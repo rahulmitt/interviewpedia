@@ -1,35 +1,5 @@
 var gof_behavioral_que = [
 	{
-		id : 1,
-		question : "GoF — Chain of Responsibility",
-		tags : ["GoF", "Behavioral Design Patterns", "Chain of Responsibility"]
-	},
-
-	{
-		id : 2,
-		question : "GoF — Observer",
-		tags : ["GoF", "Behavioral Design Patterns", "Observer"]
-	},
-
-	{
-		id : 3,
-		question : "GoF — Interpreter",
-		tags : ["GoF", "Behavioral Design Patterns", "Interpreter"]
-	},
-
-	{
-		id : 4,
-		question : "GoF — Command",
-		tags : ["GoF", "Behavioral Design Patterns", "Command"]
-	},
-
-	{
-		id : 5,
-		question : "GoF — Iterator",
-		tags : ["GoF", "Behavioral Design Patterns", "Iterator"]
-	},
-
-	{
 		id : 6,
 		question : "GoF — Mediator",
 		tags : ["GoF", "Behavioral Design Patterns", "Mediator"]
@@ -42,21 +12,51 @@ var gof_behavioral_que = [
 	},
 
 	{
+		id : 3,
+		question : "GoF — Interpreter",
+		tags : ["GoF", "Behavioral Design Patterns", "Interpreter"]
+	},
+
+	{
+		id : 5,
+		question : "GoF — Iterator",
+		tags : ["GoF", "Behavioral Design Patterns", "Iterator"]
+	},
+
+	{
+		id : 1,
+		question : "GoF — Chain of Responsibility",
+		tags : ["GoF", "Behavioral Design Patterns", "Chain of Responsibility"]
+	},
+
+	{
+		id : 4,
+		question : "GoF — Command",
+		tags : ["GoF", "Behavioral Design Patterns", "Command"]
+	},
+
+	{
 		id : 8,
 		question : "GoF — State",
 		tags : ["GoF", "Behavioral Design Patterns", "State"]
 	},
 
 	{
-		id : 9,
-		question : "GoF — Template Method",
-		tags : ["GoF", "Behavioral Design Patterns", "Template Method"]
-	},
-
-	{
 		id : 10,
 		question : "GoF — Strategy",
 		tags : ["GoF", "Behavioral Design Patterns", "Strategy"]
+	},
+
+	{
+		id : 2,
+		question : "GoF — Observer",
+		tags : ["GoF", "Behavioral Design Patterns", "Observer"]
+	},
+
+	{
+		id : 9,
+		question : "GoF — Template Method",
+		tags : ["GoF", "Behavioral Design Patterns", "Template Method"]
 	},
 
 	{

@@ -1,20 +1,15 @@
 var gof_creational_que = [
+
+	{
+		id : 5,
+		question : "GoF — Abstract Factory",
+		tags : ["GoF", "Creational Design Patterns", "Abstract Factory"]
+	},
+
 	{
 		id : 1,
 		question : "GoF — Builder",
 		tags : ["GoF", "Creational Design Patterns", "Builder"]
-	},
-
-	{
-		id : 2,
-		question : "GoF — Singleton",
-		tags : ["GoF", "Creational Design Patterns", "Singleton"]
-	},
-
-	{
-		id : 3,
-		question : "GoF — Prototype",
-		tags : ["GoF", "Creational Design Patterns", "Prototype"]
 	},
 
 	{
@@ -24,9 +19,15 @@ var gof_creational_que = [
 	},
 
 	{
-		id : 5,
-		question : "GoF — Abstract Factory",
-		tags : ["GoF", "Creational Design Patterns", "Abstract Factory"]
+		id : 3,
+		question : "GoF — Prototype",
+		tags : ["GoF", "Creational Design Patterns", "Prototype"]
+	},
+
+	{
+		id : 2,
+		question : "GoF — Singleton",
+		tags : ["GoF", "Creational Design Patterns", "Singleton"]
 	},
 
     {
