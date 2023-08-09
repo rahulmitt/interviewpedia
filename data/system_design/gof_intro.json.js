@@ -13,6 +13,33 @@ var gof_intro_ans = [
 <h2>GoF Patterns</h2>
 <p style="text-align: justify;">A <strong>design pattern</strong> is a general, reusable solution to a commonly occurring problem within a given context in software design. It is not a finished design that can be transformed directly into code. Rather, it is a description or template for how to solve a problem that can be used in many different situations. Design patterns are <strong>formalized best practices</strong> that the programmer can use to solve common problems when designing an application or system.</p>
 <p style="text-align: justify;">The authors of <a href="http://wiki.c2.com/?DesignPatternsBook" target="_blank">this</a> book on design patterns are often referred to as the&nbsp;<a href="http://wiki.c2.com/?GangOfFour" target="_blank">Gang of Four</a> (GoF).</p>
+
+<table width="100%">
+    <tbody>
+        <tr valign="top">
+            <th width="15%" style="text-align: center;"><strong>Pattern Category</strong></th>
+            <th width="45%" style="text-align: center;"><strong>Mnemonics</strong> (best way to remember patterns in respective classifications)</th>
+        </tr>
+
+        <tr valign="top">
+            <td>1. Creational</td>
+            <td><strong>A</strong>braham <strong>B</strong>ecame <strong>F</strong>irst <strong>P</strong>resident of <strong>S</strong>tates</td>
+        </tr>
+
+        <tr valign="top">
+            <td>2. Structural</td>
+            <td><strong>A</strong>.<strong>B</strong>.<strong>C</strong>.<strong>D</strong>. <strong>F</strong>irst <strong>F</strong>or <strong>P</strong>ractice</td>
+        </tr>
+
+        <tr valign="top">
+            <td>3. Behavioral</td>
+            <td>2 MICS On TV (<strong>MMIICCSSOTV</strong>)</td>
+        </tr>
+
+    </tbody>
+</table>
+
+
 <h3>Creational</h3>
 <p style="text-align: justify;">These are ones that create objects, rather than having to instantiate objects directly. This gives the program more flexibility in deciding which objects need to be created for a given case.</p>
 
@@ -26,7 +53,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>1. Abstract Factory</td>
+        <td>1. <strong>A</strong>bstract Factory</td>
         <td>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</td>
         <td>
             <ol>
@@ -38,7 +65,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>2. Builder</td>
+        <td>2. <strong>B</strong>uilder</td>
         <td>Separate the construction of a complex object from its representation, allowing the same construction process to create various representations.</td>
         <td>
             <ol>
@@ -50,7 +77,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>3. Factory method</td>
+        <td>3. <strong>F</strong>actory</ method</td>
         <td>Define an interface for creating a single object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.</td>
         <td>
             <ol>
@@ -62,7 +89,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>4. Prototype</td>
+        <td>4. <strong>P</strong>rototype</td>
         <td>Specify the kinds of objects to create using a prototypical instance, and create new objects from the 'skeleton' of an existing object, thus boosting performance and keeping memory footprints to a minimum.</td>
         <td>
             <ol>
@@ -72,7 +99,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>5. Singleton</td>
+        <td>5. <strong>S</strong>ingleton</td>
         <td>Ensure a class has only one instance, and provide a global point of access to it.</td>
         <td>
             <ol>
@@ -99,7 +126,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>1. Adapter</td>
+        <td>1. <strong>A</strong>dapter</td>
         <td>Convert the interface of a class into another interface clients expect. An adapter lets classes work together that
         could not otherwise because of incompatible interfaces. The enterprise integration pattern equivalent is the translator.</td>
         <td>
@@ -112,7 +139,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>2. Bridge</td>
+        <td>2. <strong>B</strong>ridge</td>
         <td>Decouple an abstraction from its implementation allowing the two to vary independently.</td>
         <td>
             <ol>
@@ -123,7 +150,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>3. Composite</td>
+        <td>3. <strong>C</strong>omposite</td>
         <td>Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects
         and compositions of objects uniformly.</td>
         <td>
@@ -135,7 +162,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>4. Decorator</td>
+        <td>4. <strong>D</strong>ecorator</td>
         <td>Attach additional responsibilities to an object dynamically keeping the same interface. Decorators provide a flexible
         alternative to subclassing for extending functionality.</td>
         <td>
@@ -148,7 +175,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>5. Facade</td>
+        <td>5. <strong>F</strong>acade</td>
         <td>Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes
         the subsystem easier to use.</td>
         <td>
@@ -161,7 +188,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>6. Flyweight</td>
+        <td>6. <strong>F</strong>lyweight</td>
         <td>Use sharing to support large numbers of similar objects efficiently.</td>
         <td>
             <ol>
@@ -173,7 +200,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>7. Proxy</td>
+        <td>7. <strong>P</strong>roxy</td>
         <td>Provide a surrogate or placeholder for another object to control access to it.</td>
         <td>
             <ol>
@@ -200,55 +227,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>1. Chain of responsibility</td>
-        <td>Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.
-        Chain the receiving objects and pass the request along the chain until an object handles it.</td>
-        <td>
-            <ol>
-                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html#log-java.util.logging.Level-java.lang.String-" target="_blank">java.util.logging.Logger#log()</a></li>
-                <li><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-javax.servlet.FilterChain-" target="_blank">javax.servlet.Filter#doFilter()</a></li>
-            </ol>
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td>2. Command</td>
-        <td>Encapsulate a request as an object, thereby allowing for the parameterization of clients with different requests, and
-        the queuing or logging of requests. It also allows for the support of undoable operations.</td>
-        <td>
-            <ol>
-                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html" target="_blank">java.lang.Runnable</a></li>
-                <li><a href="http://docs.oracle.com/javase/8/docs/api/javax/swing/Action.html" target="_blank">javax.swing.Action</a></li>
-            </ol>
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td>3. Interpreter</td>
-        <td>Given a language, define a representation for its grammar along with an interpreter that uses the representation to
-        interpret sentences in the language.</td>
-        <td>
-            <ol>
-                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html" target="_blank">java.util.Pattern</a></li>
-                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/text/Normalizer.html" target="_blank">java.text.Normalizer</a></li>
-                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/text/Format.html" target="_blank">java.text.Format</a></li>
-            </ol>
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td>4. Iterator</td>
-        <td>Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</td>
-        <td>
-            <ol>
-                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html" target="_blank">java.util.Iterator</a></li>
-                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Enumeration.html" target="_blank">java.util.Enumeration</a></li>
-            </ol>
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td>5. Mediator</td>
+        <td>1. <strong>M</strong>ediator</td>
         <td>Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects
         from referring to each other explicitly, and it allows their interaction to vary independently.</td>
         <td>
@@ -261,7 +240,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>6. Momento</td>
+        <td>2. <strong>M</strong>omento</td>
         <td>Without violating encapsulation, capture and externalize an object's internal state allowing the object to be restored to this state later.</td>
         <td>
             <ol>
@@ -271,7 +250,78 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>7. Observer</td>
+        <td>3. <strong>I</strong>nterpreter</td>
+        <td>Given a language, define a representation for its grammar along with an interpreter that uses the representation to
+        interpret sentences in the language.</td>
+        <td>
+            <ol>
+                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html" target="_blank">java.util.Pattern</a></li>
+                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/text/Normalizer.html" target="_blank">java.text.Normalizer</a></li>
+                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/text/Format.html" target="_blank">java.text.Format</a></li>
+            </ol>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <td>4. <strong>I</strong>terator</td>
+        <td>Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</td>
+        <td>
+            <ol>
+                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html" target="_blank">java.util.Iterator</a></li>
+                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/Enumeration.html" target="_blank">java.util.Enumeration</a></li>
+            </ol>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <td>5. <strong>C</strong>hain of responsibility</td>
+        <td>Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.
+        Chain the receiving objects and pass the request along the chain until an object handles it.</td>
+        <td>
+            <ol>
+                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html#log-java.util.logging.Level-java.lang.String-" target="_blank">java.util.logging.Logger#log()</a></li>
+                <li><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-javax.servlet.FilterChain-" target="_blank">javax.servlet.Filter#doFilter()</a></li>
+            </ol>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <td>6. <strong>C</strong>ommand</td>
+        <td>Encapsulate a request as an object, thereby allowing for the parameterization of clients with different requests, and
+        the queuing or logging of requests. It also allows for the support of undoable operations.</td>
+        <td>
+            <ol>
+                <li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html" target="_blank">java.lang.Runnable</a></li>
+                <li><a href="http://docs.oracle.com/javase/8/docs/api/javax/swing/Action.html" target="_blank">javax.swing.Action</a></li>
+            </ol>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <td>7. <strong>S</strong>tate</td>
+        <td>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</td>
+        <td>
+            <ol>
+                <li><a href="http://docs.oracle.com/javaee/7/api/javax/faces/lifecycle/Lifecycle.html#execute-javax.faces.context.FacesContext-" target="_blank">javax.faces.lifecycle.LifeCycle#execute()</a>
+                (controlled by <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html" target="_blank">FacesServlet</a>, the behavior is dependent on current phase (state) of JSF lifecycle)</li>
+            </ol>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <td>8. <strong>S</strong>trategy</td>
+        <td>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary
+        independently from clients that use it.</td>
+        <td>
+            <ol>
+                <li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#compare-T-T-" target="_blank">java.util.Comparator#compare()</a></li>
+                <li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-" target="_blank">java.lang.Collections#sort()</a></li>
+            </ol>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <td>9. <strong>O</strong>bserver</td>
         <td>Define a one-to-many dependency between objects where a state change in one object results in all its dependents being
         notified and updated automatically.</td>
         <td>
@@ -285,30 +335,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>8. State</td>
-        <td>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</td>
-        <td>
-            <ol>
-                <li><a href="http://docs.oracle.com/javaee/7/api/javax/faces/lifecycle/Lifecycle.html#execute-javax.faces.context.FacesContext-" target="_blank">javax.faces.lifecycle.LifeCycle#execute()</a>
-                (controlled by <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html" target="_blank">FacesServlet</a>, the behavior is dependent on current phase (state) of JSF lifecycle)</li>
-            </ol>
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td>9. Strategy</td>
-        <td>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary
-        independently from clients that use it.</td>
-        <td>
-            <ol>
-                <li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#compare-T-T-" target="_blank">java.util.Comparator#compare()</a></li>
-                <li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-" target="_blank">java.lang.Collections#sort()</a></li>
-            </ol>
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td>10. Template method</td>
+        <td>10. <strong>T</strong>emplate method</td>
         <td>Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template method lets subclasses
         redefine certain steps of an algorithm without changing the algorithm's structure.</td>
         <td>
@@ -322,7 +349,7 @@ var gof_intro_ans = [
     </tr>
 
     <tr valign="top">
-        <td>11. Visitor</td>
+        <td>11. <strong>V</strong>isitor</td>
         <td>Represent an operation to be performed on the elements of an object structure. Visitor lets a new operation be defined
         without changing the classes of the elements on which it operates.</td>
         <td>Recognizable by two different abstract/interface types that have methods defined which takes each other as
